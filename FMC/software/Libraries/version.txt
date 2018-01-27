@@ -1,0 +1,15 @@
+V2.1 
+    修正FTM2 ftm_ch4通道引脚复用问题
+    修改FTM1 ftm_ch0默认引脚，原默认引脚与SWD冲突
+    修改spi_mosi与spi_mosi_cmd传入的参数数量
+    修改ftm_count_init备注，指明用于为编码器测速
+    修改MDK软件设置，勾选plain char is signed
+    增加部分产品驱动
+
+V2.2
+    修复flash地址偏移出错问题
+    修复KBI键盘中断初始化卡死的问题
+    修改所有源文件的编码方式为GB2312，之前的编码方式为UTF8。IAR与MDK软件设置文件编码为GB2312，MDK如果没有GB2312可设置为ANSI即可正常显示汉子，否则可能会乱码
+	MDK软件在使用printf的时候勾选上Use MicroLIB，即可正常使用
+	IAR在使用printf的时候需要在Defined symbols 框中添加_DLIB_FILE_DESCRIPTOR。
+    

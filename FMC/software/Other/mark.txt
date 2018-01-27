@@ -1,0 +1,83 @@
+2017/11/14	1:06	建工程，Sensor,等待开发板测试
+2017/12/05  1：06
+/**********??PWM????************/		电机死区
+void MotorSpeedOut(void)
+{
+	float fLeftVal = 0.0, fRightVal = 0.0;
+	fLeftVal = g_fLeftMotorOut;
+	fRightVal = g_fRightMotorOut;
+
+	//????	//???????????????????????!
+	if (fLeftVal > 0)
+		fLeftVal += MOTOR_OUT_DEAD_VAL_LEFT_Z;
+	else if (fLeftVal < 0)
+		fLeftVal -= MOTOR_OUT_DEAD_VAL_LEFT_F;
+	if (fRightVal > 0)
+		fRightVal += MOTOR_OUT_DEAD_VAL_RIGHT_Z;
+	else if (fRightVal < 0)
+		fRightVal -= MOTOR_OUT_DEAD_VAL_RIGHT_F;
+
+
+	//????
+	if (fLeftVal > MOTOR_OUT_MAX)
+		fLeftVal = MOTOR_OUT_MAX;
+	if (fLeftVal < MOTOR_OUT_MIN)
+		fLeftVal = MOTOR_OUT_MIN;
+	if (fRightVal > MOTOR_OUT_MAX)
+		fRightVal = MOTOR_OUT_MAX;
+	if (fRightVal < MOTOR_OUT_MIN)
+		fRightVal = MOTOR_OUT_MIN;
+	/*
+		 if (fLeftVal < 0.2222)
+			 fLeftVal *= 1.0331;
+		 else if (fLeftVal < 0.2778)
+			 fLeftVal *= 1.0161;
+		 else if (fLeftVal < 0.3333)
+			 fLeftVal *= 1.0053;
+		 else if (fLeftVal < 0.3889)
+			 fLeftVal *= 0.9925;
+		 else if (fLeftVal < 0.4444)
+			 fLeftVal *= 0.9968;
+		 else if (fLeftVal <  0.5000)
+			 fLeftVal *= 0.9951;
+		 else if (fLeftVal < 0.5556)
+			 fLeftVal *= 0.9905;
+		 else if (fLeftVal < 0.6111)
+			 fLeftVal *= 0.9855;
+		 else if (fLeftVal < 0.6667)
+			 fLeftVal *= 0.9839;
+		 else if (fLeftVal < 0.7222)
+			 fLeftVal *= 0.9764;
+		 else if (fLeftVal < 0.7778)
+			 fLeftVal *= 0.9810;
+
+		 if (fRightVal < 0.2222)
+			 fRightVal *= 0.9689;
+		 else if (fRightVal < 0.2778)
+			 fRightVal *= 0.9839;
+		 else if (fRightVal < 0.3333)
+			 fRightVal *= 0.9947;
+		 else if (fRightVal < 0.3889)
+			 fRightVal *= 1.0075;
+		 else if (fRightVal < 0.4444)
+			 fRightVal *= 1.0032;
+		 else if (fRightVal < 0.5000)
+			 fRightVal *= 1.0049;
+		 else if (fRightVal < 0.5556)
+			 fRightVal *= 1.0095;
+		 else if (fRightVal < 0.6111)
+			 fRightVal *= 1.0145;
+		 else if (fRightVal < 0.6667)
+			 fRightVal *= 1.016;
+		 else if (fRightVal < 0.7222)
+			 fRightVal *= 1.0236;
+		 else if (fRightVal < 0.7778)
+			 fRightVal *= 1.0190;
+			 */
+		 g_fLeftMotorOut = fLeftVal;
+		 g_fRightMotorOut = fRightVal;
+
+	SetMotorVoltage(fLeftVal, fRightVal);
+}
+2017/12/21 03:04
+完成初步差速部分编写，明天车子动起来
