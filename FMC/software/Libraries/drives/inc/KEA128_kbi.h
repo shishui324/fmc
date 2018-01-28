@@ -1,3 +1,4 @@
+
 /*********************************************************************************************************************
  * COPYRIGHT NOTICE
  * Copyright (c) 2017,÷∑…ø∆ºº
@@ -109,8 +110,6 @@ typedef enum
 #define READ_KBI0_FLAG   (KBI0->SP)
 #define READ_KBI1_FLAG   (KBI1->SP)
 
-#define Key5_Up			0x12 //C2!((GPIOA->PDIR>>C2)&0x01)
-#define Key5_Down		0x0d  //B5!((GPIOA->PDIR>>B5)&0x01)
 // √∂æŸPORT ≈‰÷√ 
 typedef enum
 {
@@ -129,3 +128,5 @@ void kbi_init(KBI_CHn chn, TRIG_CFG cfg);
 
 
 #endif
+
+

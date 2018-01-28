@@ -15,13 +15,13 @@ extern uint32_t time_2s;
 extern uint32_t time_5s;
 extern uint32_t time_10s;
 
-extern uint8_t KEY_FLAG;
+
 
 
 
 extern void control(void);
 extern void get_adc_int_value(void);
-void PIT_CH0_IRQHandler(void)
+void PIT_CH0_IRQHandler(void)//PIT0中断服务函数 1ms
 {
     PIT_FlAG_CLR(pit0);                     //清pit0标志位
 //    get_adc_int_value();
@@ -33,48 +33,48 @@ void PIT_CH0_IRQHandler(void)
         getCountNum_L=-ftm_count_get(ftm0);        //获取编码器值
     }
     ftm_count_clean(ftm0);                  //清编码器值
-    
+
     if(gpio_get(H5))
         getCountNum_R=-ftm_count_get(ftm1);        //获取编码器值
     else
         getCountNum_R=ftm_count_get(ftm1);        //获取编码器值
-	ftm_count_clean(ftm1);                  //清编码器值
-    
-//    control();
-	
-		time_1ms++;
-	if(!(time_1ms % 10))
-	{time_10ms++;
-		if(!(time_1ms % 20))
-			time_20ms++;
+    ftm_count_clean(ftm1);                  //清编码器值
 
-		if(!(time_1ms % 50))
-		{time_50ms++;
-			if(!(time_1ms % 100))
-			{time_100ms++;
-				if(!(time_1ms % 200))
-					time_200ms++;
+    control();
 
-				if(!(time_1ms % 500))
-				{time_500ms++;
-					if(!(time_1ms % 1000))
-					{time_1s++;
-						if(!(time_1ms % 2000))
-							time_2s++;
+    time_1ms++;
+    if(!(time_1ms % 10))
+    {   time_10ms++;
+        if(!(time_1ms % 20))
+            time_20ms++;
 
-						if(!(time_1ms % 5000))
-						{time_5s++;
-							if(!(time_1ms % 10000))
-							{time_10s++;
-								time_1ms = 0;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-    
+        if(!(time_1ms % 50))
+        {   time_50ms++;
+            if(!(time_1ms % 100))
+            {   time_100ms++;
+                if(!(time_1ms % 200))
+                    time_200ms++;
+
+                if(!(time_1ms % 500))
+                {   time_500ms++;
+                    if(!(time_1ms % 1000))
+                    {   time_1s++;
+                        if(!(time_1ms % 2000))
+                            time_2s++;
+
+                        if(!(time_1ms % 5000))
+                        {   time_5s++;
+                            if(!(time_1ms % 10000))
+                            {   time_10s++;
+                                time_1ms = 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 //		pit0RunTime=pit_time_get(pit1);
 }
 
@@ -82,25 +82,16 @@ void PIT_CH0_IRQHandler(void)
 void IRQ_IRQHandler(void)
 {
     CLEAR_IRQ_FLAG;
-    
+
 }
 
-vuint32  buf;
 void KBI0_IRQHandler(void)
 {
-	buf  =READ_KBI0_FLAG;
-  CLEAN_KBI0_FLAG;
-	
-	gpio_turn(D2);
-	switch (buf)
-	{
-		case Key5_Up :KEY_FLAG ++;     break ;
-		case Key5_Down : KEY_FLAG--;     break ;
-		default : break;
-		
-	}
+
+    CLEAN_KBI0_FLAG;
+
 //	Cache_OLED_P6x8Num(10,20,(int32_t)buf);
-    
+
 }
 
 
@@ -116,33 +107,33 @@ void PIT_CH0_IRQHandler(void)
 }
 记得进入中断后清除标志位
 
-FTMRE_IRQHandler      
-PMC_IRQHandler        
-IRQ_IRQHandler        
-I2C0_IRQHandler       
-I2C1_IRQHandler       
-SPI0_IRQHandler       
-SPI1_IRQHandler       
-UART0_IRQHandler 
-UART1_IRQHandler 
-UART2_IRQHandler 
-ADC0_IRQHandler       
-ACMP0_IRQHandler      
-FTM0_IRQHandler       
-FTM1_IRQHandler       
-FTM2_IRQHandler       
-RTC_IRQHandler        
-ACMP1_IRQHandler      
-PIT_CH0_IRQHandler    
-PIT_CH1_IRQHandler    
-KBI0_IRQHandler       
-KBI1_IRQHandler       
-Reserved26_IRQHandler 
-ICS_IRQHandler        
-WDG_IRQHandler        
-PWT_IRQHandler        
-MSCAN_Rx_IRQHandler   
-MSCAN_Tx_IRQHandler   
+FTMRE_IRQHandler
+PMC_IRQHandler
+IRQ_IRQHandler
+I2C0_IRQHandler
+I2C1_IRQHandler
+SPI0_IRQHandler
+SPI1_IRQHandler
+UART0_IRQHandler
+UART1_IRQHandler
+UART2_IRQHandler
+ADC0_IRQHandler
+ACMP0_IRQHandler
+FTM0_IRQHandler
+FTM1_IRQHandler
+FTM2_IRQHandler
+RTC_IRQHandler
+ACMP1_IRQHandler
+PIT_CH0_IRQHandler
+PIT_CH1_IRQHandler
+KBI0_IRQHandler
+KBI1_IRQHandler
+Reserved26_IRQHandler
+ICS_IRQHandler
+WDG_IRQHandler
+PWT_IRQHandler
+MSCAN_Rx_IRQHandler
+MSCAN_Tx_IRQHandler
 */
 
 

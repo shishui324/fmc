@@ -19,7 +19,7 @@ uint32_t time_2s = 0;
 uint32_t time_5s = 0;
 uint32_t time_10s = 0;
 
-uint8_t KEY_FLAG=0;
+
 
 
 
@@ -60,8 +60,9 @@ void speed_control(void);
 #define MOTOR_DUTY_MIN       -300
 
 float Speed_Ratio = 6.16;
-//int8_t KEY_FLAG = 2;
-bool STOP_CAR_FLAG = false;
+int8_t KEY_FLAG = 0;
+bool STOP_CAR_FLAG = true;//停车信号
+
 
 uint32 update_dis1cm_encoder;
 
@@ -172,11 +173,11 @@ int main(void)
 
 //		DisableInterrupts ;                  //禁止中断
     OLED_Init();
-    
+
 //////////////ADC初始化///////////////////////////////////////////////////////////////
     adc_init(ADC0_SE2); //PA6
     adc_init(ADC0_SE3); //PA7
-	/////////////////电机初始化/////////////////////////
+    /////////////////电机初始化/////////////////////////
 
     ftm_pwm_init(ftm2,ftm_ch0,15*1000,0);         //电机初始化 通道0 15Khz
     ftm_pwm_init(ftm2,ftm_ch1,15*1000,0);         //电机初始化 通道1 15Khz
@@ -195,28 +196,30 @@ int main(void)
 
 /////////////////////////////////////////////
     gpio_init(B1,GPO,1);    //LED1
-		gpio_init(D2,GPO,1);		//LED4
-		
+    gpio_init(D2,GPO,1);		//LED4
+
 ////////////////KBI初始化/////////////////////////////////////////
 //		gpio_init(B5,GPI,0);
 //		kbi_init(KBI0_P13,IRQ_RISING);//上升沿触发
-//		
-//		
+//
+//
 //		gpio_init(C2,GPI,0);
 //		kbi_init(KBI0_P18,IRQ_RISING);
 //		set_irq_priority(KBI0_IRQn,2);					//设置优先级,根据自己的需求设置 可设置范围为 0 - 3
 //		enable_irq(KBI0_IRQn);							//打开KBI1_IRQn的中断开关
 ///////////////按键初始化///////////////////////////////////////////////////////////
-
-
+    gpio_init(C2,GPI,0);
+    gpio_init(B5,GPI,0);
+    port_pull(C2);
+    port_pull(B5);
 //    gpio_init(C2,GPI,1);    //按键1初始化
 ////	GPIOA->PIDR &= ~((uint32)1<<C2);	//PTC2取消禁用输入
 ////	GPIOA->PDDR &= ~((uint32)1<<C2);	//将端口设置为输入或输出 0：输入 1：输出
 ////	PORT_PUE0 |= (uint32)1<<C2;		//PTC2上拉使能
-//    port_pull(C2);
+//
 ////
 //    gpio_init(B5,GPI,1);    //按键2初始化
-//    port_pull(B5);
+//
 
 //	Key_Message_Init();
 
@@ -624,15 +627,14 @@ void time_10ms_serve(void)
     if (time_20ms_ct >= 50)
     {
         time_20ms_ct = 0;
-//		LED4_NOT;
     }
 
-//	Car_Gather_Data_Key((uint8_t)20);		//Key采集
+    Car_Gather_Data_Key((uint8_t)20);		//Key采集
 //	UI_OLED_play(20);							//UI处理
 
 //   Car_Gather_Data_Key(10);
-		
-		
+
+
 //		if(!((GPIOA->PDIR>>C2)&0x01))
 //		{
 //			systick_delay_ms(10);
@@ -654,16 +656,16 @@ void time_10ms_serve(void)
 //			}
 //		}
 
-//		if(Key_Inquire_data(Key_Up_Read) == Key_bit_Drop)
-//		{
-//			KEY_FLAG++;
-//			if(KEY_FLAG>=3)
-//				KEY_FLAG = 0;
-//		}
-//		if(Key_Inquire_data(Key_Down_Read) == Key_bit_Drop)
-//		{
-//			STOP_CAR_FLAG = !STOP_CAR_FLAG;
-//		}
+    if(Key_Inquire_data(Key_Up_Read) == Key_bit_Rise)
+    {
+        KEY_FLAG++;
+        if(KEY_FLAG>=3)
+            KEY_FLAG = 0;
+    }
+    if(Key_Inquire_data(Key_Down_Read) == Key_bit_Rise)
+    {
+        STOP_CAR_FLAG = !STOP_CAR_FLAG;
+    }
 
     switch(KEY_FLAG)
     {

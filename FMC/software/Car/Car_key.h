@@ -9,8 +9,8 @@
 #define Key_Flag2_Read	0x01
 #define Key_Flag3_Read	0x02
 #define Key_Flag4_Read	0x03
-#define Key_Up_Read		0
-#define Key_Down_Read	1
+#define Key_Up_Read			0	
+#define Key_Down_Read		1
 #define Key_Left_Read	0x06
 #define Key_Right_Read	0x07
 #define Key_Middle_Read	0x08

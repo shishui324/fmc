@@ -18,7 +18,7 @@ void Key_Message_Init(void)
 	GPIOA->PDDR &= ~((uint32)1<<C2);	//将端口设置为输入或输出 0:输入 1:输出
 	PORT_PUE0 |= (uint32)1<<C2;		//PTC2上拉使能
 	
-	GPIOA->PIDR &= ~((uint32)1<<B5);	//PTC2取消禁用输入
+	GPIOA->PIDR &= ~((uint32)1<<B5);	//PTB5取消禁用输入
 	GPIOA->PDDR &= ~((uint32)1<<B5);	//将端口设置为输入或输出 0:输入 1:输出
 	PORT_PUE0 |= (uint32)1<<B5;		//PTC2上拉使能
 	
