@@ -1,4 +1,3 @@
-
 #include "Car_Key.h"
 
 /********** Key过程 *********/
@@ -18,9 +17,9 @@ void Key_Message_Init(void)
 	GPIOA->PDDR &= ~((uint32)1<<C2);	//将端口设置为输入或输出 0:输入 1:输出
 	PORT_PUE0 |= (uint32)1<<C2;		//PTC2上拉使能
 	
-	GPIOA->PIDR &= ~((uint32)1<<B5);	//PTB5取消禁用输入
-	GPIOA->PDDR &= ~((uint32)1<<B5);	//将端口设置为输入或输出 0:输入 1:输出
-	PORT_PUE0 |= (uint32)1<<B5;		//PTC2上拉使能
+//	GPIOA->PIDR &= ~((uint32)1<<B5);	//PTC2取消禁用输入
+//	GPIOA->PDDR &= ~((uint32)1<<B5);	//将端口设置为输入或输出 0:输入 1:输出
+//	PORT_PUE0 |= (uint32)1<<B5;		//PTC2上拉使能
 	
 //	Car_Gather_Data_Key(1);
 }
@@ -34,7 +33,7 @@ void Car_Gather_Data_Key(uint8_t time_ms)
 	uint8_t data_temp = 0;
 	uint8_t acc = 0;
 	
-	while(acc < 2) 
+	while(acc < 2)
 	{
 		switch(acc){
 //			case Key_Flag1_Read:	Key_GD[Key_Flag1_Read] = data_temp = Key_Flag1;break;
@@ -50,11 +49,11 @@ void Car_Gather_Data_Key(uint8_t time_ms)
 
 		switch(Key_data[acc]){
 			case Key_bit_High://Key状态-弹起
-								if(data_temp==0){
-									Key_data[acc] = Key_bit_Low_;
-									Key_time[acc] = 0;
-								}
-								break;
+					if(data_temp==0){
+						Key_data[acc] = Key_bit_Low_;
+						Key_time[acc] = 0;
+					}
+					break;
 			case Key_bit_Low_://Key状态-按下去去抖检测
 												if(data_temp==0){
 													Key_time[acc] += time_ms;
@@ -126,7 +125,4 @@ uint8_t Key_Inquire_GD(uint8_t Key_name)
 {
 	return Key_GD[Key_name];
 }
-
-
-
 
