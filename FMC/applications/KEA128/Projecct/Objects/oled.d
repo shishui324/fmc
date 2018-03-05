@@ -4,10 +4,10 @@
 .\objects\oled.o: ..\..\..\software\Libraries\drives\inc\common.h
 .\objects\oled.o: ..\..\..\software\Libraries\drives\inc\headfile.h
 .\objects\oled.o: ..\..\..\software\Libraries\drives\inc\KEA128_port_cfg.h
-.\objects\oled.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\oled.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\oled.o: ..\..\..\software\Libraries\drives\inc\KEA128_ftm.h
 .\objects\oled.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h
-.\objects\oled.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\oled.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\oled.o: ..\..\..\software\Libraries\startup\CoreSupport\core_cm0plus.h
 .\objects\oled.o: ..\..\..\software\Libraries\startup\CoreSupport\core_cmInstr.h
 .\objects\oled.o: ..\..\..\software\Libraries\startup\CoreSupport\core_cmFunc.h
@@ -33,7 +33,7 @@
 .\objects\oled.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h
 .\objects\oled.o: ..\..\..\software\Libraries\drives\inc\KEA128_i2c.h
 .\objects\oled.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h
-.\objects\oled.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\oled.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\oled.o: ..\..\..\software\Libraries\drives\inc\KEA128_spi.h
 .\objects\oled.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h
 .\objects\oled.o: ..\..\..\software\Module\OLED.h

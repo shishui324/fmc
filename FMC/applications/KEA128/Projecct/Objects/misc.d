@@ -4,10 +4,10 @@
 .\objects\misc.o: ..\..\..\software\Libraries\drives\inc\headfile.h
 .\objects\misc.o: ..\..\..\software\Libraries\drives\inc\common.h
 .\objects\misc.o: ..\..\..\software\Libraries\drives\inc\KEA128_port_cfg.h
-.\objects\misc.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\misc.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\misc.o: ..\..\..\software\Libraries\drives\inc\KEA128_ftm.h
 .\objects\misc.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h
-.\objects\misc.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\misc.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\misc.o: ..\..\..\software\Libraries\startup\CoreSupport\core_cm0plus.h
 .\objects\misc.o: ..\..\..\software\Libraries\startup\CoreSupport\core_cmInstr.h
 .\objects\misc.o: ..\..\..\software\Libraries\startup\CoreSupport\core_cmFunc.h
@@ -33,7 +33,7 @@
 .\objects\misc.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h
 .\objects\misc.o: ..\..\..\software\Libraries\drives\inc\KEA128_i2c.h
 .\objects\misc.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h
-.\objects\misc.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\misc.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\misc.o: ..\..\..\software\Libraries\drives\inc\KEA128_spi.h
 .\objects\misc.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h
 .\objects\misc.o: ..\..\..\software\Module\OLED.h

@@ -33,13 +33,15 @@ void motor_init(void)
 {
   uint8 i = 0;
   
-	ftm_pwm_init(ftm0,ftm_ch0,15*1000,0);		//ftm0模块，0通道，50HZ，百分之50的占空比
+	ftm_pwm_init(ftm2,ftm_ch2,15*1000,0);		//ftm2模块，2通道，15khz，百分之0的占空比
+	ftm_pwm_init(ftm2,ftm_ch3,15*1000,0);		//ftm2模块，3通道，15khz，百分之0的占空比
+	
 //  ftm_pwm_init(FTM2, FTM_CH0,5000, 0); //30kHz,duty = 0 ~10000          2017.4.9  5kHZ
 //  gpio_init(PTA11,GPO,0);
 //  gpio_init(PTA5,GPO,0);
 //  port_init_NoALT(PTA11,PULLDOWN);       //配置管脚下拉
 //  port_init_NoALT(PTA5,PULLDOWN);
-//  
+//  0
 //  for(i = 0; i < 10; i++)
 //  {
 //    Motor.set_value[i] = 0;

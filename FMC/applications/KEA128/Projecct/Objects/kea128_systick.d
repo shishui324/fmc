@@ -5,10 +5,10 @@
 .\objects\kea128_systick.o: ..\..\..\software\Libraries\drives\inc\headfile.h
 .\objects\kea128_systick.o: ..\..\..\software\Libraries\drives\inc\common.h
 .\objects\kea128_systick.o: ..\..\..\software\Libraries\drives\inc\KEA128_port_cfg.h
-.\objects\kea128_systick.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\kea128_systick.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\kea128_systick.o: ..\..\..\software\Libraries\drives\inc\KEA128_ftm.h
 .\objects\kea128_systick.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h
-.\objects\kea128_systick.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\kea128_systick.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\kea128_systick.o: ..\..\..\software\Libraries\startup\CoreSupport\core_cm0plus.h
 .\objects\kea128_systick.o: ..\..\..\software\Libraries\startup\CoreSupport\core_cmInstr.h
 .\objects\kea128_systick.o: ..\..\..\software\Libraries\startup\CoreSupport\core_cmFunc.h
@@ -33,7 +33,7 @@
 .\objects\kea128_systick.o: ..\..\..\software\Libraries\drives\inc\KEA128_systick.h
 .\objects\kea128_systick.o: ..\..\..\software\Libraries\drives\inc\KEA128_i2c.h
 .\objects\kea128_systick.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h
-.\objects\kea128_systick.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\kea128_systick.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\kea128_systick.o: ..\..\..\software\Libraries\drives\inc\KEA128_spi.h
 .\objects\kea128_systick.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h
 .\objects\kea128_systick.o: ..\..\..\software\Module\OLED.h
