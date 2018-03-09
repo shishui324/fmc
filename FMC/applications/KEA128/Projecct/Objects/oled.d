@@ -5,6 +5,7 @@
 .\objects\oled.o: ..\..\..\software\Libraries\drives\inc\headfile.h
 .\objects\oled.o: ..\..\..\software\Libraries\drives\inc\KEA128_port_cfg.h
 .\objects\oled.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\oled.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\oled.o: ..\..\..\software\Libraries\drives\inc\KEA128_ftm.h
 .\objects\oled.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h
 .\objects\oled.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -40,3 +41,5 @@
 .\objects\oled.o: ..\..\..\software\Car\struct.h
 .\objects\oled.o: ..\..\..\software\Car\sensor.h
 .\objects\oled.o: ..\..\..\software\Debug\ANO_DT.h
+.\objects\oled.o: ..\..\..\software\Car\control.h
+.\objects\oled.o: ..\..\..\software\Car\motor.h

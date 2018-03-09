@@ -5,6 +5,7 @@
 .\objects\kea128_ftm.o: ..\..\..\software\Libraries\drives\inc\common.h
 .\objects\kea128_ftm.o: ..\..\..\software\Libraries\drives\inc\KEA128_port_cfg.h
 .\objects\kea128_ftm.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\kea128_ftm.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\kea128_ftm.o: ..\..\..\software\Libraries\drives\inc\KEA128_ftm.h
 .\objects\kea128_ftm.o: ..\..\..\software\Libraries\drives\inc\KEA128_pit.h
 .\objects\kea128_ftm.o: ..\..\..\software\Libraries\drives\inc\misc.h
@@ -40,4 +41,6 @@
 .\objects\kea128_ftm.o: ..\..\..\software\Car\struct.h
 .\objects\kea128_ftm.o: ..\..\..\software\Car\sensor.h
 .\objects\kea128_ftm.o: ..\..\..\software\Debug\ANO_DT.h
+.\objects\kea128_ftm.o: ..\..\..\software\Car\control.h
+.\objects\kea128_ftm.o: ..\..\..\software\Car\motor.h
 .\objects\kea128_ftm.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h

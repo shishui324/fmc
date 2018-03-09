@@ -5,6 +5,7 @@
 .\objects\isr.o: ..\..\..\software\Libraries\drives\inc\headfile.h
 .\objects\isr.o: ..\..\..\software\Libraries\drives\inc\KEA128_port_cfg.h
 .\objects\isr.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\isr.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\isr.o: ..\..\..\software\Libraries\drives\inc\KEA128_ftm.h
 .\objects\isr.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h
 .\objects\isr.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -40,3 +41,5 @@
 .\objects\isr.o: ..\..\..\software\Car\struct.h
 .\objects\isr.o: ..\..\..\software\Car\sensor.h
 .\objects\isr.o: ..\..\..\software\Debug\ANO_DT.h
+.\objects\isr.o: ..\..\..\software\Car\control.h
+.\objects\isr.o: ..\..\..\software\Car\motor.h

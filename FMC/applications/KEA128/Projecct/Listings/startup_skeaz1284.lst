@@ -490,12 +490,12 @@ ARM Macro Assembler    Page 8
               00000000 
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0+ --apcs=inter
-work --depend=.\objects\startup_skeaz1284.d -o.\objects\startup_skeaz1284.o -IF
-:\ÖÇÄÜ³µ\FMC\applications\KEA128\Projecct\RTE\_FMC -Id:\Keil_v5\ARM\PACK\Keil\K
-inetis_KEAxx_DFP\1.3.0\Device\Include -Id:\Keil_v5\ARM\CMSIS\Include --predefin
-e="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 522" --predefine="SKE
-AZ128xxx4 SETA 1" --list=.\listings\startup_skeaz1284.lst ..\..\..\software\Lib
-raries\startup\DeviceSupport\MDK-ARM\startup_SKEAZ1284.s
+work --depend=.\objects\startup_skeaz1284.d -o.\objects\startup_skeaz1284.o -IG
+:\GIT\FMC\applications\KEA128\Projecct\RTE\_FMC -Id:\Keil_v5\ARM\PACK\Keil\Kine
+tis_KEAxx_DFP\1.3.0\Device\Include -Id:\Keil_v5\ARM\CMSIS\Include --predefine="
+__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 522" --predefine="SKEAZ1
+28xxx4 SETA 1" --list=.\listings\startup_skeaz1284.lst ..\..\..\software\Librar
+ies\startup\DeviceSupport\MDK-ARM\startup_SKEAZ1284.s
 
 
 

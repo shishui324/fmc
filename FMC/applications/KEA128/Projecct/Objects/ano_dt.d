@@ -4,6 +4,7 @@
 .\objects\ano_dt.o: ..\..\..\software\Libraries\drives\inc\headfile.h
 .\objects\ano_dt.o: ..\..\..\software\Libraries\drives\inc\KEA128_port_cfg.h
 .\objects\ano_dt.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\ano_dt.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\ano_dt.o: ..\..\..\software\Libraries\drives\inc\KEA128_ftm.h
 .\objects\ano_dt.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h
 .\objects\ano_dt.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -39,3 +40,5 @@
 .\objects\ano_dt.o: ..\..\..\software\Car\struct.h
 .\objects\ano_dt.o: ..\..\..\software\Car\sensor.h
 .\objects\ano_dt.o: ..\..\..\software\Debug\ANO_DT.h
+.\objects\ano_dt.o: ..\..\..\software\Car\control.h
+.\objects\ano_dt.o: ..\..\..\software\Car\motor.h

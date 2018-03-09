@@ -36,14 +36,26 @@
 #define  BAT      ADC0_SE10      // PTA7电池电压检测
 #define  BAT_VAL  adc_once(BAT,ADC_16bit) 
 
+#define SENSOR_NUM  2   //定义电感数量
+#define AD_MAX_VAL 4095.0 //AD的最大值
+
+extern float sum_12;   //电感12的和
+extern float sub_12;	//电感12的差
+extern uint16 ad_avr_val[10]; //AD采样平均值
+extern float once_uni_ad[SENSOR_NUM+1];  //一次归一化
+extern float twice_uni_ad[SENSOR_NUM+1]; //二次归一化
 
 
 
-void ad_init(void); //ad初始化
-void get_adc_int_val(void);  //ad采样值
-void find_max_ad(void); //扫描最大值
+
+//void ad_init(void); //ad初始化
+void get_adc_int_value(void);    //中值滤波  均值滤波   求取平均值
+//void get_adc_int_val(void);  //ad采样值
+
+//void find_max_ad(void); //扫描最大值
 //void deal_sensor(Sensor_info *sensor);//电感处理
 void update_1cm_error(void);//更新1cm的偏差和偏差变化率
+void deal_sensor(void);//电感处理
 
 
 

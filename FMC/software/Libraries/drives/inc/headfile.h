@@ -23,6 +23,7 @@
 #include "common.h"
 #include "KEA128_port_cfg.h"
 #include <stdio.h>
+#include "stdbool.h"
 
 //--------º¯Êý¿â--------
 #include "KEA128_ftm.h"
@@ -40,11 +41,14 @@
 
 
 
+
 //--------FMC¿â--------
 #include "OLED.h"
 #include "struct.h"
 #include "sensor.h"
 #include "ANO_DT.h"
+#include "control.h"
+#include "motor.h"
 
 
 

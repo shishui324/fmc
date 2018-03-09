@@ -311,7 +311,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>1</Optim>
+            <Optim>0</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -496,11 +496,6 @@
               <FilePath>..\..\..\software\Car\sensor.c</FilePath>
             </File>
             <File>
-              <FileName>servo.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\software\Car\servo.c</FilePath>
-            </File>
-            <File>
               <FileName>struct.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\..\software\Car\struct.h</FilePath>
@@ -509,6 +504,11 @@
               <FileName>Car_Key.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\software\Car\Car_Key.c</FilePath>
+            </File>
+            <File>
+              <FileName>control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\software\Car\control.c</FilePath>
             </File>
           </Files>
         </Group>
