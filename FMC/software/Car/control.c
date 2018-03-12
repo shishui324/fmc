@@ -143,10 +143,10 @@ void motor_pid_caculate(Motor_pid_info *motor_info)
 
 void control(void)  //控制函数
 {
-	if(motor_protect_time>=2000)//当保护计数超过限制
-	{
-		STOP_CAR_FLAG = true;
-	}
+//	if(motor_protect_time>=2000)//当保护计数超过限制
+//	{
+//		STOP_CAR_FLAG = true;
+//	}
     /*******************问题*****************
                 差速是用算差还是算比
     ****************************************/
