@@ -510,6 +510,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\software\Car\control.c</FilePath>
             </File>
+            <File>
+              <FileName>encode.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\software\Car\encode.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -521,14 +526,19 @@
               <FilePath>..\..\..\software\Debug\ANO_DT.c</FilePath>
             </File>
             <File>
-              <FileName>debug.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\software\Debug\debug.c</FilePath>
-            </File>
-            <File>
               <FileName>UI.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\software\Debug\UI.c</FilePath>
+            </File>
+            <File>
+              <FileName>Debug.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\software\Car\Debug.c</FilePath>
+            </File>
+            <File>
+              <FileName>MYUI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\software\Debug\MYUI.c</FilePath>
             </File>
           </Files>
         </Group>

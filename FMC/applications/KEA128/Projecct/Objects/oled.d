@@ -43,3 +43,8 @@
 .\objects\oled.o: ..\..\..\software\Debug\ANO_DT.h
 .\objects\oled.o: ..\..\..\software\Car\control.h
 .\objects\oled.o: ..\..\..\software\Car\motor.h
+.\objects\oled.o: ..\..\..\software\Car\encode.h
+.\objects\oled.o: ..\..\..\software\Car\Car_Key.h
+.\objects\oled.o: ..\..\..\software\Car\Debug.h
+.\objects\oled.o: ..\..\..\software\Debug\MYUI.h
+.\objects\oled.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h

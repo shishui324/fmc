@@ -6,7 +6,7 @@
 
 #define SERVO_LIMIT_VAL 20		//18
 #define speed_duty  150
-#define DIR_CONTROL 1
+#define DIR_CONTROL 1					
 ///////////////////////结构体定义////////////////////////////////
 //ADC
 typedef struct
@@ -42,7 +42,7 @@ typedef struct
   int16 present_value[10];  //编码器实际测得值
   int16 error[10];          //误差队列
   int16 set_value[10];      //速度设定队列   
-}Motor_pid_info;             //电机PID所需的信息类型
+}Motor_pid_info;            //电机PID所需的信息类型
 
 
 typedef struct
@@ -118,8 +118,7 @@ typedef struct
 //	Cache_Update_OLED(void);
 //}Oled_info;
 
-//extern ADC_info      Adc;
-//extern Oled_info		 Oled;
+
 #endif
 
 

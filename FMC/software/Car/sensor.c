@@ -3,14 +3,14 @@
 #include "headfile.h"
 
 
-ADC_info        Adc={0};
+//ADC_info        Adc={0};
 //Sensor_info     Sensor={0};
 
 
 float sum_12;   //电感12的和
 float sub_12;	//电感12的差
 
-
+float  Power_V;
 
 float once_uni_ad[SENSOR_NUM+1];  //一次归一化
 float twice_uni_ad[SENSOR_NUM+1]; //二次归一化
@@ -22,7 +22,7 @@ uint32 update_dis1cm_encoder;
 //uint16 ad_mid_val[10]; //AD采样中值
 //uint32 ad_add_val[10]; //AD采样中值和
 
-uint16 ad_avr_val[10]; //AD采样平均值
+uint16 ad_avr_val[10]; //AD采样值
 
 /**************** Small_Cap  ****************************
  *  * 函数名称 ：ad_init
@@ -32,20 +32,20 @@ uint16 ad_avr_val[10]; //AD采样平均值
  *  * 作    者 ：Panda_Lei
  *  * 日    期 : 2017/03/18
 ********************************************************/
-//void ad_init(void)
-//{
-//		adc_init(Induc_8);
-//		adc_init(Induc_7);
-//		adc_init(Induc_6);
-//		adc_init(Induc_5);
-//		adc_init(Induc_4);
-//		adc_init(Induc_3);
-//		adc_init(Induc_2);
-//		adc_init(Induc_1);
-//		
-//		adc_init(BAT);
+void ad_init(void)
+{
+		adc_init(Induc_8);
+		adc_init(Induc_7);
+		adc_init(Induc_6);
+		adc_init(Induc_5);
+		adc_init(Induc_4);
+		adc_init(Induc_3);
+		adc_init(Induc_2);
+		adc_init(Induc_1);
+		
+		adc_init(BAT);
 
-//}
+}
 /**************** FUCK_MY_CAR  *************************
  *  * 函数名称 ：get_adc_int_val
  *  * 函数参数 : 无
@@ -100,10 +100,18 @@ void get_adc_int_value(void)    //中值滤波  均值滤波   求取平均值
 //    {
 //        ad_avr_val[i] = (uint16)(ad_add_val[i]*0.333);  //均值
 //    }
-        ad_avr_val[1] = adc_once(ADC0_SE2,ADC_12bit);
-        ad_avr_val[2] = adc_once(ADC0_SE3,ADC_12bit);
+        ad_avr_val[1] = adc_once(Induc_1,ADC_12bit);
+        ad_avr_val[2] = adc_once(Induc_2 ,ADC_12bit);
+				ad_avr_val[3] = adc_once(Induc_3 ,ADC_12bit);
+				ad_avr_val[6] = adc_once(Induc_6 ,ADC_12bit);
+				ad_avr_val[7] = adc_once(Induc_7 ,ADC_12bit);
+				ad_avr_val[8] = adc_once(Induc_8 ,ADC_12bit);
+				Power_V = (BAT_VAL /4096.0)*5*3;
+				
 }
 
+
+#if 0
 //void get_adc_int_val(void)    //中值滤波  均值滤波   求取平均值
 //{
 //		uint8 i=0;
@@ -198,6 +206,8 @@ void get_adc_int_value(void)    //中值滤波  均值滤波   求取平均值
 //  }
 //  
 //}
+
+#endif
 void update_1cm_error(void)
 {
   uint8 i = 0;
@@ -228,7 +238,6 @@ void deal_sensor(void)//电感处理
     
     for(i = 9; i > 0; i--)																	//更新偏差队列
          Servo.error[i] = Servo.error[i-1];
-    Servo.error[0] = 100*(twice_uni_ad[1] - twice_uni_ad[2]); //求出电感差值
 	
 	update_1cm_error();
 

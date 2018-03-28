@@ -42,5 +42,8 @@
 .\objects\main.o: ..\..\..\software\Debug\ANO_DT.h
 .\objects\main.o: ..\..\..\software\Car\control.h
 .\objects\main.o: ..\..\..\software\Car\motor.h
-.\objects\main.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\main.o: ..\..\..\software\Car\encode.h
 .\objects\main.o: ..\..\..\software\Car\Car_Key.h
+.\objects\main.o: ..\..\..\software\Car\Debug.h
+.\objects\main.o: ..\..\..\software\Debug\MYUI.h
+.\objects\main.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

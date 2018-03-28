@@ -18,11 +18,11 @@
 
 
 //----宏定义OLED引脚----	 
-#define  OLED_SCL_PIN	H4
-#define  OLED_SDA_PIN	I5
-#define  OLED_RST_PIN	D5
-#define  OLED_DC_PIN	D7
-//#define  OLED_CS_PIN	E4
+#define  OLED_SCL_PIN	E6
+#define  OLED_SDA_PIN	H0
+#define  OLED_RST_PIN	H1
+#define  OLED_DC_PIN	I0
+#define  OLED_CS_PIN	I1
 
 //定义OLED使用的标准
 typedef unsigned          char O_byte;
@@ -88,9 +88,17 @@ void Cache_OLED_P6x8floatNum(O_byte x,O_byte y,float Num);
 
 //
 void Cache_OLED_Rectangle(uint8_t x1,uint8_t y1,uint8_t x2,uint8_t y2);
+signed int OLED_printf(uint8_t x,uint8_t y,const char *pFormat, ...);
 
 //缓冲区数据推往OLED
 void Cache_Update_OLED(void);
+/*******************************************************************/
+
+uint8_t gety(void );
+uint8_t getx(void );
+
+
+
 
 
 /********************************************************************/

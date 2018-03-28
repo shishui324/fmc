@@ -42,3 +42,7 @@
 .\objects\ano_dt.o: ..\..\..\software\Debug\ANO_DT.h
 .\objects\ano_dt.o: ..\..\..\software\Car\control.h
 .\objects\ano_dt.o: ..\..\..\software\Car\motor.h
+.\objects\ano_dt.o: ..\..\..\software\Car\encode.h
+.\objects\ano_dt.o: ..\..\..\software\Car\Car_Key.h
+.\objects\ano_dt.o: ..\..\..\software\Car\Debug.h
+.\objects\ano_dt.o: ..\..\..\software\Debug\MYUI.h

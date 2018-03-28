@@ -1,8 +1,5 @@
 #include "isr.h"
 
-extern int8_t getCountNum_L;
-extern int8_t getCountNum_R;
-
 extern uint32_t time_1ms;
 extern uint32_t time_5ms;
 extern uint32_t time_10ms;
@@ -17,30 +14,15 @@ extern uint32_t time_5s;
 extern uint32_t time_10s;
 
 
-extern void control(void);
-//extern void get_adc_int_value(void);
+
+extern void get_adc_int_value(void);
 void PIT_CH0_IRQHandler(void)
 {
     PIT_FlAG_CLR(pit0);                     //清pit0标志位
-//    get_adc_int_value();
-//    ftm_pwm_duty(ftm0,ftm_ch1,200);
-    if(gpio_get(C5))
-        getCountNum_L=ftm_count_get(ftm0);        //获取编码器值
-    else
-    {
-        getCountNum_L=-ftm_count_get(ftm0);        //获取编码器值
-    }
-    ftm_count_clean(ftm0);                  //清编码器值
-    
-    if(gpio_get(H5))
-        getCountNum_R=-ftm_count_get(ftm1);        //获取编码器值
-    else
-        getCountNum_R=ftm_count_get(ftm1);        //获取编码器值
-	ftm_count_clean(ftm1);                  //清编码器值
-//    
-		
-		 
- deal_sensor();
+    get_adc_int_value();
+		deal_sensor();
+		get_num();	 //获取编码器值
+ 
 	
 	time_1ms++;
 	if(!(time_1ms % 5))

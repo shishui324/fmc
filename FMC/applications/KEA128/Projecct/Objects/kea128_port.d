@@ -44,4 +44,8 @@
 .\objects\kea128_port.o: ..\..\..\software\Debug\ANO_DT.h
 .\objects\kea128_port.o: ..\..\..\software\Car\control.h
 .\objects\kea128_port.o: ..\..\..\software\Car\motor.h
+.\objects\kea128_port.o: ..\..\..\software\Car\encode.h
+.\objects\kea128_port.o: ..\..\..\software\Car\Car_Key.h
+.\objects\kea128_port.o: ..\..\..\software\Car\Debug.h
+.\objects\kea128_port.o: ..\..\..\software\Debug\MYUI.h
 .\objects\kea128_port.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h

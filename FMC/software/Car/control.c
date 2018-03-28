@@ -27,15 +27,10 @@ int16 R_out_value; //右边pwm输出的值
 int16 L_out_value; //左边pwm输出的值
 
 
-int8_t getCountNum_L;  //获取编码器计数值
-int8_t getCountNum_R;  //获取编码器计数值
-
-
 bool isLeftlose = false;
 bool isLeftturn = false;
 bool isRightlose = false;
 bool isRightturn = false;
-
 
 bool STOP_CAR_FLAG = true;
 
@@ -46,7 +41,9 @@ void servo_pid_caculate(void)           //差速控制pid
 {
 	if(sum_12<40)	//丢线判断
 	{
+#if Protect_ON
 		motor_protect_time++;								//保护计数累加
+#endif
 		if(Servo.output>0)
 		{
 			Servo.output=SERVO_LIMIT_VAL;
@@ -87,7 +84,7 @@ void motor_pid_caculate(Motor_pid_info *motor_info)
   {
     motor_info->error[i] = motor_info->error[i-1];
   }
-//  motor_info->present_value[0] = (getCountNum_L + getCountNum_R)/2;			//****************CAUTION*******************/
+//****************CAUTION*******************/
   motor_info->error[0] = motor_info->set_value[0]-motor_info->present_value[0];
 
 
@@ -143,15 +140,17 @@ void motor_pid_caculate(Motor_pid_info *motor_info)
 
 void control(void)  //控制函数
 {
-//	if(motor_protect_time>=2000)//当保护计数超过限制
-//	{
-//		STOP_CAR_FLAG = true;
-//	}
+	if(motor_protect_time>=2000)//当保护计数超过限制
+	{
+		STOP_CAR_FLAG = true;
+	}
+	
     /*******************问题*****************
                 差速是用算差还是算比
     ****************************************/
 	Motor_control.Motor_Left_pid.present_value[0] = (int8)((float)(0.1*Motor_control.Motor_Left_pid.present_value[1])+(float)(0.9*getCountNum_L));
 	Motor_control.Motor_Right_pid.present_value[0] = (int8)((float)(0.1*Motor_control.Motor_Right_pid.present_value[1])+(float)(0.9*getCountNum_R));
+	
 	if(abs(Motor_control.Motor_Left_pid.present_value[0]-Motor_control.Motor_Left_pid.set_value[0])<10||abs(Motor_control.Motor_Right_pid.set_value[0]-Motor_control.Motor_Right_pid.present_value[0])<10)
 	{
 		motor_protect_time++;
@@ -176,6 +175,8 @@ void control(void)  //控制函数
 //		Motor_control.Motor_Right_pid.set_value[0] = 0;
 	}
 //	motor_pid_caculate(&Motor);
+	
+	
 	motor_pid_caculate(&Motor_control.Motor_Left_pid);
 	motor_pid_caculate(&Motor_control.Motor_Right_pid);
 	

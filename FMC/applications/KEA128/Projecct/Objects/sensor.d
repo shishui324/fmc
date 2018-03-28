@@ -44,3 +44,7 @@
 .\objects\sensor.o: ..\..\..\software\Debug\ANO_DT.h
 .\objects\sensor.o: ..\..\..\software\Car\control.h
 .\objects\sensor.o: ..\..\..\software\Car\motor.h
+.\objects\sensor.o: ..\..\..\software\Car\encode.h
+.\objects\sensor.o: ..\..\..\software\Car\Car_Key.h
+.\objects\sensor.o: ..\..\..\software\Car\Debug.h
+.\objects\sensor.o: ..\..\..\software\Debug\MYUI.h
