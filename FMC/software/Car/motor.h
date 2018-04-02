@@ -4,13 +4,11 @@
 
 
 
-#define MOTOR_DUTY_MAX       600      //限制占空比，以防电流过大烧驱动
-#define MOTOR_DUTY_MIN       -600
-
+#define MOTOR_DUTY_MAX       500      //限制占空比，以防电流过大烧驱动
+#define MOTOR_DUTY_MIN       -500
 
 void motor_init(void );
 
 void motor_set(void);
-
 
 #endif

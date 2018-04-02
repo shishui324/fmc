@@ -26,10 +26,10 @@
 ////快捷读Key
 
 //拨码开关
-#define Key_Flag1		((GPIOA->PDIR>>D5)&0x01)
-#define Key_Flag2		((GPIOC->PDIR>>(I6-64))&0x01)
-#define Key_Flag3		((GPIOC->PDIR>>(I5-64))&0x01)
-#define Key_Flag4		((GPIOA->PDIR>>C1)&0x01)
+#define Key_Flag1		!((GPIOA->PDIR>>C1)&0x01)
+#define Key_Flag2		!((GPIOC->PDIR>>(I5-64))&0x01)
+#define Key_Flag3		!((GPIOC->PDIR>>(I6-64))&0x01)
+#define Key_Flag4		!((GPIOA->PDIR>>D5)&0x01)
 //独立按键
 #define Key_Flag5		((GPIOA->PDIR>>D6)&0x01)
 // 五向按键 

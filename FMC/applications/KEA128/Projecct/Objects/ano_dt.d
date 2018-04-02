@@ -44,5 +44,6 @@
 .\objects\ano_dt.o: ..\..\..\software\Car\motor.h
 .\objects\ano_dt.o: ..\..\..\software\Car\encode.h
 .\objects\ano_dt.o: ..\..\..\software\Car\Car_Key.h
+.\objects\ano_dt.o: ..\..\..\software\Module\Myflash.h
 .\objects\ano_dt.o: ..\..\..\software\Car\Debug.h
 .\objects\ano_dt.o: ..\..\..\software\Debug\MYUI.h

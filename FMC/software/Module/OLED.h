@@ -88,7 +88,7 @@ void Cache_OLED_P6x8floatNum(O_byte x,O_byte y,float Num);
 
 //
 void Cache_OLED_Rectangle(uint8_t x1,uint8_t y1,uint8_t x2,uint8_t y2);
-signed int OLED_printf(uint8_t x,uint8_t y,const char *pFormat, ...);
+signed int Cache_OLED_printf(uint8_t x,uint8_t y,const char *pFormat, ...);
 
 //缓冲区数据推往OLED
 void Cache_Update_OLED(void);

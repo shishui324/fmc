@@ -46,6 +46,7 @@
 .\objects\kea128_gpio.o: ..\..\..\software\Car\motor.h
 .\objects\kea128_gpio.o: ..\..\..\software\Car\encode.h
 .\objects\kea128_gpio.o: ..\..\..\software\Car\Car_Key.h
+.\objects\kea128_gpio.o: ..\..\..\software\Module\Myflash.h
 .\objects\kea128_gpio.o: ..\..\..\software\Car\Debug.h
 .\objects\kea128_gpio.o: ..\..\..\software\Debug\MYUI.h
 .\objects\kea128_gpio.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h

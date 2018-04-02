@@ -1022,21 +1022,6 @@ void Cache_OLED_Rectangle(uint8_t x1,uint8_t y1,uint8_t x2,uint8_t y2)
 	}
 }
 
-//缓冲区数据推往OLED
-void Cache_Update_OLED(void)
-{
-  uint8_t x,y;
-	// Draw_BMP(0,0,127,7,(char*)All_Data);
-  for(y = 0;y < 8;y++)
-  {
-    OLED_Set_Pos(0,y);
-    for(x = 0;x < 128;x++)
-    {
-      OLED_WriteData(All_Data[y][x]);
-      All_Data[y][x] = 0x00;
-    }
-  }
-}
 
 
 
@@ -1074,7 +1059,7 @@ void Cache_Update_OLED(void)
 //      输出一个浮点数，如果想OLED_printf(0,2,"%s %s",float2str(3.14,2) , float2str(1.2,1));
 //      的话，会出错，结果显示的是打印出来两个 3.14 而不是 3.14 1.2
 ////////////////////////////////////////////////////////////////////////////////////////////////
-signed int OLED_printf(uint8_t x,uint8_t y,const char *pFormat, ...){
+signed int Cache_OLED_printf(uint8_t x,uint8_t y,const char *pFormat, ...){
     
     char pStr[25] = {'\0'}; 
     va_list ap;
@@ -1088,6 +1073,22 @@ signed int OLED_printf(uint8_t x,uint8_t y,const char *pFormat, ...){
     Cache_OLED_P6x8Str(x,y,(char *)pStr); 
 
     return result;
+}
+
+//缓冲区数据推往OLED
+void Cache_Update_OLED(void)
+{
+  uint8_t x,y;
+	// Draw_BMP(0,0,127,7,(char*)All_Data);
+  for(y = 0;y < 8;y++)
+  {
+    OLED_Set_Pos(0,y);
+    for(x = 0;x < 128;x++)
+    {
+      OLED_WriteData(All_Data[y][x]);
+      All_Data[y][x] = 0x00;
+    }
+  }
 }
 
 uint8_t getx(void){

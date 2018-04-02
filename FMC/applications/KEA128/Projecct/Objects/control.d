@@ -44,6 +44,7 @@
 .\objects\control.o: ..\..\..\software\Car\motor.h
 .\objects\control.o: ..\..\..\software\Car\encode.h
 .\objects\control.o: ..\..\..\software\Car\Car_Key.h
+.\objects\control.o: ..\..\..\software\Module\Myflash.h
 .\objects\control.o: ..\..\..\software\Car\Debug.h
 .\objects\control.o: ..\..\..\software\Debug\MYUI.h
 .\objects\control.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

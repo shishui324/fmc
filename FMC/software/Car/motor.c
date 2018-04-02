@@ -66,80 +66,40 @@ void motor_set(void)
 {
 	
 
-//	if(STOP_CAR_FLAG == true)
-//	{
-////		ftm_pwm_duty(ftm2,ftm_ch2,0);
-////		ftm_pwm_duty(ftm2,ftm_ch3,0);
-////		
-////		Motor.set_value[0] = 0;
-//	}
-//	else
-//	{
-		if(R_out_value>0)
+	if(STOP_CAR_FLAG == true)
+	{
+		ftm_pwm_duty(ftm2,ftm_ch5,0);
+		ftm_pwm_duty(ftm2,ftm_ch3,0);
+		
+		Motor.set_value[0] = 0;
+	}
+	else
+	{
+		if(R_out_value>=0)
 		{
-			if(R_out_value<150)
-					R_out_value = 150;
-//			if(R_out_value>800)
-//					R_out_value = 800;
 			gpio_set(H3,1);
 			ftm_pwm_duty(ftm2,ftm_ch3,R_out_value); //右边电机输出
 		
 		}
-		else if(R_out_value == 0)
+		else if(R_out_value < 0)
 		{
-			gpio_set(H3,1);
-			ftm_pwm_duty(ftm2,ftm_ch3,0); //右边电机输出
-			
-		}
-		else
-		{
-			if(R_out_value>-100)
-					R_out_value = -100;
-//			if(R_out_value<-800)
-//					R_out_value = -800;
 			gpio_set(H3,0);
-			ftm_pwm_duty(ftm2,ftm_ch3,-R_out_value); //右边电机输出
-//			ftm_pwm_duty(ftm2,ftm_ch3,0); //右边电机输出
+			ftm_pwm_duty(ftm2,ftm_ch3,(-R_out_value)); //右边电机输出
+			
 		}
-
-		if(L_out_value>0)
+		if(L_out_value>=0)
 		{		
-			
-			if(L_out_value<100)
-					L_out_value = 100;
-//			if(L_out_value>800)
-//					L_out_value = 800;
-			
+
 			gpio_set(C0,1);
 			ftm_pwm_duty(ftm2,ftm_ch5,L_out_value); //左边电机输出
 			
 		}
-		else if(L_out_value == 0)
+		else if(L_out_value < 0)
 		{
-			gpio_set(C0,1);
-			ftm_pwm_duty(ftm2,ftm_ch5,L_out_value);//左边电机输出
-		}
-		else
-		{
-			if(L_out_value>-100)
-					L_out_value = -100;
-//			if(L_out_value<-800)
-//					L_out_value = -800;
 			gpio_set(C0,0);
-			ftm_pwm_duty(ftm2,ftm_ch5,-L_out_value);//左边电机输出
+			ftm_pwm_duty(ftm2,ftm_ch5,(-L_out_value));//左边电机输出
 		}
-//		Motor.set_value[0] = 6;
-//	}
-	
-	
-//			gpio_set(C0,(uint16 )flag);
-//			ftm_pwm_duty(ftm2,ftm_ch5,L_out_value);//左边电机输出
-//			gpio_set(H3,(uint16 )flag);                                         
-//			ftm_pwm_duty(ftm2,ftm_ch3,R_out_value); //右边电机输出
-		
-		
-		
-		
+	}
 }
 
 
