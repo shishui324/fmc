@@ -4,35 +4,52 @@ extern uint32_t time_1ms;
 extern uint32_t time_5ms;
 extern uint32_t time_10ms;
 extern uint32_t time_20ms;
-extern uint32_t time_50ms;
-extern uint32_t time_100ms;
-extern uint32_t time_200ms;
-extern uint32_t time_500ms;
-extern uint32_t time_1s;
-extern uint32_t time_2s;
-extern uint32_t time_5s;
-extern uint32_t time_10s;
+// uint32_t time_50ms;
+//extern uint32_t time_100ms;
+//extern uint32_t time_200ms;
+//extern uint32_t time_500ms;
+//extern uint32_t time_1s;
+//extern uint32_t time_2s;
+//extern uint32_t time_5s;
+//extern uint32_t time_10s;
 
 
 
 extern void get_adc_int_value(void);
+extern void control(void);
 void PIT_CH0_IRQHandler(void)
 {
     PIT_FlAG_CLR(pit0);                     //清pit0标志位
-    get_adc_int_value();
-		deal_sensor();
-		get_num();	 //获取编码器值
- 
 	
+	get_num();	 //获取编码器值
+//  get_adc_int_value();
+	get_adc_int_value();	//滤波后AD值
+	deal_sensor(&Sensor);
+	control();
+	
+	
+	
+	
+//	motor_pid_caculate(&Motor_control.Motor_Left_pid);
+//	L_out_value = Motor_control.Motor_Left_pid.output;
+//	motor_set();
+
 	time_1ms++;
 	if(!(time_1ms % 5))
 	{
 		time_5ms++;
-	if(!(time_1ms % 10))
-	{time_10ms++;
-		if(!(time_1ms % 20))
-			time_20ms++;
-
+		if(!(time_1ms % 10))
+		{
+			time_10ms++;
+			
+		}
+	
+			if(!(time_1ms % 20))
+			{
+				time_20ms++;
+			time_1ms = 0;}
+	}
+/*
 		if(!(time_1ms % 50))
 		{time_50ms++;
 			if(!(time_1ms % 100))
@@ -59,7 +76,7 @@ void PIT_CH0_IRQHandler(void)
 			}
 		}
 	}
-} 
+} */
 //		pit0RunTime=pit_time_get(pit1);
 }
 

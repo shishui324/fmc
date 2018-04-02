@@ -46,6 +46,7 @@
 .\objects\debug.o: ..\..\..\software\Car\motor.h
 .\objects\debug.o: ..\..\..\software\Car\encode.h
 .\objects\debug.o: ..\..\..\software\Car\Car_Key.h
+.\objects\debug.o: ..\..\..\software\Module\Myflash.h
 .\objects\debug.o: ..\..\..\software\Car\Debug.h
 .\objects\debug.o: ..\..\..\software\Debug\MYUI.h
 .\objects\debug.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h

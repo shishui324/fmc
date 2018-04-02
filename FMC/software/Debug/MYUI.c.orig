@@ -676,7 +676,7 @@ void Change_Left_Motor_PID(void)
 {
 
     Cache_OLED_P6x8Str(25,0,"Left_Motor_PID ");
-    if(Parameter2No<=7)
+    if(Parameter2No>7)
     {
         Cache_OLED_printf(6,1,"Read parameter");
         Cache_OLED_printf(6,2,"save parameter");
@@ -697,7 +697,7 @@ void Change_Right_Motor_PID(void)
 {
 
     Cache_OLED_P6x8Str(25,0,"Right_Motor_PID ");
-    if(Parameter2No<=7)
+    if(Parameter2No>7)
     {
         Cache_OLED_printf(6,1,"Read parameter");
         Cache_OLED_printf(6,2,"save parameter");
@@ -714,7 +714,7 @@ void Change_Servo_PID(void)
 {
     Cache_OLED_P6x8Str(40,0,"Servo_PID ");
 
-    if(Parameter2No<=7)
+    if(Parameter2No>7)
     {
 
         Cache_OLED_printf(6,1,"Read parameter");
@@ -738,25 +738,25 @@ void Change_speed(void)
 {
     Cache_OLED_P6x8Str(40,0,"Speed ");
 
-    if(Parameter2No<=7)
+    if(Parameter2No>7)
     {
 
         Cache_OLED_printf(6,1,"Read parameter");
         Cache_OLED_printf(6,2,"save parameter");
         Cache_OLED_printf(6,3,"zhidao:%d",Speed.zhidao_speed_val);
-        Cache_OLED_printf(6,4,"wandao:%d",Speed.wandao_speed_val);
-        Cache_OLED_printf(6,5,"cross:%d",Speed.cross_speed_val);
-        Cache_OLED_printf(6,6,"shizi:%d",Speed.shizi_speed_val);
-        Cache_OLED_printf(6,7,"ramp1:%d",Speed.ramp1_speed_val);
+        Cache_OLED_printf(6,4,"wandao:%d",Motor_control.Motor_Right_pid.ki);
+        Cache_OLED_printf(6,5,"cross:%d",Motor_control.Motor_Right_pid.kd);
+        Cache_OLED_printf(6,6,"shizi:%d",Motor_control.Motor_Right_pid.kvff);
+        Cache_OLED_printf(6,7,"ramp1:%d",Motor_control.Motor_Right_pid.kaff);
 
     }
     else
     {
-        Cache_OLED_printf(6,1,"ramp2:%d",Speed.ramp2_speed_val);
-        Cache_OLED_printf(6,2,"high mode:%d",Speed.speed_high_mode);
-        Cache_OLED_printf(6,3,"high dis:%d",Speed.high_speed_dis);
-        Cache_OLED_printf(6,4,"stop:%d",Speed.stop_car_enable);
-        Cache_OLED_printf(6,5,"test:%d",Speed.test_time);
+        Cache_OLED_printf(6,1,"ramp2:%d",Motor_control.Motor_Right_pid.kvff);
+        Cache_OLED_printf(6,2,"high mode:%d",Motor_control.Motor_Right_pid.kaff);
+        Cache_OLED_printf(6,3,"high dis:%d",Speed.zhidao_speed_val);
+        Cache_OLED_printf(6,4,"stop:%d",Speed.zhidao_speed_val);
+        Cache_OLED_printf(6,5,"test:%d",Speed.zhidao_speed_val);
 
     }
 
@@ -777,325 +777,152 @@ void Change_Main_menu(void)
 }
 void Left_Motor_menu(void)
 {
-    switch(Parameter2No)
-    {
-    case 1: {
-
-        if(Read_Flag)
-        {
-            Read_Flag=0;
-            Read_Left_motor();
-            OLED_CLS();
-            OLED_P6x8Str(40,0,"Read ok");
-            systick_delay_ms(1000);
-        }
-        state=1;
-//				EnableInterrupts;//开总中断
-
-    }
-    break;
-    case 2: {
-
-        if(Save_Flag)
-        {
-
-            Save_Flag=Save_Left_motor();
-            OLED_CLS();
-            if(Save_Flag)
+switch(Parameter2No)
             {
-                OLED_P6x8Str(40,0,"save error");
-                Save_Flag=0;
+            case 1: {
+
+                if(Read_Flag)
+                {
+                    Read_Flag=0;
+                    Read_Left_motor();
+                    OLED_CLS();
+                    OLED_P6x8Str(40,0,"Read ok");
+                    systick_delay_ms(1000);
+                }
+                state=1;
+
             }
-            else
-            {
-                OLED_P6x8Str(40,0,"save ok");
+            break;
+            case 2: {
+
+                if(Save_Flag)
+                {
+
+                    Save_Flag=Save_Left_motor();
+                    OLED_CLS();
+                    if(Save_Flag)
+                    {
+                        OLED_P6x8Str(40,0,"save error");
+                        Save_Flag=0;
+                    }
+                    else
+                    {
+                        OLED_P6x8Str(40,0,"save ok");
+                    }
+
+
+                    systick_delay_ms(1000);
+
+                    EnableInterrupts;	//开总中断
+                }
+
+
+                state=1;
+
             }
+            break ;
 
 
-            systick_delay_ms(1000);
+            case 3: {
+                ChangeParameterVal(pfloat,&Motor_control.Motor_Left_pid.kp,0.1);
+            }
+            break ;
+            case 4: {
+                ChangeParameterVal(pfloat,&Motor_control.Motor_Left_pid.ki,0.1);
 
-            EnableInterrupts;	//开总中断
-        }
-
-
-        state=1;
-
-    }
-    break ;
-
-
-    case 3: {
-        ChangeParameterVal(pfloat,&Motor_control.Motor_Left_pid.kp,0.1);
-    }
-    break ;
-    case 4: {
-        ChangeParameterVal(pfloat,&Motor_control.Motor_Left_pid.ki,0.1);
-
-    }
-    break ;
-    case 5: {
-        ChangeParameterVal(pfloat,&Motor_control.Motor_Left_pid.kd,0.1);
-    }
-    break ;
-    case 6: {
-        ChangeParameterVal(pfloat,&Motor_control.Motor_Left_pid.kvff,0.1);
-    }
-    break ;
-    case 7: {
-        ChangeParameterVal(pfloat,&Motor_control.Motor_Left_pid.kaff,0.1);
-    }
-    break ;
+            }
+            break ;
+            case 5: {
+                ChangeParameterVal(pfloat,&Motor_control.Motor_Left_pid.kd,0.1);
+            }
+            break ;
+            case 6: {
+                ChangeParameterVal(pfloat,&Motor_control.Motor_Left_pid.kvff,0.1);
+            }
+            break ;
+            case 7: {
+                ChangeParameterVal(pfloat,&Motor_control.Motor_Left_pid.kaff,0.1);
+            }
+            break ;
 
 
-    default :
-        break ;
+            default :
+                break ;
 
 
-    }
-    Change_Left_Motor_PID();
+            }
+            Change_Left_Motor_PID();
 
 }
 
 void Right_Motor_menu(void)
 {
-    switch(Parameter2No)
-    {
-    case 1: {
-
-        if(Read_Flag)
-        {
-            Read_Flag=0;
-            Read_Right_motor();
-            OLED_CLS();
-            OLED_P6x8Str(40,0,"Read ok");
-            systick_delay_ms(1000);
-        }
-        state=1;
-    }
-    break;
-    case 2: {
-
-        if(Save_Flag)
-        {
-
-            Save_Flag=Save_Right_motor();
-            OLED_CLS();
-            if(Save_Flag)
+switch(Parameter2No)
             {
-                OLED_P6x8Str(40,0,"save error");
-                Save_Flag=0;
+            case 1: {
+
+                if(Read_Flag)
+                {
+                    Read_Flag=0;
+                    Read_Right_motor();
+                    OLED_CLS();
+                    OLED_P6x8Str(40,0,"Read ok");
+                    systick_delay_ms(1000);
+                }
+                state=1;
             }
-            else	{
-                OLED_P6x8Str(40,0,"save ok");
+            break;
+            case 2: {
+
+                if(Save_Flag)
+                {
+
+                    Save_Flag=Save_Right_motor();
+                    OLED_CLS();
+                    if(Save_Flag)
+                    {
+                        OLED_P6x8Str(40,0,"save error");
+                        Save_Flag=0;
+                    }
+                    else	{
+                        OLED_P6x8Str(40,0,"save ok");
+                    }
+                    systick_delay_ms(1000);
+
+                    EnableInterrupts;	//开总中断
+                }
+
+                state=1;
+
             }
-            systick_delay_ms(1000);
+            break ;
 
-            EnableInterrupts;	//开总中断
-        }
-
-        state=1;
-
-    }
-    break ;
-
-    case 3: {
-        ChangeParameterVal(pfloat,&Motor_control.Motor_Right_pid.kp,0.1);
-    }
-    break ;
-    case 4: {
-        ChangeParameterVal(pfloat,&Motor_control.Motor_Right_pid.ki,0.1);
-    }
-    break ;
-    case 5: {
-        ChangeParameterVal(pfloat,&Motor_control.Motor_Right_pid.kd,0.1);
-    }
-    break ;
-    case 6: {
-        ChangeParameterVal(pfloat,&Motor_control.Motor_Right_pid.kvff,0.1);
-    }
-    break ;
-    case 7: {
-        ChangeParameterVal(pfloat,&Motor_control.Motor_Right_pid.kaff,0.1);
-    }
-    break ;
-
-
-    default :
-        break ;
-    }
-    Change_Right_Motor_PID();
-
-}
-void Servo_menu(void)
-{
- switch(Parameter2No)
-    {
-    case 1: {
-
-        if(Read_Flag)
-        {
-            Read_Flag=0;
-            Read_Servo();
-            OLED_CLS();
-            OLED_P6x8Str(40,0,"Read ok");
-            systick_delay_ms(1000);
-        }
-        state=1;
-    }
-    break;
-    case 2: {
-
-        if(Save_Flag)
-        {
-
-            Save_Flag=Save_Servo();
-            OLED_CLS();
-            if(Save_Flag)
-            {
-                OLED_P6x8Str(40,0,"save error");
-                Save_Flag=0;
+            case 3: {
+                ChangeParameterVal(pfloat,&Motor_control.Motor_Right_pid.kp,0.1);
             }
-            else	{
-                OLED_P6x8Str(40,0,"save ok");
+            break ;
+            case 4: {
+                ChangeParameterVal(pfloat,&Motor_control.Motor_Right_pid.ki,0.1);
             }
-            systick_delay_ms(1000);
-
-            EnableInterrupts;	//开总中断
-        }
-
-        state=1;
-
-    }
-    break ;
-
-    case 3: {
-        ChangeParameterVal(pfloat,&Servo.kp ,0.1);
-    }
-    break ;
-    case 4: {
-        ChangeParameterVal(pfloat,&Servo.ki,0.1);
-    }
-    break ;
-    case 5: {
-        ChangeParameterVal(pfloat,&Servo.kd,0.1);
-    }
-    break ;
-    case 6: {
-        ChangeParameterVal(pfloat,&Servo.distance_err_max_val,0.1);
-    }
-    break ;
-    case 7: {
-        ChangeParameterVal(pfloat,&Servo.distance_err_d_max_val,0.1);
-    }
-    break ;
-		case 8: {
-        ChangeParameterVal(pfloat,&Servo.max_dis_err,0.1);
-    }
-    break ;
-		case 9: {
-        ChangeParameterVal(pfloat,&Servo.max_dis_err_d,0.1);
-    }
-    break ;
-		
-
-
-    default :
-        break ;
-    }
-    Change_Servo_PID();
-
-}
-void Speed_menu(void)
-{
- switch(Parameter2No)
-    {
-    case 1: {
-
-        if(Read_Flag)
-        {
-            Read_Flag=0;
-            Read_Speed();
-            OLED_CLS();
-            OLED_P6x8Str(40,0,"Read ok");
-            systick_delay_ms(1000);
-        }
-				
-        state=1;
-    }
-    break;
-    case 2: {
-
-        if(Save_Flag)
-        {
-
-            Save_Flag=Save_Speed();
-            OLED_CLS();
-            if(Save_Flag)
-            {
-                OLED_P6x8Str(40,0,"save error");
-                Save_Flag=0;
+            break ;
+            case 5: {
+                ChangeParameterVal(pfloat,&Motor_control.Motor_Right_pid.kd,0.1);
             }
-            else	{
-                OLED_P6x8Str(40,0,"save ok");
+            break ;
+            case 6: {
+                ChangeParameterVal(pfloat,&Motor_control.Motor_Right_pid.kvff,0.1);
             }
-            systick_delay_ms(1000);
-
-            EnableInterrupts;	//开总中断
-        }
-
-        state=1;
-
-    }
-    break ;
-
-    case 3: {
-        ChangeParameterVal(puint16_t,&Speed.zhidao_speed_val ,1);
-    }                      
-    break ;                
-    case 4: {              
-        ChangeParameterVal(puint16_t,&Speed.wandao_speed_val,1);
-    }                      
-    break ;                
-    case 5: {              
-        ChangeParameterVal(puint16_t,&Speed.cross_speed_val,1);
-    }                      
-    break ;                
-    case 6: {              
-        ChangeParameterVal(puint16_t,&Speed.shizi_speed_val,1);
-    }                     
-    break ;               
-    case 7: {             
-        ChangeParameterVal(puint16_t,&Speed.ramp1_speed_val,1);
-    }                      
-    break ;                
-		case 8: {              
-        ChangeParameterVal(puint16_t,&Speed.ramp2_speed_val,1);
-    }                      
-    break ;                
-		case 9: {              
-        ChangeParameterVal(puint16_t,&Speed.speed_high_mode,1);
-    }  
-		break ;                    
-		 case 10: {            
-        ChangeParameterVal(puint16_t,&Speed.high_speed_dis,1);
-    }                      
-    break ;                
-		case 11: {             
-        ChangeParameterVal(puint16_t,&Speed.stop_car_enable,1);
-    }                      
-    break ;                
-		case 12: {             
-        ChangeParameterVal(puint16_t,&Speed.test_time,1);
-    }
-    break ;
-		
+            break ;
+            case 7: {
+                ChangeParameterVal(pfloat,&Motor_control.Motor_Right_pid.kaff,0.1);
+            }
+            break ;
 
 
-    default :break ;
-        
-    }
-    Change_speed();
-
+            default :
+                break ;
+            }
+            Change_Right_Motor_PID();
 
 }
 /*					调参UI				*/
@@ -1153,23 +980,19 @@ void Change_UI(void)
         if(ParameterNo==1)
 
         {
-				Left_Motor_menu();
+            
 
         }
 
         else if(ParameterNo==2)
         {
-					Right_Motor_menu();
+            
         }
         else if(ParameterNo==3)
         {
-		Servo_menu();
+
 
         }
-				else if(ParameterNo==4)
-				{
-				Speed_menu();
-				}
 
     }
 

@@ -59,9 +59,6 @@ void get_num(void)
         getCountNum_L=-ftm_count_get(ftm1);        //获取编码器值
     }
     ftm_count_clean(ftm1);                  //清编码器值
-
-  
-
 }
 
 
