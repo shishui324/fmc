@@ -4,10 +4,26 @@
 #include "common.h"
 
 
-#define SERVO_LIMIT_VAL 20		//18
+#define SERVO_LIMIT_VAL 10		//18
 #define speed_duty  150
 #define DIR_CONTROL 1
+#define   DEBUG_ON   0
+#define 	Protect_ON	0
+
 ///////////////////////结构体定义////////////////////////////////
+
+//传感器
+typedef struct 
+{
+
+  float once_uni_ad[9];  //一次归一化
+  float twice_uni_ad[9]; //二次归一化
+  float PARAM_A;         
+  float PARAM_B;         
+  float PARAM_CROSS;     
+
+}Sensor_info;
+
 //ADC
 typedef struct
 {
@@ -35,14 +51,14 @@ typedef struct
   float  kd; 
   float  kvff;      //速度前馈系数
   float  kaff;      //加速度系数
-	float delta_uk;
-	float out_duty;
+  float delta_uk;
+  float out_duty;
  
   uint16 kvff_param; 
   int16 present_value[10];  //编码器实际测得值
   int16 error[10];          //误差队列
   int16 set_value[10];      //速度设定队列   
-}Motor_pid_info;             //电机PID所需的信息类型
+}Motor_pid_info;            //电机PID所需的信息类型
 
 
 typedef struct
@@ -53,17 +69,16 @@ typedef struct
 
 typedef struct
 {
-  uint16 zhidao_speed_val; //直道速度
-  uint16 wandao_speed_val; //弯道速度
-  uint16 cross_speed_val;  //小S速度
-  uint16 shizi_speed_val;  //十字速度
-  uint16 zhijiao_speed_val;//直角速度
-  uint16 ramp1_speed_val; //坡道速度
-  uint16 ramp2_speed_val;
-  uint16 speed_high_mode; //高速模式使能
-  uint16 high_speed_dis;  //高速模式定距
-  uint16 stop_car_enable; //停车
-  uint16 test_time;       //测试时间
+  uint16_t zhidao_speed_val; //直道速度
+  uint16_t wandao_speed_val; //弯道速度
+  uint16_t cross_speed_val;  //小S速度
+  uint16_t shizi_speed_val;  //十字速度
+  uint16_t ramp1_speed_val; //坡道速度
+  uint16_t ramp2_speed_val;
+  uint16_t speed_high_mode; //高速模式使能
+  uint16_t high_speed_dis;  //高速模式定距
+  uint16_t stop_car_enable; //停车
+  uint16_t test_time;       //测试时间
 }Speed_info;
 
 //差速pid
@@ -73,6 +88,7 @@ typedef struct
     float ki;
     float kd;
     int16 output;
+		int16 reserve0;
     int error[10];						//电感偏差队列
 	
 	
@@ -83,6 +99,7 @@ typedef struct
 	float  max_dis_err_d;                  // 最大偏差变化率 
     
 }Servo_info;    //差速pid
+
 
 
 //丢线
@@ -106,8 +123,6 @@ typedef struct
   uint16 cross_time;            //十字计数
 }Cross_info;
 
-
-
 //typedef struct
 //{
 //	Cache_OLED_P6x8Str(uint8_t x,uint8_t y,char ch[]);
@@ -118,8 +133,11 @@ typedef struct
 //	Cache_Update_OLED(void);
 //}Oled_info;
 
-//extern ADC_info      Adc;
-//extern Oled_info		 Oled;
+extern ADC_info 		Adc;
+extern Sensor_info 		Sensor;
+
+
+
 #endif
 
 

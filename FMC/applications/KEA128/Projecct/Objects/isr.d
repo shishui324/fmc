@@ -43,3 +43,8 @@
 .\objects\isr.o: ..\..\..\software\Debug\ANO_DT.h
 .\objects\isr.o: ..\..\..\software\Car\control.h
 .\objects\isr.o: ..\..\..\software\Car\motor.h
+.\objects\isr.o: ..\..\..\software\Car\encode.h
+.\objects\isr.o: ..\..\..\software\Car\Car_Key.h
+.\objects\isr.o: ..\..\..\software\Module\Myflash.h
+.\objects\isr.o: ..\..\..\software\Car\Debug.h
+.\objects\isr.o: ..\..\..\software\Debug\MYUI.h

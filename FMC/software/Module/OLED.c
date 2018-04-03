@@ -1,4 +1,6 @@
 #include "OLED.h"
+#include "stdarg.h"
+//#include "stdio.h"
 
 
 #define XLevelL		0x00		//水平最低行
@@ -482,6 +484,7 @@ void OLED_Init(void)
   gpio_init (OLED_SDA_PIN, GPO,1);
   gpio_init (OLED_RST_PIN, GPO,1);
   gpio_init (OLED_DC_PIN , GPO,1);
+	gpio_init (OLED_CS_PIN , GPO,0);
 
 	port_pull (OLED_SCL_PIN);
 	port_pull (OLED_SDA_PIN);
@@ -901,7 +904,7 @@ void Cache_OLED_P6x8Str(uint8_t x,uint8_t y,char ch[])//,uint8_t neg)
 
 //写取反字
 void Cache_OLED_P6x8byte_inverse(uint8_t x,uint8_t y,char ch)
-{
+{  
   uint8_t c=0,i=0,j=0;      
     
 	c =ch-32;
@@ -1019,6 +1022,59 @@ void Cache_OLED_Rectangle(uint8_t x1,uint8_t y1,uint8_t x2,uint8_t y2)
 	}
 }
 
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//得到当前X坐标
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//OLED上的printf，除了要输入坐标其他地方和printf用法一样
+//由于IAR平台的问题，不修改stdio底层，不能使用 %f 输出浮点数
+//
+//传入参数：   x:要显示位置的x坐标，x<=127
+//             y:要显示位置的y坐标, y<=7
+//             const char *pFormat, ... ：用法和printf一样
+//传出参数：   result打印的结果
+//
+//用法实例：OLED_printf(0,0,"hello world"); //在液晶（0,0）位置打印"hello world"
+//          OLED_printf(0,1,"a = %d",a);    //在液晶（0,1）位置打印变量a
+//          反正除了要输入坐标其他用法和printf一模一样
+//          OLED_printf(0,2,"%.2f",3.14); //修改底层之后也能输出浮点数
+//
+//没有修改stdio底层的情况下：
+//要输出浮点数的解决方法：调用float2num函数把浮点数转换为字符串用 %s 输出
+//浮点数输出实例： OLED_printf(0,2,"%s",float2str(3.14,2)); //在（0,2）位置输出3.14
+//
+//有时候需要接着之前的输出打印数据，重新计算坐标会很麻烦，可以使用get_x()和get_y()
+//获取当前坐标位置实现接着之前的输入打印数据
+//用法实例：OLED_printf(get_x(),get_y(),"prit");//接着当前坐标打印了 "prit"
+//
+//注意：OLED_printf会和printf冲突，只能同时使用一个
+//      使用float2str()函数进行浮点转字符串的时候，一个OLED_printf();只能
+//      输出一个浮点数，如果想OLED_printf(0,2,"%s %s",float2str(3.14,2) , float2str(1.2,1));
+//      的话，会出错，结果显示的是打印出来两个 3.14 而不是 3.14 1.2
+////////////////////////////////////////////////////////////////////////////////////////////////
+signed int Cache_OLED_printf(uint8_t x,uint8_t y,const char *pFormat, ...){
+    
+    char pStr[25] = {'\0'}; 
+    va_list ap;
+    signed int result;
+     
+     //Forward call to vprintf
+    va_start(ap, pFormat);
+    result = vsprintf((char *)pStr, pFormat, ap);
+    va_end(ap);
+
+    Cache_OLED_P6x8Str(x,y,(char *)pStr); 
+
+    return result;
+}
+
 //缓冲区数据推往OLED
 void Cache_Update_OLED(void)
 {
@@ -1033,5 +1089,17 @@ void Cache_Update_OLED(void)
       All_Data[y][x] = 0x00;
     }
   }
+}
+
+uint8_t getx(void){
+
+    return location_x;
+	
+}
+
+//得到当前Y坐标
+uint8_t gety(void ){
+
+    return location_y;
 }
 

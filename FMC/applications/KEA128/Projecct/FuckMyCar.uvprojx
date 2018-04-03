@@ -10,8 +10,9 @@
       <TargetName>FMC</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pArmCC>5060422::V5.06 update 4 (build 422)::ARMCC</pArmCC>
-      <pCCUsed>5060422::V5.06 update 4 (build 422)::ARMCC</pCCUsed>
+      <pArmCC>5060750::V5.06 update 6 (build 750)::ARMCC</pArmCC>
+      <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
+      <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>SKEAZ128xxx4</Device>
@@ -133,12 +134,12 @@
             <UseExternalTool>0</UseExternalTool>
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
-            <Capability>0</Capability>
-            <DriverSelection>-1</DriverSelection>
+            <Capability>1</Capability>
+            <DriverSelection>4096</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -298,8 +299,8 @@
               </OCR_RVCT8>
               <OCR_RVCT9>
                 <Type>0</Type>
-                <StartAddress>0x1ffff000</StartAddress>
-                <Size>0x4000</Size>
+                <StartAddress>0x20000000</StartAddress>
+                <Size>0xc000</Size>
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
@@ -311,7 +312,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>0</Optim>
+            <Optim>1</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -324,9 +325,10 @@
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>1</uC99>
+            <uGnu>0</uGnu>
             <useXO>0</useXO>
-            <v6Lang>1</v6Lang>
-            <v6LangP>1</v6LangP>
+            <v6Lang>3</v6Lang>
+            <v6LangP>3</v6LangP>
             <vShortEn>1</vShortEn>
             <vShortWch>1</vShortWch>
             <v6Lto>0</v6Lto>
@@ -475,6 +477,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\software\Module\OLED.c</FilePath>
             </File>
+            <File>
+              <FileName>Myflash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\software\Module\Myflash.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -484,11 +491,6 @@
               <FileName>motor.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\software\Car\motor.c</FilePath>
-            </File>
-            <File>
-              <FileName>Myflash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\software\Car\Myflash.c</FilePath>
             </File>
             <File>
               <FileName>sensor.c</FileName>
@@ -510,6 +512,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\software\Car\control.c</FilePath>
             </File>
+            <File>
+              <FileName>encode.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\software\Car\encode.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -521,14 +528,19 @@
               <FilePath>..\..\..\software\Debug\ANO_DT.c</FilePath>
             </File>
             <File>
-              <FileName>debug.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\software\Debug\debug.c</FilePath>
-            </File>
-            <File>
               <FileName>UI.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\software\Debug\UI.c</FilePath>
+            </File>
+            <File>
+              <FileName>Debug.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\software\Car\Debug.c</FilePath>
+            </File>
+            <File>
+              <FileName>MYUI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\software\Debug\MYUI.c</FilePath>
             </File>
           </Files>
         </Group>

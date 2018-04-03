@@ -15,7 +15,13 @@
 //uint16 circle_shut_flag = 0;
 //extern uint16 special_cross_flag;
 
+extern float sum_16_34;
+extern float sub_25;
 
+extern uint8 circle_left_flag;
+extern uint8 circle_right_flag;
+extern uint8 circle_in;
+uint16 circle_distence = 0;
 
 uint32 motor_protect_time=0;//保护参数
 Motor_pid_info Motor;
@@ -27,15 +33,10 @@ int16 R_out_value; //右边pwm输出的值
 int16 L_out_value; //左边pwm输出的值
 
 
-int8_t getCountNum_L;  //获取编码器计数值
-int8_t getCountNum_R;  //获取编码器计数值
-
-
 bool isLeftlose = false;
 bool isLeftturn = false;
 bool isRightlose = false;
 bool isRightturn = false;
-
 
 bool STOP_CAR_FLAG = true;
 
@@ -44,40 +45,82 @@ extern void motor_set(void);
 
 void servo_pid_caculate(void)           //差速控制pid
 {
-	if(sum_12<40)	//丢线判断
+	
+ 
+	if(circle_in)
 	{
-		motor_protect_time++;								//保护计数累加
-		if(Servo.output>0)
+		
+
+
+		if(abs(sub_25)>15)   //八字电感
+//		circle_distence+=(Motor_control.Motor_Left_pid.present_value[0]+Motor_control.Motor_Right_pid.present_value[0])>>2;
+//		if(circle_distence<25*60)
+			Servo.output = 0;
+		else if(circle_left_flag)
 		{
-			Servo.output=SERVO_LIMIT_VAL;
-			isLeftlose = true;
+			circle_distence+=(Motor_control.Motor_Left_pid.present_value[0]+Motor_control.Motor_Right_pid.present_value[0])>>2;
+			if(circle_distence<25*20)
+				Servo.output=SERVO_LIMIT_VAL;
+			else{
+				circle_distence = 0;
+				circle_in = 0;
+				circle_left_flag=0;
+			}
+		}
+		else 
+		{
+			circle_distence+=(Motor_control.Motor_Left_pid.present_value[0]+Motor_control.Motor_Right_pid.present_value[0])>>2;
+			if(circle_distence<25*20)
+				Servo.output=-SERVO_LIMIT_VAL;
+			else
+			{
+				circle_distence = 0;
+				circle_in = 0;
+				circle_right_flag = 0;
+			}
+		}
+ 
+			
+	}
+	else{
+		if(sum_16_34<100)	//丢线判断
+		{	
+#if	Protect_ON		
+		motor_protect_time++;								//保护计数累加
+#endif
+			if(Servo.output>0)
+			{
+				Servo.output=SERVO_LIMIT_VAL;
+				isLeftlose = true;
+			}
+			else
+			{
+				Servo.output=-SERVO_LIMIT_VAL;
+				isRightlose = true;
+			}
 		}
 		else
 		{
-			Servo.output=-SERVO_LIMIT_VAL;
-			isRightlose = true;
-		}
-	}
-	else
-	{
-//		//位置式
-		Servo.output = (int16)(Servo.kp *Servo.error[0] + Servo.kd*5.0* (Servo.error[0]-Servo.error[9]));     //5   2
-		isLeftlose = false;
-		isRightlose = false;
-		motor_protect_time = 0;
-//		/***********差方法************/
-		if(Servo.output>SERVO_LIMIT_VAL||(sum_12<30.0&&sub_12>=0.0f))//Servo.output>=0))
-		{
-//			isLeftlose = true;
-	        Servo.output = SERVO_LIMIT_VAL;
-		}
-		if(Servo.output<-SERVO_LIMIT_VAL||(sum_12<30.0&&sub_12<0.0f))//Servo.output<0))
-		{
-//			isLeftlose = true;
-	        Servo.output = -SERVO_LIMIT_VAL;
+	//		//位置式
+			Servo.output = (int16)(Servo.kp *Servo.error[0] + Servo.kd*5.0* (Servo.error[0]-Servo.error[9]));     //5   2
+			isLeftlose = false;
+			isRightlose = false;
+	//		/***********差方法************/
+			if(Servo.output>SERVO_LIMIT_VAL)//Servo.output>=0))
+			{
+	//			isLeftlose = true;
+				Servo.output = SERVO_LIMIT_VAL;
+			}
+			if(Servo.output<-SERVO_LIMIT_VAL)//Servo.output<0))
+			{
+	//			isLeftlose = true;
+				Servo.output = -SERVO_LIMIT_VAL;
+			}
 		}
 	}
 }
+
+
 void motor_pid_caculate(Motor_pid_info *motor_info)
 {
   motor_info->delta_uk = 0;
@@ -87,7 +130,7 @@ void motor_pid_caculate(Motor_pid_info *motor_info)
   {
     motor_info->error[i] = motor_info->error[i-1];
   }
-//  motor_info->present_value[0] = (getCountNum_L + getCountNum_R)/2;			//****************CAUTION*******************/
+//****************CAUTION*******************/
   motor_info->error[0] = motor_info->set_value[0]-motor_info->present_value[0];
 
 
@@ -104,10 +147,10 @@ void motor_pid_caculate(Motor_pid_info *motor_info)
               + motor_info->error[2])
               -motor_info->kaff*motor_info->speed_racc*0.10
               );
-                                                        
+
 
   /*------------------------遇限削弱抗积分饱和等处理-----------------------*/
-  if(motor_info->last_uk > MOTOR_DUTY_MAX)  //·??§-1000~1000
+  if(motor_info->last_uk > MOTOR_DUTY_MAX)  
     if(motor_info->delta_uk > 0)
       motor_info->delta_uk = 0;//当前一时刻控制量(占空比)已经达到最大时，若现在增量为正则不累加
   if(motor_info->last_uk < MOTOR_DUTY_MIN)
@@ -133,9 +176,9 @@ void motor_pid_caculate(Motor_pid_info *motor_info)
    
   for(i= 9;i>0;i--)    //更新实测速度队列
   {
-    motor_info->present_value[i] = motor_info->present_value[i-1];
+		motor_info->present_value[i] = motor_info->present_value[i-1];
   }
-  
+
 //  motor_set(motor_info->output);
 
 }
@@ -143,44 +186,59 @@ void motor_pid_caculate(Motor_pid_info *motor_info)
 
 void control(void)  //控制函数
 {
-//	if(motor_protect_time>=2000)//当保护计数超过限制
-//	{
-//		STOP_CAR_FLAG = true;
-//	}
+	if(motor_protect_time>=2000)//当保护计数超过限制
+	{
+		STOP_CAR_FLAG = true;
+		motor_protect_time = 0;
+		
+		
+	}
+	
     /*******************问题*****************
                 差速是用算差还是算比
     ****************************************/
-	Motor_control.Motor_Left_pid.present_value[0] = (int8)((float)(0.1*Motor_control.Motor_Left_pid.present_value[1])+(float)(0.9*getCountNum_L));
-	Motor_control.Motor_Right_pid.present_value[0] = (int8)((float)(0.1*Motor_control.Motor_Right_pid.present_value[1])+(float)(0.9*getCountNum_R));
-	if(abs(Motor_control.Motor_Left_pid.present_value[0]-Motor_control.Motor_Left_pid.set_value[0])<10||abs(Motor_control.Motor_Right_pid.set_value[0]-Motor_control.Motor_Right_pid.present_value[0])<10)
+	Motor_control.Motor_Left_pid.present_value[0] = (int16)((float)(0.1*Motor_control.Motor_Left_pid.present_value[0])+(float)(0.9*getCountNum_L));
+	Motor_control.Motor_Right_pid.present_value[0] = (int16)((float)(0.1*Motor_control.Motor_Right_pid.present_value[0])+(float)(0.9*getCountNum_R));
+#if !(DEBUG_ON)
+	
+#if Protect_ON
+	if(((abs(Motor_control.Motor_Left_pid.present_value[0]-Motor_control.Motor_Left_pid.set_value[0])>10)
+		||(abs(Motor_control.Motor_Right_pid.set_value[0]-Motor_control.Motor_Right_pid.present_value[0])>10))
+			&&(STOP_CAR_FLAG == false ))
 	{
 		motor_protect_time++;
 	}
+#endif 
+	
 //   deal_sensor();
-#if DIR_CONTROL
+
     servo_pid_caculate();
-#endif
 	speed_control();
-//	Motor.set_value[0] = 15;
-	Servo.output = 0.05 * Motor.set_value[0] * Servo.output;
+	
+//	Motor.set_value[0] = 10;
+	
+//	Servo.output = 0.09 * Motor.set_value[0] * Servo.output;  //0.05
 	Motor_control.Motor_Left_pid.set_value[0] = Motor.set_value[0] - Servo.output;
 	Motor_control.Motor_Right_pid.set_value[0] = Motor.set_value[0] + Servo.output;
-	if(isLeftlose == true)
-	{
-//		Motor_control.Motor_Left_pid.set_value[0] = 0;
-		Motor_control.Motor_Right_pid.set_value[0] = Motor_control.Motor_Right_pid.set_value[0]+25;
-	}
-	else if(isRightlose == true)
-	{
-		Motor_control.Motor_Left_pid.set_value[0] = Motor_control.Motor_Left_pid.set_value[0] + 25;
-//		Motor_control.Motor_Right_pid.set_value[0] = 0;
-	}
+//	if(isLeftlose == true)
+//	{
+////		Motor_control.Motor_Left_pid.set_value[0] = 0;
+//		Motor_control.Motor_Right_pid.set_value[0] = Motor_control.Motor_Right_pid.set_value[0]+12;   //25
+//	}
+//	else if(isRightlose == true)
+//	{
+//		Motor_control.Motor_Left_pid.set_value[0] = Motor_control.Motor_Left_pid.set_value[0] + 12;
+////		Motor_control.Motor_Right_pid.set_value[0] = 0;
+//	}
 //	motor_pid_caculate(&Motor);
+#endif
+	
 	motor_pid_caculate(&Motor_control.Motor_Left_pid);
 	motor_pid_caculate(&Motor_control.Motor_Right_pid);
 	
-  L_out_value = Motor_control.Motor_Left_pid.output;
+	L_out_value = Motor_control.Motor_Left_pid.output;
 	R_out_value = Motor_control.Motor_Right_pid.output;
+	motor_set();
     /********差方法********/
 //    R_out_value = Motor.output + Servo.output;
 //    L_out_value = Motor.output - Servo.output;
@@ -191,7 +249,7 @@ void control(void)  //控制函数
     R_out_value+L_out_value；= 400;
     
     ***********************/
-	motor_set();
+
 
 }
 
@@ -244,7 +302,7 @@ void speed_control(void)
 
 
 
-#if 0
+  #if 0
 //void motor_pid_caculate(Motor_pid_info *motor_info)
 //{
 //  motor_info->delta_uk = 0;

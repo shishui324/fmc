@@ -1,56 +1,55 @@
 #include "isr.h"
 
-extern int8_t getCountNum_L;
-extern int8_t getCountNum_R;
-
 extern uint32_t time_1ms;
 extern uint32_t time_5ms;
 extern uint32_t time_10ms;
 extern uint32_t time_20ms;
-extern uint32_t time_50ms;
-extern uint32_t time_100ms;
-extern uint32_t time_200ms;
-extern uint32_t time_500ms;
-extern uint32_t time_1s;
-extern uint32_t time_2s;
-extern uint32_t time_5s;
-extern uint32_t time_10s;
+// uint32_t time_50ms;
+//extern uint32_t time_100ms;
+//extern uint32_t time_200ms;
+//extern uint32_t time_500ms;
+//extern uint32_t time_1s;
+//extern uint32_t time_2s;
+//extern uint32_t time_5s;
+//extern uint32_t time_10s;
 
 
+
+extern void get_adc_int_value(void);
 extern void control(void);
-//extern void get_adc_int_value(void);
 void PIT_CH0_IRQHandler(void)
 {
     PIT_FlAG_CLR(pit0);                     //清pit0标志位
-//    get_adc_int_value();
-//    ftm_pwm_duty(ftm0,ftm_ch1,200);
-    if(gpio_get(C5))
-        getCountNum_L=ftm_count_get(ftm0);        //获取编码器值
-    else
-    {
-        getCountNum_L=-ftm_count_get(ftm0);        //获取编码器值
-    }
-    ftm_count_clean(ftm0);                  //清编码器值
-    
-    if(gpio_get(H5))
-        getCountNum_R=-ftm_count_get(ftm1);        //获取编码器值
-    else
-        getCountNum_R=ftm_count_get(ftm1);        //获取编码器值
-	ftm_count_clean(ftm1);                  //清编码器值
-//    
-		
-		 
- deal_sensor();
 	
+	get_num();	 //获取编码器值
+//  get_adc_int_value();
+	get_adc_int_value();	//滤波后AD值
+	deal_sensor(&Sensor);
+	control();
+	
+	
+	
+	
+//	motor_pid_caculate(&Motor_control.Motor_Left_pid);
+//	L_out_value = Motor_control.Motor_Left_pid.output;
+//	motor_set();
+
 	time_1ms++;
 	if(!(time_1ms % 5))
 	{
 		time_5ms++;
-	if(!(time_1ms % 10))
-	{time_10ms++;
-		if(!(time_1ms % 20))
-			time_20ms++;
-
+		if(!(time_1ms % 10))
+		{
+			time_10ms++;
+			
+		}
+	
+			if(!(time_1ms % 20))
+			{
+				time_20ms++;
+			time_1ms = 0;}
+	}
+/*
 		if(!(time_1ms % 50))
 		{time_50ms++;
 			if(!(time_1ms % 100))
@@ -77,7 +76,7 @@ void PIT_CH0_IRQHandler(void)
 			}
 		}
 	}
-} 
+} */
 //		pit0RunTime=pit_time_get(pit1);
 }
 

@@ -43,3 +43,8 @@
 .\objects\common.o: ..\..\..\software\Debug\ANO_DT.h
 .\objects\common.o: ..\..\..\software\Car\control.h
 .\objects\common.o: ..\..\..\software\Car\motor.h
+.\objects\common.o: ..\..\..\software\Car\encode.h
+.\objects\common.o: ..\..\..\software\Car\Car_Key.h
+.\objects\common.o: ..\..\..\software\Module\Myflash.h
+.\objects\common.o: ..\..\..\software\Car\Debug.h
+.\objects\common.o: ..\..\..\software\Debug\MYUI.h

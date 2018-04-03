@@ -39,7 +39,7 @@ typedef enum
 } UARTn;
 
 
-#define DEBUG_PORT  uart0
+#define DEBUG_PORT  uart1
 #define DEBUG_BAUD  115200
 
 

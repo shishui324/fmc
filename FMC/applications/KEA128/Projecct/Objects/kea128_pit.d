@@ -44,4 +44,9 @@
 .\objects\kea128_pit.o: ..\..\..\software\Debug\ANO_DT.h
 .\objects\kea128_pit.o: ..\..\..\software\Car\control.h
 .\objects\kea128_pit.o: ..\..\..\software\Car\motor.h
+.\objects\kea128_pit.o: ..\..\..\software\Car\encode.h
+.\objects\kea128_pit.o: ..\..\..\software\Car\Car_Key.h
+.\objects\kea128_pit.o: ..\..\..\software\Module\Myflash.h
+.\objects\kea128_pit.o: ..\..\..\software\Car\Debug.h
+.\objects\kea128_pit.o: ..\..\..\software\Debug\MYUI.h
 .\objects\kea128_pit.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h

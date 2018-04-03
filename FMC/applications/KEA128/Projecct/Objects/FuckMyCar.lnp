@@ -16,17 +16,19 @@
 ".\objects\system_skeaz1284.o"
 ".\objects\startup_skeaz1284.o"
 ".\objects\oled.o"
-".\objects\motor.o"
 ".\objects\myflash.o"
+".\objects\motor.o"
 ".\objects\sensor.o"
 ".\objects\car_key.o"
 ".\objects\control.o"
+".\objects\encode.o"
 ".\objects\ano_dt.o"
-".\objects\debug.o"
 ".\objects\ui.o"
+".\objects\debug.o"
+".\objects\myui.o"
 ".\objects\isr.o"
 ".\objects\main.o"
 --library_type=microlib --strict --scatter ".\Objects\FuckMyCar.sct"
---summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\Listings\FuckMyCar.map" -o .\Objects\FuckMyCar.axf
