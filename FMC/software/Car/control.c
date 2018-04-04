@@ -85,7 +85,7 @@ void servo_pid_caculate(void)           //差速控制pid
 	else{
 		if(sum_16_34<100)	//丢线判断
 		{	
-#if	Protect_ON		
+#if	Protect_ON
 		motor_protect_time++;								//保护计数累加
 #endif
 			if(Servo.output>0)

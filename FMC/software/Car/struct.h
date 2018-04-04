@@ -4,11 +4,11 @@
 #include "common.h"
 
 
-#define SERVO_LIMIT_VAL 10		//18
+#define SERVO_LIMIT_VAL 15		//18
 #define speed_duty  150
 #define DIR_CONTROL 1
-#define   DEBUG_ON   0
-#define 	Protect_ON	0
+#define DEBUG_ON   0
+#define Protect_ON	1
 
 ///////////////////////结构体定义////////////////////////////////
 

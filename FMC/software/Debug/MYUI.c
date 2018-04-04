@@ -339,6 +339,14 @@ void ChangeFlagVal(uint8 *flag,uint8 min,uint8 max) {
 
 ////////////////////////////段落一:显示类UI/////////////////////////////////////////
 
+/***********************************************************************
+**  函数名称:show_sensor
+**  函数功能:显示车的运行参数
+**  输 入 值:
+**  返 回 值:
+**  其他说明:
+**  日    期:
+***************************************************************************/
 
 void show_sensor(void)
 {
@@ -362,56 +370,68 @@ void show_sensor(void)
 }
 
 
+/***********************************************************************
+**  函数名称:show_8_L
+**  函数功能:显示8个电感的值-----滤波后，未进行归一化处理
+**  输 入 值:
+**  返 回 值:
+**  其他说明:
+**  日    期:
+***************************************************************************/
 
-void show_8L(void)
+void show_8_L(void)
 {
-    Cache_OLED_P6x8Str(40,0,"8L_show");
-
-    Cache_OLED_P6x8Str(0,1,"1.");
-    Cache_OLED_P6x8Str(64,1,"2.");
-    Cache_OLED_P6x8Str(0,2,"3.");
-    Cache_OLED_P6x8Str(64,2,"4.");
-    Cache_OLED_P6x8Str(0,3,"5.");
-    Cache_OLED_P6x8Str(64,3,"6.");
-//		Cache_OLED_P6x8Str(0,4,"7.");
-//		Cache_OLED_P6x8Str(64,4,"8.");
-
-    Cache_OLED_P6x8Num(12,1,ad_avr_val[1]);
-    Cache_OLED_P6x8Num(76,1,ad_avr_val[2]);
-    Cache_OLED_P6x8Num(12,2,ad_avr_val[3]);
-    Cache_OLED_P6x8Num(76,2,ad_avr_val[4]);
-    Cache_OLED_P6x8Num(12,3,ad_avr_val[5]);
-    Cache_OLED_P6x8Num(76,3,ad_avr_val[6]);
-    Cache_OLED_P6x8Num(12,4,abs(sub_25));
-    Cache_OLED_P6x8Num(76,4,sum_16_34);
-    Cache_OLED_P6x8Num(12,5,Sensor.once_uni_ad[2]);
-    Cache_OLED_P6x8Num(76,5,Sensor.once_uni_ad[5]);
+	for(uint8_t i=1;i<=SENSOR_NUM;i++)
+	{
+		Cache_OLED_Rectangle(0,8*(i-1),(ad_avr_val[i]*80/3000),8*i);
+		Cache_OLED_printf(85,i-1,"%1d:%4d",i,ad_avr_val[i]);
+	}
+		  
 
 }
 
 
+/***********************************************************************
+**  函数名称:show_one_sensor
+**  函数功能:显示电感一次归一化之后的值
+**  输  入	值:
+**  返  回  值:
+**  其他说明:
+**  日       期:
+***************************************************************************/
 
-
-
-
-void show_one(void)
+void show_one_sensor(void)
 {
-    Cache_OLED_Rectangle(0,  (63-((uint16_t)(Sensor.once_uni_ad[1])*63/100)),  8,   63);
-    Cache_OLED_Rectangle(16, (63-((uint16_t)(Sensor.once_uni_ad[2])*63/100)),  24,  63);
-    Cache_OLED_Rectangle(32, (63-((uint16_t)(Sensor.once_uni_ad[3])*63/100)),  40,  63);
-    Cache_OLED_Rectangle(80, (63-((uint16_t)(Sensor.once_uni_ad[4])*63/100)),  88, 63);
-    Cache_OLED_Rectangle(96, (63-((uint16_t)(Sensor.once_uni_ad[5]*63/100))),  104,  63);
-    Cache_OLED_Rectangle(112, (63-((uint16_t)(Sensor.once_uni_ad[6])*63/100)),  120, 63);
+		for(uint8_t i=1;i<=SENSOR_NUM;i++)
+	{
+		Cache_OLED_Rectangle(0,8*(i-1),(Sensor.once_uni_ad[i]*80/100),8*i);
+		Cache_OLED_printf(85,i-1,"%1d:%d",i,(uint16_t)Sensor.once_uni_ad[i]);
+	} 
+//    Cache_OLED_Rectangle(0,  (63-((uint16_t)(Sensor.once_uni_ad[1])*63/100)),  8,   63);
+//    Cache_OLED_Rectangle(16, (63-((uint16_t)(Sensor.once_uni_ad[2])*63/100)),  24,  63);
+//    Cache_OLED_Rectangle(32, (63-((uint16_t)(Sensor.once_uni_ad[3])*63/100)),  40,  63);
+//    Cache_OLED_Rectangle(80, (63-((uint16_t)(Sensor.once_uni_ad[4])*63/100)),  88, 63);
+//    Cache_OLED_Rectangle(96, (63-((uint16_t)(Sensor.once_uni_ad[5]*63/100))),  104,  63);
+//    Cache_OLED_Rectangle(112, (63-((uint16_t)(Sensor.once_uni_ad[6])*63/100)),  120, 63);
 
-    Cache_OLED_P6x8floatNum(40,2,sum_16_34);
-    Cache_OLED_P6x8Num(0,0,Sensor.once_uni_ad[1]);
-    Cache_OLED_P6x8Num(16,1,Sensor.once_uni_ad[2]);
-    Cache_OLED_P6x8Num(32,0,Sensor.once_uni_ad[3]);
-    Cache_OLED_P6x8Num(80,1,Sensor.once_uni_ad[4]);
-    Cache_OLED_P6x8Num(96,0,Sensor.once_uni_ad[5]);
-    Cache_OLED_P6x8Num(112,1,Sensor.once_uni_ad[6]);
+//    Cache_OLED_P6x8floatNum(40,2,sum_16_34);
+//    Cache_OLED_P6x8Num(0,0,Sensor.once_uni_ad[1]);
+//    Cache_OLED_P6x8Num(16,1,Sensor.once_uni_ad[2]);
+//    Cache_OLED_P6x8Num(32,0,Sensor.once_uni_ad[3]);
+//    Cache_OLED_P6x8Num(80,1,Sensor.once_uni_ad[4]);
+//    Cache_OLED_P6x8Num(96,0,Sensor.once_uni_ad[5]);
+//    Cache_OLED_P6x8Num(112,1,Sensor.once_uni_ad[6]);
 
 }
+/***********************************************************************
+**  函数名称:
+**  函数功能:
+**  输  入	值:
+**  返  回  值:
+**  其他说明:
+**  日       期:
+***************************************************************************/
+
 void show_Histogram(void)
 {
 
@@ -438,6 +458,14 @@ void show_Histogram(void)
 
 
 }
+/***********************************************************************
+**  函数名称:
+**  函数功能:
+**  输  入	值:
+**  返  回  值:
+**  其他说明:
+**  日       期:
+***************************************************************************/
 
 void Show_Main_menu(void)
 {
@@ -452,6 +480,15 @@ void Show_Main_menu(void)
     Cache_OLED_P6x8Str(7,7,"7.");
 
 }
+/***********************************************************************
+**  函数名称:
+**  函数功能:
+**  输  入	值:
+**  返  回  值:
+**  其他说明:
+**  日       期:
+***************************************************************************/
+
 void Show_UI(void)
 {
 /////////   显示一级菜单内容 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -470,11 +507,11 @@ void Show_UI(void)
         }
         break;
         case 2 : {
-            show_one();
+            show_one_sensor();
         }
         break;
         case 3 : {				//图形显示
-            show_8L();
+            show_8_L();
 
         }
         break;
@@ -505,172 +542,17 @@ void Show_UI(void)
         }
 
     }
-#if 0
-
-    else if(state == 2) {
-
-
-
-
-        if(ParameterNo==1)
-
-        {
-            switch(Parameter2No)
-            {
-            case 1: {
-
-            }	break;
-            default:
-                break ;
-            }
-        }
-
-        else if(ParameterNo==2)
-        {
-            switch(Parameter2No)
-            {
-
-
-            case 1: {
-                ChangeParameterVal(pfloat,&Motor_control.Motor_Left_pid.kp,0.1);
-                show_Left_Motor_PID();
-
-            }
-            break ;
-            case 2: {
-
-                ChangeParameterVal(pfloat,&Motor_control.Motor_Left_pid.ki,0.1);
-                show_Left_Motor_PID();
-
-
-            }
-            break ;
-            case 3: {
-                ChangeParameterVal(pfloat,&Motor_control.Motor_Left_pid.kd,0.1);
-                show_Left_Motor_PID();
-
-            }
-            break ;
-            case 4: {
-
-                ChangeParameterVal(pfloat,&Motor_control.Motor_Left_pid.kvff,0.1);
-                show_Left_Motor_PID();
-
-
-            }
-            break ;
-            case 5: {
-                ChangeParameterVal(pfloat,&Motor_control.Motor_Left_pid.kaff,0.1);
-                show_Left_Motor_PID();
-
-            }
-            break ;
-            case 6: {
-
-                if(Save_Flag)
-                {
-
-                    Save_Flag=Save_Left_motor();
-                    OLED_CLS();
-                    if(Save_Flag)
-                    {
-                        OLED_P6x8Str(40,0,"save error");
-                        Save_Flag=0;
-                    }
-                    else
-                    {
-                        OLED_P6x8Str(40,0,"save ok");
-                    }
-
-
-                    systick_delay_ms(1000);
-
-                    EnableInterrupts;	//开总中断
-                }
-
-
-                state=1;
-//				show_Left_Motor_PID();
-
-            }
-            break ;
-            case 7: {
-
-                if(Read_Flag)
-                {
-                    Read_Flag=0;
-                    Read_Left_motor();
-                    OLED_CLS();
-                    OLED_P6x8Str(40,0,"Read ok");
-                    systick_delay_ms(1000);
-                }
-                state=1;
-
-            }
-
-            default :
-                break ;
-
-            }
-        }
-        else if(ParameterNo==3)
-        {
-            switch(Parameter2No)
-            {
-
-
-            case 1: {
-                ChangeParameterVal(pfloat,&Motor_control.Motor_Right_pid.kp,0.1);
-                show_Right_Motor_PID();
-
-            }
-            break ;
-            case 2: {
-
-                ChangeParameterVal(pfloat,&Motor_control.Motor_Right_pid.ki,0.1);
-                show_Right_Motor_PID();
-
-
-            }
-            break ;
-            case 3: {
-                ChangeParameterVal(pfloat,&Motor_control.Motor_Right_pid.kd,0.1);
-                show_Right_Motor_PID();
-
-            }
-            break ;
-            case 4: {
-
-                ChangeParameterVal(pfloat,&Motor_control.Motor_Right_pid.kvff,0.1);
-                show_Right_Motor_PID();
-
-
-            }
-            break ;
-            case 5: {
-                ChangeParameterVal(pfloat,&Motor_control.Motor_Right_pid.kaff,0.1);
-                show_Right_Motor_PID();
-
-            }
-            break ;
-
-
-            default :
-                break ;
-
-            }
-
-        }
-
-
-
-
-    }
-#endif
-
 }
 
 //////////////////////////////////段落二：调参UI/////////////////////////////////////////////
+/***********************************************************************
+**  函数名称:
+**  函数功能:
+**  输  入	值:
+**  返  回  值:
+**  其他说明:
+**  日       期:
+***************************************************************************/
 
 void Change_Left_Motor_PID(void)
 {
@@ -692,6 +574,14 @@ void Change_Left_Motor_PID(void)
 
 
 }
+/***********************************************************************
+**  函数名称:
+**  函数功能:
+**  输  入	值:
+**  返  回  值:
+**  其他说明:
+**  日       期:
+***************************************************************************/
 
 void Change_Right_Motor_PID(void)
 {
@@ -710,6 +600,15 @@ void Change_Right_Motor_PID(void)
 
     }
 }
+/***********************************************************************
+**  函数名称:
+**  函数功能:
+**  输  入	值:
+**  返  回  值:
+**  其他说明:
+**  日       期:
+***************************************************************************/
+
 void Change_Servo_PID(void)
 {
     Cache_OLED_P6x8Str(40,0,"Servo_PID ");
@@ -734,6 +633,16 @@ void Change_Servo_PID(void)
     }
 
 }
+
+/***********************************************************************
+**  函数名称:
+**  函数功能:
+**  输  入	值:
+**  返  回  值:
+**  其他说明:
+**  日       期:
+**************************************************************************/
+
 void Change_speed(void)
 {
     Cache_OLED_P6x8Str(40,0,"Speed ");
@@ -1186,7 +1095,7 @@ void OLED_ConfigParameter(void) {
     }
     else if (Key_Flag2)
     {
-        Change_UI();
+        
     }
     else if(Key_Flag3)
     {
@@ -1194,7 +1103,7 @@ void OLED_ConfigParameter(void) {
     }
     else if(Key_Flag4)
     {
-
+			Change_UI();
     }
     else {
 
