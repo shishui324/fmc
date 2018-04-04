@@ -30,11 +30,11 @@
 #define  Induc_2    ADC0_SE5     
 #define  Induc_1    ADC0_SE4	
 
-//#define  Induc_8    ADC0_SE13
-//#define  Induc_7    ADC0_SE7
+//#define  Induc_8    ADC0_SE15
+//#define  Induc_7    ADC0_SE14
 //#define  Induc_6    ADC0_SE12
-//#define  Induc_5    ADC0_SE13
-//#define  Induc_4    ADC0_SE7
+//////#define  Induc_5    ADC0_SE13
+//////#define  Induc_4    ADC0_SE7
 //#define  Induc_3    ADC0_SE6	
 //#define  Induc_2    ADC0_SE5     
 //#define  Induc_1    ADC0_SE4		 

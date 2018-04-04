@@ -157,7 +157,7 @@ void update_1cm_error(void)
 
   update_dis1cm_encoder += (getCountNum_L + getCountNum_R)/2;;//累加当前编码器测得脉冲数
   
-  if(update_dis1cm_encoder >= 24) //1cm对应75个脉冲数
+  if(update_dis1cm_encoder >= 24) //1cm对应24个脉冲数
   {
    update_dis1cm_encoder = 0;
    for(i = 24; i > 0;i--)
@@ -170,7 +170,6 @@ void update_1cm_error(void)
 void deal_sensor(Sensor_info *sensor)//电感处理
 {
     char i;
-//    get_adc_int_value();	//滤波后AD值
 	
 	 for(i = 1;i <= 6 ;i++)  //一次归一化处理
 	{
@@ -232,7 +231,7 @@ void deal_sensor(Sensor_info *sensor)//电感处理
 			{																	//更新偏差队列
 			Servo.error[i] = Servo.error[i-1];
 			}
-			Servo.error[0] = 25*(sensor->twice_uni_ad[1] - sensor->twice_uni_ad[6]); //求出电感差值
+			Servo.error[0] = 40*(sensor->twice_uni_ad[3] - sensor->twice_uni_ad[4]); //求出电感差值
 																																							
 			
 			update_1cm_error();

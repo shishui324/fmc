@@ -83,7 +83,7 @@ void servo_pid_caculate(void)           //差速控制pid
 			
 	}
 	else{
-		if(sum_16_34<100)	//丢线判断
+		if(sum_16_34<80)	//丢线判断
 		{	
 #if	Protect_ON
 		motor_protect_time++;								//保护计数累加
@@ -212,10 +212,10 @@ void control(void)  //控制函数
 	
 //   deal_sensor();
 
-    servo_pid_caculate();
-	speed_control();
+  servo_pid_caculate();
+//	speed_control();
 	
-//	Motor.set_value[0] = 10;
+	Motor.set_value[0] = 9;
 	
 //	Servo.output = 0.09 * Motor.set_value[0] * Servo.output;  //0.05
 	Motor_control.Motor_Left_pid.set_value[0] = Motor.set_value[0] - Servo.output;
