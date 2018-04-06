@@ -10,6 +10,10 @@
 
 ////extern void speed_set_val(Servo_pid_info *servo,Motor_pid_info *motor);
 //extern Servo_info Servo;
+
+extern uint8_t circle_turn;
+
+extern uint16 circle_distence;
 extern uint32 motor_protect_time;//保护参数
 extern Motor_pid_info Motor;
 extern Servo_info Servo;

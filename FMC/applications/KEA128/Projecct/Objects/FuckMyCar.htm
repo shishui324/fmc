@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\FuckMyCar.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\FuckMyCar.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Apr 04 22:09:21 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Apr 05 21:28:25 2018
 <BR><P>
 <H3>Maximum Stack Usage =        280 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -252,7 +252,6 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_sensor
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_Histogram
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_8_L
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_1cm_error
 </UL>
@@ -302,7 +301,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_round
 <LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
+<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control
 <LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_adc_int_value
@@ -326,8 +325,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fmul
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_one_sensor
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_adc_int_value
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deal_sensor
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Save_Servo
@@ -354,8 +353,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_epilogue
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_sensor
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_1cm_error
 </UL>
 
@@ -366,7 +365,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_sensor
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Show_UI
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_adc_int_value
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_Servo
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read_Right_motor
@@ -379,8 +378,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangeParameterVal
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control
 </UL>
 
@@ -396,8 +395,8 @@ Global Symbols
 
 <P><STRONG><a name="[9b]"></a>__aeabi_f2iz</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, ffixi.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_sensor
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deal_sensor
 </UL>
@@ -405,8 +404,8 @@ Global Symbols
 <P><STRONG><a name="[c5]"></a>__aeabi_cfcmpeq</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, cfcmple.o(.text), UNUSED)
 
 <P><STRONG><a name="[b4]"></a>__aeabi_cfcmple</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, cfcmple.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
+<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
 </UL>
 
 <P><STRONG><a name="[60]"></a>Key_Inquire_data</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, car_key.o(i.Key_Inquire_data))
@@ -433,8 +432,8 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangeParameterVal
 <LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
@@ -445,7 +444,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangeParameterVal
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
 </UL>
 
 <P><STRONG><a name="[43]"></a>__aeabi_drsub</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, dadd.o(.text), UNUSED)
@@ -457,8 +456,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_adc_int_value
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deal_sensor
@@ -487,7 +486,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangeParameterVal
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
 </UL>
 
 <P><STRONG><a name="[48]"></a>__aeabi_d2uiz</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, dfixui.o(.text))
@@ -500,14 +499,15 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[54]"></a>__aeabi_f2d</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, f2d.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Show_Servo_PID
+<BR><BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_circle
+<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Show_Servo_PID
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Show_Right_Motor_PID
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Show_Main_menu
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Show_Left_Motor_PID
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Change_Main_menu
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangeParameterVal
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cache_OLED_P6x8floatNum
 </UL>
 
@@ -521,13 +521,15 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_round
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangeParameterVal
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deal_sensor
 </UL>
 
-<P><STRONG><a name="[9f]"></a>__aeabi_cfrcmple</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, cfrcmple.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
+<P><STRONG><a name="[9c]"></a>__aeabi_cfrcmple</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, cfrcmple.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;deal_sensor
 </UL>
 
@@ -629,7 +631,6 @@ Global Symbols
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_sensor
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_Histogram
 </UL>
 
 <P><STRONG><a name="[52]"></a>Cache_OLED_P6x8Str</STRONG> (Thumb, 88 bytes, Stack size 24 bytes, oled.o(i.Cache_OLED_P6x8Str))
@@ -668,7 +669,6 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_sensor
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_one_sensor
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_Histogram
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_8_L
 </UL>
 
@@ -694,6 +694,7 @@ Global Symbols
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_one_sensor
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_circle
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_8_L
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Show_speed
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Show_Servo_PID
@@ -768,7 +769,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ConfigParameter
 </UL>
 
-<P><STRONG><a name="[6b]"></a>ConfigParameterCore</STRONG> (Thumb, 1116 bytes, Stack size 8 bytes, myui.o(i.ConfigParameterCore))
+<P><STRONG><a name="[6b]"></a>ConfigParameterCore</STRONG> (Thumb, 1108 bytes, Stack size 8 bytes, myui.o(i.ConfigParameterCore))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = ConfigParameterCore &rArr; Cache_OLED_P6x8Str
 </UL>
 <BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Inquire_data
@@ -1085,7 +1086,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_sensor
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_one_sensor
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_Histogram
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_circle
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;show_8_L
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Show_Main_menu
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
@@ -1104,7 +1105,7 @@ Global Symbols
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Change_UI
 </UL>
 
-<P><STRONG><a name="[6a]"></a>Speed_menu</STRONG> (Thumb, 320 bytes, Stack size 8 bytes, myui.o(i.Speed_menu))
+<P><STRONG><a name="[6a]"></a>Speed_menu</STRONG> (Thumb, 334 bytes, Stack size 8 bytes, myui.o(i.Speed_menu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = Speed_menu &rArr; ChangeParameterVal &rArr; __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay_ms
@@ -1216,22 +1217,23 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_adc_int_value
 </UL>
 
-<P><STRONG><a name="[82]"></a>control</STRONG> (Thumb, 336 bytes, Stack size 32 bytes, control.o(i.control))
+<P><STRONG><a name="[82]"></a>control</STRONG> (Thumb, 356 bytes, Stack size 32 bytes, control.o(i.control))
 <BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = control &rArr; motor_pid_caculate &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;servo_pid_caculate
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_pid_caculate
 <LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 <LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_set
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_set
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PIT_CH0_IRQHandler
 </UL>
 
-<P><STRONG><a name="[81]"></a>deal_sensor</STRONG> (Thumb, 296 bytes, Stack size 48 bytes, sensor.o(i.deal_sensor))
+<P><STRONG><a name="[81]"></a>deal_sensor</STRONG> (Thumb, 310 bytes, Stack size 48 bytes, sensor.o(i.deal_sensor))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = deal_sensor &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
@@ -1241,7 +1243,7 @@ Global Symbols
 <LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_1cm_error
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
@@ -1292,7 +1294,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_set
+<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_set
 </UL>
 
 <P><STRONG><a name="[a5]"></a>ftm_pwm_init</STRONG> (Thumb, 278 bytes, Stack size 48 bytes, kea128_ftm.o(i.ftm_pwm_init))
@@ -1365,13 +1367,13 @@ Global Symbols
 <P><STRONG><a name="[7d]"></a>gpio_set</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, kea128_gpio.o(i.gpio_set))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = gpio_set
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_set
+<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;motor_set
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WriteData
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_WriteCmd
 </UL>
 
-<P><STRONG><a name="[26]"></a>main</STRONG> (Thumb, 298 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[26]"></a>main</STRONG> (Thumb, 296 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = main &rArr; time_10ms_serve &rArr; OLED_ConfigParameter &rArr; Change_UI &rArr; Speed_menu &rArr; ChangeParameterVal &rArr; __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pit_init
@@ -1399,7 +1401,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[9d]"></a>motor_pid_caculate</STRONG> (Thumb, 536 bytes, Stack size 112 bytes, control.o(i.motor_pid_caculate))
+<P><STRONG><a name="[9e]"></a>motor_pid_caculate</STRONG> (Thumb, 536 bytes, Stack size 112 bytes, control.o(i.motor_pid_caculate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = motor_pid_caculate &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
@@ -1411,7 +1413,7 @@ Global Symbols
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 <LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
@@ -1419,7 +1421,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control
 </UL>
 
-<P><STRONG><a name="[9e]"></a>motor_set</STRONG> (Thumb, 176 bytes, Stack size 8 bytes, motor.o(i.motor_set))
+<P><STRONG><a name="[9f]"></a>motor_set</STRONG> (Thumb, 176 bytes, Stack size 8 bytes, motor.o(i.motor_set))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = motor_set &rArr; ftm_pwm_duty &rArr; __aeabi_uidivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_set
@@ -1442,7 +1444,7 @@ Global Symbols
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Init
 </UL>
 
-<P><STRONG><a name="[9c]"></a>servo_pid_caculate</STRONG> (Thumb, 388 bytes, Stack size 56 bytes, control.o(i.servo_pid_caculate))
+<P><STRONG><a name="[9d]"></a>servo_pid_caculate</STRONG> (Thumb, 860 bytes, Stack size 56 bytes, control.o(i.servo_pid_caculate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = servo_pid_caculate &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
@@ -1452,6 +1454,7 @@ Global Symbols
 <LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 <LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 </UL>
@@ -1468,12 +1471,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Show_UI
 </UL>
 
-<P><STRONG><a name="[8f]"></a>show_Histogram</STRONG> (Thumb, 256 bytes, Stack size 8 bytes, myui.o(i.show_Histogram))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = show_Histogram &rArr; Cache_OLED_P6x8Num &rArr; __2sprintf
+<P><STRONG><a name="[8f]"></a>show_circle</STRONG> (Thumb, 134 bytes, Stack size 24 bytes, myui.o(i.show_circle))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = show_circle &rArr; Cache_OLED_printf &rArr; Cache_OLED_P6x8Str
 </UL>
-<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cache_OLED_Rectangle
-<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cache_OLED_P6x8Num
-<LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
+<BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cache_OLED_printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Show_UI
 </UL>
@@ -1490,7 +1492,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Show_UI
 </UL>
 
-<P><STRONG><a name="[8c]"></a>show_sensor</STRONG> (Thumb, 282 bytes, Stack size 8 bytes, myui.o(i.show_sensor))
+<P><STRONG><a name="[8c]"></a>show_sensor</STRONG> (Thumb, 314 bytes, Stack size 8 bytes, myui.o(i.show_sensor))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = show_sensor &rArr; Cache_OLED_P6x8floatNum &rArr; __2snprintf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f

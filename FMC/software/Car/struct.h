@@ -46,11 +46,11 @@ typedef struct
   int16 output;
   int16 speed_racc;             //电机加速度
   float last_uk;               //上一次的控制量输出绝对值，即电机占空比/10
-  float  kp;
-  float  ki;
-  float  kd; 
-  float  kvff;      //速度前馈系数
-  float  kaff;      //加速度系数
+  float kp;
+  float ki;
+  float kd; 
+  float kvff;      //速度前馈系数
+  float kaff;      //加速度系数
   float delta_uk;
   float out_duty;
  

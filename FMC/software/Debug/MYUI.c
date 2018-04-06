@@ -17,7 +17,7 @@ uint8 Read_Flag=0;		//读取参数标志
 extern float sum_16_34;
 extern float sub_25;
 extern uint16 ad_avr_val[10];
-
+extern Motor_control_info Motor_control;
 extern ADC_info Adc;
 extern Sensor_info Sensor;
 
@@ -29,7 +29,7 @@ extern Sensor_info Sensor;
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void ConfigParameterCore() {
     uint8 Para_max=7;
-    if(Key_Flag2)
+    if(Key_Flag4)
         Para_max=14;
     else Para_max=7;
 
@@ -112,7 +112,7 @@ void ConfigParameterCore() {
         {
             state=1;
         }
-        else if(Key_Flag2)
+        else if(Key_Flag4)
         {
             state=2;
         }
@@ -365,7 +365,9 @@ void show_sensor(void)
     Cache_OLED_P6x8floatNum(40,0,Servo.error[0]);
     Cache_OLED_P6x8floatNum(40,1,Servo.output);
     Cache_OLED_P6x8floatNum(40,2,sum_16_34);
-    Cache_OLED_P6x8floatNum(40,3,motor_protect_time);
+		Cache_OLED_P6x8floatNum(40,3,sub_25);
+		Cache_OLED_P6x8floatNum(40,4,circle_distence);
+    Cache_OLED_P6x8floatNum(40,5,motor_protect_time);
 
 
 }
@@ -419,27 +421,41 @@ void show_one_sensor(void)
 **  日       期:
 ***************************************************************************/
 
-void show_Histogram(void)
+void show_circle(void)
 {
 
-    Cache_OLED_Rectangle( 0,  (63-((uint16_t)(ad_avr_val[1])*63/3000)),  8,   63);
-    Cache_OLED_Rectangle(16,  (63-((uint16_t)(ad_avr_val[2])*63/3000)),  24,   63);
-    Cache_OLED_Rectangle(32,  (63-((uint16_t)(ad_avr_val[3])*63/3000)),  40,   63);
-//	Cache_OLED_Rectangle(48,  (63-((uint16_t)(ad_avr_val[4])*63/3000)),  56,   63);
-//	Cache_OLED_Rectangle(64,  (63-((uint16_t)(ad_avr_val[5])*63/3000)),  72,   63);
-    Cache_OLED_Rectangle(80,  (63-((uint16_t)(ad_avr_val[4])*63/3000)),  88,   63);
-    Cache_OLED_Rectangle(96,  (63-((uint16_t)(ad_avr_val[5])*63/3000)),  104,  63);
-    Cache_OLED_Rectangle(112, (63-((uint16_t)(ad_avr_val[6])*63/3000)),  120,63);
+//    Cache_OLED_Rectangle( 0,  (63-((uint16_t)(ad_avr_val[1])*63/3000)),  8,   63);
+//    Cache_OLED_Rectangle(16,  (63-((uint16_t)(ad_avr_val[2])*63/3000)),  24,   63);
+//    Cache_OLED_Rectangle(32,  (63-((uint16_t)(ad_avr_val[3])*63/3000)),  40,   63);
+////	Cache_OLED_Rectangle(48,  (63-((uint16_t)(ad_avr_val[4])*63/3000)),  56,   63);
+////	Cache_OLED_Rectangle(64,  (63-((uint16_t)(ad_avr_val[5])*63/3000)),  72,   63);
+//    Cache_OLED_Rectangle(80,  (63-((uint16_t)(ad_avr_val[4])*63/3000)),  88,   63);
+//    Cache_OLED_Rectangle(96,  (63-((uint16_t)(ad_avr_val[5])*63/3000)),  104,  63);
+//    Cache_OLED_Rectangle(112, (63-((uint16_t)(ad_avr_val[6])*63/3000)),  120,63);
 
-    Cache_OLED_P6x8Num(0,7,1);
-    Cache_OLED_P6x8Num(16,7,2);
-    Cache_OLED_P6x8Num(32,7,3);
-//
-//	Cache_OLED_P6x8Num(48,7,4);
-//	Cache_OLED_P6x8Num(64,7,5);
-    Cache_OLED_P6x8Num(80,7,4);
-    Cache_OLED_P6x8Num(96,7,5);
-    Cache_OLED_P6x8Num(112,7,6);
+//    Cache_OLED_P6x8Num(0,7,1);
+//    Cache_OLED_P6x8Num(16,7,2);
+//    Cache_OLED_P6x8Num(32,7,3);
+////
+////	Cache_OLED_P6x8Num(48,7,4);
+////	Cache_OLED_P6x8Num(64,7,5);
+//    Cache_OLED_P6x8Num(80,7,4);
+//    Cache_OLED_P6x8Num(96,7,5);
+//    Cache_OLED_P6x8Num(112,7,6);
+	Cache_OLED_printf(10,0,"sum1364=%4f",sum_16_34);
+	Cache_OLED_printf(10,1,"sub25=%4f",sub_25);
+	Cache_OLED_printf(10,2,"circle %d",circle_in);
+	Cache_OLED_printf(10,3,"circle_left %d",circle_left_flag);
+	Cache_OLED_printf(10,4,"circle_right %d",circle_right_flag);
+	Cache_OLED_printf(10,5,"circle_turn %d",circle_turn);
+	Cache_OLED_printf(10,6,"output %d",Servo.output);
+	Cache_OLED_printf(10,7,"circle_dis %d",circle_distence);
+
+//	  Cache_OLED_P6x8floatNum(40,2,sum_16_34);
+//	
+//		Cache_OLED_P6x8floatNum(40,3,sub_25);
+//		Cache_OLED_P6x8floatNum(40,4,circle_distence);
+	
 
 
 
@@ -461,7 +477,7 @@ void Show_Main_menu(void)
     Cache_OLED_P6x8Str(7,1,"1.sensor_show");
     Cache_OLED_P6x8Str(7,2,"2.once_uni_ad");
     Cache_OLED_P6x8Str(7,3,"3.sen");
-    Cache_OLED_P6x8Str(7,4,"4.show_Histogram");
+    Cache_OLED_P6x8Str(7,4,"4.show_circle");
     Cache_OLED_P6x8Str(7,5,"5.");
     Cache_OLED_P6x8Str(7,6,"6.");
     Cache_OLED_P6x8Str(7,7,"7.");
@@ -504,7 +520,7 @@ void Show_UI(void)
         break;
 
         case 4 : {
-            show_Histogram();
+            show_circle();
         }
         break;
         case 5 : {
@@ -653,7 +669,8 @@ void Show_speed(void)
         Cache_OLED_printf(6,3,"high dis:%d",Speed.high_speed_dis);
         Cache_OLED_printf(6,4,"stop:%d",Speed.stop_car_enable);
         Cache_OLED_printf(6,5,"test:%d",Speed.test_time);
-
+//				Cache_OLED_printf(6,6,"VATE:%d",Motor.set_value[0]);
+//				Cache_OLED_printf(6,7,"VATE:%f",Motor.kp);
     }
 
 
@@ -1027,6 +1044,10 @@ void Speed_menu(void)
     break ;                
 		case 12: {             
         ChangeParameterVal(puint16_t,&Speed.test_time,1);
+    }
+    break ;
+		case 13: {             
+        ChangeParameterVal(puint16_t,&Motor.set_value,1);
     }
     break ;
 		

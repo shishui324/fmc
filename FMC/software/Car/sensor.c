@@ -52,8 +52,10 @@ void ad_init(void)
 		adc_init(Induc_6);
 		adc_init(Induc_5);
 		adc_init(Induc_4);
+	
 //		adc_init(Induc_5);
 //		adc_init(Induc_4);
+	
 		adc_init(Induc_3);
 		adc_init(Induc_2);
 		adc_init(Induc_1);
@@ -214,16 +216,21 @@ void deal_sensor(Sensor_info *sensor)//电感处理
 //    twice_uni_ad[2] = once_uni_ad[2] / sum_12 ;
 
 
-
-	if((abs(sub_25>25)&&sum_16_34>250)||circle_in)	//   环 判 断
+																//200
+	if((abs(sub_25)>25&&(sum_16_34>200))||circle_in)	//   环 判 断
 	{
 		circle_in = 1;
+		
+		if(!(circle_left_flag)&&!(circle_right_flag))
+		{
 		if(sensor->once_uni_ad[2]>sensor->once_uni_ad[5])
 			circle_left_flag = 1;
 		else
 			circle_right_flag = 1;
+		}
+
 	}
-    else{
+//    else{
 //		circle_left_flag = 0;
 //		circle_in = 0;
 //		circle_right_flag = 0;
@@ -231,11 +238,11 @@ void deal_sensor(Sensor_info *sensor)//电感处理
 			{																	//更新偏差队列
 			Servo.error[i] = Servo.error[i-1];
 			}
-			Servo.error[0] = 40*(sensor->twice_uni_ad[3] - sensor->twice_uni_ad[4]); //求出电感差值
+			Servo.error[0] = 35*(sensor->twice_uni_ad[3] - sensor->twice_uni_ad[4]); //求出电感差值
 																																							
 			
 			update_1cm_error();
-	}
+//	}
 
 
 }

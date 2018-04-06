@@ -48,6 +48,15 @@
 
 extern float sum_12;   //电感12的和
 extern float sub_12;	//电感12的差
+extern float sub_25;
+
+
+extern uint8 circle_in;
+extern uint8 circle_left_flag;
+extern uint8 circle_right_flag;
+
+
+
 extern float  Power_V;
 extern uint16 ad_max_val[10]; //AD最大值
 extern ADC_info Adc;

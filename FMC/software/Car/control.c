@@ -21,6 +21,7 @@ extern float sub_25;
 extern uint8 circle_left_flag;
 extern uint8 circle_right_flag;
 extern uint8 circle_in;
+uint8_t circle_turn =0;
 uint16 circle_distence = 0;
 
 uint32 motor_protect_time=0;//保护参数
@@ -50,16 +51,57 @@ void servo_pid_caculate(void)           //差速控制pid
 	if(circle_in)
 	{
 		
-
+		if (circle_left_flag)
+		{
+			if(circle_turn)
+			{
+			Servo.output=(int16)(Servo.kp *Servo.error[0] + Servo.kd*5.0* (Servo.error[0]-Servo.error[9]));
+			}
+			else
+					{
+						if(sub_25<-15)
+						{
+							circle_turn =1;
+																
+						}
+						else if((sub_25<0))
+							Servo.output=15;
+						else Servo.output=(int16)(Servo.kp *Servo.error[0] + Servo.kd*5.0* (Servo.error[0]-Servo.error[9]));;							
+					}
+						
+		}
+		else if(circle_right_flag)
+		{
+		
+			if(circle_turn)
+			{
+			Servo.output=(int16)(Servo.kp *Servo.error[0] + Servo.kd*5.0* (Servo.error[0]-Servo.error[9]));
+			}
+			else
+					{
+						if((sub_25>15))
+						{
+								
+								circle_turn =1;
+						}
+						else if (sub_25>0)Servo.output=-15;
+						else Servo.output=(int16)(Servo.kp *Servo.error[0] + Servo.kd*5.0* (Servo.error[0]-Servo.error[9]));
+		
+					}
+		}
+	
+#if 0	
+	if(sub_25==0)
+	{
 
 		if(abs(sub_25)>15)   //八字电感
 //		circle_distence+=(Motor_control.Motor_Left_pid.present_value[0]+Motor_control.Motor_Right_pid.present_value[0])>>2;
 //		if(circle_distence<25*60)
 			Servo.output = 0;
 		else if(circle_left_flag)
-		{
+		{	
 			circle_distence+=(Motor_control.Motor_Left_pid.present_value[0]+Motor_control.Motor_Right_pid.present_value[0])>>2;
-			if(circle_distence<25*20)
+			if(circle_distence<25*50)
 				Servo.output=SERVO_LIMIT_VAL;
 			else{
 				circle_distence = 0;
@@ -70,7 +112,7 @@ void servo_pid_caculate(void)           //差速控制pid
 		else 
 		{
 			circle_distence+=(Motor_control.Motor_Left_pid.present_value[0]+Motor_control.Motor_Right_pid.present_value[0])>>2;
-			if(circle_distence<25*20)
+			if(circle_distence<25*50)
 				Servo.output=-SERVO_LIMIT_VAL;
 			else
 			{
@@ -79,11 +121,24 @@ void servo_pid_caculate(void)           //差速控制pid
 				circle_right_flag = 0;
 			}
 		}
- 
+	}
+	#endif
+		circle_distence+=(Motor_control.Motor_Left_pid.present_value[0]+Motor_control.Motor_Right_pid.present_value[0])>>2;
+		if((abs(sub_25)>25&&(sum_16_34>200)&&circle_turn)||(circle_distence>5000))
+		{
+		circle_in = 0;
+		circle_left_flag = 0;	
+		circle_right_flag = 0;
+		circle_turn=0;
+		circle_distence=0;
+		}
+		
+	
+	
 			
 	}
 	else{
-		if(sum_16_34<80)	//丢线判断
+		if(sum_16_34<100)	//丢线判断
 		{	
 #if	Protect_ON
 		motor_protect_time++;								//保护计数累加
@@ -106,7 +161,10 @@ void servo_pid_caculate(void)           //差速控制pid
 			isLeftlose = false;
 			isRightlose = false;
 	//		/***********差方法************/
-			if(Servo.output>SERVO_LIMIT_VAL)//Servo.output>=0))
+			
+		}
+	}
+	if(Servo.output>SERVO_LIMIT_VAL)//Servo.output>=0))
 			{
 	//			isLeftlose = true;
 				Servo.output = SERVO_LIMIT_VAL;
@@ -116,8 +174,6 @@ void servo_pid_caculate(void)           //差速控制pid
 	//			isLeftlose = true;
 				Servo.output = -SERVO_LIMIT_VAL;
 			}
-		}
-	}
 }
 
 
@@ -190,8 +246,7 @@ void control(void)  //控制函数
 	{
 		STOP_CAR_FLAG = true;
 		motor_protect_time = 0;
-		
-		
+
 	}
 	
     /*******************问题*****************
@@ -202,11 +257,17 @@ void control(void)  //控制函数
 #if !(DEBUG_ON)
 	
 #if Protect_ON
+	if(STOP_CAR_FLAG==false)
+	{
 	if(((abs(Motor_control.Motor_Left_pid.present_value[0]-Motor_control.Motor_Left_pid.set_value[0])>10)
-		||(abs(Motor_control.Motor_Right_pid.set_value[0]-Motor_control.Motor_Right_pid.present_value[0])>10))
-			&&(STOP_CAR_FLAG == false ))
+		||(abs(Motor_control.Motor_Right_pid.set_value[0]-Motor_control.Motor_Right_pid.present_value[0])>10)))
 	{
 		motor_protect_time++;
+	}
+	else if(sum_16_34>100)
+		{
+				motor_protect_time = 0;
+		}
 	}
 #endif 
 	
@@ -214,8 +275,8 @@ void control(void)  //控制函数
 
   servo_pid_caculate();
 //	speed_control();
-	
-	Motor.set_value[0] = 9;
+
+	Motor.set_value[0] = 11;
 	
 //	Servo.output = 0.09 * Motor.set_value[0] * Servo.output;  //0.05
 	Motor_control.Motor_Left_pid.set_value[0] = Motor.set_value[0] - Servo.output;

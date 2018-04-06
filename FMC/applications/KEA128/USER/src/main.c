@@ -116,8 +116,8 @@ int main(void)
 	Speed.wandao_speed_val =12;// 28;                //16  4
 	Speed.zhidao_speed_val =12;// 25;                //25  8
 	
-	Servo.kp = 2.0f	;//1.220f;//1.620f;//7.20f;	//5.2 4.2
-	Servo.kd = 0.8f;//2.5f;   // 1.0  0.2	2.0
+	Servo.kp = 1.22f	;//1.220f;//1.620f;//7.20f;	//5.2 4.2
+	Servo.kd = 2.2f;//2.5f;   // 1.0  0.2	2.0
 	Servo.max_dis_err = 0.0;
 	Servo.distance_err_max_val = 10;	//12.0;
 	Servo.max_dis_err_d = 0.0;
@@ -135,6 +135,8 @@ int main(void)
 	Motor_control.Motor_Right_pid.kd = 2.0;
 	Motor_control.Motor_Right_pid.ki = 4.0;
 	Motor_control.Motor_Right_pid.kp = 12.0;   //1 1 3 2 9
+//	Motor.kp=10.0;
+//	Motor.set_value[0]=11;
 	uint8 i=1;
 	for(i=1;i<=6;i++)
 		ad_max_val[i]=0xfff;

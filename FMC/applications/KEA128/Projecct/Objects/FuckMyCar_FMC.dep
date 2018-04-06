@@ -26,10 +26,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
@@ -63,10 +63,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
@@ -100,10 +100,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
@@ -137,10 +137,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
@@ -174,10 +174,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
@@ -210,10 +210,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_flash.h)(0x5A0E8792)
 I (..\..\..\software\Libraries\drives\inc\KEA128_systick.h)(0x5A054BCA)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
@@ -248,10 +248,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
@@ -285,10 +285,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
@@ -322,10 +322,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
@@ -359,10 +359,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
@@ -396,10 +396,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_systick.h)(0x5A054BCA)
 I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
@@ -433,10 +433,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
@@ -470,10 +470,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
@@ -507,10 +507,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
@@ -525,7 +525,7 @@ I (..\..\..\software\Libraries\startup\CoreSupport\core_cmInstr.h)(0x5A054BCA)
 I (..\..\..\software\Libraries\startup\CoreSupport\core_cmFunc.h)(0x5A054BCA)
 I (..\..\..\software\Libraries\startup\DeviceSupport\system_SKEAZ1284.h)(0x5A054BCA)
 F (..\..\..\software\Libraries\startup\DeviceSupport\MDK-ARM\startup_SKEAZ1284.s)(0x5AC31E2A)(--cpu Cortex-M0+ -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 525" --pd "SKEAZ128xxx4 SETA 1"--list .\listings\startup_skeaz1284.lst --xref -o .\objects\startup_skeaz1284.o --depend .\objects\startup_skeaz1284.d)
-F (..\..\..\software\Module\OLED.c)(0x5AC31E2A)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\oled.o --omf_browse .\objects\oled.crf --depend .\objects\oled.d)
+F (..\..\..\software\Module\OLED.c)(0x5AC5CECB)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\oled.o --omf_browse .\objects\oled.crf --depend .\objects\oled.d)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
 I (..\..\..\software\Libraries\drives\inc\headfile.h)(0x5AC31E2A)
 I (..\..\..\software\Libraries\drives\inc\common.h)(0x5A4B4820)
@@ -552,10 +552,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_systick.h)(0x5A054BCA)
 I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
@@ -591,10 +591,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
@@ -627,18 +627,18 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
 I (..\..\..\software\Module\Myflash.h)(0x5AC37ABA)
 I (..\..\..\software\Car\Debug.h)(0x5AC31E2A)
 I (..\..\..\software\Debug\MYUI.h)(0x5AC31E2A)
-F (..\..\..\software\Car\sensor.c)(0x5AC4BD64)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\sensor.o --omf_browse .\objects\sensor.crf --depend .\objects\sensor.d)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+F (..\..\..\software\Car\sensor.c)(0x5AC618B2)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\sensor.o --omf_browse .\objects\sensor.crf --depend .\objects\sensor.d)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Libraries\drives\inc\common.h)(0x5A4B4820)
 I (..\..\..\software\Libraries\drives\inc\headfile.h)(0x5AC31E2A)
 I (..\..\..\software\Libraries\drives\inc\KEA128_port_cfg.h)(0x5AC31E2A)
@@ -665,16 +665,16 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
 I (..\..\..\software\Module\Myflash.h)(0x5AC37ABA)
 I (..\..\..\software\Car\Debug.h)(0x5AC31E2A)
 I (..\..\..\software\Debug\MYUI.h)(0x5AC31E2A)
-F (..\..\..\software\Car\struct.h)(0x5AC4DA09)()
+F (..\..\..\software\Car\struct.h)(0x5AC5BC77)()
 F (..\..\..\software\Car\Car_Key.c)(0x5AC31E2A)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\car_key.o --omf_browse .\objects\car_key.crf --depend .\objects\car_key.d)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
 I (..\..\..\software\Libraries\drives\inc\common.h)(0x5A4B4820)
@@ -703,16 +703,16 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Module\Myflash.h)(0x5AC37ABA)
 I (..\..\..\software\Car\Debug.h)(0x5AC31E2A)
 I (..\..\..\software\Debug\MYUI.h)(0x5AC31E2A)
-F (..\..\..\software\Car\control.c)(0x5AC4DC86)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\control.o --omf_browse .\objects\control.crf --depend .\objects\control.d)
+F (..\..\..\software\Car\control.c)(0x5AC6246F)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\control.o --omf_browse .\objects\control.crf --depend .\objects\control.d)
 I (..\..\..\software\Libraries\drives\inc\headfile.h)(0x5AC31E2A)
 I (..\..\..\software\Libraries\drives\inc\common.h)(0x5A4B4820)
 I (..\..\..\software\Libraries\drives\inc\KEA128_port_cfg.h)(0x5AC31E2A)
@@ -739,10 +739,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
@@ -778,10 +778,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
 I (..\..\..\software\Module\Myflash.h)(0x5AC37ABA)
@@ -814,10 +814,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
@@ -852,17 +852,17 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
 I (..\..\..\software\Module\Myflash.h)(0x5AC37ABA)
 I (..\..\..\software\Car\Debug.h)(0x5AC31E2A)
 I (..\..\..\software\Debug\MYUI.h)(0x5AC31E2A)
-F (..\..\..\software\Debug\MYUI.c)(0x5AC4DC2E)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\myui.o --omf_browse .\objects\myui.crf --depend .\objects\myui.d)
+F (..\..\..\software\Debug\MYUI.c)(0x5AC61564)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\myui.o --omf_browse .\objects\myui.crf --depend .\objects\myui.d)
 I (..\..\..\software\Libraries\drives\inc\headfile.h)(0x5AC31E2A)
 I (..\..\..\software\Libraries\drives\inc\common.h)(0x5A4B4820)
 I (..\..\..\software\Libraries\drives\inc\KEA128_port_cfg.h)(0x5AC31E2A)
@@ -889,10 +889,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
@@ -928,17 +928,17 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
 I (..\..\..\software\Module\Myflash.h)(0x5AC37ABA)
 I (..\..\..\software\Car\Debug.h)(0x5AC31E2A)
 I (..\..\..\software\Debug\MYUI.h)(0x5AC31E2A)
-F (..\USER\src\main.c)(0x5AC31E2A)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (..\USER\src\main.c)(0x5AC613DA)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (..\..\..\software\Libraries\drives\inc\headfile.h)(0x5AC31E2A)
 I (..\..\..\software\Libraries\drives\inc\common.h)(0x5A4B4820)
 I (..\..\..\software\Libraries\drives\inc\KEA128_port_cfg.h)(0x5AC31E2A)
@@ -965,10 +965,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5A054BCA)
 I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5A14D6F0)
 I (..\..\..\software\Module\OLED.h)(0x5AC31E2A)
-I (..\..\..\software\Car\struct.h)(0x5AC4DA09)
-I (..\..\..\software\Car\sensor.h)(0x5AC4B50C)
+I (..\..\..\software\Car\struct.h)(0x5AC5BC77)
+I (..\..\..\software\Car\sensor.h)(0x5AC5F163)
 I (..\..\..\software\Debug\ANO_DT.h)(0x58E3D62C)
-I (..\..\..\software\Car\control.h)(0x5AC31E2A)
+I (..\..\..\software\Car\control.h)(0x5AC5EEE7)
 I (..\..\..\software\Car\motor.h)(0x5AC31E2A)
 I (..\..\..\software\Car\encode.h)(0x5AC31E2A)
 I (..\..\..\software\Car\Car_Key.h)(0x5AC31E2A)
