@@ -45,6 +45,7 @@
 .\objects\myui.o: ..\..\..\software\Car\encode.h
 .\objects\myui.o: ..\..\..\software\Car\Car_Key.h
 .\objects\myui.o: ..\..\..\software\Module\Myflash.h
+.\objects\myui.o: ..\..\..\software\Car\BB.h
 .\objects\myui.o: ..\..\..\software\Car\Debug.h
 .\objects\myui.o: ..\..\..\software\Debug\MYUI.h
 .\objects\myui.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

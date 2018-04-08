@@ -517,6 +517,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\software\Car\encode.c</FilePath>
             </File>
+            <File>
+              <FileName>BB.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\software\Car\BB.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

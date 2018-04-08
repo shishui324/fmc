@@ -47,6 +47,7 @@
 .\objects\kea128_systick.o: ..\..\..\software\Car\encode.h
 .\objects\kea128_systick.o: ..\..\..\software\Car\Car_Key.h
 .\objects\kea128_systick.o: ..\..\..\software\Module\Myflash.h
+.\objects\kea128_systick.o: ..\..\..\software\Car\BB.h
 .\objects\kea128_systick.o: ..\..\..\software\Car\Debug.h
 .\objects\kea128_systick.o: ..\..\..\software\Debug\MYUI.h
 .\objects\kea128_systick.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h

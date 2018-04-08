@@ -46,6 +46,7 @@
 .\objects\oled.o: ..\..\..\software\Car\encode.h
 .\objects\oled.o: ..\..\..\software\Car\Car_Key.h
 .\objects\oled.o: ..\..\..\software\Module\Myflash.h
+.\objects\oled.o: ..\..\..\software\Car\BB.h
 .\objects\oled.o: ..\..\..\software\Car\Debug.h
 .\objects\oled.o: ..\..\..\software\Debug\MYUI.h
 .\objects\oled.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h

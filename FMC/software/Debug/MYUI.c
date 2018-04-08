@@ -15,11 +15,16 @@ uint8 Read_Flag=0;		//读取参数标志
 
 //通过修改这个使能菜单数组，可以设置某个参数号下是否能有二级菜单。1表示有二级菜单，0表示没有
 extern float sum_16_34;
-extern float sub_25;
+
+extern uint16_t encode_time;
+extern uint16_t sensor_time;
+extern uint16_t control_time;
+
 extern uint16 ad_avr_val[10];
 extern Motor_control_info Motor_control;
 extern ADC_info Adc;
 extern Sensor_info Sensor;
+extern Motor_pid_info Motor;
 
 //调参界面中：
 //上下可以切换选中的参数
@@ -85,7 +90,6 @@ void ConfigParameterCore() {
     {
         state ++;
 
-
         if((state==2)&&(Parameter2No==2)&&(Key_Flag4))
         {
             Save_Flag=1;
@@ -97,12 +101,17 @@ void ConfigParameterCore() {
 
     }
 
-    if((Key_Inquire_data(Key_Left_Read) == Key_bit_Drop) || (Key_Inquire_data(Key_Left_Read) == Key_bit_Acc))
+    if(Key_Inquire_data(Key_Left_Read) == Key_bit_Drop) 
     {
         state--;
 
 
     }
+		if(Key_Inquire_data(Key_Left_Read) == Key_bit_ACCRise)
+		{
+		OLED_Init();
+		
+		}
     ///////菜单限制
 //		if((en_sec_menu[ParameterNo-1]==0)&&(state>1))
 //		state=1;
@@ -365,7 +374,7 @@ void show_sensor(void)
     Cache_OLED_P6x8floatNum(40,0,Servo.error[0]);
     Cache_OLED_P6x8floatNum(40,1,Servo.output);
     Cache_OLED_P6x8floatNum(40,2,sum_16_34);
-		Cache_OLED_P6x8floatNum(40,3,sub_25);
+		Cache_OLED_P6x8floatNum(40,3,sub_25[0]);
 		Cache_OLED_P6x8floatNum(40,4,circle_distence);
     Cache_OLED_P6x8floatNum(40,5,motor_protect_time);
 
@@ -442,14 +451,16 @@ void show_circle(void)
 //    Cache_OLED_P6x8Num(80,7,4);
 //    Cache_OLED_P6x8Num(96,7,5);
 //    Cache_OLED_P6x8Num(112,7,6);
-	Cache_OLED_printf(10,0,"sum1364=%4f",sum_16_34);
-	Cache_OLED_printf(10,1,"sub25=%4f",sub_25);
-	Cache_OLED_printf(10,2,"circle %d",circle_in);
-	Cache_OLED_printf(10,3,"circle_left %d",circle_left_flag);
-	Cache_OLED_printf(10,4,"circle_right %d",circle_right_flag);
-	Cache_OLED_printf(10,5,"circle_turn %d",circle_turn);
-	Cache_OLED_printf(10,6,"output %d",Servo.output);
-	Cache_OLED_printf(10,7,"circle_dis %d",circle_distence);
+	Cache_OLED_printf(0,0,"sum:%.1f",sum_16_34);
+	Cache_OLED_printf(0,1,"sub:%.1f",sub_25[0]);
+	Cache_OLED_printf(0,2,"IN: %4d",circle_in);
+	Cache_OLED_printf(0,3,"L : %4d",circle_left_flag);
+	Cache_OLED_printf(0,4,"R : %4d",circle_right_flag);
+	Cache_OLED_printf(0,5,"turn%4d",circle_turn);
+	Cache_OLED_printf(0,6,"out:%4d",Servo.output);
+	Cache_OLED_printf(0,7,"dis:%4d",circle_distence);
+	Cache_OLED_printf(64,7,"er:%4d",Servo.error[0]);
+	Cache_OLED_printf(64,6,"%d",motor_protect_time);
 
 //	  Cache_OLED_P6x8floatNum(40,2,sum_16_34);
 //	
@@ -459,6 +470,23 @@ void show_circle(void)
 
 
 
+
+}
+
+/***********************************************************************
+**  函数名称:
+**  函数功能:
+**  输 入 值:
+**  返 回 值:
+**  其他说明:
+**  日    期:
+***************************************************************************/
+
+void show_run_time()
+{
+ Cache_OLED_printf(20,1,"encode %d",encode_time);
+	Cache_OLED_printf(20,2,"sensor %d",sensor_time);
+	Cache_OLED_printf(20,3,"control %d",control_time);
 
 }
 /***********************************************************************
@@ -479,7 +507,7 @@ void Show_Main_menu(void)
     Cache_OLED_P6x8Str(7,3,"3.sen");
     Cache_OLED_P6x8Str(7,4,"4.show_circle");
     Cache_OLED_P6x8Str(7,5,"5.");
-    Cache_OLED_P6x8Str(7,6,"6.");
+    Cache_OLED_P6x8Str(7,6,"6.run time");
     Cache_OLED_P6x8Str(7,7,"7.");
 
 }
@@ -534,6 +562,7 @@ void Show_UI(void)
         break;
 
         case 6 : {
+					show_run_time();
         } break;
 
         case 7 : {
@@ -669,7 +698,7 @@ void Show_speed(void)
         Cache_OLED_printf(6,3,"high dis:%d",Speed.high_speed_dis);
         Cache_OLED_printf(6,4,"stop:%d",Speed.stop_car_enable);
         Cache_OLED_printf(6,5,"test:%d",Speed.test_time);
-//				Cache_OLED_printf(6,6,"VATE:%d",Motor.set_value[0]);
+				Cache_OLED_printf(6,6,"VATE:%d",Motor.set_value[0]);
 //				Cache_OLED_printf(6,7,"VATE:%f",Motor.kp);
     }
 
@@ -1047,7 +1076,7 @@ void Speed_menu(void)
     }
     break ;
 		case 13: {             
-        ChangeParameterVal(puint16_t,&Motor.set_value,1);
+        ChangeParameterVal(puint16_t,Motor.set_value,1);
     }
     break ;
 		

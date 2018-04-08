@@ -48,7 +48,7 @@ void    pit_close(PITn pitn);
 
 //------------------------------------以下代码用于PIT延时------------------------------------
 #define     pit_delay_ms(PITn_e,ms)          pit_delay(PITn_e,ms * bus_clk_khz);                //PIT延时 ms
-#define     pit_delay_us(PITn_e,us)          pit_delay(PITn_e,us * bus_clk_khz/1000);           //PIT延时 us
+#define     pit_delay_us(PITn_e,us)     .,m?     pit_delay(PITn_e,us * bus_clk_khz/1000);           //PIT延时 us
 #define     pit_delay_ns(PITn_e,ns)          pit_delay(PITn_e,ns * bus_clk_khz/1000000);        //PIT延时 ns(40M总线频率时最小单位为25ns)
 
 

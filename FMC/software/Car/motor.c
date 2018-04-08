@@ -70,8 +70,6 @@ void motor_set(void)
 	{
 		ftm_pwm_duty(ftm2,ftm_ch5,0);
 		ftm_pwm_duty(ftm2,ftm_ch3,0);
-		
-		Motor.set_value[0] = 0;
 	}
 	else
 	{

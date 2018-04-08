@@ -4,6 +4,7 @@ extern uint32_t time_1ms;
 extern uint32_t time_5ms;
 extern uint32_t time_10ms;
 extern uint32_t time_20ms;
+extern uint32_t time_500ms;
 // uint32_t time_50ms;
 //extern uint32_t time_100ms;
 //extern uint32_t time_200ms;
@@ -12,6 +13,9 @@ extern uint32_t time_20ms;
 //extern uint32_t time_2s;
 //extern uint32_t time_5s;
 //extern uint32_t time_10s;
+extern uint16_t encode_time;
+extern uint16_t sensor_time;
+extern uint16_t control_time;
 
 
 
@@ -19,13 +23,28 @@ extern void get_adc_int_value(void);
 extern void control(void);
 void PIT_CH0_IRQHandler(void)
 {
-    PIT_FlAG_CLR(pit0);                     //清pit0标志位
 	
+	
+  PIT_FlAG_CLR(pit0);                     //清pit0标志位
+	
+		
+	Bell_Play();
+	pit_time_start(pit1);
 	get_num();	 //获取编码器值
-//  get_adc_int_value();
+	encode_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
+	pit_close(pit1);
+	
+	
+	pit_time_start(pit1);
 	get_adc_int_value();	//滤波后AD值
 	deal_sensor(&Sensor);
+	sensor_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
+	pit_close(pit1);
+	
+	pit_time_start(pit1);
 	control();
+	control_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
+	pit_close(pit1);
 	
 	
 	
@@ -47,6 +66,10 @@ void PIT_CH0_IRQHandler(void)
 			if(!(time_1ms % 20))
 			{
 				time_20ms++;
+			}
+			if(!(time_1ms % 500))
+			{
+				time_500ms++;
 			time_1ms = 0;}
 	}
 /*
@@ -81,6 +104,12 @@ void PIT_CH0_IRQHandler(void)
 }
 
 
+void PIT_CH1_IRQHandler(void)
+{
+	
+	 PIT_FlAG_CLR(pit1); 
+	
+}
 void IRQ_IRQHandler(void)
 {
     CLEAR_IRQ_FLAG;

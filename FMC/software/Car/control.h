@@ -12,6 +12,7 @@
 //extern Servo_info Servo;
 
 extern uint8_t circle_turn;
+extern bool circle_flag;
 
 extern uint16 circle_distence;
 extern uint32 motor_protect_time;//保护参数

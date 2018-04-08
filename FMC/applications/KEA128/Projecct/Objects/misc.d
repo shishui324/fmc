@@ -47,5 +47,6 @@
 .\objects\misc.o: ..\..\..\software\Car\encode.h
 .\objects\misc.o: ..\..\..\software\Car\Car_Key.h
 .\objects\misc.o: ..\..\..\software\Module\Myflash.h
+.\objects\misc.o: ..\..\..\software\Car\BB.h
 .\objects\misc.o: ..\..\..\software\Car\Debug.h
 .\objects\misc.o: ..\..\..\software\Debug\MYUI.h

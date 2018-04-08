@@ -29,6 +29,15 @@ uint32_t time_5s = 0;
 uint32_t time_10s = 0;
 
 
+uint16_t encode_time=0;
+uint16_t sensor_time=0;
+uint16_t control_time=0;
+
+
+
+
+
+
 
 
 
@@ -97,13 +106,18 @@ int main(void)
 		encode_init();//编码器初始化
 		Key_Message_Init(); //按键初始化
 	
-	
     
-    gpio_init(H6,GPO,0);    //LED1
+    gpio_init(H6,GPO,1);    //LED1
+	
 		gpio_init(H5,GPO,0);    //LED2	
 		gpio_init(H2,GPO,1);    //LED4
 //
     uart_init(DEBUG_PORT,DEBUG_BAUD);
+		
+		
+		pit_init(pit1,1000);								//定时1000个bus时钟后中断
+		set_irq_priority(PIT_CH0_IRQn,0);				//设置优先级,根据自己的需求设置 可设置范围为 0 - 3  越小优先级越高
+		enable_irq(PIT_CH1_IRQn);							//打开pit0的中断开关
 
 		pit_init_ms(pit0,1);                            //初始化pit0 周期设置为1ms
     set_irq_priority(PIT_CH0_IRQn,1);	            //设置pit0优先级
@@ -112,45 +126,44 @@ int main(void)
 
 	/*******参数初始化*******/
 	  //速度                //
-	Speed.cross_speed_val = 10;//20;                 //20  6
-	Speed.wandao_speed_val =12;// 28;                //16  4
-	Speed.zhidao_speed_val =12;// 25;                //25  8
-	
+	Speed.cross_speed_val = 8;						//20;                 //20  6
+	Speed.wandao_speed_val =8;						// 28;                //16  4
+	Speed.zhidao_speed_val =10;						// 25;                //25  8
+							
 	Servo.kp = 1.22f	;//1.220f;//1.620f;//7.20f;	//5.2 4.2
 	Servo.kd = 2.2f;//2.5f;   // 1.0  0.2	2.0
 	Servo.max_dis_err = 0.0;
 	Servo.distance_err_max_val = 10;	//12.0;
-	Servo.max_dis_err_d = 0.0;
-	Servo.distance_err_d_max_val = 4.0;	//5
-	
-	
-	Motor_control.Motor_Left_pid.kvff = 1.0;
-	Motor_control.Motor_Left_pid.kaff = 1.0;
-	Motor_control.Motor_Left_pid.kd = 2.0;
-	Motor_control.Motor_Left_pid.ki = 4.0;
-	Motor_control.Motor_Left_pid.kp = 12.0;
-
-	Motor_control.Motor_Right_pid.kvff = 1.0;
-	Motor_control.Motor_Right_pid.kaff = 1.0;
-	Motor_control.Motor_Right_pid.kd = 2.0;
-	Motor_control.Motor_Right_pid.ki = 4.0;
-	Motor_control.Motor_Right_pid.kp = 12.0;   //1 1 3 2 9
-//	Motor.kp=10.0;
-//	Motor.set_value[0]=11;
-	uint8 i=1;
-	for(i=1;i<=6;i++)
-		ad_max_val[i]=0xfff;
-
+		Servo.max_dis_err_d = 0.0;
+		Servo.distance_err_d_max_val = 4.0;	//5
 		
-		Motor_control.Motor_Left_pid.present_value[0] = 0;
+		
+		Motor_control.Motor_Left_pid.kvff = 1.0;
+		Motor_control.Motor_Left_pid.kaff = 1.0;
+		Motor_control.Motor_Left_pid.kd = 2.0;
+		Motor_control.Motor_Left_pid.ki = 4.0;
+		Motor_control.Motor_Left_pid.kp = 12.0;
 
+		Motor_control.Motor_Right_pid.kvff = 1.0;
+		Motor_control.Motor_Right_pid.kaff = 1.0;
+		Motor_control.Motor_Right_pid.kd = 2.0;
+		Motor_control.Motor_Right_pid.ki = 4.0;
+		Motor_control.Motor_Right_pid.kp = 12.0;   //1 1 3 2 9
+	//	Motor.kp=10.0;
+	//	Motor.set_value[0]=11;
+		uint8 i=1;
+		for(i=1;i<=6;i++)
+			ad_max_val[i]=0xfff;
+
+//			Motor.set_value[1] = 12;
+	
     while(1)
     {
-		
-		
+			
 		if(time_5ms){time_5ms--;time_5ms_serve();}
 		if(time_10ms){time_10ms--;time_10ms_serve();}
 		if(time_20ms){time_20ms--;time_20ms_serve();}
+		if(time_500ms){time_500ms--;time_500ms_serve();}
     }
 }
 
@@ -162,24 +175,25 @@ int main(void)
 void time_5ms_serve(void)
 {
 	
-//	control();
 }	
 void time_20ms_serve(void)
 {
 //	uint8 i;
-////	ANO_DT_Data_Exchange_ToMe();		//匿名上位机对应
+//	ANO_DT_Data_Exchange_ToMe();		//匿名上位机对应
 //	float send_buf[6];
 //	for(i=6;i>0;i--)
 //	{
 //				send_buf[i-1]=Sensor.once_uni_ad[i];
 
 //	}	
-//		
+	int32_t send_buf[2];
+	send_buf[1]=Servo.error[0];
+	send_buf[0]=Servo.error[0]-Servo.error[1];		
 
-//	
-//	
-//	vcan_sendware(send_buf,sizeof(send_buf));
-//	
+	
+	
+	vcan_sendware(send_buf,sizeof(send_buf));
+	
 	
 }
 
@@ -212,6 +226,11 @@ void time_10ms_serve(void)
 //	OLED_ConfigParameter();
 //	Cache_Update_OLED();	
 	
+}
+void time_500ms_serve(void)
+{
+	
+
 }
 
 

@@ -41,10 +41,11 @@ typedef struct
 //电机，速度
 typedef struct 
 { 
-  uint8 INH;                    //软件使能
+//  uint8 INH;                    //软件使能
   int16 set_value_temp;         //遥控设定速度临时变量
   int16 output;
   int16 speed_racc;             //电机加速度
+	uint16 kvff_param; 
   float last_uk;               //上一次的控制量输出绝对值，即电机占空比/10
   float kp;
   float ki;
@@ -54,7 +55,7 @@ typedef struct
   float delta_uk;
   float out_duty;
  
-  uint16 kvff_param; 
+  
   int16 present_value[10];  //编码器实际测得值
   int16 error[10];          //误差队列
   int16 set_value[10];      //速度设定队列   

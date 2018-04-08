@@ -289,10 +289,13 @@ void control(void)  //¿ØÖÆº¯Êý
 		}
 	}
 #endif 
+	
+//   deal_sensor();
+
   servo_pid_caculate();
 	speed_control();
 
-//	Motor.set_value[0] = 7;
+//	Motor.set_value[1] = 7;
 	
 	Servo.output = 0.09 *(getCountNum_L+getCountNum_R) * Servo.output/2.0f;  //0.05
 	Motor_control.Motor_Left_pid.set_value[0] 	= Motor.set_value[1] - Servo.output;
@@ -375,7 +378,7 @@ void speed_control(void)
 		speed_dt = Speed.zhidao_speed_val-Speed.wandao_speed_val;
 	}
 
-	Motor.set_value[0] = Speed.zhidao_speed_val-speed_dt;
+	Motor.set_value[1] = Speed.zhidao_speed_val-speed_dt;
 }
 
 

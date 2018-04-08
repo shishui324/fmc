@@ -23,6 +23,8 @@
 
 /***********  电感ADC采集通道 宏定义 *****************/
 
+#define  Induc_8    ADC0_SE13
+#define  Induc_7    ADC0_SE7
 #define  Induc_6    ADC0_SE15
 #define  Induc_5    ADC0_SE14
 #define  Induc_4    ADC0_SE12
@@ -43,12 +45,12 @@
 #define  BAT      ADC0_SE3      // PTA7电池电压检测
 #define  BAT_VAL  adc_once(BAT,ADC_12bit) 
 
-#define SENSOR_NUM  6   //定义电感数量
+#define SENSOR_NUM  8   //定义电感数量
 #define AD_MAX_VAL 4095.0 //AD的最大值
 
 extern float sum_12;   //电感12的和
 extern float sub_12;	//电感12的差
-extern float sub_25;
+extern float sub_25[5];
 
 
 extern uint8 circle_in;

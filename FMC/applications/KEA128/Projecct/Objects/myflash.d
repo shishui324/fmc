@@ -46,5 +46,6 @@
 .\objects\myflash.o: ..\..\..\software\Car\encode.h
 .\objects\myflash.o: ..\..\..\software\Car\Car_Key.h
 .\objects\myflash.o: ..\..\..\software\Module\Myflash.h
+.\objects\myflash.o: ..\..\..\software\Car\BB.h
 .\objects\myflash.o: ..\..\..\software\Car\Debug.h
 .\objects\myflash.o: ..\..\..\software\Debug\MYUI.h

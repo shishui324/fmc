@@ -9,12 +9,16 @@ Sensor_info     Sensor={0};
 uint8 circle_left_flag = 0;
 uint8 circle_right_flag = 0;
 uint8 circle_in = 0;
+ uint8 circle_counter=0;
+
 
 float sum_12;   //电感12的和
 float sub_12;	//电感12的差
 
 float sum_16_34 = 0;
-float sub_25 = 0;
+float sub_25[5]={0};
+float sub_25_d=0;
+
 
 float  Power_V;
 
@@ -53,8 +57,8 @@ void ad_init(void)
 		adc_init(Induc_5);
 		adc_init(Induc_4);
 	
-//		adc_init(Induc_5);
-//		adc_init(Induc_4);
+		adc_init(Induc_5);
+		adc_init(Induc_4);
 	
 		adc_init(Induc_3);
 		adc_init(Induc_2);
@@ -92,11 +96,11 @@ void get_adc_int_value(void)    //中值滤波  均值滤波   求取平均值
 				ad_avr_temp[i][5] = adc_once(Induc_5,ADC_12bit);    
 				ad_avr_temp[i][6] = adc_once(Induc_6,ADC_12bit);
 				
-//				ad_avr_temp[i][7] = adc_once(Induc_7,ADC_12bit);
-//				ad_avr_temp[i][8] = adc_once(Induc_8,ADC_12bit);
+				ad_avr_temp[i][7] = adc_once(Induc_7,ADC_12bit);
+				ad_avr_temp[i][8] = adc_once(Induc_8,ADC_12bit);
 			}
 		 //中值滤波
-				for(i = 1;i <= 8;i++)
+				for(i = 1;i<= SENSOR_NUM;i++)
 				{
 						if(ad_avr_temp[0][i] > ad_avr_temp[2][i]) //确保0 < 2
 						{
@@ -120,11 +124,11 @@ void get_adc_int_value(void)    //中值滤波  均值滤波   求取平均值
 						ad_add_val[i] +=  ad_avr_temp[1][i]; //中值和
 				}
 		}
-		for(i = 1; i <= 8; i++)
+		for(i = 1; i <= SENSOR_NUM; i++)
 		{
 				ad_avr_val[i] = (uint16)(ad_add_val[i]*0.333);  //均值
 		}
-				//Power_V = (BAT_VAL /4096.0)*5*3;
+		
 				for(unsigned short n = 1; n < sizeof(voltageList) / sizeof(voltageList[0]); n++)
 					voltageList[n - 1] = voltageList[n];
 				voltageList[sizeof(voltageList) / sizeof(voltageList[0]) - 1] = ((float)BAT_VAL /4096.0f)*5.0f*3.0f;
@@ -164,7 +168,7 @@ void update_1cm_error(void)
    update_dis1cm_encoder = 0;
    for(i = 24; i > 0;i--)
     Servo.dis1cm_err_store[i] = Servo.dis1cm_err_store[i-1];
-    Servo.dis1cm_err_store[0] = Servo.error[0]/10; 
+    Servo.dis1cm_err_store[0] = Servo.error[0]; 
   }
 }
 
@@ -173,7 +177,7 @@ void deal_sensor(Sensor_info *sensor)//电感处理
 {
     char i;
 	
-	 for(i = 1;i <= 6 ;i++)  //一次归一化处理
+	 for(i = 1;i <= SENSOR_NUM ;i++)  //一次归一化处理
 	{
 //		if(ad_avr_val[i] > 2*ad_max_val[i])
 //		   ad_avr_val[i] = 2*ad_max_val[i];
@@ -181,7 +185,12 @@ void deal_sensor(Sensor_info *sensor)//电感处理
 		  sensor->once_uni_ad[i] = (float)((ad_avr_val[i] *100.0)/ad_max_val[i]);
 	}
 //   sub_16 = sensor->once_uni_ad[1] - sensor->once_uni_ad[6];         //??16??
-   sub_25 = sensor->once_uni_ad[2] - sensor->once_uni_ad[5];         //??25??
+	for(i = 4; i > 0; i--)
+			{																	//更新偏差队列
+			sub_25[i] = sub_25[i-1];
+			}
+   sub_25[0] = sensor->once_uni_ad[2] - sensor->once_uni_ad[5];         //??25??
+		sub_25_d=sub_25[0]-sub_25[1];	
 //   sub_34 = sensor->once_uni_ad[3] - sensor->once_uni_ad[4];
 //   sub_78 = sensor->once_uni_ad[7] - sensor->once_uni_ad[8];
 // 
@@ -216,29 +225,41 @@ void deal_sensor(Sensor_info *sensor)//电感处理
 //    twice_uni_ad[2] = once_uni_ad[2] / sum_12 ;
 
 
-																//200
-	if((abs(sub_25)>25&&(sum_16_34>200))||circle_in)	//   环 判 断
+//		if((circle_flag))
+//		{
+
+//			circle_counter++;
+//		}
+
+	if((abs(sub_25[0])>30&&(sum_16_34>250)))									//200
+//	if((abs(sub_25[0])>35&&(sum_16_34>250))&&((circle_counter>200)||!(circle_flag))&&!(circle_in))	//   环 判 断
 	{
-		circle_in = 1;
+//		circle_in = 1;
+		Bell_Cry(500,300);
 		
-		if(!(circle_left_flag)&&!(circle_right_flag))
-		{
-		if(sensor->once_uni_ad[2]>sensor->once_uni_ad[5])
-			circle_left_flag = 1;
-		else
-			circle_right_flag = 1;
-		}
+//		circle_flag=false;
+//		circle_counter=0;
+//		if(!(circle_left_flag)&&!(circle_right_flag))
+//		{
+//		if(sensor->once_uni_ad[2]>sensor->once_uni_ad[5])
+//			circle_left_flag = 1;
+//		else
+//			circle_right_flag = 1;
+//		}
 
 	}
-//    else{
-//		circle_left_flag = 0;
-//		circle_in = 0;
-//		circle_right_flag = 0;
+    else{
+		circle_left_flag = 0;
+		circle_in = 0;
+		circle_right_flag = 0;
+		
+		}
+	
 		for(i = 9; i > 0; i--)
 			{																	//更新偏差队列
 			Servo.error[i] = Servo.error[i-1];
 			}
-			Servo.error[0] = 35*(sensor->twice_uni_ad[3] - sensor->twice_uni_ad[4]); //求出电感差值
+			Servo.error[0] = 25*(sensor->twice_uni_ad[1] - sensor->twice_uni_ad[6]); //求出电感差值
 																																							
 			
 			update_1cm_error();
