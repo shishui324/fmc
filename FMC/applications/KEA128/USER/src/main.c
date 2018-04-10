@@ -13,7 +13,7 @@
 //bool isLeftturn = false;
 //bool isRightlose = false;
 //bool isRightturn = false;
-extern uint16 ad_max_val[10];
+//extern uint16 ad_max_val[10];
 ////////////////////////服务函数标志位////////////////////
 uint32_t time_1ms = 0;
 uint32_t time_5ms = 0;
@@ -32,6 +32,7 @@ uint32_t time_10s = 0;
 uint16_t encode_time=0;
 uint16_t sensor_time=0;
 uint16_t control_time=0;
+uint16_t UI_time=12;
 
 
 
@@ -61,31 +62,10 @@ extern void control(void);
 //extern void speed_control(void);
 extern void Car_Gather_Data_Key(uint8_t time_ms);	
 /////////////////宏定义////////////////////////////
-//#define DIR_CONTROL 1
 
 //////////////////标志位定义////////////////////
 float Speed_Ratio = 6.16;
 
-
-///*************speed_control***************/
-//uint8_t g_fLeftMotorSpeed = 0;	//左电机速度(测量量)		cm/s
-//uint8_t g_fRightMotorSpeed = 0;	//右电机速度(测量量)		cm/s
-////姿态数据
-//uint8_t g_fCarSpeed = 0;				//速度(测量)
-//uint8_t g_fLeft_Tyre_Speed = 0;
-//uint8_t g_fRight_Tyre_Speed = 0;
-//uint8_t ControlSpeed = 0;				//迟滞速度
-//uint8_t LeftControlSpeed = 0;				//迟滞速度
-//uint8_t RightControlSpeed = 0;				//迟滞速度
-
-////速度控制项输出
-//uint8_t g_fSpeedControlOut = 0;		//速度控制输出
-
-
-//uint8_t g_fLeftMotorOut = 0;			//左电机输出
-//uint8_t g_fRightMotorOut = 0;			//右电机输出
-/*****************************************/
-uint8 sector = FLASH_SECTOR_NUM - 1;
 
 
 
@@ -96,18 +76,15 @@ int main(void)
 		DisableInterrupts ;                  //禁止中断
     OLED_Init();
 	
-//		FLASH_Init();
+
 		
     //ADC初始化
-		 ad_init(); //ad初始化
-  
+		ad_init(); //ad初始化
 		motor_init();//电机初始化
-
 		encode_init();//编码器初始化
 		Key_Message_Init(); //按键初始化
 	
-    
-    gpio_init(H6,GPO,1);    //LED1
+    gpio_init(H6,GPO,1);    //蜂鸣器
 	
 		gpio_init(H5,GPO,0);    //LED2	
 		gpio_init(H2,GPO,1);    //LED4
@@ -116,7 +93,7 @@ int main(void)
 		
 		
 		pit_init(pit1,1000);								//定时1000个bus时钟后中断
-		set_irq_priority(PIT_CH0_IRQn,0);				//设置优先级,根据自己的需求设置 可设置范围为 0 - 3  越小优先级越高
+		set_irq_priority(PIT_CH1_IRQn,2);				//设置优先级,根据自己的需求设置 可设置范围为 0 - 3  越小优先级越高
 		enable_irq(PIT_CH1_IRQn);							//打开pit0的中断开关
 
 		pit_init_ms(pit0,1);                            //初始化pit0 周期设置为1ms
@@ -149,13 +126,10 @@ int main(void)
 		Motor_control.Motor_Right_pid.kd = 2.0;
 		Motor_control.Motor_Right_pid.ki = 4.0;
 		Motor_control.Motor_Right_pid.kp = 12.0;   //1 1 3 2 9
-	//	Motor.kp=10.0;
-	//	Motor.set_value[0]=11;
+	
 		uint8 i=1;
 		for(i=1;i<=6;i++)
-			ad_max_val[i]=0xfff;
-
-//			Motor.set_value[1] = 12;
+			Adc.ad_max_val[i]=0xfff;
 	
     while(1)
     {
@@ -173,7 +147,8 @@ int main(void)
 
 //普通计时服务
 void time_5ms_serve(void)
-{
+{	
+	
 	
 }	
 void time_20ms_serve(void)
@@ -186,6 +161,7 @@ void time_20ms_serve(void)
 //				send_buf[i-1]=Sensor.once_uni_ad[i];
 
 //	}	
+
 	int32_t send_buf[2];
 	send_buf[1]=Servo.error[0];
 	send_buf[0]=Servo.error[0]-Servo.error[1];		
@@ -200,6 +176,7 @@ void time_20ms_serve(void)
 void time_10ms_serve(void)
 {
 
+	pit_time_start(pit1);
 	Car_Gather_Data_Key((uint8_t)10);		//Key采集
 	if(!((Key_Flag2)||(Key_Flag3)||(Key_Flag4)))		//当拨码开关2,3,4全关上时才能发车，一可不关
 	{
@@ -219,12 +196,9 @@ void time_10ms_serve(void)
 		OLED_ConfigParameter();
 		Cache_Update_OLED();	
 	}
+	UI_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
+	pit_close(pit1);
 	
-	
-
-//	Car_Gather_Data_Key((uint8_t)10);		//Key采集
-//	OLED_ConfigParameter();
-//	Cache_Update_OLED();	
 	
 }
 void time_500ms_serve(void)

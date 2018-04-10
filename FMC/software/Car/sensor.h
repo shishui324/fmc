@@ -45,12 +45,12 @@
 #define  BAT      ADC0_SE3      // PTA7电池电压检测
 #define  BAT_VAL  adc_once(BAT,ADC_12bit) 
 
-#define SENSOR_NUM  8   //定义电感数量
+
 #define AD_MAX_VAL 4095.0 //AD的最大值
 
-extern float sum_12;   //电感12的和
-extern float sub_12;	//电感12的差
-extern float sub_25[5];
+//extern float sum_12;   //电感12的和
+//extern float sub_12;	//电感12的差
+//extern float sub_25[5];
 
 
 extern uint8 circle_in;
@@ -60,8 +60,9 @@ extern uint8 circle_right_flag;
 
 
 extern float  Power_V;
-extern uint16 ad_max_val[10]; //AD最大值
+//extern uint16 ad_max_val[10]; //AD最大值
 extern ADC_info Adc;
+extern Sensor_info  Sensor;
 
 extern float once_uni_ad[SENSOR_NUM+1];  //一次归一化
 extern float twice_uni_ad[SENSOR_NUM+1]; //二次归一化

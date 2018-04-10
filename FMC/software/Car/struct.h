@@ -4,20 +4,26 @@
 #include "common.h"
 
 
-#define SERVO_LIMIT_VAL 15		//18
-#define speed_duty  150
-#define DIR_CONTROL 1
+#define SERVO_LIMIT_VAL 15		//差速限副
+#define speed_duty  150			
+//#define DIR_CONTROL 1
 #define DEBUG_ON   0
 #define Protect_ON	1
-
+#define SENSOR_NUM  7   //定义电感数量
 ///////////////////////结构体定义////////////////////////////////
 
 //传感器
 typedef struct 
 {
 
-  float once_uni_ad[9];  //一次归一化
-  float twice_uni_ad[9]; //二次归一化
+  float once_uni_ad[SENSOR_NUM+1];  //一次归一化
+  float twice_uni_ad[SENSOR_NUM+1]; //二次归一化
+	
+
+	float sub_16;	//电感16的差
+	float sum_16_34;
+	float sub_25[5];
+	float sub_25_d;
   float PARAM_A;         
   float PARAM_B;         
   float PARAM_CROSS;     
@@ -38,7 +44,7 @@ typedef struct
  uint16 ad_avr_temp[5][10];
 }ADC_info;
 
-//电机，速度
+//电机
 typedef struct 
 { 
 //  uint8 INH;                    //软件使能
@@ -74,12 +80,14 @@ typedef struct
   uint16_t wandao_speed_val; //弯道速度
   uint16_t cross_speed_val;  //小S速度
   uint16_t shizi_speed_val;  //十字速度
-  uint16_t ramp1_speed_val; //坡道速度
-  uint16_t ramp2_speed_val;
+  uint16_t ramp1_speed_val; //上坡道速度
+  uint16_t ramp2_speed_val;		//下坡速度
   uint16_t speed_high_mode; //高速模式使能
   uint16_t high_speed_dis;  //高速模式定距
   uint16_t stop_car_enable; //停车
   uint16_t test_time;       //测试时间
+	uint16_t present_speed_val;
+	uint16_t set_speed_val;
 }Speed_info;
 
 //差速pid
@@ -124,18 +132,6 @@ typedef struct
   uint16 cross_time;            //十字计数
 }Cross_info;
 
-//typedef struct
-//{
-//	Cache_OLED_P6x8Str(uint8_t x,uint8_t y,char ch[]);
-//	Cache_OLED_P6x8Num(uint8_t x,uint8_t y,int32_t Num);
-//	Cache_OLED_P6x8Num_0X(uint8_t x,uint8_t y,int32_t Num_0X);
-//	Cache_OLED_P6x8floatNum(O_byte x,O_byte y,float Num);
-//	Cache_OLED_Rectangle(uint8_t x1,uint8_t y1,uint8_t x2,uint8_t y2);
-//	Cache_Update_OLED(void);
-//}Oled_info;
-
-extern ADC_info 		Adc;
-extern Sensor_info 		Sensor;
 
 
 

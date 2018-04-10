@@ -236,11 +236,11 @@ Section Cross References
     sensor.o(i.deal_sensor) refers to bb.o(i.Bell_Cry) for Bell_Cry
     sensor.o(i.deal_sensor) refers to fmul.o(.text) for __aeabi_fmul
     sensor.o(i.deal_sensor) refers to sensor.o(i.update_1cm_error) for update_1cm_error
-    sensor.o(i.deal_sensor) refers to sensor.o(.bss) for ad_max_val
-    sensor.o(i.deal_sensor) refers to sensor.o(.data) for sub_25_d
+    sensor.o(i.deal_sensor) refers to sensor.o(.bss) for Adc
+    sensor.o(i.deal_sensor) refers to sensor.o(.data) for circle_left_flag
     sensor.o(i.deal_sensor) refers to control.o(.bss) for Servo
     sensor.o(i.find_max_ad) refers to sensor.o(i.get_adc_int_value) for get_adc_int_value
-    sensor.o(i.find_max_ad) refers to sensor.o(.bss) for ad_avr_val
+    sensor.o(i.find_max_ad) refers to sensor.o(.bss) for Adc
     sensor.o(i.get_adc_int_value) refers to kea128_adc.o(i.adc_once) for adc_once
     sensor.o(i.get_adc_int_value) refers to dfltui.o(.text) for __aeabi_ui2d
     sensor.o(i.get_adc_int_value) refers to dmul.o(.text) for __aeabi_dmul
@@ -249,7 +249,7 @@ Section Cross References
     sensor.o(i.get_adc_int_value) refers to fdiv.o(.text) for __aeabi_fdiv
     sensor.o(i.get_adc_int_value) refers to fmul.o(.text) for __aeabi_fmul
     sensor.o(i.get_adc_int_value) refers to fadd.o(.text) for __aeabi_fadd
-    sensor.o(i.get_adc_int_value) refers to sensor.o(.bss) for ad_add_val
+    sensor.o(i.get_adc_int_value) refers to sensor.o(.bss) for Adc
     sensor.o(i.get_adc_int_value) refers to sensor.o(.data) for Power_V
     sensor.o(i.update_1cm_error) refers to fflti.o(.text) for __aeabi_i2f
     sensor.o(i.update_1cm_error) refers to encode.o(.data) for getCountNum_L
@@ -276,7 +276,7 @@ Section Cross References
     control.o(i.control) refers to control.o(.data) for motor_protect_time
     control.o(i.control) refers to encode.o(.data) for getCountNum_L
     control.o(i.control) refers to control.o(.bss) for Motor_control
-    control.o(i.control) refers to sensor.o(.data) for sum_16_34
+    control.o(i.control) refers to sensor.o(.bss) for Sensor
     control.o(i.motor_pid_caculate) refers to fflti.o(.text) for __aeabi_i2f
     control.o(i.motor_pid_caculate) refers to fmul.o(.text) for __aeabi_fmul
     control.o(i.motor_pid_caculate) refers to f2d.o(.text) for __aeabi_f2d
@@ -301,10 +301,10 @@ Section Cross References
     control.o(i.servo_pid_caculate) refers to fdiv.o(.text) for __aeabi_fdiv
     control.o(i.servo_pid_caculate) refers to ffixi.o(.text) for __aeabi_f2iz
     control.o(i.servo_pid_caculate) refers to cfrcmple.o(.text) for __aeabi_cfrcmple
-    control.o(i.servo_pid_caculate) refers to sensor.o(.data) for sum_16_34
+    control.o(i.servo_pid_caculate) refers to sensor.o(.bss) for Sensor
     control.o(i.servo_pid_caculate) refers to control.o(.data) for motor_protect_time
+    control.o(i.servo_pid_caculate) refers to sensor.o(.data) for circle_in
     control.o(i.servo_pid_caculate) refers to control.o(.bss) for Servo
-    control.o(i.servo_pid_caculate) refers to sensor.o(.bss) for sub_25
     control.o(i.servo_pid_caculate) refers to encode.o(.data) for getCountNum_L
     control.o(i.speed_control) refers to f2d.o(.text) for __aeabi_f2d
     control.o(i.speed_control) refers to cdrcmple.o(.text) for __aeabi_cdrcmple
@@ -441,7 +441,7 @@ Section Cross References
     myui.o(i.Show_UI) refers to oled.o(i.Cache_OLED_P6x8floatNum) for Cache_OLED_P6x8floatNum
     myui.o(i.Show_UI) refers to myui.o(i.show_run_time) for show_run_time
     myui.o(i.Show_UI) refers to myui.o(.data) for state
-    myui.o(i.Show_UI) refers to sensor.o(.bss) for ad_max_val
+    myui.o(i.Show_UI) refers to sensor.o(.bss) for Adc
     myui.o(i.Show_speed) refers to oled.o(i.Cache_OLED_P6x8Str) for Cache_OLED_P6x8Str
     myui.o(i.Show_speed) refers to oled.o(i.Cache_OLED_printf) for Cache_OLED_printf
     myui.o(i.Show_speed) refers to myui.o(.data) for Parameter2No
@@ -459,11 +459,11 @@ Section Cross References
     myui.o(i.show_8_L) refers to idiv.o(.text) for __aeabi_idivmod
     myui.o(i.show_8_L) refers to oled.o(i.Cache_OLED_Rectangle) for Cache_OLED_Rectangle
     myui.o(i.show_8_L) refers to oled.o(i.Cache_OLED_printf) for Cache_OLED_printf
-    myui.o(i.show_8_L) refers to sensor.o(.bss) for ad_avr_val
+    myui.o(i.show_8_L) refers to sensor.o(.bss) for Adc
     myui.o(i.show_circle) refers to f2d.o(.text) for __aeabi_f2d
     myui.o(i.show_circle) refers to oled.o(i.Cache_OLED_printf) for Cache_OLED_printf
-    myui.o(i.show_circle) refers to sensor.o(.data) for sum_16_34
-    myui.o(i.show_circle) refers to sensor.o(.bss) for sub_25
+    myui.o(i.show_circle) refers to sensor.o(.bss) for Sensor
+    myui.o(i.show_circle) refers to sensor.o(.data) for circle_in
     myui.o(i.show_circle) refers to control.o(.data) for circle_turn
     myui.o(i.show_circle) refers to control.o(.bss) for Servo
     myui.o(i.show_one_sensor) refers to fmul.o(.text) for __aeabi_fmul
@@ -481,11 +481,10 @@ Section Cross References
     myui.o(i.show_sensor) refers to fflti.o(.text) for __aeabi_i2f
     myui.o(i.show_sensor) refers to oled.o(i.Cache_OLED_P6x8floatNum) for Cache_OLED_P6x8floatNum
     myui.o(i.show_sensor) refers to ffltui.o(.text) for __aeabi_ui2f
-    myui.o(i.show_sensor) refers to sensor.o(.bss) for ad_avr_val
+    myui.o(i.show_sensor) refers to sensor.o(.bss) for Adc
     myui.o(i.show_sensor) refers to control.o(.data) for L_out_value
     myui.o(i.show_sensor) refers to encode.o(.data) for getCountNum_L
     myui.o(i.show_sensor) refers to control.o(.bss) for Servo
-    myui.o(i.show_sensor) refers to sensor.o(.data) for sum_16_34
     isr.o(i.PIT_CH0_IRQHandler) refers to bb.o(i.Bell_Play) for Bell_Play
     isr.o(i.PIT_CH0_IRQHandler) refers to kea128_pit.o(i.pit_time_start) for pit_time_start
     isr.o(i.PIT_CH0_IRQHandler) refers to encode.o(i.get_num) for get_num
@@ -515,13 +514,19 @@ Section Cross References
     main.o(i.main) refers to main.o(i.time_500ms_serve) for time_500ms_serve
     main.o(i.main) refers to common.o(.data) for bus_clk_khz
     main.o(i.main) refers to control.o(.bss) for Speed
-    main.o(i.main) refers to sensor.o(.bss) for ad_max_val
+    main.o(i.main) refers to sensor.o(.bss) for Adc
     main.o(i.main) refers to main.o(.data) for time_5ms
+    main.o(i.time_10ms_serve) refers to kea128_pit.o(i.pit_time_start) for pit_time_start
     main.o(i.time_10ms_serve) refers to car_key.o(i.Car_Gather_Data_Key) for Car_Gather_Data_Key
     main.o(i.time_10ms_serve) refers to car_key.o(i.Key_Inquire_data) for Key_Inquire_data
     main.o(i.time_10ms_serve) refers to myui.o(i.OLED_ConfigParameter) for OLED_ConfigParameter
     main.o(i.time_10ms_serve) refers to oled.o(i.Cache_Update_OLED) for Cache_Update_OLED
+    main.o(i.time_10ms_serve) refers to kea128_pit.o(i.pit_time_get) for pit_time_get
+    main.o(i.time_10ms_serve) refers to uidiv.o(.text) for __aeabi_uidivmod
+    main.o(i.time_10ms_serve) refers to kea128_pit.o(i.pit_close) for pit_close
     main.o(i.time_10ms_serve) refers to control.o(.data) for STOP_CAR_FLAG
+    main.o(i.time_10ms_serve) refers to common.o(.data) for bus_clk_khz
+    main.o(i.time_10ms_serve) refers to main.o(.data) for UI_time
     main.o(i.time_20ms_serve) refers to debug.o(i.vcan_sendware) for vcan_sendware
     main.o(i.time_20ms_serve) refers to control.o(.bss) for Servo
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
@@ -1179,32 +1184,32 @@ Image Symbol Table
     i.Show_Servo_PID                         0x00002bdc   Section        0  myui.o(i.Show_Servo_PID)
     i.Show_UI                                0x00002d40   Section        0  myui.o(i.Show_UI)
     i.Show_speed                             0x00002e1c   Section        0  myui.o(i.Show_speed)
-    i.Speed_menu                             0x00002f98   Section        0  myui.o(i.Speed_menu)
-    i.Start                                  0x00003120   Section        0  system_skeaz1284.o(i.Start)
-    i.__0snprintf                            0x00003178   Section        0  printfa.o(i.__0snprintf)
-    i.__0sprintf                             0x000031ac   Section        0  printfa.o(i.__0sprintf)
-    i.__0vsprintf                            0x000031d4   Section        0  printfa.o(i.__0vsprintf)
-    i.__ARM_clz                              0x000031f8   Section        0  depilogue.o(i.__ARM_clz)
-    i.__ARM_common_switch8                   0x00003226   Section        0  kea128_ftm.o(i.__ARM_common_switch8)
-    i.__scatterload_copy                     0x00003242   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_zeroinit                 0x00003250   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._fp_digits                             0x00003260   Section        0  printfa.o(i._fp_digits)
-    _fp_digits                               0x00003261   Thumb Code   344  printfa.o(i._fp_digits)
-    i._printf_core                           0x000033d4   Section        0  printfa.o(i._printf_core)
-    _printf_core                             0x000033d5   Thumb Code  1754  printfa.o(i._printf_core)
-    i._printf_post_padding                   0x00003ac0   Section        0  printfa.o(i._printf_post_padding)
-    _printf_post_padding                     0x00003ac1   Thumb Code    32  printfa.o(i._printf_post_padding)
-    i._printf_pre_padding                    0x00003ae0   Section        0  printfa.o(i._printf_pre_padding)
-    _printf_pre_padding                      0x00003ae1   Thumb Code    44  printfa.o(i._printf_pre_padding)
-    i._snputc                                0x00003b0c   Section        0  printfa.o(i._snputc)
-    _snputc                                  0x00003b0d   Thumb Code    22  printfa.o(i._snputc)
-    i._sputc                                 0x00003b22   Section        0  printfa.o(i._sputc)
-    _sputc                                   0x00003b23   Thumb Code    10  printfa.o(i._sputc)
-    i.ad_init                                0x00003b2c   Section        0  sensor.o(i.ad_init)
-    i.adc_init                               0x00003b68   Section        0  kea128_adc.o(i.adc_init)
-    i.adc_once                               0x00003b90   Section        0  kea128_adc.o(i.adc_once)
-    i.control                                0x00003bc8   Section        0  control.o(i.control)
-    i.deal_sensor                            0x00003dc4   Section        0  sensor.o(i.deal_sensor)
+    i.Speed_menu                             0x00002f90   Section        0  myui.o(i.Speed_menu)
+    i.Start                                  0x00003114   Section        0  system_skeaz1284.o(i.Start)
+    i.__0snprintf                            0x0000316c   Section        0  printfa.o(i.__0snprintf)
+    i.__0sprintf                             0x000031a0   Section        0  printfa.o(i.__0sprintf)
+    i.__0vsprintf                            0x000031c8   Section        0  printfa.o(i.__0vsprintf)
+    i.__ARM_clz                              0x000031ec   Section        0  depilogue.o(i.__ARM_clz)
+    i.__ARM_common_switch8                   0x0000321a   Section        0  kea128_ftm.o(i.__ARM_common_switch8)
+    i.__scatterload_copy                     0x00003236   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_zeroinit                 0x00003244   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._fp_digits                             0x00003254   Section        0  printfa.o(i._fp_digits)
+    _fp_digits                               0x00003255   Thumb Code   344  printfa.o(i._fp_digits)
+    i._printf_core                           0x000033c8   Section        0  printfa.o(i._printf_core)
+    _printf_core                             0x000033c9   Thumb Code  1754  printfa.o(i._printf_core)
+    i._printf_post_padding                   0x00003ab4   Section        0  printfa.o(i._printf_post_padding)
+    _printf_post_padding                     0x00003ab5   Thumb Code    32  printfa.o(i._printf_post_padding)
+    i._printf_pre_padding                    0x00003ad4   Section        0  printfa.o(i._printf_pre_padding)
+    _printf_pre_padding                      0x00003ad5   Thumb Code    44  printfa.o(i._printf_pre_padding)
+    i._snputc                                0x00003b00   Section        0  printfa.o(i._snputc)
+    _snputc                                  0x00003b01   Thumb Code    22  printfa.o(i._snputc)
+    i._sputc                                 0x00003b16   Section        0  printfa.o(i._sputc)
+    _sputc                                   0x00003b17   Thumb Code    10  printfa.o(i._sputc)
+    i.ad_init                                0x00003b20   Section        0  sensor.o(i.ad_init)
+    i.adc_init                               0x00003b5c   Section        0  kea128_adc.o(i.adc_init)
+    i.adc_once                               0x00003b84   Section        0  kea128_adc.o(i.adc_once)
+    i.control                                0x00003bbc   Section        0  control.o(i.control)
+    i.deal_sensor                            0x00003db8   Section        0  sensor.o(i.deal_sensor)
     i.disable_wdog                           0x00003f38   Section        0  system_skeaz1284.o(i.disable_wdog)
     i.encode_init                            0x00003f50   Section        0  encode.o(i.encode_init)
     i.ftm_count_clean                        0x00003f80   Section        0  kea128_ftm.o(i.ftm_count_clean)
@@ -1215,62 +1220,62 @@ Image Symbol Table
     i.ftm_pwm_init                           0x0000410c   Section        0  kea128_ftm.o(i.ftm_pwm_init)
     i.ftm_pwm_mux                            0x00004230   Section        0  kea128_ftm.o(i.ftm_pwm_mux)
     i.get_adc_int_value                      0x00004358   Section        0  sensor.o(i.get_adc_int_value)
-    i.get_clk                                0x000045a0   Section        0  common.o(i.get_clk)
-    i.get_num                                0x0000466c   Section        0  encode.o(i.get_num)
-    i.gpio_get                               0x000046d0   Section        0  kea128_gpio.o(i.gpio_get)
-    i.gpio_init                              0x000046fc   Section        0  kea128_gpio.o(i.gpio_init)
-    i.gpio_set                               0x000047d8   Section        0  kea128_gpio.o(i.gpio_set)
-    i.main                                   0x00004820   Section        0  main.o(i.main)
-    i.motor_init                             0x000049a4   Section        0  motor.o(i.motor_init)
-    i.motor_pid_caculate                     0x000049e4   Section        0  control.o(i.motor_pid_caculate)
-    i.motor_set                              0x00004c0c   Section        0  motor.o(i.motor_set)
-    i.pit_close                              0x00004cc4   Section        0  kea128_pit.o(i.pit_close)
-    i.pit_init                               0x00004cf4   Section        0  kea128_pit.o(i.pit_init)
-    i.pit_time_get                           0x00004d4c   Section        0  kea128_pit.o(i.pit_time_get)
-    i.pit_time_start                         0x00004da4   Section        0  kea128_pit.o(i.pit_time_start)
-    i.port_pull                              0x00004dfc   Section        0  kea128_port.o(i.port_pull)
-    i.servo_pid_caculate                     0x00004e4c   Section        0  control.o(i.servo_pid_caculate)
+    i.get_clk                                0x000045a4   Section        0  common.o(i.get_clk)
+    i.get_num                                0x00004670   Section        0  encode.o(i.get_num)
+    i.gpio_get                               0x000046d4   Section        0  kea128_gpio.o(i.gpio_get)
+    i.gpio_init                              0x00004700   Section        0  kea128_gpio.o(i.gpio_init)
+    i.gpio_set                               0x000047dc   Section        0  kea128_gpio.o(i.gpio_set)
+    i.main                                   0x00004824   Section        0  main.o(i.main)
+    i.motor_init                             0x000049a8   Section        0  motor.o(i.motor_init)
+    i.motor_pid_caculate                     0x000049e8   Section        0  control.o(i.motor_pid_caculate)
+    i.motor_set                              0x00004c10   Section        0  motor.o(i.motor_set)
+    i.pit_close                              0x00004cc8   Section        0  kea128_pit.o(i.pit_close)
+    i.pit_init                               0x00004cf8   Section        0  kea128_pit.o(i.pit_init)
+    i.pit_time_get                           0x00004d50   Section        0  kea128_pit.o(i.pit_time_get)
+    i.pit_time_start                         0x00004da8   Section        0  kea128_pit.o(i.pit_time_start)
+    i.port_pull                              0x00004e00   Section        0  kea128_port.o(i.port_pull)
+    i.servo_pid_caculate                     0x00004e50   Section        0  control.o(i.servo_pid_caculate)
     i.show_8_L                               0x00005228   Section        0  myui.o(i.show_8_L)
     i.show_circle                            0x00005284   Section        0  myui.o(i.show_circle)
-    i.show_one_sensor                        0x000053a0   Section        0  myui.o(i.show_one_sensor)
-    i.show_run_time                          0x00005410   Section        0  myui.o(i.show_run_time)
-    i.show_sensor                            0x00005470   Section        0  myui.o(i.show_sensor)
-    i.speed_control                          0x000055dc   Section        0  control.o(i.speed_control)
-    i.systick_delay                          0x00005780   Section        0  kea128_systick.o(i.systick_delay)
-    i.systick_delay_ms                       0x000057b0   Section        0  kea128_systick.o(i.systick_delay_ms)
-    i.time_10ms_serve                        0x000057cc   Section        0  main.o(i.time_10ms_serve)
-    i.time_20ms_serve                        0x00005848   Section        0  main.o(i.time_20ms_serve)
-    i.time_5ms_serve                         0x00005868   Section        0  main.o(i.time_5ms_serve)
-    i.uart_init                              0x0000586c   Section        0  kea128_uart.o(i.uart_init)
-    i.uart_mux                               0x00005924   Section        0  kea128_uart.o(i.uart_mux)
-    i.uart_putbuff                           0x00005994   Section        0  kea128_uart.o(i.uart_putbuff)
-    i.uart_putchar                           0x000059b4   Section        0  kea128_uart.o(i.uart_putchar)
-    i.update_1cm_error                       0x000059d4   Section        0  sensor.o(i.update_1cm_error)
-    i.vcan_sendware                          0x00005a3c   Section        0  debug.o(i.vcan_sendware)
-    .constdata                               0x00005a78   Section       22  common.o(.constdata)
-    .constdata                               0x00005a90   Section       12  kea128_ftm.o(.constdata)
-    FTMX                                     0x00005a90   Data          12  kea128_ftm.o(.constdata)
-    .constdata                               0x00005a9c   Section       12  kea128_gpio.o(.constdata)
-    GPIOX                                    0x00005a9c   Data          12  kea128_gpio.o(.constdata)
-    .constdata                               0x00005aa8   Section     3283  oled.o(.constdata)
+    i.show_one_sensor                        0x000053b8   Section        0  myui.o(i.show_one_sensor)
+    i.show_run_time                          0x00005428   Section        0  myui.o(i.show_run_time)
+    i.show_sensor                            0x000054a0   Section        0  myui.o(i.show_sensor)
+    i.speed_control                          0x00005604   Section        0  control.o(i.speed_control)
+    i.systick_delay                          0x000057a4   Section        0  kea128_systick.o(i.systick_delay)
+    i.systick_delay_ms                       0x000057d4   Section        0  kea128_systick.o(i.systick_delay_ms)
+    i.time_10ms_serve                        0x000057f0   Section        0  main.o(i.time_10ms_serve)
+    i.time_20ms_serve                        0x0000589c   Section        0  main.o(i.time_20ms_serve)
+    i.time_5ms_serve                         0x000058bc   Section        0  main.o(i.time_5ms_serve)
+    i.uart_init                              0x000058c0   Section        0  kea128_uart.o(i.uart_init)
+    i.uart_mux                               0x00005978   Section        0  kea128_uart.o(i.uart_mux)
+    i.uart_putbuff                           0x000059e8   Section        0  kea128_uart.o(i.uart_putbuff)
+    i.uart_putchar                           0x00005a08   Section        0  kea128_uart.o(i.uart_putchar)
+    i.update_1cm_error                       0x00005a28   Section        0  sensor.o(i.update_1cm_error)
+    i.vcan_sendware                          0x00005a90   Section        0  debug.o(i.vcan_sendware)
+    .constdata                               0x00005acc   Section       22  common.o(.constdata)
+    .constdata                               0x00005ae4   Section       12  kea128_ftm.o(.constdata)
+    FTMX                                     0x00005ae4   Data          12  kea128_ftm.o(.constdata)
+    .constdata                               0x00005af0   Section       12  kea128_gpio.o(.constdata)
+    GPIOX                                    0x00005af0   Data          12  kea128_gpio.o(.constdata)
+    .constdata                               0x00005afc   Section     3283  oled.o(.constdata)
     .data                                    0x20000000   Section       16  common.o(.data)
     .data                                    0x20000010   Section       20  kea128_flash.o(.data)
     .data                                    0x20000024   Section        6  kea128_ftm.o(.data)
     .data                                    0x2000002c   Section       12  kea128_uart.o(.data)
     .data                                    0x20000038   Section        2  oled.o(.data)
-    .data                                    0x2000003c   Section       28  sensor.o(.data)
-    .data                                    0x20000058   Section       12  car_key.o(.data)
-    .data                                    0x20000064   Section       17  control.o(.data)
-    .data                                    0x20000075   Section        2  encode.o(.data)
-    .data                                    0x20000078   Section        8  bb.o(.data)
-    .data                                    0x20000080   Section        7  myui.o(.data)
-    .data                                    0x20000088   Section       61  main.o(.data)
-    .bss                                     0x200000c8   Section     1024  oled.o(.bss)
-    .bss                                     0x200004c8   Section      836  sensor.o(.bss)
-    voltageList                              0x200007a8   Data         100  sensor.o(.bss)
-    .bss                                     0x2000080c   Section       12  car_key.o(.bss)
-    .bss                                     0x20000818   Section      492  control.o(.bss)
-    STACK                                    0x20000a08   Section     4096  startup_skeaz1284.o(STACK)
+    .data                                    0x2000003c   Section       12  sensor.o(.data)
+    .data                                    0x20000048   Section       12  car_key.o(.data)
+    .data                                    0x20000054   Section       17  control.o(.data)
+    .data                                    0x20000065   Section        2  encode.o(.data)
+    .data                                    0x20000068   Section        8  bb.o(.data)
+    .data                                    0x20000070   Section        7  myui.o(.data)
+    .data                                    0x20000078   Section       60  main.o(.data)
+    .bss                                     0x200000b4   Section     1024  oled.o(.bss)
+    .bss                                     0x200004b4   Section      488  sensor.o(.bss)
+    voltageList                              0x20000638   Data         100  sensor.o(.bss)
+    .bss                                     0x2000069c   Section       12  car_key.o(.bss)
+    .bss                                     0x200006a8   Section      396  control.o(.bss)
+    STACK                                    0x20000838   Section     4096  startup_skeaz1284.o(STACK)
 
     Global Symbols
 
@@ -1473,33 +1478,33 @@ Image Symbol Table
     Show_Right_Motor_PID                     0x00002ad5   Thumb Code   156  myui.o(i.Show_Right_Motor_PID)
     Show_Servo_PID                           0x00002bdd   Thumb Code   208  myui.o(i.Show_Servo_PID)
     Show_UI                                  0x00002d41   Thumb Code   206  myui.o(i.Show_UI)
-    Show_speed                               0x00002e1d   Thumb Code   202  myui.o(i.Show_speed)
-    Speed_menu                               0x00002f99   Thumb Code   334  myui.o(i.Speed_menu)
-    Start                                    0x00003121   Thumb Code    76  system_skeaz1284.o(i.Start)
-    __0snprintf                              0x00003179   Thumb Code    46  printfa.o(i.__0snprintf)
-    __1snprintf                              0x00003179   Thumb Code     0  printfa.o(i.__0snprintf)
-    __2snprintf                              0x00003179   Thumb Code     0  printfa.o(i.__0snprintf)
-    __c89snprintf                            0x00003179   Thumb Code     0  printfa.o(i.__0snprintf)
-    snprintf                                 0x00003179   Thumb Code     0  printfa.o(i.__0snprintf)
-    __0sprintf                               0x000031ad   Thumb Code    36  printfa.o(i.__0sprintf)
-    __1sprintf                               0x000031ad   Thumb Code     0  printfa.o(i.__0sprintf)
-    __2sprintf                               0x000031ad   Thumb Code     0  printfa.o(i.__0sprintf)
-    __c89sprintf                             0x000031ad   Thumb Code     0  printfa.o(i.__0sprintf)
-    sprintf                                  0x000031ad   Thumb Code     0  printfa.o(i.__0sprintf)
-    __0vsprintf                              0x000031d5   Thumb Code    30  printfa.o(i.__0vsprintf)
-    __1vsprintf                              0x000031d5   Thumb Code     0  printfa.o(i.__0vsprintf)
-    __2vsprintf                              0x000031d5   Thumb Code     0  printfa.o(i.__0vsprintf)
-    __c89vsprintf                            0x000031d5   Thumb Code     0  printfa.o(i.__0vsprintf)
-    vsprintf                                 0x000031d5   Thumb Code     0  printfa.o(i.__0vsprintf)
-    __ARM_clz                                0x000031f9   Thumb Code    46  depilogue.o(i.__ARM_clz)
-    __ARM_common_switch8                     0x00003227   Thumb Code    28  kea128_ftm.o(i.__ARM_common_switch8)
-    __scatterload_copy                       0x00003243   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_zeroinit                   0x00003251   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    ad_init                                  0x00003b2d   Thumb Code    58  sensor.o(i.ad_init)
-    adc_init                                 0x00003b69   Thumb Code    30  kea128_adc.o(i.adc_init)
-    adc_once                                 0x00003b91   Thumb Code    50  kea128_adc.o(i.adc_once)
-    control                                  0x00003bc9   Thumb Code   438  control.o(i.control)
-    deal_sensor                              0x00003dc5   Thumb Code   324  sensor.o(i.deal_sensor)
+    Show_speed                               0x00002e1d   Thumb Code   200  myui.o(i.Show_speed)
+    Speed_menu                               0x00002f91   Thumb Code   336  myui.o(i.Speed_menu)
+    Start                                    0x00003115   Thumb Code    76  system_skeaz1284.o(i.Start)
+    __0snprintf                              0x0000316d   Thumb Code    46  printfa.o(i.__0snprintf)
+    __1snprintf                              0x0000316d   Thumb Code     0  printfa.o(i.__0snprintf)
+    __2snprintf                              0x0000316d   Thumb Code     0  printfa.o(i.__0snprintf)
+    __c89snprintf                            0x0000316d   Thumb Code     0  printfa.o(i.__0snprintf)
+    snprintf                                 0x0000316d   Thumb Code     0  printfa.o(i.__0snprintf)
+    __0sprintf                               0x000031a1   Thumb Code    36  printfa.o(i.__0sprintf)
+    __1sprintf                               0x000031a1   Thumb Code     0  printfa.o(i.__0sprintf)
+    __2sprintf                               0x000031a1   Thumb Code     0  printfa.o(i.__0sprintf)
+    __c89sprintf                             0x000031a1   Thumb Code     0  printfa.o(i.__0sprintf)
+    sprintf                                  0x000031a1   Thumb Code     0  printfa.o(i.__0sprintf)
+    __0vsprintf                              0x000031c9   Thumb Code    30  printfa.o(i.__0vsprintf)
+    __1vsprintf                              0x000031c9   Thumb Code     0  printfa.o(i.__0vsprintf)
+    __2vsprintf                              0x000031c9   Thumb Code     0  printfa.o(i.__0vsprintf)
+    __c89vsprintf                            0x000031c9   Thumb Code     0  printfa.o(i.__0vsprintf)
+    vsprintf                                 0x000031c9   Thumb Code     0  printfa.o(i.__0vsprintf)
+    __ARM_clz                                0x000031ed   Thumb Code    46  depilogue.o(i.__ARM_clz)
+    __ARM_common_switch8                     0x0000321b   Thumb Code    28  kea128_ftm.o(i.__ARM_common_switch8)
+    __scatterload_copy                       0x00003237   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_zeroinit                   0x00003245   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    ad_init                                  0x00003b21   Thumb Code    58  sensor.o(i.ad_init)
+    adc_init                                 0x00003b5d   Thumb Code    30  kea128_adc.o(i.adc_init)
+    adc_once                                 0x00003b85   Thumb Code    50  kea128_adc.o(i.adc_once)
+    control                                  0x00003bbd   Thumb Code   438  control.o(i.control)
+    deal_sensor                              0x00003db9   Thumb Code   346  sensor.o(i.deal_sensor)
     disable_wdog                             0x00003f39   Thumb Code    16  system_skeaz1284.o(i.disable_wdog)
     encode_init                              0x00003f51   Thumb Code    48  encode.o(i.encode_init)
     ftm_count_clean                          0x00003f81   Thumb Code    12  kea128_ftm.o(i.ftm_count_clean)
@@ -1509,46 +1514,46 @@ Image Symbol Table
     ftm_pwm_duty                             0x00004091   Thumb Code   114  kea128_ftm.o(i.ftm_pwm_duty)
     ftm_pwm_init                             0x0000410d   Thumb Code   278  kea128_ftm.o(i.ftm_pwm_init)
     ftm_pwm_mux                              0x00004231   Thumb Code   290  kea128_ftm.o(i.ftm_pwm_mux)
-    get_adc_int_value                        0x00004359   Thumb Code   540  sensor.o(i.get_adc_int_value)
-    get_clk                                  0x000045a1   Thumb Code   170  common.o(i.get_clk)
-    get_num                                  0x0000466d   Thumb Code    92  encode.o(i.get_num)
-    gpio_get                                 0x000046d1   Thumb Code    40  kea128_gpio.o(i.gpio_get)
-    gpio_init                                0x000046fd   Thumb Code   214  kea128_gpio.o(i.gpio_init)
-    gpio_set                                 0x000047d9   Thumb Code    68  kea128_gpio.o(i.gpio_set)
-    main                                     0x00004821   Thumb Code   330  main.o(i.main)
-    motor_init                               0x000049a5   Thumb Code    58  motor.o(i.motor_init)
-    motor_pid_caculate                       0x000049e5   Thumb Code   536  control.o(i.motor_pid_caculate)
-    motor_set                                0x00004c0d   Thumb Code   170  motor.o(i.motor_set)
-    pit_close                                0x00004cc5   Thumb Code    42  kea128_pit.o(i.pit_close)
-    pit_init                                 0x00004cf5   Thumb Code    76  kea128_pit.o(i.pit_init)
-    pit_time_get                             0x00004d4d   Thumb Code    84  kea128_pit.o(i.pit_time_get)
-    pit_time_start                           0x00004da5   Thumb Code    76  kea128_pit.o(i.pit_time_start)
-    port_pull                                0x00004dfd   Thumb Code    74  kea128_port.o(i.port_pull)
-    servo_pid_caculate                       0x00004e4d   Thumb Code   904  control.o(i.servo_pid_caculate)
+    get_adc_int_value                        0x00004359   Thumb Code   554  sensor.o(i.get_adc_int_value)
+    get_clk                                  0x000045a5   Thumb Code   170  common.o(i.get_clk)
+    get_num                                  0x00004671   Thumb Code    92  encode.o(i.get_num)
+    gpio_get                                 0x000046d5   Thumb Code    40  kea128_gpio.o(i.gpio_get)
+    gpio_init                                0x00004701   Thumb Code   214  kea128_gpio.o(i.gpio_init)
+    gpio_set                                 0x000047dd   Thumb Code    68  kea128_gpio.o(i.gpio_set)
+    main                                     0x00004825   Thumb Code   330  main.o(i.main)
+    motor_init                               0x000049a9   Thumb Code    58  motor.o(i.motor_init)
+    motor_pid_caculate                       0x000049e9   Thumb Code   536  control.o(i.motor_pid_caculate)
+    motor_set                                0x00004c11   Thumb Code   170  motor.o(i.motor_set)
+    pit_close                                0x00004cc9   Thumb Code    42  kea128_pit.o(i.pit_close)
+    pit_init                                 0x00004cf9   Thumb Code    76  kea128_pit.o(i.pit_init)
+    pit_time_get                             0x00004d51   Thumb Code    84  kea128_pit.o(i.pit_time_get)
+    pit_time_start                           0x00004da9   Thumb Code    76  kea128_pit.o(i.pit_time_start)
+    port_pull                                0x00004e01   Thumb Code    74  kea128_port.o(i.port_pull)
+    servo_pid_caculate                       0x00004e51   Thumb Code   904  control.o(i.servo_pid_caculate)
     show_8_L                                 0x00005229   Thumb Code    76  myui.o(i.show_8_L)
-    show_circle                              0x00005285   Thumb Code   162  myui.o(i.show_circle)
-    show_one_sensor                          0x000053a1   Thumb Code    90  myui.o(i.show_one_sensor)
-    show_run_time                            0x00005411   Thumb Code    46  myui.o(i.show_run_time)
-    show_sensor                              0x00005471   Thumb Code   314  myui.o(i.show_sensor)
-    speed_control                            0x000055dd   Thumb Code   408  control.o(i.speed_control)
-    systick_delay                            0x00005781   Thumb Code    44  kea128_systick.o(i.systick_delay)
-    systick_delay_ms                         0x000057b1   Thumb Code    24  kea128_systick.o(i.systick_delay_ms)
-    time_10ms_serve                          0x000057cd   Thumb Code   110  main.o(i.time_10ms_serve)
-    time_20ms_serve                          0x00005849   Thumb Code    28  main.o(i.time_20ms_serve)
-    time_5ms_serve                           0x00005869   Thumb Code     2  main.o(i.time_5ms_serve)
-    uart_init                                0x0000586d   Thumb Code   170  kea128_uart.o(i.uart_init)
-    uart_mux                                 0x00005925   Thumb Code   106  kea128_uart.o(i.uart_mux)
-    uart_putbuff                             0x00005995   Thumb Code    30  kea128_uart.o(i.uart_putbuff)
-    uart_putchar                             0x000059b5   Thumb Code    28  kea128_uart.o(i.uart_putchar)
-    update_1cm_error                         0x000059d5   Thumb Code    86  sensor.o(i.update_1cm_error)
-    vcan_sendware                            0x00005a3d   Thumb Code    50  debug.o(i.vcan_sendware)
-    F6x8                                     0x00005aa8   Data         552  oled.o(.constdata)
-    F14x16_Idx                               0x00005cd0   Data          19  oled.o(.constdata)
-    F14x16                                   0x00005ce3   Data         168  oled.o(.constdata)
-    F8X16                                    0x00005d8b   Data        1520  oled.o(.constdata)
-    LOGO                                     0x0000637b   Data        1024  oled.o(.constdata)
-    Region$$Table$$Base                      0x0000677c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0000679c   Number         0  anon$$obj.o(Region$$Table)
+    show_circle                              0x00005285   Thumb Code   184  myui.o(i.show_circle)
+    show_one_sensor                          0x000053b9   Thumb Code    90  myui.o(i.show_one_sensor)
+    show_run_time                            0x00005429   Thumb Code    60  myui.o(i.show_run_time)
+    show_sensor                              0x000054a1   Thumb Code   316  myui.o(i.show_sensor)
+    speed_control                            0x00005605   Thumb Code   406  control.o(i.speed_control)
+    systick_delay                            0x000057a5   Thumb Code    44  kea128_systick.o(i.systick_delay)
+    systick_delay_ms                         0x000057d5   Thumb Code    24  kea128_systick.o(i.systick_delay_ms)
+    time_10ms_serve                          0x000057f1   Thumb Code   150  main.o(i.time_10ms_serve)
+    time_20ms_serve                          0x0000589d   Thumb Code    28  main.o(i.time_20ms_serve)
+    time_5ms_serve                           0x000058bd   Thumb Code     2  main.o(i.time_5ms_serve)
+    uart_init                                0x000058c1   Thumb Code   170  kea128_uart.o(i.uart_init)
+    uart_mux                                 0x00005979   Thumb Code   106  kea128_uart.o(i.uart_mux)
+    uart_putbuff                             0x000059e9   Thumb Code    30  kea128_uart.o(i.uart_putbuff)
+    uart_putchar                             0x00005a09   Thumb Code    28  kea128_uart.o(i.uart_putchar)
+    update_1cm_error                         0x00005a29   Thumb Code    86  sensor.o(i.update_1cm_error)
+    vcan_sendware                            0x00005a91   Thumb Code    50  debug.o(i.vcan_sendware)
+    F6x8                                     0x00005afc   Data         552  oled.o(.constdata)
+    F14x16_Idx                               0x00005d24   Data          19  oled.o(.constdata)
+    F14x16                                   0x00005d37   Data         168  oled.o(.constdata)
+    F8X16                                    0x00005ddf   Data        1520  oled.o(.constdata)
+    LOGO                                     0x000063cf   Data        1024  oled.o(.constdata)
+    Region$$Table$$Base                      0x000067d0   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x000067f0   Number         0  anon$$obj.o(Region$$Table)
     ics_clk_khz                              0x20000000   Data           4  common.o(.data)
     ftm_clk_khz                              0x20000004   Data           4  common.o(.data)
     core_clk_khz                             0x20000008   Data           4  common.o(.data)
@@ -1563,70 +1568,55 @@ Image Symbol Table
     circle_right_flag                        0x2000003d   Data           1  sensor.o(.data)
     circle_in                                0x2000003e   Data           1  sensor.o(.data)
     circle_counter                           0x2000003f   Data           1  sensor.o(.data)
-    sum_12                                   0x20000040   Data           4  sensor.o(.data)
-    sub_12                                   0x20000044   Data           4  sensor.o(.data)
-    sum_16_34                                0x20000048   Data           4  sensor.o(.data)
-    sub_25_d                                 0x2000004c   Data           4  sensor.o(.data)
-    Power_V                                  0x20000050   Data           4  sensor.o(.data)
-    update_dis1cm_encoder                    0x20000054   Data           4  sensor.o(.data)
-    Key_data                                 0x20000058   Data           6  car_key.o(.data)
-    Key_GD                                   0x2000005e   Data           6  car_key.o(.data)
-    circle_turn                              0x20000064   Data           1  control.o(.data)
-    circle_distence                          0x20000066   Data           2  control.o(.data)
-    circle_flag                              0x20000068   Data           1  control.o(.data)
-    motor_protect_time                       0x2000006c   Data           4  control.o(.data)
-    R_out_value                              0x20000070   Data           2  control.o(.data)
-    L_out_value                              0x20000072   Data           2  control.o(.data)
-    STOP_CAR_FLAG                            0x20000074   Data           1  control.o(.data)
-    getCountNum_L                            0x20000075   Data           1  encode.o(.data)
-    getCountNum_R                            0x20000076   Data           1  encode.o(.data)
-    Car_BiBi_En                              0x20000078   Data           1  bb.o(.data)
-    Bell_C_ms                                0x2000007a   Data           2  bb.o(.data)
-    Bell_D_ms                                0x2000007c   Data           2  bb.o(.data)
-    Pulse_Time                               0x2000007e   Data           2  bb.o(.data)
-    cursor_x                                 0x20000080   Data           1  myui.o(.data)
-    cursor_y                                 0x20000081   Data           1  myui.o(.data)
-    state                                    0x20000082   Data           1  myui.o(.data)
-    ParameterNo                              0x20000083   Data           1  myui.o(.data)
-    Parameter2No                             0x20000084   Data           1  myui.o(.data)
-    Save_Flag                                0x20000085   Data           1  myui.o(.data)
-    Read_Flag                                0x20000086   Data           1  myui.o(.data)
-    time_1ms                                 0x20000088   Data           4  main.o(.data)
-    time_5ms                                 0x2000008c   Data           4  main.o(.data)
-    time_10ms                                0x20000090   Data           4  main.o(.data)
-    time_20ms                                0x20000094   Data           4  main.o(.data)
-    time_50ms                                0x20000098   Data           4  main.o(.data)
-    time_100ms                               0x2000009c   Data           4  main.o(.data)
-    time_200ms                               0x200000a0   Data           4  main.o(.data)
-    time_500ms                               0x200000a4   Data           4  main.o(.data)
-    time_1s                                  0x200000a8   Data           4  main.o(.data)
-    time_2s                                  0x200000ac   Data           4  main.o(.data)
-    time_5s                                  0x200000b0   Data           4  main.o(.data)
-    time_10s                                 0x200000b4   Data           4  main.o(.data)
-    encode_time                              0x200000b8   Data           2  main.o(.data)
-    sensor_time                              0x200000ba   Data           2  main.o(.data)
-    control_time                             0x200000bc   Data           2  main.o(.data)
-    Speed_Ratio                              0x200000c0   Data           4  main.o(.data)
-    sector                                   0x200000c4   Data           1  main.o(.data)
-    All_Data                                 0x200000c8   Data        1024  oled.o(.bss)
-    Adc                                      0x200004c8   Data         280  sensor.o(.bss)
-    Sensor                                   0x200005e0   Data          84  sensor.o(.bss)
-    sub_25                                   0x20000634   Data          20  sensor.o(.bss)
-    once_uni_ad                              0x20000648   Data          36  sensor.o(.bss)
-    twice_uni_ad                             0x2000066c   Data          36  sensor.o(.bss)
-    ad_mid_val                               0x20000690   Data          20  sensor.o(.bss)
-    ad_add_val                               0x200006a4   Data          40  sensor.o(.bss)
-    ad_avr_val                               0x200006cc   Data          20  sensor.o(.bss)
-    ad_max_val                               0x200006e0   Data          20  sensor.o(.bss)
-    ad_max_temp                              0x200006f4   Data          20  sensor.o(.bss)
-    ad_int_val                               0x20000708   Data          60  sensor.o(.bss)
-    ad_avr_temp                              0x20000744   Data         100  sensor.o(.bss)
-    Key_time                                 0x2000080c   Data          12  car_key.o(.bss)
-    Motor                                    0x20000818   Data         100  control.o(.bss)
-    Servo                                    0x2000087c   Data         172  control.o(.bss)
-    Motor_control                            0x20000928   Data         200  control.o(.bss)
-    Speed                                    0x200009f0   Data          20  control.o(.bss)
-    __initial_sp                             0x20001a08   Data           0  startup_skeaz1284.o(STACK)
+    Power_V                                  0x20000040   Data           4  sensor.o(.data)
+    update_dis1cm_encoder                    0x20000044   Data           4  sensor.o(.data)
+    Key_data                                 0x20000048   Data           6  car_key.o(.data)
+    Key_GD                                   0x2000004e   Data           6  car_key.o(.data)
+    circle_turn                              0x20000054   Data           1  control.o(.data)
+    circle_distence                          0x20000056   Data           2  control.o(.data)
+    circle_flag                              0x20000058   Data           1  control.o(.data)
+    motor_protect_time                       0x2000005c   Data           4  control.o(.data)
+    R_out_value                              0x20000060   Data           2  control.o(.data)
+    L_out_value                              0x20000062   Data           2  control.o(.data)
+    STOP_CAR_FLAG                            0x20000064   Data           1  control.o(.data)
+    getCountNum_L                            0x20000065   Data           1  encode.o(.data)
+    getCountNum_R                            0x20000066   Data           1  encode.o(.data)
+    Car_BiBi_En                              0x20000068   Data           1  bb.o(.data)
+    Bell_C_ms                                0x2000006a   Data           2  bb.o(.data)
+    Bell_D_ms                                0x2000006c   Data           2  bb.o(.data)
+    Pulse_Time                               0x2000006e   Data           2  bb.o(.data)
+    cursor_x                                 0x20000070   Data           1  myui.o(.data)
+    cursor_y                                 0x20000071   Data           1  myui.o(.data)
+    state                                    0x20000072   Data           1  myui.o(.data)
+    ParameterNo                              0x20000073   Data           1  myui.o(.data)
+    Parameter2No                             0x20000074   Data           1  myui.o(.data)
+    Save_Flag                                0x20000075   Data           1  myui.o(.data)
+    Read_Flag                                0x20000076   Data           1  myui.o(.data)
+    time_1ms                                 0x20000078   Data           4  main.o(.data)
+    time_5ms                                 0x2000007c   Data           4  main.o(.data)
+    time_10ms                                0x20000080   Data           4  main.o(.data)
+    time_20ms                                0x20000084   Data           4  main.o(.data)
+    time_50ms                                0x20000088   Data           4  main.o(.data)
+    time_100ms                               0x2000008c   Data           4  main.o(.data)
+    time_200ms                               0x20000090   Data           4  main.o(.data)
+    time_500ms                               0x20000094   Data           4  main.o(.data)
+    time_1s                                  0x20000098   Data           4  main.o(.data)
+    time_2s                                  0x2000009c   Data           4  main.o(.data)
+    time_5s                                  0x200000a0   Data           4  main.o(.data)
+    time_10s                                 0x200000a4   Data           4  main.o(.data)
+    encode_time                              0x200000a8   Data           2  main.o(.data)
+    sensor_time                              0x200000aa   Data           2  main.o(.data)
+    control_time                             0x200000ac   Data           2  main.o(.data)
+    UI_time                                  0x200000ae   Data           2  main.o(.data)
+    Speed_Ratio                              0x200000b0   Data           4  main.o(.data)
+    All_Data                                 0x200000b4   Data        1024  oled.o(.bss)
+    Adc                                      0x200004b4   Data         280  sensor.o(.bss)
+    Sensor                                   0x200005cc   Data         108  sensor.o(.bss)
+    Key_time                                 0x2000069c   Data          12  car_key.o(.bss)
+    Servo                                    0x200006a8   Data         172  control.o(.bss)
+    Motor_control                            0x20000754   Data         200  control.o(.bss)
+    Speed                                    0x2000081c   Data          24  control.o(.bss)
+    __initial_sp                             0x20001838   Data           0  startup_skeaz1284.o(STACK)
 
 
 
@@ -1636,217 +1626,216 @@ Memory Map of the image
 
   Image Entry point : 0x000000c1
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00006864, Max: 0x00020000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x000068a4, Max: 0x00020000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x0000679c, Max: 0x00020000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x000067f0, Max: 0x00020000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x00000000   0x000000c0   Data   RO          746    RESET               startup_skeaz1284.o
-    0x000000c0   0x000000c0   0x00000000   Code   RO         1616  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
-    0x000000c0   0x000000c0   0x00000004   Code   RO         1928    .ARM.Collect$$$$00000001  mc_p.l(entry2.o)
-    0x000000c4   0x000000c4   0x00000004   Code   RO         1931    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
-    0x000000c8   0x000000c8   0x00000000   Code   RO         1933    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
-    0x000000c8   0x000000c8   0x00000000   Code   RO         1935    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
-    0x000000c8   0x000000c8   0x00000008   Code   RO         1936    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
-    0x000000d0   0x000000d0   0x00000000   Code   RO         1938    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
-    0x000000d0   0x000000d0   0x00000000   Code   RO         1940    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
-    0x000000d0   0x000000d0   0x00000004   Code   RO         1929    .ARM.Collect$$$$00002712  mc_p.l(entry2.o)
-    0x000000d4   0x000000d4   0x00000028   Code   RO          748    .text               startup_skeaz1284.o
-    0x000000fc   0x000000fc   0x0000002c   Code   RO         1619    .text               mc_p.l(uidiv.o)
-    0x00000128   0x00000128   0x00000028   Code   RO         1621    .text               mc_p.l(idiv.o)
-    0x00000150   0x00000150   0x00000024   Code   RO         1623    .text               mc_p.l(memcpya.o)
-    0x00000174   0x00000174   0x00000024   Code   RO         1625    .text               mc_p.l(memseta.o)
-    0x00000198   0x00000198   0x000000b2   Code   RO         1890    .text               mf_p.l(fadd.o)
-    0x0000024a   0x0000024a   0x0000007a   Code   RO         1892    .text               mf_p.l(fmul.o)
-    0x000002c4   0x000002c4   0x0000007c   Code   RO         1894    .text               mf_p.l(fdiv.o)
-    0x00000340   0x00000340   0x00000016   Code   RO         1902    .text               mf_p.l(fflti.o)
-    0x00000356   0x00000356   0x0000000e   Code   RO         1904    .text               mf_p.l(ffltui.o)
-    0x00000364   0x00000364   0x00000028   Code   RO         1906    .text               mf_p.l(dflti.o)
-    0x0000038c   0x0000038c   0x0000001c   Code   RO         1908    .text               mf_p.l(dfltui.o)
-    0x000003a8   0x000003a8   0x00000032   Code   RO         1910    .text               mf_p.l(ffixi.o)
+    0x00000000   0x00000000   0x000000c0   Data   RO          743    RESET               startup_skeaz1284.o
+    0x000000c0   0x000000c0   0x00000000   Code   RO         1603  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
+    0x000000c0   0x000000c0   0x00000004   Code   RO         1915    .ARM.Collect$$$$00000001  mc_p.l(entry2.o)
+    0x000000c4   0x000000c4   0x00000004   Code   RO         1918    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
+    0x000000c8   0x000000c8   0x00000000   Code   RO         1920    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
+    0x000000c8   0x000000c8   0x00000000   Code   RO         1922    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
+    0x000000c8   0x000000c8   0x00000008   Code   RO         1923    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
+    0x000000d0   0x000000d0   0x00000000   Code   RO         1925    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
+    0x000000d0   0x000000d0   0x00000000   Code   RO         1927    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
+    0x000000d0   0x000000d0   0x00000004   Code   RO         1916    .ARM.Collect$$$$00002712  mc_p.l(entry2.o)
+    0x000000d4   0x000000d4   0x00000028   Code   RO          745    .text               startup_skeaz1284.o
+    0x000000fc   0x000000fc   0x0000002c   Code   RO         1606    .text               mc_p.l(uidiv.o)
+    0x00000128   0x00000128   0x00000028   Code   RO         1608    .text               mc_p.l(idiv.o)
+    0x00000150   0x00000150   0x00000024   Code   RO         1610    .text               mc_p.l(memcpya.o)
+    0x00000174   0x00000174   0x00000024   Code   RO         1612    .text               mc_p.l(memseta.o)
+    0x00000198   0x00000198   0x000000b2   Code   RO         1877    .text               mf_p.l(fadd.o)
+    0x0000024a   0x0000024a   0x0000007a   Code   RO         1879    .text               mf_p.l(fmul.o)
+    0x000002c4   0x000002c4   0x0000007c   Code   RO         1881    .text               mf_p.l(fdiv.o)
+    0x00000340   0x00000340   0x00000016   Code   RO         1889    .text               mf_p.l(fflti.o)
+    0x00000356   0x00000356   0x0000000e   Code   RO         1891    .text               mf_p.l(ffltui.o)
+    0x00000364   0x00000364   0x00000028   Code   RO         1893    .text               mf_p.l(dflti.o)
+    0x0000038c   0x0000038c   0x0000001c   Code   RO         1895    .text               mf_p.l(dfltui.o)
+    0x000003a8   0x000003a8   0x00000032   Code   RO         1897    .text               mf_p.l(ffixi.o)
     0x000003da   0x000003da   0x00000002   PAD
-    0x000003dc   0x000003dc   0x00000014   Code   RO         1924    .text               mf_p.l(cfcmple.o)
-    0x000003f0   0x000003f0   0x00000000   Code   RO         1951    .text               mc_p.l(iusefp.o)
-    0x000003f0   0x000003f0   0x0000000c   Code   RO         1118    i.Key_Inquire_data  car_key.o
-    0x000003fc   0x000003fc   0x00000002   Code   RO         1965    i.__scatterload_null  mc_p.l(handlers.o)
-    0x000003fe   0x000003fe   0x00000002   Code   RO         1563    i.time_500ms_serve  main.o
-    0x00000400   0x00000400   0x00000010   Code   RO          747    .ARM.__at_0x400     startup_skeaz1284.o
-    0x00000410   0x00000410   0x00000164   Code   RO         1896    .text               mf_p.l(dadd.o)
-    0x00000574   0x00000574   0x000000d0   Code   RO         1898    .text               mf_p.l(dmul.o)
-    0x00000644   0x00000644   0x000000f0   Code   RO         1900    .text               mf_p.l(ddiv.o)
-    0x00000734   0x00000734   0x00000028   Code   RO         1912    .text               mf_p.l(ffixui.o)
-    0x0000075c   0x0000075c   0x00000048   Code   RO         1914    .text               mf_p.l(dfixi.o)
-    0x000007a4   0x000007a4   0x0000003c   Code   RO         1916    .text               mf_p.l(dfixui.o)
-    0x000007e0   0x000007e0   0x00000028   Code   RO         1918    .text               mf_p.l(f2d.o)
-    0x00000808   0x00000808   0x00000028   Code   RO         1920    .text               mf_p.l(cdrcmple.o)
-    0x00000830   0x00000830   0x00000038   Code   RO         1922    .text               mf_p.l(d2f.o)
-    0x00000868   0x00000868   0x00000014   Code   RO         1926    .text               mf_p.l(cfrcmple.o)
-    0x0000087c   0x0000087c   0x00000060   Code   RO         1943    .text               mc_p.l(uldiv.o)
-    0x000008dc   0x000008dc   0x00000020   Code   RO         1945    .text               mc_p.l(llshl.o)
-    0x000008fc   0x000008fc   0x00000022   Code   RO         1947    .text               mc_p.l(llushr.o)
-    0x0000091e   0x0000091e   0x00000026   Code   RO         1949    .text               mc_p.l(llsshr.o)
-    0x00000944   0x00000944   0x00000082   Code   RO         1952    .text               mf_p.l(fepilogue.o)
-    0x000009c6   0x000009c6   0x000000be   Code   RO         1954    .text               mf_p.l(depilogue.o)
-    0x00000a84   0x00000a84   0x00000040   Code   RO         1958    .text               mf_p.l(dfixul.o)
-    0x00000ac4   0x00000ac4   0x00000024   Code   RO         1960    .text               mc_p.l(init.o)
-    0x00000ae8   0x00000ae8   0x00000024   Code   RO         1245    i.Bell_Cry          bb.o
-    0x00000b0c   0x00000b0c   0x00000094   Code   RO         1246    i.Bell_Play         bb.o
-    0x00000ba0   0x00000ba0   0x00000070   Code   RO          756    i.Cache_OLED_P6x8Num  oled.o
-    0x00000c10   0x00000c10   0x0000005c   Code   RO          758    i.Cache_OLED_P6x8Str  oled.o
-    0x00000c6c   0x00000c6c   0x00000088   Code   RO          760    i.Cache_OLED_P6x8floatNum  oled.o
-    0x00000cf4   0x00000cf4   0x0000011a   Code   RO          761    i.Cache_OLED_Rectangle  oled.o
+    0x000003dc   0x000003dc   0x00000014   Code   RO         1911    .text               mf_p.l(cfcmple.o)
+    0x000003f0   0x000003f0   0x00000000   Code   RO         1938    .text               mc_p.l(iusefp.o)
+    0x000003f0   0x000003f0   0x0000000c   Code   RO         1109    i.Key_Inquire_data  car_key.o
+    0x000003fc   0x000003fc   0x00000002   Code   RO         1952    i.__scatterload_null  mc_p.l(handlers.o)
+    0x000003fe   0x000003fe   0x00000002   Code   RO         1550    i.time_500ms_serve  main.o
+    0x00000400   0x00000400   0x00000010   Code   RO          744    .ARM.__at_0x400     startup_skeaz1284.o
+    0x00000410   0x00000410   0x00000164   Code   RO         1883    .text               mf_p.l(dadd.o)
+    0x00000574   0x00000574   0x000000d0   Code   RO         1885    .text               mf_p.l(dmul.o)
+    0x00000644   0x00000644   0x000000f0   Code   RO         1887    .text               mf_p.l(ddiv.o)
+    0x00000734   0x00000734   0x00000028   Code   RO         1899    .text               mf_p.l(ffixui.o)
+    0x0000075c   0x0000075c   0x00000048   Code   RO         1901    .text               mf_p.l(dfixi.o)
+    0x000007a4   0x000007a4   0x0000003c   Code   RO         1903    .text               mf_p.l(dfixui.o)
+    0x000007e0   0x000007e0   0x00000028   Code   RO         1905    .text               mf_p.l(f2d.o)
+    0x00000808   0x00000808   0x00000028   Code   RO         1907    .text               mf_p.l(cdrcmple.o)
+    0x00000830   0x00000830   0x00000038   Code   RO         1909    .text               mf_p.l(d2f.o)
+    0x00000868   0x00000868   0x00000014   Code   RO         1913    .text               mf_p.l(cfrcmple.o)
+    0x0000087c   0x0000087c   0x00000060   Code   RO         1930    .text               mc_p.l(uldiv.o)
+    0x000008dc   0x000008dc   0x00000020   Code   RO         1932    .text               mc_p.l(llshl.o)
+    0x000008fc   0x000008fc   0x00000022   Code   RO         1934    .text               mc_p.l(llushr.o)
+    0x0000091e   0x0000091e   0x00000026   Code   RO         1936    .text               mc_p.l(llsshr.o)
+    0x00000944   0x00000944   0x00000082   Code   RO         1939    .text               mf_p.l(fepilogue.o)
+    0x000009c6   0x000009c6   0x000000be   Code   RO         1941    .text               mf_p.l(depilogue.o)
+    0x00000a84   0x00000a84   0x00000040   Code   RO         1945    .text               mf_p.l(dfixul.o)
+    0x00000ac4   0x00000ac4   0x00000024   Code   RO         1947    .text               mc_p.l(init.o)
+    0x00000ae8   0x00000ae8   0x00000024   Code   RO         1232    i.Bell_Cry          bb.o
+    0x00000b0c   0x00000b0c   0x00000094   Code   RO         1233    i.Bell_Play         bb.o
+    0x00000ba0   0x00000ba0   0x00000070   Code   RO          753    i.Cache_OLED_P6x8Num  oled.o
+    0x00000c10   0x00000c10   0x0000005c   Code   RO          755    i.Cache_OLED_P6x8Str  oled.o
+    0x00000c6c   0x00000c6c   0x00000088   Code   RO          757    i.Cache_OLED_P6x8floatNum  oled.o
+    0x00000cf4   0x00000cf4   0x0000011a   Code   RO          758    i.Cache_OLED_Rectangle  oled.o
     0x00000e0e   0x00000e0e   0x00000002   PAD
-    0x00000e10   0x00000e10   0x00000014   Code   RO          762    i.Cache_OLED_Set_Pos  oled.o
-    0x00000e24   0x00000e24   0x0000004c   Code   RO          763    i.Cache_OLED_WriteData  oled.o
-    0x00000e70   0x00000e70   0x0000003c   Code   RO          764    i.Cache_OLED_printf  oled.o
-    0x00000eac   0x00000eac   0x00000040   Code   RO          765    i.Cache_Update_OLED  oled.o
-    0x00000eec   0x00000eec   0x0000017c   Code   RO         1116    i.Car_Gather_Data_Key  car_key.o
-    0x00001068   0x00001068   0x0000023e   Code   RO         1373    i.ChangeParameterVal  myui.o
+    0x00000e10   0x00000e10   0x00000014   Code   RO          759    i.Cache_OLED_Set_Pos  oled.o
+    0x00000e24   0x00000e24   0x0000004c   Code   RO          760    i.Cache_OLED_WriteData  oled.o
+    0x00000e70   0x00000e70   0x0000003c   Code   RO          761    i.Cache_OLED_printf  oled.o
+    0x00000eac   0x00000eac   0x00000040   Code   RO          762    i.Cache_Update_OLED  oled.o
+    0x00000eec   0x00000eec   0x0000017c   Code   RO         1107    i.Car_Gather_Data_Key  car_key.o
+    0x00001068   0x00001068   0x0000023e   Code   RO         1360    i.ChangeParameterVal  myui.o
     0x000012a6   0x000012a6   0x00000002   PAD
-    0x000012a8   0x000012a8   0x000000b8   Code   RO         1374    i.Change_Main_menu  myui.o
-    0x00001360   0x00001360   0x00000098   Code   RO         1375    i.Change_UI         myui.o
-    0x000013f8   0x000013f8   0x00000470   Code   RO         1376    i.ConfigParameterCore  myui.o
-    0x00001868   0x00001868   0x00000030   Code   RO          208    i.FLASH_EraseSector  kea128_flash.o
-    0x00001898   0x00001898   0x0000004c   Code   RO          210    i.FLASH_Init        kea128_flash.o
-    0x000018e4   0x000018e4   0x00000070   Code   RO          211    i.FLASH_WriteSector  kea128_flash.o
-    0x00001954   0x00001954   0x0000003c   Code   RO          212    i.FlashCmdStart     kea128_flash.o
-    0x00001990   0x00001990   0x00000014   Code   RO         1516    i.IRQ_IRQHandler    isr.o
-    0x000019a4   0x000019a4   0x00000014   Code   RO         1517    i.KBI0_IRQHandler   isr.o
-    0x000019b8   0x000019b8   0x000001c0   Code   RO         1119    i.Key_Message_Init  car_key.o
-    0x00001b78   0x00001b78   0x00000124   Code   RO         1377    i.Left_Motor_menu   myui.o
-    0x00001c9c   0x00001c9c   0x00000014   Code   RO         1558    i.NVIC_EnableIRQ    main.o
-    0x00001cb0   0x00001cb0   0x00000078   Code   RO         1559    i.NVIC_SetPriority  main.o
-    0x00001d28   0x00001d28   0x00000038   Code   RO          768    i.OLED_CLS          oled.o
-    0x00001d60   0x00001d60   0x0000004c   Code   RO         1378    i.OLED_ConfigParameter  myui.o
-    0x00001dac   0x00001dac   0x00000020   Code   RO          770    i.OLED_DLY_ms       oled.o
-    0x00001dcc   0x00001dcc   0x0000003a   Code   RO          771    i.OLED_Fill         oled.o
-    0x00001e06   0x00001e06   0x00000122   Code   RO          772    i.OLED_Init         oled.o
-    0x00001f28   0x00001f28   0x00000064   Code   RO          775    i.OLED_P6x8Str      oled.o
-    0x00001f8c   0x00001f8c   0x0000002e   Code   RO          783    i.OLED_Set_Pos      oled.o
-    0x00001fba   0x00001fba   0x00000052   Code   RO          784    i.OLED_WriteCmd     oled.o
-    0x0000200c   0x0000200c   0x00000052   Code   RO          785    i.OLED_WriteData    oled.o
+    0x000012a8   0x000012a8   0x000000b8   Code   RO         1361    i.Change_Main_menu  myui.o
+    0x00001360   0x00001360   0x00000098   Code   RO         1362    i.Change_UI         myui.o
+    0x000013f8   0x000013f8   0x00000470   Code   RO         1363    i.ConfigParameterCore  myui.o
+    0x00001868   0x00001868   0x00000030   Code   RO          205    i.FLASH_EraseSector  kea128_flash.o
+    0x00001898   0x00001898   0x0000004c   Code   RO          207    i.FLASH_Init        kea128_flash.o
+    0x000018e4   0x000018e4   0x00000070   Code   RO          208    i.FLASH_WriteSector  kea128_flash.o
+    0x00001954   0x00001954   0x0000003c   Code   RO          209    i.FlashCmdStart     kea128_flash.o
+    0x00001990   0x00001990   0x00000014   Code   RO         1503    i.IRQ_IRQHandler    isr.o
+    0x000019a4   0x000019a4   0x00000014   Code   RO         1504    i.KBI0_IRQHandler   isr.o
+    0x000019b8   0x000019b8   0x000001c0   Code   RO         1110    i.Key_Message_Init  car_key.o
+    0x00001b78   0x00001b78   0x00000124   Code   RO         1364    i.Left_Motor_menu   myui.o
+    0x00001c9c   0x00001c9c   0x00000014   Code   RO         1545    i.NVIC_EnableIRQ    main.o
+    0x00001cb0   0x00001cb0   0x00000078   Code   RO         1546    i.NVIC_SetPriority  main.o
+    0x00001d28   0x00001d28   0x00000038   Code   RO          765    i.OLED_CLS          oled.o
+    0x00001d60   0x00001d60   0x0000004c   Code   RO         1365    i.OLED_ConfigParameter  myui.o
+    0x00001dac   0x00001dac   0x00000020   Code   RO          767    i.OLED_DLY_ms       oled.o
+    0x00001dcc   0x00001dcc   0x0000003a   Code   RO          768    i.OLED_Fill         oled.o
+    0x00001e06   0x00001e06   0x00000122   Code   RO          769    i.OLED_Init         oled.o
+    0x00001f28   0x00001f28   0x00000064   Code   RO          772    i.OLED_P6x8Str      oled.o
+    0x00001f8c   0x00001f8c   0x0000002e   Code   RO          780    i.OLED_Set_Pos      oled.o
+    0x00001fba   0x00001fba   0x00000052   Code   RO          781    i.OLED_WriteCmd     oled.o
+    0x0000200c   0x0000200c   0x00000052   Code   RO          782    i.OLED_WriteData    oled.o
     0x0000205e   0x0000205e   0x00000002   PAD
-    0x00002060   0x00002060   0x0000013c   Code   RO         1518    i.PIT_CH0_IRQHandler  isr.o
-    0x0000219c   0x0000219c   0x00000014   Code   RO         1519    i.PIT_CH1_IRQHandler  isr.o
-    0x000021b0   0x000021b0   0x00000094   Code   RO          970    i.Read_Left_motor   myflash.o
-    0x00002244   0x00002244   0x00000098   Code   RO          971    i.Read_Right_motor  myflash.o
-    0x000022dc   0x000022dc   0x000000c4   Code   RO          972    i.Read_Servo        myflash.o
-    0x000023a0   0x000023a0   0x00000064   Code   RO          973    i.Read_Speed        myflash.o
-    0x00002404   0x00002404   0x00000124   Code   RO         1379    i.Right_Motor_menu  myui.o
-    0x00002528   0x00002528   0x000000a4   Code   RO          974    i.Save_Left_motor   myflash.o
-    0x000025cc   0x000025cc   0x000000a8   Code   RO          975    i.Save_Right_motor  myflash.o
-    0x00002674   0x00002674   0x000000d0   Code   RO          976    i.Save_Servo        myflash.o
-    0x00002744   0x00002744   0x00000084   Code   RO          977    i.Save_Speed        myflash.o
-    0x000027c8   0x000027c8   0x00000144   Code   RO         1380    i.Servo_menu        myui.o
-    0x0000290c   0x0000290c   0x00000104   Code   RO         1381    i.Show_Left_Motor_PID  myui.o
-    0x00002a10   0x00002a10   0x000000c4   Code   RO         1382    i.Show_Main_menu    myui.o
-    0x00002ad4   0x00002ad4   0x00000108   Code   RO         1383    i.Show_Right_Motor_PID  myui.o
-    0x00002bdc   0x00002bdc   0x00000164   Code   RO         1384    i.Show_Servo_PID    myui.o
-    0x00002d40   0x00002d40   0x000000dc   Code   RO         1385    i.Show_UI           myui.o
-    0x00002e1c   0x00002e1c   0x0000017c   Code   RO         1386    i.Show_speed        myui.o
-    0x00002f98   0x00002f98   0x00000188   Code   RO         1387    i.Speed_menu        myui.o
-    0x00003120   0x00003120   0x00000058   Code   RO          720    i.Start             system_skeaz1284.o
-    0x00003178   0x00003178   0x00000034   Code   RO         1863    i.__0snprintf       mc_p.l(printfa.o)
-    0x000031ac   0x000031ac   0x00000028   Code   RO         1864    i.__0sprintf        mc_p.l(printfa.o)
-    0x000031d4   0x000031d4   0x00000024   Code   RO         1868    i.__0vsprintf       mc_p.l(printfa.o)
-    0x000031f8   0x000031f8   0x0000002e   Code   RO         1956    i.__ARM_clz         mf_p.l(depilogue.o)
-    0x00003226   0x00003226   0x0000001c   Code   RO          316    i.__ARM_common_switch8  kea128_ftm.o
-    0x00003242   0x00003242   0x0000000e   Code   RO         1964    i.__scatterload_copy  mc_p.l(handlers.o)
-    0x00003250   0x00003250   0x0000000e   Code   RO         1966    i.__scatterload_zeroinit  mc_p.l(handlers.o)
-    0x0000325e   0x0000325e   0x00000002   PAD
-    0x00003260   0x00003260   0x00000174   Code   RO         1869    i._fp_digits        mc_p.l(printfa.o)
-    0x000033d4   0x000033d4   0x000006ec   Code   RO         1870    i._printf_core      mc_p.l(printfa.o)
-    0x00003ac0   0x00003ac0   0x00000020   Code   RO         1871    i._printf_post_padding  mc_p.l(printfa.o)
-    0x00003ae0   0x00003ae0   0x0000002c   Code   RO         1872    i._printf_pre_padding  mc_p.l(printfa.o)
-    0x00003b0c   0x00003b0c   0x00000016   Code   RO         1873    i._snputc           mc_p.l(printfa.o)
-    0x00003b22   0x00003b22   0x0000000a   Code   RO         1874    i._sputc            mc_p.l(printfa.o)
-    0x00003b2c   0x00003b2c   0x0000003a   Code   RO         1058    i.ad_init           sensor.o
-    0x00003b66   0x00003b66   0x00000002   PAD
-    0x00003b68   0x00003b68   0x00000028   Code   RO          149    i.adc_init          kea128_adc.o
-    0x00003b90   0x00003b90   0x00000038   Code   RO          150    i.adc_once          kea128_adc.o
-    0x00003bc8   0x00003bc8   0x000001fc   Code   RO         1158    i.control           control.o
-    0x00003dc4   0x00003dc4   0x00000174   Code   RO         1059    i.deal_sensor       sensor.o
-    0x00003f38   0x00003f38   0x00000018   Code   RO          721    i.disable_wdog      system_skeaz1284.o
-    0x00003f50   0x00003f50   0x00000030   Code   RO         1209    i.encode_init       encode.o
-    0x00003f80   0x00003f80   0x00000010   Code   RO          255    i.ftm_count_clean   kea128_ftm.o
-    0x00003f90   0x00003f90   0x00000014   Code   RO          256    i.ftm_count_get     kea128_ftm.o
-    0x00003fa4   0x00003fa4   0x0000003c   Code   RO          257    i.ftm_count_init    kea128_ftm.o
-    0x00003fe0   0x00003fe0   0x000000b0   Code   RO          258    i.ftm_count_mux     kea128_ftm.o
-    0x00004090   0x00004090   0x0000007c   Code   RO          259    i.ftm_pwm_duty      kea128_ftm.o
-    0x0000410c   0x0000410c   0x00000124   Code   RO          261    i.ftm_pwm_init      kea128_ftm.o
-    0x00004230   0x00004230   0x00000128   Code   RO          262    i.ftm_pwm_mux       kea128_ftm.o
-    0x00004358   0x00004358   0x00000248   Code   RO         1061    i.get_adc_int_value  sensor.o
-    0x000045a0   0x000045a0   0x000000cc   Code   RO            3    i.get_clk           common.o
-    0x0000466c   0x0000466c   0x00000064   Code   RO         1210    i.get_num           encode.o
-    0x000046d0   0x000046d0   0x0000002c   Code   RO          324    i.gpio_get          kea128_gpio.o
-    0x000046fc   0x000046fc   0x000000dc   Code   RO          325    i.gpio_init         kea128_gpio.o
-    0x000047d8   0x000047d8   0x00000048   Code   RO          326    i.gpio_set          kea128_gpio.o
-    0x00004820   0x00004820   0x00000184   Code   RO         1560    i.main              main.o
-    0x000049a4   0x000049a4   0x00000040   Code   RO         1032    i.motor_init        motor.o
-    0x000049e4   0x000049e4   0x00000228   Code   RO         1159    i.motor_pid_caculate  control.o
-    0x00004c0c   0x00004c0c   0x000000b8   Code   RO         1033    i.motor_set         motor.o
-    0x00004cc4   0x00004cc4   0x00000030   Code   RO          466    i.pit_close         kea128_pit.o
-    0x00004cf4   0x00004cf4   0x00000058   Code   RO          468    i.pit_init          kea128_pit.o
-    0x00004d4c   0x00004d4c   0x00000058   Code   RO          469    i.pit_time_get      kea128_pit.o
-    0x00004da4   0x00004da4   0x00000058   Code   RO          470    i.pit_time_start    kea128_pit.o
-    0x00004dfc   0x00004dfc   0x00000050   Code   RO          510    i.port_pull         kea128_port.o
-    0x00004e4c   0x00004e4c   0x000003dc   Code   RO         1160    i.servo_pid_caculate  control.o
-    0x00005228   0x00005228   0x0000005c   Code   RO         1388    i.show_8_L          myui.o
-    0x00005284   0x00005284   0x0000011c   Code   RO         1389    i.show_circle       myui.o
-    0x000053a0   0x000053a0   0x00000070   Code   RO         1390    i.show_one_sensor   myui.o
-    0x00005410   0x00005410   0x00000060   Code   RO         1391    i.show_run_time     myui.o
-    0x00005470   0x00005470   0x0000016c   Code   RO         1392    i.show_sensor       myui.o
-    0x000055dc   0x000055dc   0x000001a4   Code   RO         1161    i.speed_control     control.o
-    0x00005780   0x00005780   0x00000030   Code   RO          566    i.systick_delay     kea128_systick.o
-    0x000057b0   0x000057b0   0x0000001c   Code   RO          567    i.systick_delay_ms  kea128_systick.o
-    0x000057cc   0x000057cc   0x0000007c   Code   RO         1561    i.time_10ms_serve   main.o
-    0x00005848   0x00005848   0x00000020   Code   RO         1562    i.time_20ms_serve   main.o
-    0x00005868   0x00005868   0x00000002   Code   RO         1564    i.time_5ms_serve    main.o
-    0x0000586a   0x0000586a   0x00000002   PAD
-    0x0000586c   0x0000586c   0x000000b8   Code   RO          608    i.uart_init         kea128_uart.o
-    0x00005924   0x00005924   0x00000070   Code   RO          609    i.uart_mux          kea128_uart.o
-    0x00005994   0x00005994   0x0000001e   Code   RO          610    i.uart_putbuff      kea128_uart.o
-    0x000059b2   0x000059b2   0x00000002   PAD
-    0x000059b4   0x000059b4   0x00000020   Code   RO          611    i.uart_putchar      kea128_uart.o
-    0x000059d4   0x000059d4   0x00000068   Code   RO         1062    i.update_1cm_error  sensor.o
-    0x00005a3c   0x00005a3c   0x0000003c   Code   RO         1352    i.vcan_sendware     debug.o
-    0x00005a78   0x00005a78   0x00000016   Data   RO            4    .constdata          common.o
-    0x00005a8e   0x00005a8e   0x00000002   PAD
-    0x00005a90   0x00005a90   0x0000000c   Data   RO          263    .constdata          kea128_ftm.o
-    0x00005a9c   0x00005a9c   0x0000000c   Data   RO          328    .constdata          kea128_gpio.o
-    0x00005aa8   0x00005aa8   0x00000cd3   Data   RO          789    .constdata          oled.o
-    0x0000677b   0x0000677b   0x00000001   PAD
-    0x0000677c   0x0000677c   0x00000020   Data   RO         1962    Region$$Table       anon$$obj.o
+    0x00002060   0x00002060   0x0000013c   Code   RO         1505    i.PIT_CH0_IRQHandler  isr.o
+    0x0000219c   0x0000219c   0x00000014   Code   RO         1506    i.PIT_CH1_IRQHandler  isr.o
+    0x000021b0   0x000021b0   0x00000094   Code   RO          967    i.Read_Left_motor   myflash.o
+    0x00002244   0x00002244   0x00000098   Code   RO          968    i.Read_Right_motor  myflash.o
+    0x000022dc   0x000022dc   0x000000c4   Code   RO          969    i.Read_Servo        myflash.o
+    0x000023a0   0x000023a0   0x00000064   Code   RO          970    i.Read_Speed        myflash.o
+    0x00002404   0x00002404   0x00000124   Code   RO         1366    i.Right_Motor_menu  myui.o
+    0x00002528   0x00002528   0x000000a4   Code   RO          971    i.Save_Left_motor   myflash.o
+    0x000025cc   0x000025cc   0x000000a8   Code   RO          972    i.Save_Right_motor  myflash.o
+    0x00002674   0x00002674   0x000000d0   Code   RO          973    i.Save_Servo        myflash.o
+    0x00002744   0x00002744   0x00000084   Code   RO          974    i.Save_Speed        myflash.o
+    0x000027c8   0x000027c8   0x00000144   Code   RO         1367    i.Servo_menu        myui.o
+    0x0000290c   0x0000290c   0x00000104   Code   RO         1368    i.Show_Left_Motor_PID  myui.o
+    0x00002a10   0x00002a10   0x000000c4   Code   RO         1369    i.Show_Main_menu    myui.o
+    0x00002ad4   0x00002ad4   0x00000108   Code   RO         1370    i.Show_Right_Motor_PID  myui.o
+    0x00002bdc   0x00002bdc   0x00000164   Code   RO         1371    i.Show_Servo_PID    myui.o
+    0x00002d40   0x00002d40   0x000000dc   Code   RO         1372    i.Show_UI           myui.o
+    0x00002e1c   0x00002e1c   0x00000174   Code   RO         1373    i.Show_speed        myui.o
+    0x00002f90   0x00002f90   0x00000184   Code   RO         1374    i.Speed_menu        myui.o
+    0x00003114   0x00003114   0x00000058   Code   RO          717    i.Start             system_skeaz1284.o
+    0x0000316c   0x0000316c   0x00000034   Code   RO         1850    i.__0snprintf       mc_p.l(printfa.o)
+    0x000031a0   0x000031a0   0x00000028   Code   RO         1851    i.__0sprintf        mc_p.l(printfa.o)
+    0x000031c8   0x000031c8   0x00000024   Code   RO         1855    i.__0vsprintf       mc_p.l(printfa.o)
+    0x000031ec   0x000031ec   0x0000002e   Code   RO         1943    i.__ARM_clz         mf_p.l(depilogue.o)
+    0x0000321a   0x0000321a   0x0000001c   Code   RO          313    i.__ARM_common_switch8  kea128_ftm.o
+    0x00003236   0x00003236   0x0000000e   Code   RO         1951    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x00003244   0x00003244   0x0000000e   Code   RO         1953    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x00003252   0x00003252   0x00000002   PAD
+    0x00003254   0x00003254   0x00000174   Code   RO         1856    i._fp_digits        mc_p.l(printfa.o)
+    0x000033c8   0x000033c8   0x000006ec   Code   RO         1857    i._printf_core      mc_p.l(printfa.o)
+    0x00003ab4   0x00003ab4   0x00000020   Code   RO         1858    i._printf_post_padding  mc_p.l(printfa.o)
+    0x00003ad4   0x00003ad4   0x0000002c   Code   RO         1859    i._printf_pre_padding  mc_p.l(printfa.o)
+    0x00003b00   0x00003b00   0x00000016   Code   RO         1860    i._snputc           mc_p.l(printfa.o)
+    0x00003b16   0x00003b16   0x0000000a   Code   RO         1861    i._sputc            mc_p.l(printfa.o)
+    0x00003b20   0x00003b20   0x0000003a   Code   RO         1055    i.ad_init           sensor.o
+    0x00003b5a   0x00003b5a   0x00000002   PAD
+    0x00003b5c   0x00003b5c   0x00000028   Code   RO          147    i.adc_init          kea128_adc.o
+    0x00003b84   0x00003b84   0x00000038   Code   RO          148    i.adc_once          kea128_adc.o
+    0x00003bbc   0x00003bbc   0x000001fc   Code   RO         1149    i.control           control.o
+    0x00003db8   0x00003db8   0x00000180   Code   RO         1056    i.deal_sensor       sensor.o
+    0x00003f38   0x00003f38   0x00000018   Code   RO          718    i.disable_wdog      system_skeaz1284.o
+    0x00003f50   0x00003f50   0x00000030   Code   RO         1199    i.encode_init       encode.o
+    0x00003f80   0x00003f80   0x00000010   Code   RO          252    i.ftm_count_clean   kea128_ftm.o
+    0x00003f90   0x00003f90   0x00000014   Code   RO          253    i.ftm_count_get     kea128_ftm.o
+    0x00003fa4   0x00003fa4   0x0000003c   Code   RO          254    i.ftm_count_init    kea128_ftm.o
+    0x00003fe0   0x00003fe0   0x000000b0   Code   RO          255    i.ftm_count_mux     kea128_ftm.o
+    0x00004090   0x00004090   0x0000007c   Code   RO          256    i.ftm_pwm_duty      kea128_ftm.o
+    0x0000410c   0x0000410c   0x00000124   Code   RO          258    i.ftm_pwm_init      kea128_ftm.o
+    0x00004230   0x00004230   0x00000128   Code   RO          259    i.ftm_pwm_mux       kea128_ftm.o
+    0x00004358   0x00004358   0x0000024c   Code   RO         1058    i.get_adc_int_value  sensor.o
+    0x000045a4   0x000045a4   0x000000cc   Code   RO            3    i.get_clk           common.o
+    0x00004670   0x00004670   0x00000064   Code   RO         1200    i.get_num           encode.o
+    0x000046d4   0x000046d4   0x0000002c   Code   RO          321    i.gpio_get          kea128_gpio.o
+    0x00004700   0x00004700   0x000000dc   Code   RO          322    i.gpio_init         kea128_gpio.o
+    0x000047dc   0x000047dc   0x00000048   Code   RO          323    i.gpio_set          kea128_gpio.o
+    0x00004824   0x00004824   0x00000184   Code   RO         1547    i.main              main.o
+    0x000049a8   0x000049a8   0x00000040   Code   RO         1029    i.motor_init        motor.o
+    0x000049e8   0x000049e8   0x00000228   Code   RO         1150    i.motor_pid_caculate  control.o
+    0x00004c10   0x00004c10   0x000000b8   Code   RO         1030    i.motor_set         motor.o
+    0x00004cc8   0x00004cc8   0x00000030   Code   RO          463    i.pit_close         kea128_pit.o
+    0x00004cf8   0x00004cf8   0x00000058   Code   RO          465    i.pit_init          kea128_pit.o
+    0x00004d50   0x00004d50   0x00000058   Code   RO          466    i.pit_time_get      kea128_pit.o
+    0x00004da8   0x00004da8   0x00000058   Code   RO          467    i.pit_time_start    kea128_pit.o
+    0x00004e00   0x00004e00   0x00000050   Code   RO          507    i.port_pull         kea128_port.o
+    0x00004e50   0x00004e50   0x000003d8   Code   RO         1151    i.servo_pid_caculate  control.o
+    0x00005228   0x00005228   0x0000005c   Code   RO         1375    i.show_8_L          myui.o
+    0x00005284   0x00005284   0x00000134   Code   RO         1376    i.show_circle       myui.o
+    0x000053b8   0x000053b8   0x00000070   Code   RO         1377    i.show_one_sensor   myui.o
+    0x00005428   0x00005428   0x00000078   Code   RO         1378    i.show_run_time     myui.o
+    0x000054a0   0x000054a0   0x00000164   Code   RO         1379    i.show_sensor       myui.o
+    0x00005604   0x00005604   0x000001a0   Code   RO         1152    i.speed_control     control.o
+    0x000057a4   0x000057a4   0x00000030   Code   RO          563    i.systick_delay     kea128_systick.o
+    0x000057d4   0x000057d4   0x0000001c   Code   RO          564    i.systick_delay_ms  kea128_systick.o
+    0x000057f0   0x000057f0   0x000000ac   Code   RO         1548    i.time_10ms_serve   main.o
+    0x0000589c   0x0000589c   0x00000020   Code   RO         1549    i.time_20ms_serve   main.o
+    0x000058bc   0x000058bc   0x00000002   Code   RO         1551    i.time_5ms_serve    main.o
+    0x000058be   0x000058be   0x00000002   PAD
+    0x000058c0   0x000058c0   0x000000b8   Code   RO          605    i.uart_init         kea128_uart.o
+    0x00005978   0x00005978   0x00000070   Code   RO          606    i.uart_mux          kea128_uart.o
+    0x000059e8   0x000059e8   0x0000001e   Code   RO          607    i.uart_putbuff      kea128_uart.o
+    0x00005a06   0x00005a06   0x00000002   PAD
+    0x00005a08   0x00005a08   0x00000020   Code   RO          608    i.uart_putchar      kea128_uart.o
+    0x00005a28   0x00005a28   0x00000068   Code   RO         1059    i.update_1cm_error  sensor.o
+    0x00005a90   0x00005a90   0x0000003c   Code   RO         1339    i.vcan_sendware     debug.o
+    0x00005acc   0x00005acc   0x00000016   Data   RO            4    .constdata          common.o
+    0x00005ae2   0x00005ae2   0x00000002   PAD
+    0x00005ae4   0x00005ae4   0x0000000c   Data   RO          260    .constdata          kea128_ftm.o
+    0x00005af0   0x00005af0   0x0000000c   Data   RO          325    .constdata          kea128_gpio.o
+    0x00005afc   0x00005afc   0x00000cd3   Data   RO          786    .constdata          oled.o
+    0x000067cf   0x000067cf   0x00000001   PAD
+    0x000067d0   0x000067d0   0x00000020   Data   RO         1949    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0000679c, Size: 0x00001a08, Max: 0x0000c000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x000067f0, Size: 0x00001838, Max: 0x0000c000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x0000679c   0x00000010   Data   RW            5    .data               common.o
-    0x20000010   0x000067ac   0x00000014   Data   RW          213    .data               kea128_flash.o
-    0x20000024   0x000067c0   0x00000006   Data   RW          264    .data               kea128_ftm.o
-    0x2000002a   0x000067c6   0x00000002   PAD
-    0x2000002c   0x000067c8   0x0000000c   Data   RW          617    .data               kea128_uart.o
-    0x20000038   0x000067d4   0x00000002   Data   RW          790    .data               oled.o
-    0x2000003a   0x000067d6   0x00000002   PAD
-    0x2000003c   0x000067d8   0x0000001c   Data   RW         1064    .data               sensor.o
-    0x20000058   0x000067f4   0x0000000c   Data   RW         1121    .data               car_key.o
-    0x20000064   0x00006800   0x00000011   Data   RW         1163    .data               control.o
-    0x20000075   0x00006811   0x00000002   Data   RW         1211    .data               encode.o
-    0x20000077   0x00006813   0x00000001   PAD
-    0x20000078   0x00006814   0x00000008   Data   RW         1247    .data               bb.o
-    0x20000080   0x0000681c   0x00000007   Data   RW         1393    .data               myui.o
-    0x20000087   0x00006823   0x00000001   PAD
-    0x20000088   0x00006824   0x0000003d   Data   RW         1565    .data               main.o
-    0x200000c5   0x00006861   0x00000003   PAD
-    0x200000c8        -       0x00000400   Zero   RW          788    .bss                oled.o
-    0x200004c8        -       0x00000344   Zero   RW         1063    .bss                sensor.o
-    0x2000080c        -       0x0000000c   Zero   RW         1120    .bss                car_key.o
-    0x20000818        -       0x000001ec   Zero   RW         1162    .bss                control.o
-    0x20000a04   0x00006861   0x00000004   PAD
-    0x20000a08        -       0x00001000   Zero   RW          744    STACK               startup_skeaz1284.o
+    0x20000000   0x000067f0   0x00000010   Data   RW            5    .data               common.o
+    0x20000010   0x00006800   0x00000014   Data   RW          210    .data               kea128_flash.o
+    0x20000024   0x00006814   0x00000006   Data   RW          261    .data               kea128_ftm.o
+    0x2000002a   0x0000681a   0x00000002   PAD
+    0x2000002c   0x0000681c   0x0000000c   Data   RW          614    .data               kea128_uart.o
+    0x20000038   0x00006828   0x00000002   Data   RW          787    .data               oled.o
+    0x2000003a   0x0000682a   0x00000002   PAD
+    0x2000003c   0x0000682c   0x0000000c   Data   RW         1061    .data               sensor.o
+    0x20000048   0x00006838   0x0000000c   Data   RW         1112    .data               car_key.o
+    0x20000054   0x00006844   0x00000011   Data   RW         1154    .data               control.o
+    0x20000065   0x00006855   0x00000002   Data   RW         1201    .data               encode.o
+    0x20000067   0x00006857   0x00000001   PAD
+    0x20000068   0x00006858   0x00000008   Data   RW         1234    .data               bb.o
+    0x20000070   0x00006860   0x00000007   Data   RW         1380    .data               myui.o
+    0x20000077   0x00006867   0x00000001   PAD
+    0x20000078   0x00006868   0x0000003c   Data   RW         1552    .data               main.o
+    0x200000b4        -       0x00000400   Zero   RW          785    .bss                oled.o
+    0x200004b4        -       0x000001e8   Zero   RW         1060    .bss                sensor.o
+    0x2000069c        -       0x0000000c   Zero   RW         1111    .bss                car_key.o
+    0x200006a8        -       0x0000018c   Zero   RW         1153    .bss                control.o
+    0x20000834   0x000068a4   0x00000004   PAD
+    0x20000838        -       0x00001000   Zero   RW          741    STACK               startup_skeaz1284.o
 
 
 ==============================================================================
@@ -1858,12 +1847,12 @@ Image component sizes
 
        184         28          0          8          0       1320   bb.o
        840         48          0         12         12       2467   car_key.o
-       204         34         22         16          0     113185   common.o
-      2468        182          0         17        492       3919   control.o
+       204         34         22         16          0     113177   common.o
+      2460        176          0         17        396       3833   control.o
         60         10          0          0          0        612   debug.o
        148          8          0          2          0       1194   encode.o
        376         62          0          0          0       1725   isr.o
-        96         16          0          0          0       5078   kea128_adc.o
+        96         16          0          0          0       5137   kea128_adc.o
        296         38          0         20          0       3657   kea128_flash.o
       1012         64         12          6          0       5324   kea128_ftm.o
        336         14         12          0          0       2538   kea128_gpio.o
@@ -1871,19 +1860,19 @@ Image component sizes
         80          6          0          0          0        576   kea128_port.o
         76          8          0          0          0       1083   kea128_systick.o
        358         24          0         12          0       3024   kea128_uart.o
-       688         92          0         61          0       9919   main.o
+       736        100          0         60          0       9932   main.o
        248         20          0          0          0        949   motor.o
       1268         64          0          0          0       5194   myflash.o
-      6046       1398          0          7          0      11770   myui.o
+      6074       1388          0          7          0      11782   myui.o
       1588         66       3283          2       1024      12008   oled.o
-      1118        110          0         28        836       6202   sensor.o
+      1134         90          0         12        488       3574   sensor.o
         56         30        192          0       4096        996   startup_skeaz1284.o
        112         20          0          0          0       1039   system_skeaz1284.o
 
     ----------------------------------------------------------------------
-     17982       2376       3556        200       6464     195978   Object Totals
+     18066       2348       3556        180       6020     193340   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        12          0          3          9          4          0   (incl. Padding)
+        12          0          3          6          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1953,15 +1942,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     22968       2556       3556        200       6464     193194   Grand Totals
-     22968       2556       3556        200       6464     193194   ELF Image Totals
-     22968       2556       3556        200          0          0   ROM Totals
+     23052       2528       3556        180       6020     190556   Grand Totals
+     23052       2528       3556        180       6020     190556   ELF Image Totals
+     23052       2528       3556        180          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                26524 (  25.90kB)
-    Total RW  Size (RW Data + ZI Data)              6664 (   6.51kB)
-    Total ROM Size (Code + RO Data + RW Data)      26724 (  26.10kB)
+    Total RO  Size (Code + RO Data)                26608 (  25.98kB)
+    Total RW  Size (RW Data + ZI Data)              6200 (   6.05kB)
+    Total ROM Size (Code + RO Data + RW Data)      26788 (  26.16kB)
 
 ==============================================================================
 

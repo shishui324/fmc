@@ -19,12 +19,11 @@ extern float sum_16_34;
 extern uint16_t encode_time;
 extern uint16_t sensor_time;
 extern uint16_t control_time;
+extern uint16_t UI_time;
 
-extern uint16 ad_avr_val[10];
 extern Motor_control_info Motor_control;
 extern ADC_info Adc;
 extern Sensor_info Sensor;
-extern Motor_pid_info Motor;
 
 //调参界面中：
 //上下可以切换选中的参数
@@ -361,10 +360,10 @@ void ChangeFlagVal(uint8 *flag,uint8 min,uint8 max) {
 void show_sensor(void)
 {
 
-    Cache_OLED_Rectangle(0,  (63-((uint16_t)(ad_avr_val[1])*63/3000)),  8,   63);
+    Cache_OLED_Rectangle(0,  (63-((uint16_t)(Adc.ad_avr_val[1])*63/3000)),  8,   63);
     Cache_OLED_Rectangle(14, (63-((uint16_t)(L_out_value*63/1000))),  22,  63);
     Cache_OLED_Rectangle(84, (63-((uint16_t)(R_out_value*63/1000))),  92,  63);
-    Cache_OLED_Rectangle(98, (63-((uint16_t)(ad_avr_val[6])*63/3000)),  106, 63);
+    Cache_OLED_Rectangle(98, (63-((uint16_t)(Adc.ad_avr_val[6])*63/3000)),  106, 63);
     Cache_OLED_P6x8Num(0,0,getCountNum_L);
     Cache_OLED_P6x8Num(0,1,Sensor.once_uni_ad[2]);
     Cache_OLED_P6x8Num(90,0,getCountNum_R);
@@ -373,8 +372,8 @@ void show_sensor(void)
 
     Cache_OLED_P6x8floatNum(40,0,Servo.error[0]);
     Cache_OLED_P6x8floatNum(40,1,Servo.output);
-    Cache_OLED_P6x8floatNum(40,2,sum_16_34);
-		Cache_OLED_P6x8floatNum(40,3,sub_25[0]);
+    Cache_OLED_P6x8floatNum(40,2,Sensor.sum_16_34);
+		Cache_OLED_P6x8floatNum(40,3,Sensor.sub_25[0]);
 		Cache_OLED_P6x8floatNum(40,4,circle_distence);
     Cache_OLED_P6x8floatNum(40,5,motor_protect_time);
 
@@ -395,8 +394,8 @@ void show_8_L(void)
 {
 	for(uint8_t i=1;i<=SENSOR_NUM;i++)
 	{
-		Cache_OLED_Rectangle(0,8*(i-1),(ad_avr_val[i]*80/3000),8*i);
-		Cache_OLED_printf(85,i-1,"%1d:%4d",i,ad_avr_val[i]);
+		Cache_OLED_Rectangle(0,8*(i-1),(Adc.ad_avr_val[i]*80/3000),8*i);
+		Cache_OLED_printf(85,i-1,"%1d:%4d",i,Adc.ad_avr_val[i]);
 	}
 		  
 
@@ -451,8 +450,8 @@ void show_circle(void)
 //    Cache_OLED_P6x8Num(80,7,4);
 //    Cache_OLED_P6x8Num(96,7,5);
 //    Cache_OLED_P6x8Num(112,7,6);
-	Cache_OLED_printf(0,0,"sum:%.1f",sum_16_34);
-	Cache_OLED_printf(0,1,"sub:%.1f",sub_25[0]);
+	Cache_OLED_printf(0,0,"sum:%.1f",Sensor.sum_16_34);
+	Cache_OLED_printf(0,1,"sub:%.1f",Sensor.sub_25[0]);
 	Cache_OLED_printf(0,2,"IN: %4d",circle_in);
 	Cache_OLED_printf(0,3,"L : %4d",circle_left_flag);
 	Cache_OLED_printf(0,4,"R : %4d",circle_right_flag);
@@ -461,6 +460,7 @@ void show_circle(void)
 	Cache_OLED_printf(0,7,"dis:%4d",circle_distence);
 	Cache_OLED_printf(64,7,"er:%4d",Servo.error[0]);
 	Cache_OLED_printf(64,6,"%d",motor_protect_time);
+	Cache_OLED_printf(64,3,"1-6%f",Sensor.sub_16);
 
 //	  Cache_OLED_P6x8floatNum(40,2,sum_16_34);
 //	
@@ -482,11 +482,12 @@ void show_circle(void)
 **  日    期:
 ***************************************************************************/
 
-void show_run_time()
+void show_run_time(void)
 {
- Cache_OLED_printf(20,1,"encode %d",encode_time);
+  Cache_OLED_printf(20,1,"encode %d",encode_time);
 	Cache_OLED_printf(20,2,"sensor %d",sensor_time);
 	Cache_OLED_printf(20,3,"control %d",control_time);
+	Cache_OLED_printf(20,4,"UI %d",UI_time);
 
 }
 /***********************************************************************
@@ -552,12 +553,12 @@ void Show_UI(void)
         }
         break;
         case 5 : {
-            Cache_OLED_P6x8floatNum(40,1,ad_max_val[1]);
-            Cache_OLED_P6x8floatNum(40,2,ad_max_val[2]);
-            Cache_OLED_P6x8floatNum(40,3,ad_max_val[3]);
-            Cache_OLED_P6x8floatNum(40,4,ad_max_val[4]);
-            Cache_OLED_P6x8floatNum(40,5,ad_max_val[5]);
-            Cache_OLED_P6x8floatNum(40,6,ad_max_val[6]);
+            Cache_OLED_P6x8floatNum(40,1,Adc.ad_max_val[1]);
+            Cache_OLED_P6x8floatNum(40,2,Adc.ad_max_val[2]);
+            Cache_OLED_P6x8floatNum(40,3,Adc.ad_max_val[3]);
+            Cache_OLED_P6x8floatNum(40,4,Adc.ad_max_val[4]);
+            Cache_OLED_P6x8floatNum(40,5,Adc.ad_max_val[5]);
+            Cache_OLED_P6x8floatNum(40,6,Adc.ad_max_val[6]);
         }
         break;
 
@@ -698,8 +699,8 @@ void Show_speed(void)
         Cache_OLED_printf(6,3,"high dis:%d",Speed.high_speed_dis);
         Cache_OLED_printf(6,4,"stop:%d",Speed.stop_car_enable);
         Cache_OLED_printf(6,5,"test:%d",Speed.test_time);
-				Cache_OLED_printf(6,6,"VATE:%d",Motor.set_value[0]);
-//				Cache_OLED_printf(6,7,"VATE:%f",Motor.kp);
+				Cache_OLED_printf(6,6,"VATE:%d",Speed.set_speed_val);
+
     }
 
 
@@ -1076,7 +1077,7 @@ void Speed_menu(void)
     }
     break ;
 		case 13: {             
-        ChangeParameterVal(puint16_t,Motor.set_value,1);
+        ChangeParameterVal(puint16_t,&Speed.set_speed_val,1);
     }
     break ;
 		

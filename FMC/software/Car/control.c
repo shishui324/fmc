@@ -4,19 +4,8 @@
 #include "control.h"
 
 
-//extern uint16 circle_speed_time_cnt;
-//extern int16 val;
-////坡道 
-
-//extern uint16 ramp_dis_encoder;
-//extern uint16 stop_car_flag;
-//extern  uint16 special_cross_flag;
-//uint16 circle_dis_encoder = 0;
-//uint16 circle_shut_flag = 0;
-//extern uint16 special_cross_flag;
-
-extern float sum_16_34;
-extern float sub_25[5];
+//extern float sum_16_34;
+//extern float sub_25[5];
 
 extern uint8 circle_left_flag;
 extern uint8 circle_right_flag;
@@ -26,7 +15,6 @@ uint16 circle_distence = 0;
 bool  circle_flag=false;
 
 uint32 motor_protect_time=0;//保护参数
-Motor_pid_info Motor;
 Servo_info Servo;
 Motor_control_info Motor_control;
 Speed_info Speed;
@@ -42,7 +30,7 @@ extern void motor_set(void);
 
 void servo_pid_caculate(void)           //差速控制pid
 {
-	if(sum_16_34<100)
+	if(Sensor.sum_16_34<100)
 	{
 #if	Protect_ON
 		motor_protect_time++;								//保护计数累加
@@ -59,7 +47,7 @@ void servo_pid_caculate(void)           //差速控制pid
 			}
 			else
 					{
-						if(sub_25[0]<-15)//小于-15
+						if(Sensor.sub_25[0]<-15)//小于-15
 						{
 //							circle_turn =1;
 //						if (Servo.error[0]>0)
@@ -69,7 +57,7 @@ void servo_pid_caculate(void)           //差速控制pid
 							
 //							}							
 						}
-						else if((sub_25[0]<10))//-15-0
+						else if((Sensor.sub_25[0]<10))//-15-0
 						{
 //						
 							Servo.output=(int16)((float)((getCountNum_L+getCountNum_R)*2)/10.0f);
@@ -89,7 +77,7 @@ void servo_pid_caculate(void)           //差速控制pid
 			}
 			else
 					{
-						if((sub_25[0]>15))
+						if((Sensor.sub_25[0]>15))
 						{
 							if (Servo.error[0]<0)
 							{
@@ -99,7 +87,7 @@ void servo_pid_caculate(void)           //差速控制pid
 								
 //								circle_turn =1;
 						}
-						else if (sub_25[0]>-10)
+						else if (Sensor.sub_25[0]>-10)
 							Servo.output=-(int16)((float)((getCountNum_L+getCountNum_R)*2)/12.0f);
 						else Servo.output=(int16)(Servo.kp *Servo.error[0] + Servo.kd*5.0* (Servo.error[0]-Servo.error[9]));
 		
@@ -141,7 +129,7 @@ void servo_pid_caculate(void)           //差速控制pid
 	#endif
 		
 //		circle_distence+=(Motor_control.Motor_Left_pid.present_value[0]+Motor_control.Motor_Right_pid.present_value[0])>>2;
-		if((abs(sub_25[0])>25&&(sum_16_34>250)&&circle_turn)||(circle_distence>20000))
+		if((abs(Sensor.sub_25[0])>25&&(Sensor.sum_16_34>250)&&circle_turn)||(circle_distence>20000))
 		{
 		Bell_Cry(1000,200);
 		circle_in = 0;
@@ -159,7 +147,7 @@ void servo_pid_caculate(void)           //差速控制pid
 	else{
 		
 
-		if(sum_16_34<100)	//丢线判断
+		if(Sensor.sum_16_34<100)	//丢线判断
 		{	
 
 //			if(Servo.output>0)
@@ -283,7 +271,7 @@ void control(void)  //控制函数
 	{
 		motor_protect_time++;
 	}
-	else if(sum_16_34>100)
+	else if(Sensor.sum_16_34>100)
 		{
 				motor_protect_time = 0;
 		}
@@ -295,8 +283,8 @@ void control(void)  //控制函数
 //	Motor.set_value[0] = 7;
 	
 	Servo.output = 0.09 *(getCountNum_L+getCountNum_R) * Servo.output/2.0f;  //0.05
-	Motor_control.Motor_Left_pid.set_value[0] 	= Motor.set_value[1] - Servo.output;
-	Motor_control.Motor_Right_pid.set_value[0] 	= Motor.set_value[1] + Servo.output;
+	Motor_control.Motor_Left_pid.set_value[0] 	= Speed.set_speed_val - Servo.output;
+	Motor_control.Motor_Right_pid.set_value[0] 	= Speed.set_speed_val + Servo.output;
 	
 //	if(isLeftlose == true)
 //	{
@@ -375,7 +363,7 @@ void speed_control(void)
 		speed_dt = Speed.zhidao_speed_val-Speed.wandao_speed_val;
 	}
 
-	Motor.set_value[0] = Speed.zhidao_speed_val-speed_dt;
+	Speed.set_speed_val= Speed.zhidao_speed_val-speed_dt;
 }
 
 
