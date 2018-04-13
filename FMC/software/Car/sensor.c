@@ -138,7 +138,7 @@ void update_1cm_error(void)
 
   update_dis1cm_encoder += (getCountNum_L + getCountNum_R)/2;;//累加当前编码器测得脉冲数
   
-  if(update_dis1cm_encoder >= 24) //1cm对应24个脉冲数
+  if(update_dis1cm_encoder >= 120) //1cm对应24个脉冲数
   {
    update_dis1cm_encoder = 0;
    for(i = 24; i > 0;i--)
@@ -151,20 +151,22 @@ void update_1cm_error(void)
 void deal_sensor(Sensor_info *sensor)//电感处理
 {
     char i;
+	if(Adc.ad_avr_val[7] > Adc.ad_max_temp[7])
+						Adc.ad_max_temp[7] = Adc.ad_avr_val[7];
 	
 	 for(i = 1;i <= SENSOR_NUM ;i++)  //一次归一化处理
 	{
 //		if(ad_avr_val[i] > 2*ad_max_val[i])
 //		   ad_avr_val[i] = 2*ad_max_val[i];
 
-		  sensor->once_uni_ad[i] = (float)((Adc.ad_avr_val[i] *100.0)/Adc.ad_max_val[i]);
+		  sensor->once_uni_ad[i] = (float)((Adc.ad_avr_val[i] *100.0)/4095.0);
 	}
   sensor->sub_16 = sensor->once_uni_ad[1] - sensor->once_uni_ad[6];         //??16??
 	for(i = 4; i > 0; i--)
 			{																	//更新偏差队列
 			Sensor.sub_25[i] = Sensor.sub_25[i-1];
 			}
- sensor->sub_25[0] = sensor->once_uni_ad[2] - sensor->once_uni_ad[5];         //??25??
+		sensor->sub_25[0] = sensor->once_uni_ad[2] - sensor->once_uni_ad[5];         //??25??
 		sensor->sub_25_d=sensor->sub_25[0]-sensor->sub_25[1];	
 			
 //   sub_34 = sensor->once_uni_ad[3] - sensor->once_uni_ad[4];
@@ -210,17 +212,20 @@ void deal_sensor(Sensor_info *sensor)//电感处理
 //			circle_counter++;
 //		}
 
+/////环////
+//		if(abs(sensor->sub_25[0]>30)&&sensor))
+#if 0
 	if(abs(sensor->sub_25[0])>30)									//200
 //	if((abs(sub_25[0])>35&&(sum_16_34>250))&&((circle_counter>200)||!(circle_flag))&&!(circle_in))	//   环 判 断
 	{
-//		circle_in = 1;
+		circle_in = 1;
 		
-		if((sensor->sum_16_34>250)&&abs(sensor->sub_16)>10)
-		Bell_Cry(500,500);
-		else {
-		
-		Bell_Cry(500,100);
-		}
+//		if((sensor->sum_16_34>250)&&abs(sensor->sub_16)>10)//十字
+//	Bell_Cry(500,500);
+//		else {
+//		
+////		Bell_Cry(500,100);
+//		}
 	
 		
 //		circle_flag=false;
@@ -241,11 +246,8 @@ void deal_sensor(Sensor_info *sensor)//电感处理
 		
 		}
 	
-		for(i = 9; i > 0; i--)
-			{																	//更新偏差队列
-			Servo.error[i] = Servo.error[i-1];
-			}
-			Servo.error[0] = 25*(sensor->twice_uni_ad[1] - sensor->twice_uni_ad[6]); //求出电感差值
+#endif
+		
 																																							
 			
 			update_1cm_error();

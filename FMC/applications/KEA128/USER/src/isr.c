@@ -53,25 +53,17 @@ void PIT_CH0_IRQHandler(void)
 //	L_out_value = Motor_control.Motor_Left_pid.output;
 //	motor_set();
 
-	time_1ms++;
-	if(!(time_1ms % 5))
-	{
 		time_5ms++;
-		if(!(time_1ms % 10))
-		{
-			time_10ms++;
-			
-		}
 	
-			if(!(time_1ms % 20))
+			if(!(time_5ms % 2))
+			{
+				time_10ms++;
+			}
+			if(!(time_5ms % 4))
 			{
 				time_20ms++;
-			}
-			if(!(time_1ms % 500))
-			{
-				time_500ms++;
-			time_1ms = 0;}
-	}
+			time_5ms = 0;}
+	
 /*
 		if(!(time_1ms % 50))
 		{time_50ms++;
