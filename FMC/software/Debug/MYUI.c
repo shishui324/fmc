@@ -365,10 +365,10 @@ void show_sensor(void)
     Cache_OLED_Rectangle(84, (63-((uint16_t)(R_out_value*63/1000))),  92,  63);
     Cache_OLED_Rectangle(98, (63-((uint16_t)(Sensor.once_uni_ad[6])*63/100.0f)),  106, 63);
     Cache_OLED_P6x8Num(0,0,getCountNum_L);
-		Cache_OLED_printf(0,1,"%4f",Sensor.twice_uni_ad[1]);
+		Cache_OLED_printf(0,1,"%.3f",Sensor.twice_uni_ad[1]*10);
 //    Cache_OLED_P6x8Num(0,1,Sensor.once_uni_ad[2]);
     Cache_OLED_P6x8Num(90,0,getCountNum_R);
-		Cache_OLED_printf(90,1,"%4f",Sensor.twice_uni_ad[6]);
+		Cache_OLED_printf(90,1,"%.3f",Sensor.twice_uni_ad[6]*10);
  //   Cache_OLED_P6x8Num(90,1,Sensor.once_uni_ad[6]);
 //        Cache_OLED_P6x8Num(90,0,ad_avr_val[2]);
 

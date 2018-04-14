@@ -35,7 +35,7 @@ void servo_pid_caculate(void)           //差速控制pid
 			{																	//更新偏差队列
 			Servo.error[i] = Servo.error[i-1];
 			}
-			Servo.error[0] = 100*(Sensor.twice_uni_ad[1] - Sensor.twice_uni_ad[6]); //求出电感差值
+			Servo.error[0] = 50*(Sensor.twice_uni_ad[1] - Sensor.twice_uni_ad[6]); //求出电感差值
 		if(Sensor.sum_16_34<80)	//丢线判断
 		{	
 #if	Protect_ON
@@ -50,15 +50,17 @@ void servo_pid_caculate(void)           //差速控制pid
 			{
 				Servo.output=-30;
 			}
-			else
+			else if(Servo.output>0)
 			{
 			Servo.output=30;
 			}			
 		}
 		else
 		{
-	//		//位置式
-			Servo.output = (float)(Servo.kp*Servo.error[0] + 0.1*Servo.kd*(Servo.error[0]-Servo.error[1]));     //5   2
+	
+			Servo.output = (int32_t)(Servo.kp*(Servo.error[0]) 
+				+ Servo.kd*(Servo.error[0]-Servo.error[1])
+				);     //5   2
 		
 	//		/***********差方法************/
 			
@@ -125,15 +127,13 @@ void motor_pid_caculate(Motor_pid_info *motor_info)
   motor_info->last_uk = motor_info->out_duty;               //更新上一次的实际控制量输出
   motor_info->output =(int16)(motor_info->out_duty);     //当前占空比输出
   
-  for(i = 9;i> 0;i--)  //更新速度设定值队列
-    motor_info->set_value[i] = motor_info->set_value[i-1];
    
-  for(i= 9;i>0;i--)    //更新实测速度队列
+  for(i= 9;i>0;i--)    
   {
-		motor_info->present_value[i] = motor_info->present_value[i-1];
+		motor_info->present_value[i] = motor_info->present_value[i-1]; //更新实测速度队列
+		motor_info->set_value[i] = motor_info->set_value[i-1];//更新速度设定值队列
   }
 
-//  motor_set(motor_info->output);
 
 }
 
@@ -179,6 +179,7 @@ void control(void)  //控制函数
 //	Motor.set_value[0] = 7;
 //	
 //	Servo.output = Speed.set_speed_val * Servo.output/10.0f;  //0.05
+
 	Motor_control.Motor_Left_pid.set_value[0] 	= Speed.set_speed_val - (int32_t)Servo.output;
 	Motor_control.Motor_Right_pid.set_value[0] 	= Speed.set_speed_val + (int32_t)Servo.output;
 	

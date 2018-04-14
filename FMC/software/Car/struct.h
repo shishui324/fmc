@@ -99,7 +99,7 @@ typedef struct
     float kp;
     float ki;
     float kd;
-    float output;
+    int32_t output;
 		int32_t sum_error;
     int error[10];						//Æ«²î¶ÓÁĞ
 	

@@ -101,24 +101,25 @@ int main(void)
 	Speed.zhidao_speed_val =10;						// 25;                //25  8
 							
 	Servo.kp = 1.22f	;//1.220f;//1.620f;//7.20f;	//5.2 4.2
-	Servo.kd = 1.0f;//2.5f;   // 1.0  0.2	2.0
+	Servo.kd = 
+	10.0f;//2.5f;   // 1.0  0.2	2.0
 	Servo.max_dis_err = 0.0;
 	Servo.distance_err_max_val = 10;	//12.0;
 		Servo.max_dis_err_d = 0.0;
 		Servo.distance_err_d_max_val = 4.0;	//5
 		
 		
-		Motor_control.Motor_Left_pid.kvff = 1.0;
-		Motor_control.Motor_Left_pid.kaff = 1.0;
+		Motor_control.Motor_Left_pid.kvff = 5.0;
+		Motor_control.Motor_Left_pid.kaff = 5.0;
 		Motor_control.Motor_Left_pid.kd = 2.0;
 		Motor_control.Motor_Left_pid.ki = 4.0;
-		Motor_control.Motor_Left_pid.kp = 20.0;
+		Motor_control.Motor_Left_pid.kp = 5.0;
 
-		Motor_control.Motor_Right_pid.kvff = 1.0;
-		Motor_control.Motor_Right_pid.kaff = 1.0;
+		Motor_control.Motor_Right_pid.kvff = 5.0;
+		Motor_control.Motor_Right_pid.kaff = 5.0;
 		Motor_control.Motor_Right_pid.kd = 2.0;
 		Motor_control.Motor_Right_pid.ki = 4.0;
-		Motor_control.Motor_Right_pid.kp = 20.0;   //1 1 3 2 9
+		Motor_control.Motor_Right_pid.kp = 5.0;   //1 1 3 2 9
 	
 		uint8 i=1;
 		for(i=1;i<=7;i++)
@@ -156,7 +157,7 @@ void time_20ms_serve(void)
 
 //	}	
 
-	float send_buf[1];
+	int32_t send_buf[1];
 //	send_buf[2]=Servo.error[0];
 //	send_buf[1]=getCountNum_L;
 	send_buf[0]=Servo.output;		
