@@ -52,6 +52,72 @@ void motor_init(void )			//电机初始化
 	
 }
 
+
+/***********************************************************************
+**  函数名称:
+**  函数功能:
+**  输 入 值:
+**  返 回 值:
+**  其他说明:
+**  日    期:
+***************************************************************************/
+
+void motor_pid_caculate(Motor_pid_info *motor_info)
+{
+  motor_info->delta_uk = 0;
+  motor_info->out_duty = 0;
+  uint8 i = 0;
+  for(i=9;i>0;i--)			//更新速度偏差队列
+  {
+    motor_info->error[i] = motor_info->error[i-1];
+  }
+//****************CAUTION*******************/
+		motor_info->error[0] = motor_info->set_value[0]-motor_info->present_value[0];
+		motor_info->speed_racc = motor_info->present_value[0]-motor_info->present_value[1];//计算电机加速度,即速度微分
+   
+   
+///////以下是前馈-微分先行增量式PID计算
+   motor_info->delta_uk = (float)(
+								motor_info->kvff*(motor_info->set_value[0] - motor_info->set_value[1])
+              +	motor_info->kp*(motor_info->error[0] - motor_info->error[1])
+              + motor_info->ki*motor_info->error[0]
+              + motor_info->kd*(motor_info->error[0]-2.0*motor_info->error[1]+ motor_info->error[2])
+              -	motor_info->kaff*motor_info->speed_racc
+              );
+
+
+  /*------------------------遇限削弱抗积分饱和等处理-----------------------*/
+  if(motor_info->last_uk > MOTOR_DUTY_MAX)  
+    if(motor_info->delta_uk > 0)
+      motor_info->delta_uk = 0;//当前一时刻控制量(占空比)已经达到最大时，若现在增量为正则不累加
+  if(motor_info->last_uk < MOTOR_DUTY_MIN)
+    if(motor_info->delta_uk < 0)
+      motor_info->delta_uk = 0;//当前一时刻控制量(占空比)已经达到最大时，若现在增量为正则不累加
+  /*------------------------遇限削弱抗积分饱和等处理结束-------------------*/
+  
+  
+  motor_info->out_duty = motor_info->last_uk + motor_info->delta_uk;//μ±?°Dèòaê?3?μ?êμ?ê????±è
+  
+  /*-------------------------限制 实际最后总输出的幅值---------------------*/
+  if (motor_info->out_duty > MOTOR_DUTY_MAX)
+     motor_info->out_duty = MOTOR_DUTY_MAX;
+  else if (motor_info->out_duty < MOTOR_DUTY_MIN)
+     motor_info->out_duty = MOTOR_DUTY_MIN;
+  /*-------------------------限制实际最后总输出的幅值结束------------------*/
+  
+  motor_info->last_uk = motor_info->out_duty;               //更新上一次的实际控制量输出
+  motor_info->output =(int16)(motor_info->out_duty);     //当前占空比输出
+  
+  for(i = 9;i> 0;i--)  				//更新速度设定值队列
+    motor_info->set_value[i] = motor_info->set_value[i-1];
+   
+  for(i= 9;i>0;i--)    				//更新实测速度队列
+  {
+		motor_info->present_value[i] = motor_info->present_value[i-1];
+  }
+
+
+}
 /**************** FUCK_MY_CAR  ****************************
  *  * 函数名称 ：motor_set
  *  * 函数参数 : int16 duty

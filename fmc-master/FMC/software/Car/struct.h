@@ -4,7 +4,7 @@
 #include "common.h"
 
 
-#define SERVO_LIMIT_VAL 100		//差速限副
+#define SERVO_LIMIT 50		//差速限副
 #define speed_duty  150			
 //#define DIR_CONTROL 1
 #define DEBUG_ON   0
@@ -98,7 +98,7 @@ typedef struct
     float kd;
     float output;
 		int16 reserve0;
-    int error[10];						//电感偏差队列
+    int16_t error[10];						//电感偏差队列
 	
 	
 	float  dis1cm_err_store[25];           //1cm道路偏差

@@ -17,8 +17,8 @@
 #include "struct.h"
 
 
-int8_t getCountNum_L;  //获取编码器计数值
-int8_t getCountNum_R;  //获取编码器计数值
+int16_t getCountNum_L;  //获取编码器计数值
+int16_t getCountNum_R;  //获取编码器计数值
 
 /*******************************************
  *  * 函数名称 ：encode_init

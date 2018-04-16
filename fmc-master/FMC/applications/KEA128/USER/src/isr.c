@@ -29,22 +29,22 @@ void PIT_CH0_IRQHandler(void)
 	
 		
 	Bell_Play();
-	pit_time_start(pit1);
+//	pit_time_start(pit1);
 	get_num();	 //获取编码器值
-	encode_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
-	pit_close(pit1);
-	
-	
-	pit_time_start(pit1);
+//	encode_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
+//	pit_close(pit1);
+//	
+//	
+//	pit_time_start(pit1);
 	get_adc_int_value();	//滤波后AD值
 	deal_sensor(&Sensor);
-	sensor_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
-	pit_close(pit1);
-	
-	pit_time_start(pit1);
+//	sensor_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
+//	pit_close(pit1);
+//	
+//	pit_time_start(pit1);
 	control();
-	control_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
-	pit_close(pit1);
+//	control_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
+//	pit_close(pit1);
 	
 	
 	

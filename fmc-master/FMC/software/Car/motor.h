@@ -8,7 +8,7 @@
 #define MOTOR_DUTY_MIN       -500
 
 void motor_init(void );
-
+void motor_pid_caculate(Motor_pid_info *motor_info);
 void motor_set(void);
 
 #endif
