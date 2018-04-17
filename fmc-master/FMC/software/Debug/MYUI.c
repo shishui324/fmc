@@ -365,14 +365,14 @@ void show_sensor(void)
     Cache_OLED_Rectangle(84, (63-((uint16_t)(R_out_value*63/1000))),  92,  63);
     Cache_OLED_Rectangle(98, (63-((uint16_t)(Adc.ad_avr_val[6])*63/3000)),  106, 63);
     Cache_OLED_P6x8Num(0,0,getCountNum_L);
-    Cache_OLED_P6x8Num(0,1,Sensor.once_uni_ad[2]);
+    Cache_OLED_P6x8Num(0,1,Sensor.once_uni_ad[1]);
     Cache_OLED_P6x8Num(90,0,getCountNum_R);
     Cache_OLED_P6x8Num(90,1,Sensor.once_uni_ad[6]);
 //        Cache_OLED_P6x8Num(90,0,ad_avr_val[2]);
 
     Cache_OLED_P6x8floatNum(40,0,Servo.error[0]);
     Cache_OLED_P6x8floatNum(40,1,Servo.output);
-    Cache_OLED_P6x8floatNum(40,2,Sensor.sum_16_34);
+    Cache_OLED_P6x8floatNum(40,2,Sensor.sum_16);
 		Cache_OLED_P6x8floatNum(40,3,Sensor.sub_25[0]);
 		Cache_OLED_P6x8floatNum(40,4,circle_distence);
     Cache_OLED_P6x8floatNum(40,5,motor_protect_time);
@@ -553,12 +553,22 @@ void Show_UI(void)
         }
         break;
         case 5 : {
+					
+						Cache_OLED_P6x8floatNum(32,1,1);
+            Cache_OLED_P6x8floatNum(32,2,2);
+            Cache_OLED_P6x8floatNum(32,3,3);
+            Cache_OLED_P6x8floatNum(32,4,4);
+            Cache_OLED_P6x8floatNum(32,5,5);
+            Cache_OLED_P6x8floatNum(32,6,6);
+						Cache_OLED_P6x8floatNum(32,7,7);
+					
             Cache_OLED_P6x8floatNum(40,1,Adc.ad_max_val[1]);
             Cache_OLED_P6x8floatNum(40,2,Adc.ad_max_val[2]);
             Cache_OLED_P6x8floatNum(40,3,Adc.ad_max_val[3]);
             Cache_OLED_P6x8floatNum(40,4,Adc.ad_max_val[4]);
             Cache_OLED_P6x8floatNum(40,5,Adc.ad_max_val[5]);
             Cache_OLED_P6x8floatNum(40,6,Adc.ad_max_val[6]);
+						Cache_OLED_P6x8floatNum(40,7,Adc.ad_max_val[7]);
         }
         break;
 
@@ -662,6 +672,7 @@ void Show_Servo_PID(void)
     {
         Cache_OLED_printf(6,1,"dis_err_max:%.1f",Servo.max_dis_err);
         Cache_OLED_printf(6,2,"dis_err_d_max:%.1f",Servo.max_dis_err_d);
+				Cache_OLED_printf(6,3,"err_d:%d",error_d);
 
     }
 
@@ -973,6 +984,9 @@ void Servo_menu(void)
     break ;
 		case 9: {
         ChangeParameterVal(pfloat,&Servo.max_dis_err_d,0.1);
+    }
+		case 10: {
+        ChangeParameterVal(puint8_t,&error_d,1);
     }
     break ;
 		

@@ -68,8 +68,7 @@ void get_adc_int_value(void)    //中值滤波  均值滤波   求取平均值
 				Adc.ad_avr_temp[i][3] = adc_once(Induc_3,ADC_12bit);    
 				Adc.ad_avr_temp[i][4] = adc_once(Induc_4,ADC_12bit);      
 				Adc.ad_avr_temp[i][5] = adc_once(Induc_5,ADC_12bit);    
-				Adc.ad_avr_temp[i][6] = adc_once(Induc_6,ADC_12bit);
-		
+				Adc.ad_avr_temp[i][6] = adc_once(Induc_6,ADC_12bit);	
 				Adc.ad_avr_temp[i][7] = adc_once(Induc_7,ADC_12bit);
 				Adc.ad_avr_temp[i][8] = adc_once(Induc_8,ADC_12bit);
 			}
@@ -123,12 +122,14 @@ void get_adc_int_value(void)    //中值滤波  均值滤波   求取平均值
 void find_max_ad(void)
 {
 		uint8 i=0;
-		get_adc_int_value();
-
 		for(i = 1;i <= SENSOR_NUM;i ++)
 		{
-				if(Adc.ad_avr_val[i] > Adc.ad_max_temp[i])
-						Adc.ad_max_temp[i] = Adc.ad_avr_val[i];
+				if(Adc.ad_max_val[i] < Adc.ad_avr_val[i])
+						Adc.ad_max_val[i] = Adc.ad_avr_val[i];
+//				if(Adc.ad_max_val[i]>4096)
+//				{
+//					Adc.ad_max_val[i]=0;
+//				}
 		}
 }
 
@@ -138,7 +139,7 @@ void update_1cm_error(void)
 
   update_dis1cm_encoder += (getCountNum_L + getCountNum_R)/2;;//累加当前编码器测得脉冲数
   
-  if(update_dis1cm_encoder >= 48) //1cm对应24个脉冲数
+  if(update_dis1cm_encoder >= 24) //1cm对应24个脉冲数
   {
    update_dis1cm_encoder = 0;
    for(i = 24; i > 0;i--)
@@ -152,14 +153,16 @@ void deal_sensor(Sensor_info *sensor)//电感处理
 {
     char i;
 	
+	find_max_ad();
+	
 	 for(i = 1;i <= SENSOR_NUM ;i++)  //一次归一化处理
 	{
 //		if(ad_avr_val[i] > 2*ad_max_val[i])
 //		   ad_avr_val[i] = 2*ad_max_val[i];
 
-		  sensor->once_uni_ad[i] = (float)((Adc.ad_avr_val[i] *100.0)/4095.0f);
+		  sensor->once_uni_ad[i] = (float)((Adc.ad_avr_val[i] *100.0)/Adc.ad_max_val[i]);
 	}
-  sensor->sub_16 = sensor->once_uni_ad[1] - sensor->once_uni_ad[6];         //??16??
+  sensor->sub_16 = sensor->twice_uni_ad[1] - sensor->twice_uni_ad[6];         //??16??
 	for(i = 4; i > 0; i--)
 			{																	//更新偏差队列
 			Sensor.sub_25[i] = Sensor.sub_25[i-1];
@@ -178,7 +181,8 @@ void deal_sensor(Sensor_info *sensor)//电感处理
 //  sum_16_25 = sensor->once_uni_ad[1] + sensor->once_uni_ad[5] + sensor->once_uni_ad[2]
 //               + sensor->once_uni_ad[6];
  sensor->sum_16_34 = sensor->once_uni_ad[1] + sensor->once_uni_ad[6]
-               + sensor->once_uni_ad[3] + sensor->once_uni_ad[4];
+											+ sensor->once_uni_ad[3] + sensor->once_uni_ad[4];
+			sensor->sum_16=sensor->once_uni_ad[1]+sensor->once_uni_ad[6];
 //  sum_16_34_25 = sensor->once_uni_ad[1] + sensor->once_uni_ad[6] + sensor->once_uni_ad[3]
 //                  + sensor->once_uni_ad[4] + sensor->once_uni_ad[2] + sensor->once_uni_ad[5];
 //  
@@ -186,24 +190,13 @@ void deal_sensor(Sensor_info *sensor)//电感处理
 //  multi_25 = (uint16)(sensor->once_uni_ad[2]*sensor->once_uni_ad[5]);
 //  multi_34 = (uint16)(sensor->once_uni_ad[3]*sensor->once_uni_ad[4]);
   
-  sensor->twice_uni_ad[1] = sensor->once_uni_ad[1] / sensor->sum_16_34;
+  sensor->twice_uni_ad[1] = sensor->once_uni_ad[1] / sensor->sum_16;
   sensor->twice_uni_ad[3] = sensor->once_uni_ad[3] / sensor->sum_16_34;
   sensor->twice_uni_ad[4] = sensor->once_uni_ad[4] / sensor->sum_16_34;
-  sensor->twice_uni_ad[6] = sensor->once_uni_ad[6] / sensor->sum_16_34;
+  sensor->twice_uni_ad[6] = sensor->once_uni_ad[6] / sensor->sum_16;
 	
 
-
-////    for(i = 1;i <= SENSOR_NUM ;i++)  //一次归一化处理
-////    {
-//        Adc.once_uni_ad[1] = 100*(float)(Adc.ad_avr_val[1]/AD_MAX_VAL);//百分比
-//        Adc.once_uni_ad[8] = 100*(float)(Adc.ad_avr_val[8]/AD_MAX_VAL);//百分比
-////    }
-//    sum_12 = once_uni_ad[1] + once_uni_ad[2];   //电感12的和
-//		sub_12 = once_uni_ad[1] - once_uni_ad[2];
-//    twice_uni_ad[1] = once_uni_ad[1] / sum_12 ;
-//    twice_uni_ad[2] = once_uni_ad[2] / sum_12 ;
-
-
+#if 0
 //		if((circle_flag))
 //		{
 
@@ -215,9 +208,9 @@ void deal_sensor(Sensor_info *sensor)//电感处理
 	{
 //		circle_in = 1;
 		
-		if((sensor->sum_16_34>250)&&abs(sensor->sub_16)>10)
-		Bell_Cry(500,500);
-	
+		if((sensor->sum_16_34>250)&&(abs(sensor->sub_25[0])>20))
+
+							Bell_Cry(300,300);
 		
 //		circle_flag=false;
 //		circle_counter=0;
@@ -236,7 +229,7 @@ void deal_sensor(Sensor_info *sensor)//电感处理
 		circle_right_flag = 0;
 		
 		}
-																																			
+#endif 																																
 			
 			update_1cm_error();
 //	}

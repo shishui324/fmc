@@ -20,6 +20,8 @@ Speed_info Speed;
 int16 R_out_value; 		//右边pwm输出的值
 int16 L_out_value; 		//左边pwm输出的值
 
+uint8 error_d=1;
+
 
 bool STOP_CAR_FLAG = true;
 
@@ -33,7 +35,7 @@ void servo_pid_caculate(void)           //差速控制pid
 			{																	//更新偏差队列
 			Servo.error[i] = Servo.error[i-1];
 			}
-			Servo.error[0] =(Sensor.once_uni_ad[1] - Sensor.once_uni_ad[6]); //求出电感差值
+			Servo.error[0] =(int16_t)100*(Sensor.twice_uni_ad[1] - Sensor.twice_uni_ad[6]); //求出电感差值
 				
 	if(Sensor.sum_16_34<80)
 	{
@@ -159,7 +161,7 @@ void servo_pid_caculate(void)           //差速控制pid
 		if((Sensor.sum_16_34<80)&&(Sensor.sum_16_34>40))	//丢线判断
 		{	
 			
-				Bell_Cry(100,100);
+				Bell_Cry(50,50);
 //			if(Servo.output>0)
 //			{
 //				Servo.output=SERVO_LIMIT;
@@ -173,7 +175,7 @@ void servo_pid_caculate(void)           //差速控制pid
 //		else
 //		{
 	//		//位置式
-			Servo.output = (float)(Servo.kp *Servo.error[0] + Servo.kd* (Servo.error[0]-Servo.error[2]));     //5   2
+			Servo.output = (float)(Servo.kp *Servo.error[0] + Servo.ki*(Servo.error[0]-2*Servo.error[1]+Servo.error[2])+Servo.kd* (Servo.error[0]-Servo.error[error_d]));     //5   2
 		
 	//		/***********差方法************/
 			

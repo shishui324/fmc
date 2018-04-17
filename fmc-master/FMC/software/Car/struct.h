@@ -21,6 +21,7 @@ typedef struct
 	
 
 	float sub_16;	//电感16的差
+	float sum_16;
 	float sum_16_34;
 	float sub_25[5];
 	float sub_25_d;
@@ -38,11 +39,12 @@ typedef struct
  uint32 ad_add_val[10]; //AD采样中值和
  uint16 ad_avr_val[10]; //AD采样平均值
  
- uint16 ad_max_val[10]; //AD最大值
- uint16 ad_max_temp[10];
+ uint16 ad_max[10]; //AD最大值
  uint16 ad_int_val[10][3];
  uint16 ad_avr_temp[5][10];
+uint16_t ad_max_val[10];
 }ADC_info;
+
 
 //电机
 typedef struct 
