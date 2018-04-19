@@ -138,7 +138,7 @@ uint8 gpio_get(PTX_n ptx_n)
 //  Sample usage:               gpio_set(A5,0);   //设置A5为低电平
 //-------------------------------------------------------------------------------------------------------------------
 void gpio_set(PTX_n ptx_n, uint8 dat)
-	{
+{
     vuint8 ptx,ptn;
     uint32 temp;
     

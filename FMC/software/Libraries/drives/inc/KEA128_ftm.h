@@ -19,10 +19,8 @@
 
 #ifndef _KEA128_ftm_h
 #define _KEA128_ftm_h
-
 #include "common.h"
-#include "SKEAZ1284.h"
-#include "KEA128_port_cfg.h"
+
 
 typedef enum
 {

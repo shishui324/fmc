@@ -12,13 +12,17 @@
 
 
 *************************************************************************/
-#include "encode.h"
-#include "headfile.h"
+#include "KEA128_gpio.h"
+#include "KEA128_ftm.h"
+#include "KEA128_port.h"
 #include "struct.h"
+#include "encode.h"
 
 
-int8_t getCountNum_L;  //获取编码器计数值
-int8_t getCountNum_R;  //获取编码器计数值
+
+
+int16_t getCountNum_L;  //获取编码器计数值
+int16_t getCountNum_R;  //获取编码器计数值
 
 /*******************************************
  *  * 函数名称 ：encode_init

@@ -21,8 +21,6 @@
 #ifndef _KEA128_kbi_h
 #define _KEA128_kbi_h
 
-
-
 #include "misc.h"
 #include "common.h"
 #include "SKEAZ1284.h"

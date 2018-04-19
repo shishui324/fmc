@@ -13,8 +13,7 @@
 #ifndef _OELD_H
 #define _OELD_H
 
-#include "headfile.h"
-
+#include "common.h"
 
 
 //----宏定义OLED引脚----	 

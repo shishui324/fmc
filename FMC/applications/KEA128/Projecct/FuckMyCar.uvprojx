@@ -498,11 +498,6 @@
               <FilePath>..\..\..\software\Car\sensor.c</FilePath>
             </File>
             <File>
-              <FileName>struct.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\..\software\Car\struct.h</FilePath>
-            </File>
-            <File>
               <FileName>Car_Key.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\software\Car\Car_Key.c</FilePath>
@@ -521,6 +516,11 @@
               <FileName>BB.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\software\Car\BB.c</FilePath>
+            </File>
+            <File>
+              <FileName>track.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\software\Car\track.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -1,7 +1,7 @@
 #ifndef	_CAR_KEY_H
 #define _CAR_KEY_H
 
-//#include "SKEAZ1284.h"
+
 #include "common.h"
 
 

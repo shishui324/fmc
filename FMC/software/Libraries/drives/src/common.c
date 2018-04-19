@@ -1,5 +1,7 @@
-#include "common.h"
+#include "SKEAZ1284.h"                  // Device header
 #include "system_SKEAZ1284.h"
+#include "common.h"
+
 
 //-------------------------------------------------------------------------------------------------------------------
 //  KEA128_CLOCK 为 0  内核频率 40M  总线频率20M   定时器频率40M
@@ -37,5 +39,5 @@ void get_clk(void)
         ftm_clk_khz  = ics_clk_khz  / (((SIM->CLKDIV&SIM_CLKDIV_OUTDIV3_MASK) >> SIM_CLKDIV_OUTDIV3_SHIFT) + 1);
     }
 
-    uart_init(DEBUG_PORT,DEBUG_BAUD);   //初始化调试串口，如果不使用printf可以屏蔽
+//    uart_init(DEBUG_PORT,DEBUG_BAUD);   //初始化调试串口，如果不使用printf可以屏蔽
 }

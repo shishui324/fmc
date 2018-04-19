@@ -1,4 +1,10 @@
+#include "KEA128_flash.h"
+#include "KEA128_systick.h"
+
 #include "Myflash.h"
+#include "struct.h"
+#include "control.h"
+//#include "motor.h"
 
 
 

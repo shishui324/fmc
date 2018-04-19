@@ -1,6 +1,7 @@
 #ifndef __SENSOR_H
 #define __SENSOR_H
 
+#include "struct.h"
 
 #include "common.h"
 /***********	芯片资源	*************************/
@@ -64,8 +65,7 @@ extern float  Power_V;
 extern ADC_info Adc;
 extern Sensor_info  Sensor;
 
-extern float once_uni_ad[SENSOR_NUM+1];  //一次归一化
-extern float twice_uni_ad[SENSOR_NUM+1]; //二次归一化
+
 
 
 

@@ -1,6 +1,5 @@
 #ifndef __BB_H
 #define __BB_H
-#include "headfile.h"
 
 #define BELL_ON   gpio_set(H6,0)
 #define BELL_OFF	gpio_set(H6,1)

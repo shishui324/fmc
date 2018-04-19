@@ -1,6 +1,6 @@
+#include "KEA128_adc.h"
+#include "encode.h"
 #include	"sensor.h"
-#include	"struct.h"
-#include "headfile.h"
 
 
 ADC_info        Adc={0};
@@ -27,9 +27,9 @@ uint32 update_dis1cm_encoder;
 ********************************************************/
 void ad_init(void)
 {
+		adc_init(Induc_8);
+		adc_init(Induc_7);
 		adc_init(Induc_6);
-		adc_init(Induc_5);
-		adc_init(Induc_4);
 	
 		adc_init(Induc_5);
 		adc_init(Induc_4);
@@ -68,8 +68,7 @@ void get_adc_int_value(void)    //中值滤波  均值滤波   求取平均值
 				Adc.ad_avr_temp[i][3] = adc_once(Induc_3,ADC_12bit);    
 				Adc.ad_avr_temp[i][4] = adc_once(Induc_4,ADC_12bit);      
 				Adc.ad_avr_temp[i][5] = adc_once(Induc_5,ADC_12bit);    
-				Adc.ad_avr_temp[i][6] = adc_once(Induc_6,ADC_12bit);
-		
+				Adc.ad_avr_temp[i][6] = adc_once(Induc_6,ADC_12bit);	
 				Adc.ad_avr_temp[i][7] = adc_once(Induc_7,ADC_12bit);
 				Adc.ad_avr_temp[i][8] = adc_once(Induc_8,ADC_12bit);
 			}
@@ -123,12 +122,14 @@ void get_adc_int_value(void)    //中值滤波  均值滤波   求取平均值
 void find_max_ad(void)
 {
 		uint8 i=0;
-		get_adc_int_value();
-
 		for(i = 1;i <= SENSOR_NUM;i ++)
 		{
-				if(Adc.ad_avr_val[i] > Adc.ad_max_temp[i])
-						Adc.ad_max_temp[i] = Adc.ad_avr_val[i];
+				if(Adc.ad_max_val[i] < Adc.ad_avr_val[i])
+						Adc.ad_max_val[i] = Adc.ad_avr_val[i];
+//				if(Adc.ad_max_val[i]>4096)
+//				{
+//					Adc.ad_max_val[i]=0;
+//				}
 		}
 }
 
@@ -138,7 +139,7 @@ void update_1cm_error(void)
 
   update_dis1cm_encoder += (getCountNum_L + getCountNum_R)/2;;//累加当前编码器测得脉冲数
   
-  if(update_dis1cm_encoder >= 120) //1cm对应24个脉冲数
+  if(update_dis1cm_encoder >= 24) //1cm对应24个脉冲数
   {
    update_dis1cm_encoder = 0;
    for(i = 24; i > 0;i--)
@@ -151,82 +152,50 @@ void update_1cm_error(void)
 void deal_sensor(Sensor_info *sensor)//电感处理
 {
     char i;
-	if(Adc.ad_avr_val[7] > Adc.ad_max_temp[7])
-						Adc.ad_max_temp[7] = Adc.ad_avr_val[7];
+	
+	find_max_ad();
 	
 	 for(i = 1;i <= SENSOR_NUM ;i++)  //一次归一化处理
 	{
 //		if(ad_avr_val[i] > 2*ad_max_val[i])
 //		   ad_avr_val[i] = 2*ad_max_val[i];
 
-		  sensor->once_uni_ad[i] = (float)((Adc.ad_avr_val[i] *100.0)/4095.0);
+		  sensor->once_uni_ad[i] = (float)((Adc.ad_avr_val[i] *100.0)/4096.0f);
 	}
-  sensor->sub_16 = sensor->once_uni_ad[1] - sensor->once_uni_ad[6];         //??16??
+
 	for(i = 4; i > 0; i--)
 			{																	//更新偏差队列
 			Sensor.sub_25[i] = Sensor.sub_25[i-1];
 			}
-		sensor->sub_25[0] = sensor->once_uni_ad[2] - sensor->once_uni_ad[5];         //??25??
-		sensor->sub_25_d=sensor->sub_25[0]-sensor->sub_25[1];	
-			
-//   sub_34 = sensor->once_uni_ad[3] - sensor->once_uni_ad[4];
-//   sub_78 = sensor->once_uni_ad[7] - sensor->once_uni_ad[8];
-// 
-//   right_angle_val = fabs(sub_25) - fabs(sub_16);                    //??25????????16???????
+	sensor->sub_25[0] = sensor->once_uni_ad[2] - sensor->once_uni_ad[5];         //??25??
+	sensor->sub_25_d=sensor->sub_25[0]-sensor->sub_25[1];	
+		
+	sensor->sum_16_34 = (sensor->once_uni_ad[1] + sensor->once_uni_ad[6]
+											+ sensor->once_uni_ad[3] + sensor->once_uni_ad[4]);
+	sensor->sum_16=(sensor->once_uni_ad[1]+sensor->once_uni_ad[6]);
 
-//  sum_34 = sensor->once_uni_ad[3] + sensor->once_uni_ad[4];
-//  sum_78 = sensor->once_uni_ad[7] + sensor->once_uni_ad[8];
   
-//  sum_16_25 = sensor->once_uni_ad[1] + sensor->once_uni_ad[5] + sensor->once_uni_ad[2]
-//               + sensor->once_uni_ad[6];
- sensor->sum_16_34 = sensor->once_uni_ad[1] + sensor->once_uni_ad[6]
-               + sensor->once_uni_ad[3] + sensor->once_uni_ad[4];
-//  sum_16_34_25 = sensor->once_uni_ad[1] + sensor->once_uni_ad[6] + sensor->once_uni_ad[3]
-//                  + sensor->once_uni_ad[4] + sensor->once_uni_ad[2] + sensor->once_uni_ad[5];
-//  
-//  multi_78 = (uint16)(sensor->once_uni_ad[7]*sensor->once_uni_ad[8]);
-//  multi_25 = (uint16)(sensor->once_uni_ad[2]*sensor->once_uni_ad[5]);
-//  multi_34 = (uint16)(sensor->once_uni_ad[3]*sensor->once_uni_ad[4]);
-  
-  sensor->twice_uni_ad[1] = sensor->once_uni_ad[1] / sensor->sum_16_34;
+  sensor->twice_uni_ad[1] = sensor->once_uni_ad[1] / sensor->sum_16;
   sensor->twice_uni_ad[3] = sensor->once_uni_ad[3] / sensor->sum_16_34;
   sensor->twice_uni_ad[4] = sensor->once_uni_ad[4] / sensor->sum_16_34;
-  sensor->twice_uni_ad[6] = sensor->once_uni_ad[6] / sensor->sum_16_34;
+  sensor->twice_uni_ad[6] = sensor->once_uni_ad[6] / sensor->sum_16;
 	
-
-
-////    for(i = 1;i <= SENSOR_NUM ;i++)  //一次归一化处理
-////    {
-//        Adc.once_uni_ad[1] = 100*(float)(Adc.ad_avr_val[1]/AD_MAX_VAL);//百分比
-//        Adc.once_uni_ad[8] = 100*(float)(Adc.ad_avr_val[8]/AD_MAX_VAL);//百分比
-////    }
-//    sum_12 = once_uni_ad[1] + once_uni_ad[2];   //电感12的和
-//		sub_12 = once_uni_ad[1] - once_uni_ad[2];
-//    twice_uni_ad[1] = once_uni_ad[1] / sum_12 ;
-//    twice_uni_ad[2] = once_uni_ad[2] / sum_12 ;
-
-
+  sensor->sub_16 = sensor->once_uni_ad[1] - sensor->once_uni_ad[6];         //??16??
+#if 0
 //		if((circle_flag))
 //		{
 
 //			circle_counter++;
 //		}
 
-/////环////
-//		if(abs(sensor->sub_25[0]>30)&&sensor))
-#if 0
 	if(abs(sensor->sub_25[0])>30)									//200
 //	if((abs(sub_25[0])>35&&(sum_16_34>250))&&((circle_counter>200)||!(circle_flag))&&!(circle_in))	//   环 判 断
 	{
-		circle_in = 1;
+//		circle_in = 1;
 		
-//		if((sensor->sum_16_34>250)&&abs(sensor->sub_16)>10)//十字
-//	Bell_Cry(500,500);
-//		else {
-//		
-////		Bell_Cry(500,100);
-//		}
-	
+		if((sensor->sum_16_34>250)&&(abs(sensor->sub_25[0])>20))
+
+							Bell_Cry(300,300);
 		
 //		circle_flag=false;
 //		circle_counter=0;
@@ -245,10 +214,7 @@ void deal_sensor(Sensor_info *sensor)//电感处理
 		circle_right_flag = 0;
 		
 		}
-	
-#endif
-		
-																																							
+#endif 																																
 			
 			update_1cm_error();
 //	}

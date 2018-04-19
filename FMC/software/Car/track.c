@@ -1,6 +1,7 @@
+
 #include "struct.h"
-#include "headfile.h" 
 #include "track.h"
+#include "sensor.h"
 
 void Track_Arbiter(void)
 {
@@ -32,10 +33,13 @@ void Track_Arbiter(void)
 //		circle_in = 0;
 //		circle_right_flag = 0;
 //		}
-		
-		
-		
+	
 
+		
+		
+		
+			
+	
 	
 }
 

@@ -22,6 +22,12 @@
 #ifndef _common_h
 #define _common_h
 
+#include "KEA128_port_cfg.h"
+#include <stdio.h>
+#include "stdbool.h"
+#include <stdint.h>
+#include <stdlib.h>
+
 
 //数据类型声明
 typedef unsigned char       uint8;   //  8 bits 
@@ -104,9 +110,6 @@ void get_clk(void);
     #define ALIGN(n)                    __attribute__((aligned(n)))
 #endif // Compiler Related Definitions 
 
-
-
-#include "headfile.h"
 
 
 

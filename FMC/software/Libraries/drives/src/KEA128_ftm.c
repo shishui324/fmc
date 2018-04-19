@@ -1,5 +1,9 @@
 #include "KEA128_ftm.h"
 
+#include "SKEAZ1284.h"
+#include "KEA128_port.h"
+#include "KEA128_port_cfg.h"
+
 static FTM_Type * const FTMX[] = FTM_BASES;
 
 void ftm_pwm_mux(FTMn ftmn, FTM_CHn ch)

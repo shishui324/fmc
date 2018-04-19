@@ -1,15 +1,14 @@
 #ifndef __STRUCT_H
 #define __STRUCT_H
-#include "headfile.h"
+
+
 #include "common.h"
 
 
-#define SERVO_LIMIT_VAL 50
-//差速限副
+#define SERVO_LIMIT 100		//差速限副
 #define speed_duty  150			
 //#define DIR_CONTROL 1
 #define DEBUG_ON   0
-
 #define Protect_ON	1
 #define SENSOR_NUM  7   //定义电感数量
 ///////////////////////结构体定义////////////////////////////////
@@ -23,7 +22,9 @@ typedef struct
 	
 
 	float sub_16;	//电感16的差
+	float sum_16;
 	float sum_16_34;
+
 	float sub_25[5];
 	float sub_25_d;
   float PARAM_A;         
@@ -37,14 +38,13 @@ typedef struct
 {
 
  uint16 ad_mid_val[10]; //AD采样中值 
- uint16 ad_avr_val[10]; //AD采样平均值
  uint32 ad_add_val[10]; //AD采样中值和
+ uint16 ad_avr_val[10]; //AD采样平均值
  
- 
- uint16 ad_max_val[10]; //AD最大值
- uint16 ad_max_temp[10];
+ uint16 ad_max[10]; //AD最大值
  uint16 ad_int_val[10][3];
  uint16 ad_avr_temp[5][10];
+	uint16_t ad_max_val[10];
 }ADC_info;
 
 //电机
@@ -99,9 +99,9 @@ typedef struct
     float kp;
     float ki;
     float kd;
-    int32_t output;
-		int32_t sum_error;
-    int error[10];						//偏差队列
+    float output;
+		int16 reserve0;
+    int16_t error[10];						//电感偏差队列
 	
 	
 	float  dis1cm_err_store[25];           //1cm道路偏差

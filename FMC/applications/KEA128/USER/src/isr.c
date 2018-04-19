@@ -1,10 +1,10 @@
 #include "isr.h"
 
-extern uint32_t time_1ms;
-extern uint32_t time_5ms;
+extern uint32_t time_2ms;
+
 extern uint32_t time_10ms;
 extern uint32_t time_20ms;
-extern uint32_t time_500ms;
+
 // uint32_t time_50ms;
 //extern uint32_t time_100ms;
 //extern uint32_t time_200ms;
@@ -29,22 +29,22 @@ void PIT_CH0_IRQHandler(void)
 	
 		
 	Bell_Play();
-	pit_time_start(pit1);
+//	pit_time_start(pit1);
 	get_num();	 //获取编码器值
-	encode_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
-	pit_close(pit1);
-	
-	
-	pit_time_start(pit1);
+//	encode_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
+//	pit_close(pit1);
+//	
+//	
+//	pit_time_start(pit1);
 	get_adc_int_value();	//滤波后AD值
 	deal_sensor(&Sensor);
-	sensor_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
-	pit_close(pit1);
-	
-	pit_time_start(pit1);
+//	sensor_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
+//	pit_close(pit1);
+//	
+//	pit_time_start(pit1);
 	control();
-	control_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
-	pit_close(pit1);
+//	control_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
+//	pit_close(pit1);
 	
 	
 	
@@ -53,17 +53,19 @@ void PIT_CH0_IRQHandler(void)
 //	L_out_value = Motor_control.Motor_Left_pid.output;
 //	motor_set();
 
-		time_5ms++;
+	time_2ms++;
+	if(!(time_2ms % 5))
+	{
+		time_10ms++;
+		if(!(time_2ms % 10))
+		{
+			time_20ms++;
+			time_2ms = 0;
+		}
 	
-			if(!(time_5ms % 2))
-			{
-				time_10ms++;
-			}
-			if(!(time_5ms % 4))
-			{
-				time_20ms++;
-			time_5ms = 0;}
-	
+
+			
+	}
 /*
 		if(!(time_1ms % 50))
 		{time_50ms++;

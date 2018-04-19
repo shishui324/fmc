@@ -23,6 +23,7 @@
 ".\objects\control.o"
 ".\objects\encode.o"
 ".\objects\bb.o"
+".\objects\track.o"
 ".\objects\ano_dt.o"
 ".\objects\ui.o"
 ".\objects\debug.o"

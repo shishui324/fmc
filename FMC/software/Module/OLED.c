@@ -1,4 +1,6 @@
 #include "OLED.h"
+#include "KEA128_gpio.h"
+#include "KEA128_port.h"
 #include "stdarg.h"
 //#include "stdio.h"
 

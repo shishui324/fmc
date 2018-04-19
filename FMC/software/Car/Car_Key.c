@@ -1,4 +1,6 @@
 #include "Car_Key.h"
+#include "SKEAZ1284.h"                  // Device header
+
 
 /********** Key¹ý³Ì *********/
 uint8_t 	Key_data[6]		= 	{0,0,0,0,0,0};		//×´Ì¬

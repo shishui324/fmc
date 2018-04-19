@@ -19,6 +19,7 @@
 
 
 #include "KEA128_kbi.h"
+#include "KEA128_port.h"
 
 
 KBI_Type * kbi[2] = KBI_BASES;

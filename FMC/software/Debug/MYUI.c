@@ -1,6 +1,8 @@
-#include "headfile.h"
+#include "OLED.h"
 #include "MYUI.h"
 #include "math.h"
+#include "headfile.h"
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //配置系统在线调参界面核心函数
@@ -14,7 +16,6 @@ uint8 Read_Flag=0;		//读取参数标志
 
 
 //通过修改这个使能菜单数组，可以设置某个参数号下是否能有二级菜单。1表示有二级菜单，0表示没有
-extern float sum_16_34;
 
 extern uint16_t encode_time;
 extern uint16_t sensor_time;
@@ -360,25 +361,23 @@ void ChangeFlagVal(uint8 *flag,uint8 min,uint8 max) {
 void show_sensor(void)
 {
 
-    Cache_OLED_Rectangle(0,  (63-((uint16_t)(Sensor.once_uni_ad[1])*63/100.0f)),  8,   63);
+    Cache_OLED_Rectangle(0,  (63-((uint16_t)(Adc.ad_avr_val[1])*63/3000)),  8,   63);
     Cache_OLED_Rectangle(14, (63-((uint16_t)(L_out_value*63/1000))),  22,  63);
     Cache_OLED_Rectangle(84, (63-((uint16_t)(R_out_value*63/1000))),  92,  63);
-    Cache_OLED_Rectangle(98, (63-((uint16_t)(Sensor.once_uni_ad[6])*63/100.0f)),  106, 63);
+    Cache_OLED_Rectangle(98, (63-((uint16_t)(Adc.ad_avr_val[6])*63/3000)),  106, 63);
     Cache_OLED_P6x8Num(0,0,getCountNum_L);
-		Cache_OLED_printf(0,1,"%.3f",Sensor.twice_uni_ad[1]*10);
-//    Cache_OLED_P6x8Num(0,1,Sensor.once_uni_ad[2]);
+    Cache_OLED_P6x8Num(0,1,Sensor.once_uni_ad[1]);
     Cache_OLED_P6x8Num(90,0,getCountNum_R);
-		Cache_OLED_printf(90,1,"%.3f",Sensor.twice_uni_ad[6]*10);
- //   Cache_OLED_P6x8Num(90,1,Sensor.once_uni_ad[6]);
+    Cache_OLED_P6x8Num(90,1,Sensor.once_uni_ad[6]);
 //        Cache_OLED_P6x8Num(90,0,ad_avr_val[2]);
 
     Cache_OLED_P6x8floatNum(40,0,Servo.error[0]);
     Cache_OLED_P6x8floatNum(40,1,Servo.output);
-    Cache_OLED_P6x8floatNum(40,2,Sensor.sum_16_34);
+    Cache_OLED_P6x8floatNum(40,2,Sensor.sum_16);
 		Cache_OLED_P6x8floatNum(40,3,Sensor.sub_25[0]);
-		//Cache_OLED_P6x8floatNum(40,4,circle_distence);
-    Cache_OLED_P6x8floatNum(40,4,motor_protect_time);
-		Cache_OLED_P6x8floatNum(40,5,100*(Sensor.twice_uni_ad[1]-Sensor.twice_uni_ad[6]));
+		Cache_OLED_P6x8floatNum(40,4,circle_distence);
+    Cache_OLED_P6x8floatNum(40,5,motor_protect_time);
+
 
 }
 
@@ -555,7 +554,16 @@ void Show_UI(void)
         }
         break;
         case 5 : {
-            Cache_OLED_P6x8floatNum(40,1,Adc.ad_max_temp[7]);
+					
+						Cache_OLED_P6x8floatNum(32,1,1);
+            Cache_OLED_P6x8floatNum(32,2,2);
+            Cache_OLED_P6x8floatNum(32,3,3);
+            Cache_OLED_P6x8floatNum(32,4,4);
+            Cache_OLED_P6x8floatNum(32,5,5);
+            Cache_OLED_P6x8floatNum(32,6,6);
+						Cache_OLED_P6x8floatNum(32,7,7);
+					
+            Cache_OLED_P6x8floatNum(40,1,Adc.ad_max_val[1]);
             Cache_OLED_P6x8floatNum(40,2,Adc.ad_max_val[2]);
             Cache_OLED_P6x8floatNum(40,3,Adc.ad_max_val[3]);
             Cache_OLED_P6x8floatNum(40,4,Adc.ad_max_val[4]);
@@ -665,6 +673,7 @@ void Show_Servo_PID(void)
     {
         Cache_OLED_printf(6,1,"dis_err_max:%.1f",Servo.max_dis_err);
         Cache_OLED_printf(6,2,"dis_err_d_max:%.1f",Servo.max_dis_err_d);
+			
 
     }
 
@@ -976,6 +985,9 @@ void Servo_menu(void)
     break ;
 		case 9: {
         ChangeParameterVal(pfloat,&Servo.max_dis_err_d,0.1);
+    }
+		case 10: {
+
     }
     break ;
 		
