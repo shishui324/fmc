@@ -61,7 +61,7 @@ typedef struct
   float kd; 
   float kvff;      //速度前馈系数
   float kaff;      //加速度系数
-  float delta_uk;
+  float delta_uk[3];
   float out_duty;
  
   

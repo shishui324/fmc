@@ -232,7 +232,7 @@ void servo_pid_caculate(void)           //差速控制pid
 
 void control(void)  //控制函数
 {
-	float  out=0;
+	static float  out[3];
 	if(motor_protect_time>=750)//当保护计数超过限制
 	{
 		STOP_CAR_FLAG = true;
@@ -267,7 +267,7 @@ void control(void)  //控制函数
 		}
 	}
 #endif 
-//  servo_pid_caculate();
+  servo_pid_caculate();
 //	speed_control();
 
 #if 0	
@@ -301,16 +301,38 @@ else{
 }
 	#endif
 #endif
-//	out = 0.01f*Speed.set_speed_val * Servo.output;
-//	Motor_control.Motor_Left_pid.set_value[0] 	= Speed.set_speed_val - (int16_t) out;
-//	Motor_control.Motor_Right_pid.set_value[0] 	= Speed.set_speed_val + (int16_t) out;
+		for(uint8_t i=2;i>0;i--)
+		{
+			out[i]=out[i-1];
+		}
+	out[0] = 0.01f*Speed.set_speed_val * Servo.output;
+	
+	out[0]=0.7f*out[0]+0.2f*out[1]+0.1f*out[2];
+		
+	Motor_control.Motor_Left_pid.set_value[0] 	= Speed.set_speed_val - (int16_t) out[0];
+	Motor_control.Motor_Right_pid.set_value[0] 	= Speed.set_speed_val + (int16_t) out[0];
+	
+
+
 
 
 	motor_pid_caculate(&Motor_control.Motor_Left_pid);
 	motor_pid_caculate(&Motor_control.Motor_Right_pid);
 	
+	
+//	 float  SpeedFilterRatio=0.85;     //速度设定值滤波，防止速度控制变化太剧烈
+       
+
+
+ 
+
+  
 	L_out_value = Motor_control.Motor_Left_pid.output;
-	R_out_value = Motor_control.Motor_Right_pid.output;
+	R_out_value = Motor_control.Motor_Right_pid.output; 
+	
+//	R_out_value=Motor_Out_Filter(R_out_value);
+//	L_out_value=Motor_Out_Filter(L_out_value);	
+	
 	motor_set();
 
 

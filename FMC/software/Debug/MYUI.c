@@ -488,7 +488,8 @@ void show_run_time(void)
   Cache_OLED_printf(20,1,"encode %d",encode_time);
 	Cache_OLED_printf(20,2,"sensor %d",sensor_time);
 	Cache_OLED_printf(20,3,"control %d",control_time);
-	Cache_OLED_printf(20,4,"UI %d",UI_time);
+	Cache_OLED_printf(20,4,"isr all %d",(control_time+encode_time+sensor_time));
+	Cache_OLED_printf(20,5,"UI %d",UI_time);
 
 }
 /***********************************************************************

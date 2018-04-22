@@ -7,6 +7,8 @@
 
 void motor_init(void );
 void motor_pid_caculate(Motor_pid_info *motor_info);
+int16_t  Motor_Out_Filter(int16_t motor_out) ;
 void motor_set(void);
+
 
 #endif

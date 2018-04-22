@@ -24,7 +24,7 @@ uint32_t time_10s = 0;
 uint16_t encode_time=0;
 uint16_t sensor_time=0;
 uint16_t control_time=0;
-uint16_t UI_time=12;
+uint16_t UI_time=0;
 
 
 
@@ -139,27 +139,18 @@ int main(void)
 
 void time_20ms_serve(void)
 {
-//	uint8 i;
-//	ANO_DT_Data_Exchange_ToMe();		//匿名上位机对应
-//	float send_buf[6];
-//	for(i=6;i>0;i--)
-//	{
-//				send_buf[i-1]=Sensor.once_uni_ad[i];
-
-//	}	
-	
-
-//	int32_t send_buf[2];
-//	send_buf[1]=Servo.error[0];
-//	send_buf[0]=Servo.error[0]-Servo.error[1];		
 
 	
 	int16_t send_buf[7];
-	
 	pit_time_start(pit1);
+	
+//	send_buf[6]=(int16_t)(Servo.error[0]-Servo.error[1]);
+//	send_buf[5]=(int16_t)Servo.error[0];
+//	send_buf[4]=(int16_t)Servo.output;
+	
 	send_buf[6]=(int16_t)(Servo.error[0]-Servo.error[1]);
-	send_buf[5]=(int16_t)Servo.error[0];
-	send_buf[4]=(int16_t)Servo.output;
+	send_buf[5]=(int16_t)Motor_control.Motor_Right_pid.delta_uk[0];
+	send_buf[4]=(int16_t)Motor_control.Motor_Left_pid.delta_uk[0];
 	send_buf[3]=Motor_control.Motor_Left_pid.set_value[0];
 	send_buf[2]=L_out_value;
 	send_buf[1]=Motor_control.Motor_Right_pid.set_value[0];
@@ -169,7 +160,7 @@ void time_20ms_serve(void)
 	{
 	vcan_sendware(send_buf,sizeof(send_buf));
 	}
-	control_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
+	UI_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
 	pit_close(pit1);
 	
 	
