@@ -73,7 +73,7 @@ int main(void)
     //ADC初始化
 		ad_init(); //ad初始化
 		motor_init();//电机初始化
-		encode_init();//编码器初始化
+		encode_init();// 编码器初始化
 		Key_Message_Init(); //按键初始化
 	
     gpio_init(H6,GPO,1);    //蜂鸣器
@@ -99,8 +99,8 @@ int main(void)
 	Speed.wandao_speed_val =8;						// 28;                //16  4
 	Speed.zhidao_speed_val =10;						// 25;                //25  8
 							
-	Servo.kp = 1.22f	;//1.220f;//1.620f;//7.20f;	//5.2 4.2
-	Servo.kd = 1.0f;//2.5f;   // 1.0  0.2	2.0
+	Servo.kp = 0.95f	;//1.220f;//1.620f;//7.20f;	//5.2 4.2
+	Servo.kd =2.10f;//2.5f;   // 1.0  0.2	2.0
 	Servo.max_dis_err = 0.0;
 	Servo.distance_err_max_val = 10;	//12.0;
 	Servo.max_dis_err_d = 0.0;
@@ -154,20 +154,21 @@ void time_20ms_serve(void)
 //	send_buf[0]=Servo.error[0]-Servo.error[1];		
 
 	
-	int16_t send_buf[6];
+	int16_t send_buf[7];
 	
 	pit_time_start(pit1);
-	
+	send_buf[6]=(int16_t)(Servo.error[0]-Servo.error[1]);
 	send_buf[5]=(int16_t)Servo.error[0];
 	send_buf[4]=(int16_t)Servo.output;
 	send_buf[3]=Motor_control.Motor_Left_pid.set_value[0];
-	send_buf[2]=getCountNum_L;
+	send_buf[2]=L_out_value;
 	send_buf[1]=Motor_control.Motor_Right_pid.set_value[0];
-	send_buf[0]=getCountNum_R;
+	send_buf[0]=R_out_value;
 	
-	
+	if(!STOP_CAR_FLAG)
+	{
 	vcan_sendware(send_buf,sizeof(send_buf));
-	
+	}
 	control_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
 	pit_close(pit1);
 	
@@ -179,7 +180,7 @@ void time_10ms_serve(void)
 
 	
 	Car_Gather_Data_Key((uint8_t)10);		//Key采集
-	if(!((Key_Flag2)||(Key_Flag3)||(Key_Flag4)))		//当拨码开关2,3,4全关上时才能发车，一可不关
+	if(!((Key_Flag3)||(Key_Flag4)))		//当拨码开关3,4全关上时才能发车，一可不关
 	{
 		if((Key_Inquire_data(Key_Flag5_Read) == Key_bit_Drop) || (Key_Inquire_data(Key_Flag5_Read) == Key_bit_Acc))
 		{
