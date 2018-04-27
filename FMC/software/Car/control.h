@@ -17,7 +17,7 @@ extern bool STOP_CAR_FLAG;
 extern uint32 motor_protect_time;//保护参数
 extern int16 R_out_value; //右边pwm输出的值
 extern int16 L_out_value; //左边pwm输出的值
-
+extern float error_d;
 
 void servo_pid_caculate(void);           //差速控
 

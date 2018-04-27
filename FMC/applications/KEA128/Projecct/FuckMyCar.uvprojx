@@ -140,7 +140,7 @@
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
           <Flash3>"" ()</Flash3>
-          <Flash4></Flash4>
+          <Flash4>.\JLinkSettings.ini</Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
           <pFcArmRoot></pFcArmRoot>
@@ -482,6 +482,16 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\software\Module\Myflash.c</FilePath>
             </File>
+            <File>
+              <FileName>MPUIIC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\software\Module\MPUIIC.c</FilePath>
+            </File>
+            <File>
+              <FileName>MPU6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\software\Module\MPU6050.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -521,6 +531,11 @@
               <FileName>track.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\software\Car\track.c</FilePath>
+            </File>
+            <File>
+              <FileName>Me_Math.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\software\Car\Me_Math.c</FilePath>
             </File>
           </Files>
         </Group>

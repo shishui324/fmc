@@ -1,0 +1,16 @@
+.\objects\mpu6050.o: ..\..\..\software\Module\MPU6050.c
+.\objects\mpu6050.o: ..\..\..\software\Module\MPU6050.h
+.\objects\mpu6050.o: ..\..\..\software\Module\mpuiic.h
+.\objects\mpu6050.o: ..\..\..\software\Libraries\drives\inc\common.h
+.\objects\mpu6050.o: ..\..\..\software\Libraries\drives\inc\KEA128_port_cfg.h
+.\objects\mpu6050.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\mpu6050.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\mpu6050.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\mpu6050.o: d:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\mpu6050.o: ..\..\..\software\Libraries\drives\inc\KEA128_pit.h
+.\objects\mpu6050.o: ..\..\..\software\Libraries\drives\inc\misc.h
+.\objects\mpu6050.o: ..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h
+.\objects\mpu6050.o: ..\..\..\software\Libraries\startup\CoreSupport\core_cm0plus.h
+.\objects\mpu6050.o: ..\..\..\software\Libraries\startup\CoreSupport\core_cmInstr.h
+.\objects\mpu6050.o: ..\..\..\software\Libraries\startup\CoreSupport\core_cmFunc.h
+.\objects\mpu6050.o: ..\..\..\software\Libraries\startup\DeviceSupport\system_SKEAZ1284.h

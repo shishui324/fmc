@@ -43,7 +43,7 @@ typedef struct
  
  uint16 ad_max[10]; //AD最大值
  uint16 ad_int_val[10][3];
- uint16 ad_avr_temp[5][10];
+ uint16 ad_avr_temp[3][10];
 	uint16_t ad_max_val[10];
 }ADC_info;
 
@@ -104,36 +104,13 @@ typedef struct
     int16_t error[10];						//电感偏差队列
 	
 	
-	float  dis1cm_err_store[25];           //1cm道路偏差
+	float  dis1cm_err_store[50];           //1cm道路偏差
 	float  distance_err_max_val;           //最大单位偏差 ,遥控可修改
 	float  distance_err_d_max_val;         //最大偏差率(偏差微分),可修改
 	float  max_dis_err;                    // 最大偏差变化
 	float  max_dis_err_d;                  // 最大偏差变化率 
     
 }Servo_info;    //差速pid
-
-
-
-//丢线
-typedef struct
-{
-  uint16 lose_line_flag;        //丢线标志位
-  uint16 lose_line_val;         //丢线阈值
-  uint16 lose_line_counter;     //丢线次数
-  uint16 turn_left_flag;        //左转标志位
-  uint16 turn_right_flag;       //右转标志位
-}LoseLine_info;
-
-//十字
-typedef struct
-{
-  uint16 cross_fazhi_in;        //进十字道电感25乘积阈值
-  uint16 cross_fazhi_out_in;    //十字道123456电感值和阈值
-  int16 cross_fazhi_out;       //出十字2*5阈值
-  uint16 cross_counter;         //判别进入十字道次数计数
-  uint16 cross_flag;            //十字道标志位
-  uint16 cross_time;            //十字计数
-}Cross_info;
 
 
 

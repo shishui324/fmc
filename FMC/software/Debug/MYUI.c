@@ -579,6 +579,8 @@ void Show_UI(void)
         } break;
 
         case 7 : {
+					Cache_OLED_printf(6,1,"1-2:%.1f",100*(Servo.error[0]-Servo.error[1]));
+					Cache_OLED_printf(6,2,"1:%.1f",100*error_d);
         } break;
 
         default :

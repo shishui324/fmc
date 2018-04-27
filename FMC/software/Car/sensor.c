@@ -59,7 +59,7 @@ void get_adc_int_value(void)    //中值滤波  均值滤波   求取平均值
 		for(i=0;i<10;i++)
 		{Adc.ad_add_val[i]=0;}  //先对其和进行清零
 		
-		for(k = 0; k < 3; k++)
+		for(k = 0; k < 4; k++)
 		{	
 			for(i = 0; i <3 ;i++)
 			{
@@ -71,7 +71,7 @@ void get_adc_int_value(void)    //中值滤波  均值滤波   求取平均值
 				Adc.ad_avr_temp[i][6] = adc_once(Induc_6,ADC_12bit);	
 				Adc.ad_avr_temp[i][7] = adc_once(Induc_7,ADC_12bit);
 				Adc.ad_avr_temp[i][8] = adc_once(Induc_8,ADC_12bit);
-			}
+			}	
 		 //中值滤波
 				for(i = 1;i<= SENSOR_NUM;i++)
 				{
@@ -96,10 +96,11 @@ void get_adc_int_value(void)    //中值滤波  均值滤波   求取平均值
 
 						Adc.ad_add_val[i] +=  Adc.ad_avr_temp[1][i]; //中值和
 				}
+					
 		}
 		for(i = 1; i <= SENSOR_NUM; i++)
 		{
-				Adc.ad_avr_val[i] = (uint16)(Adc.ad_add_val[i]*0.333);  //均值
+				Adc.ad_avr_val[i] = (Adc.ad_add_val[i]>>2);  //均值
 		}
 		
 				for(unsigned short n = 1; n < sizeof(voltageList) / sizeof(voltageList[0]); n++)
@@ -126,23 +127,24 @@ void find_max_ad(void)
 		{
 				if(Adc.ad_max_val[i] < Adc.ad_avr_val[i])
 						Adc.ad_max_val[i] = Adc.ad_avr_val[i];
-//				if(Adc.ad_max_val[i]>4096)
-//				{
-//					Adc.ad_max_val[i]=0;
-//				}
+				if(Adc.ad_max_val[i]>4096)
+				{
+					Adc.ad_max_val[i]=0;
+				}
 		}
+		
 }
 
 void update_1cm_error(void)
 {
   uint8 i = 0;
 
-  update_dis1cm_encoder += (getCountNum_L + getCountNum_R)/2;;//累加当前编码器测得脉冲数
+  update_dis1cm_encoder += (getCountNum_L + getCountNum_R)/2;//累加当前编码器测得脉冲数
   
-  if(update_dis1cm_encoder >= 24) //1cm对应24个脉冲数
+  if(update_dis1cm_encoder >= 48) //1cm对应24个脉冲数
   {
    update_dis1cm_encoder = 0;
-   for(i = 24; i > 0;i--)
+   for(i = 48; i > 0;i--)
     Servo.dis1cm_err_store[i] = Servo.dis1cm_err_store[i-1];
     Servo.dis1cm_err_store[0] = Servo.error[0]; 
   }
@@ -168,11 +170,11 @@ void deal_sensor(Sensor_info *sensor)//电感处理
 			Sensor.sub_25[i] = Sensor.sub_25[i-1];
 			}
 	sensor->sub_25[0] = sensor->once_uni_ad[2] - sensor->once_uni_ad[5];         //??25??
-	sensor->sub_25_d=sensor->sub_25[0]-sensor->sub_25[1];	
+	sensor->sub_25_d  = sensor->sub_25[0]-sensor->sub_25[1];	
 		
 	sensor->sum_16_34 = (sensor->once_uni_ad[1] + sensor->once_uni_ad[6]
-											+ sensor->once_uni_ad[3] + sensor->once_uni_ad[4]);
-	sensor->sum_16=(sensor->once_uni_ad[1]+sensor->once_uni_ad[6]);
+										 + sensor->once_uni_ad[3] + sensor->once_uni_ad[4]);
+	sensor->sum_16=			(sensor->once_uni_ad[1] + sensor->once_uni_ad[6]);
 
   
   sensor->twice_uni_ad[1] = sensor->once_uni_ad[1] / sensor->sum_16;
@@ -195,7 +197,7 @@ void deal_sensor(Sensor_info *sensor)//电感处理
 		
 		if((sensor->sum_16_34>250)&&(abs(sensor->sub_25[0])>20))
 
-							Bell_Cry(300,300);
+			Bell_Cry(300,300);
 		
 //		circle_flag=false;
 //		circle_counter=0;

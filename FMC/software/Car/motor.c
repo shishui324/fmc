@@ -77,6 +77,7 @@ void motor_pid_caculate(Motor_pid_info *motor_info)
 		
 //****************CAUTION*******************/
     motor_info->error[0] = motor_info->set_value[0]-motor_info->present_value[0];
+		
     motor_info->speed_racc = motor_info->present_value[0]-motor_info->present_value[1];//计算电机加速度,即速度微分
 		for(i=3;i>0;i--)
 		{
@@ -86,12 +87,12 @@ void motor_pid_caculate(Motor_pid_info *motor_info)
 
 ///////以下是前馈-微分先行增量式PID计算
     motor_info->delta_uk[0]= (float)(
-                               motor_info->kvff*(motor_info->set_value[0] - motor_info->set_value[1])
+																	motor_info->kvff*(motor_info->set_value[0] - motor_info->set_value[1])
                                +	motor_info->kp*(motor_info->error[0] - motor_info->error[1])
                                + 	motor_info->ki*motor_info->error[0]
                                + 	motor_info->kd*(motor_info->error[0]-2.0*motor_info->error[1]+ motor_info->error[2])
                                -	motor_info->kaff*motor_info->speed_racc
-                           );
+																);
 		
 
 
@@ -103,7 +104,7 @@ void motor_pid_caculate(Motor_pid_info *motor_info)
         if(motor_info->delta_uk[0] < 0)
             motor_info->delta_uk[0] = 0;//当前一时刻控制量(占空比)已经达到最大时，若现在增量为正则不累加
     /*------------------------遇限削弱抗积分饱和等处理结束-------------------*/
-		motor_info->delta_uk[0]=0.7f*motor_info->delta_uk[0]+0.2f*motor_info->delta_uk[1]+0.1f*motor_info->delta_uk[2];
+//		motor_info->delta_uk[0]=0.7f*motor_info->delta_uk[0]+0.2f*motor_info->delta_uk[1]+0.1f*motor_info->delta_uk[2];
 		
     motor_info->out_duty = motor_info->last_uk + motor_info->delta_uk[0];//μ±?°Dèòaê?3?μ?êμ?ê????±è
 
@@ -138,23 +139,11 @@ void motor_pid_caculate(Motor_pid_info *motor_info)
 
 
 }
-static float Motor_Error[4]={0}; 
-int16_t  Motor_Out_Filter(int16_t motor_out)        
-{
-  float motor_Out_Filtered; 
-  
-  Motor_Error[3]=Motor_Error[2];
-  Motor_Error[2]=Motor_Error[1];
-  Motor_Error[1]=Motor_Error[0];
-  Motor_Error[0]=(float)motor_out;
-  motor_Out_Filtered=Motor_Error[0]*0.7f+Motor_Error[1]*0.15f+Motor_Error[2]*0.1f+Motor_Error[3]*0.05f;
-  return (int16_t)motor_Out_Filtered;
-}
 
- 
+
+//static float Motor_Error[4]={0}; 
 //int16_t  Motor_Out_Filter(int16_t motor_out)        
 //{
-//	static float Motor_Error[4];
 //  float motor_Out_Filtered; 
 //  
 //  Motor_Error[3]=Motor_Error[2];

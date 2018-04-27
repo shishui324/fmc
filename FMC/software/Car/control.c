@@ -6,6 +6,8 @@
 #include "motor.h"
 #include "encode.h"
 
+#include "Me_Math.h"
+
 
 
 #include "control.h"
@@ -33,17 +35,19 @@ int16 L_out_value; 		//左边pwm输出的值
 
 bool STOP_CAR_FLAG = true;
 
-
+float error_d=0;
 extern void motor_set(void);
 
 void servo_pid_caculate(void)           //差速控制pid
 {
 	uint8_t i;
+	
 
-			for(i = 9; i > 0; i--)
-			{																	//更新偏差队列
-			Servo.error[i] = Servo.error[i-1];
-			}
+		for(i = 9; i > 0; i--)
+		{																	//更新偏差队列
+		Servo.error[i] = Servo.error[i-1];
+		}
+//		error_d=Slope_Calculate_Time(9,(Servo.error));
 //	if((Sensor.sum_16_34<80)&&(Sensor.sum_16_34>40))	//丢线判断
 //		{	
 //			
@@ -53,7 +57,7 @@ void servo_pid_caculate(void)           //差速控制pid
 //		}
 //		else
 			
-			Servo.error[0] =(int16_t)(100*Sensor.sub_16/Sensor.sum_16); //求出电感差值
+		Servo.error[0] =(int16_t)(100*Sensor.sub_16/Sensor.sum_16); //求出电感差值
 				
 	if(Sensor.sum_16_34<100)
 	{
@@ -61,6 +65,7 @@ void servo_pid_caculate(void)           //差速控制pid
 #if	Protect_ON
 		motor_protect_time++;								//保护计数累加
 #endif
+		
 	}
 #if 0
 	if(circle_in)
@@ -194,14 +199,13 @@ void servo_pid_caculate(void)           //差速控制pid
 //		}
 //		
 			Servo.output = (float)(Servo.kp *Servo.error[0] 
-				+ Servo.ki*(Servo.error[0]-2*Servo.error[1]+Servo.error[2])
-				+Servo.kd* (Servo.error[0]-Servo.error[4]));     //5   2
+											+Servo.kd*Servo.error[0]-Servo.error[5]);     //5   2
 		
 	
 	//		/***********差方法************/
 		
 //		}		
-			//增量式
+
 			
 #if 0
 		
@@ -215,25 +219,48 @@ void servo_pid_caculate(void)           //差速控制pid
 			
 #endif	
 	
-//	
-//	if(Servo.output>SERVO_LIMIT)//Servo.output>=0))
-//			{
-//				Servo.output = SERVO_LIMIT;
-//			}
-//		if(Servo.output<-SERVO_LIMIT)//Servo.output<0))
-//			{
-//				Servo.output = -SERVO_LIMIT;
-//			}
+	
+	if(Servo.output>SERVO_LIMIT)//Servo.output>=0))
+			{
+				Servo.output = SERVO_LIMIT;
+			}
+		if(Servo.output<-SERVO_LIMIT)//Servo.output<0))
+			{
+				Servo.output = -SERVO_LIMIT;
+			}
+			
+			
 }
 
+//#define FILTER_NUM2 6
+///***********滑动滤波**********/
+//int16_t Prepare_Data2(int16_t speed_in)
+//{
+//	static uint8 	filter_cnt2 = 0;
+//	static int16	speed_BUF2[FILTER_NUM2];
+//	int32 temp2 = 0;
+//	uint8 i;
 
+//	speed_BUF2[filter_cnt2] = speed_in;
+
+//	for (i = 0; i<FILTER_NUM2; i++)
+//	{
+//		temp2 += speed_BUF2[i];
+//	}
+
+//	filter_cnt2++;
+
+//	if (filter_cnt2 == FILTER_NUM2)	filter_cnt2 = 0;
+
+//	return(temp2 / FILTER_NUM2);
+//}
 
 
 
 void control(void)  //控制函数
 {
-	static float  out[3];
-	if(motor_protect_time>=750)//当保护计数超过限制
+	static float  out[5];
+	if(motor_protect_time>=500)//当保护计数超过限制
 	{
 		STOP_CAR_FLAG = true;
 		motor_protect_time = 0;
@@ -269,77 +296,71 @@ void control(void)  //控制函数
 #endif 
   servo_pid_caculate();
 //	speed_control();
+	
+	uint8_t i;
+		out[4]=0;
+		for(i=3;i>0;i--)
+		{
+			
+			out[i]=out[i-1];
+//			out[4]+=out[i];
+		}
 
 #if 0	
-	if(abs(Servo.output)>20)
+	if(abs(Servo.output)>30)
 	{
 		
 
 		
-	if(Servo.output>0)
-	{		
-	out = 0.01f*Speed.set_speed_val * Servo.output;  
-	Motor_control.Motor_Left_pid.set_value[0] 	= Speed.set_speed_val*0.8f - (int16_t) out;
-	Motor_control.Motor_Right_pid.set_value[0] 	= 1.2f*Speed.set_speed_val + (int16_t) out;
-	}
-	else if(Servo.output<0){
-	out = 0.01f*Speed.set_speed_val * Servo.output;  
-	Motor_control.Motor_Left_pid.set_value[0] 	= 1.2f*Speed.set_speed_val - (int16_t) out;
-	Motor_control.Motor_Right_pid.set_value[0] 	= Speed.set_speed_val*0.8f + (int16_t) out;
-	
-	}
+//	if(Servo.output>0)
+//	{		
+//	out = 0.01f*Speed.set_speed_val * Servo.output;  
+//	Motor_control.Motor_Left_pid.set_value[0] 	= Speed.set_speed_val*0.8f - (int16_t) out;
+//	Motor_control.Motor_Right_pid.set_value[0] 	= 1.2f*Speed.set_speed_val + (int16_t) out;
+//	}
+//	else if(Servo.output<0){
+//	out = 0.01f*Speed.set_speed_val * Servo.output;  
+//	Motor_control.Motor_Left_pid.set_value[0] 	= 1.2f*Speed.set_speed_val - (int16_t) out;
+//	Motor_control.Motor_Right_pid.set_value[0] 	= Speed.set_speed_val*0.8f + (int16_t) out;
+//	
+//	}
 		
-		out = 0.016f*Speed.set_speed_val * Servo.output;  
+		Bell_Cry(100,100);
+		out[0] = 0.016f*Speed.set_speed_val * Servo.output;  
 //	Motor_control.Motor_Left_pid.set_value[0] 	= Speed.set_speed_val* - (int16_t) out;
 //	Motor_control.Motor_Right_pid.set_value[0] 	= Speed.set_speed_val + (int16_t) out;
 		
 }
 	
 else{
-		out = 0.01f*Speed.set_speed_val * Servo.output;  
+		out[0] = 0.01f*Speed.set_speed_val * Servo.output;  
 	
 }
 	#endif
-#endif
-		for(uint8_t i=2;i>0;i--)
-		{
-			out[i]=out[i-1];
-		}
+
+
 	out[0] = 0.01f*Speed.set_speed_val * Servo.output;
+//	out[0]=0.25f*(out[4]+out[0]);
+//	out[0]=0.8f*out[0]+0.1f*out[1]+0.07f*out[2]+0.03f*out[3];
 	
-	out[0]=0.7f*out[0]+0.2f*out[1]+0.1f*out[2];
-		
+	
 	Motor_control.Motor_Left_pid.set_value[0] 	= Speed.set_speed_val - (int16_t) out[0];
 	Motor_control.Motor_Right_pid.set_value[0] 	= Speed.set_speed_val + (int16_t) out[0];
+#endif			
+
 	
-
-
-
-
+		
 	motor_pid_caculate(&Motor_control.Motor_Left_pid);
 	motor_pid_caculate(&Motor_control.Motor_Right_pid);
 	
-	
-//	 float  SpeedFilterRatio=0.85;     //速度设定值滤波，防止速度控制变化太剧烈
-       
 
-
- 
-
-  
 	L_out_value = Motor_control.Motor_Left_pid.output;
 	R_out_value = Motor_control.Motor_Right_pid.output; 
 	
-//	R_out_value=Motor_Out_Filter(R_out_value);
-//	L_out_value=Motor_Out_Filter(L_out_value);	
 	
 	motor_set();
 
-
-
 }
-
-
 
 
 void speed_control(void)
@@ -364,14 +385,17 @@ void speed_control(void)
     dis_err_d_sub_val = Servo.dis1cm_err_store[i]-Servo.dis1cm_err_store[i+12];
     if(fabs(dis_err_d_sub_val) > Servo.max_dis_err_d)
        Servo.max_dis_err_d = fabs(dis_err_d_sub_val);
+		
   }
+	
 //  if(sum_12<10);
 //  Motor.set_value[0] = 1;
+	
 	if(Servo.max_dis_err_d > Servo.distance_err_d_max_val)              //最大12cm偏差变化率限幅
        Servo.max_dis_err_d = Servo.distance_err_d_max_val;
 
-	speed_dt =  (uint16)((Speed.zhidao_speed_val-Speed.wandao_speed_val)*Servo.max_dis_err/Servo.distance_err_max_val
-					 +(Speed.zhidao_speed_val-Speed.cross_speed_val)*Servo.max_dis_err_d/Servo.distance_err_d_max_val);
+		speed_dt = (uint16)((Speed.zhidao_speed_val-Speed.wandao_speed_val)*Servo.max_dis_err/Servo.distance_err_max_val
+								+(Speed.zhidao_speed_val-Speed.cross_speed_val)*Servo.max_dis_err_d/Servo.distance_err_d_max_val);
 					   
 	if(Speed.cross_speed_val < Speed.wandao_speed_val)           //限制最低速度
 	{ 

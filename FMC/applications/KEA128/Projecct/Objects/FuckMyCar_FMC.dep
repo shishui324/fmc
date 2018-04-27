@@ -235,9 +235,40 @@ I (..\..\..\software\Libraries\startup\CoreSupport\core_cmFunc.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\startup\DeviceSupport\system_SKEAZ1284.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\KEA128_systick.h)(0x5ACBCCD2)
 I (..\..\..\software\Module\Myflash.h)(0x5AD5FC08)
-I (..\..\..\software\Car\struct.h)(0x5ADC9586)
-I (..\..\..\software\Car\control.h)(0x5AD72E7F)
-F (..\..\..\software\Car\motor.c)(0x5ADC9586)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\motor.o --omf_browse .\objects\motor.crf --depend .\objects\motor.d)
+I (..\..\..\software\Car\struct.h)(0x5AE08619)
+I (..\..\..\software\Car\control.h)(0x5ADF3A3F)
+F (..\..\..\software\Module\MPUIIC.c)(0x5AE1E621)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\mpuiic.o --omf_browse .\objects\mpuiic.crf --depend .\objects\mpuiic.d)
+I (..\..\..\software\Libraries\drives\inc\KEA128_gpio.h)(0x5ACBCCD2)
+I (..\..\..\software\Libraries\drives\inc\misc.h)(0x5ACBCCD2)
+I (..\..\..\software\Libraries\drives\inc\common.h)(0x5AD70A3D)
+I (..\..\..\software\Libraries\drives\inc\KEA128_port_cfg.h)(0x5ACBCCD2)
+I (d:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (d:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h)(0x5ACBCCD2)
+I (..\..\..\software\Libraries\startup\CoreSupport\core_cm0plus.h)(0x5ACBCCD2)
+I (..\..\..\software\Libraries\startup\CoreSupport\core_cmInstr.h)(0x5ACBCCD2)
+I (..\..\..\software\Libraries\startup\CoreSupport\core_cmFunc.h)(0x5ACBCCD2)
+I (..\..\..\software\Libraries\startup\DeviceSupport\system_SKEAZ1284.h)(0x5ACBCCD2)
+I (..\..\..\software\Module\MPUIIC.h)(0x5AE199B3)
+F (..\..\..\software\Module\MPU6050.c)(0x5AE1D4F7)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\mpu6050.o --omf_browse .\objects\mpu6050.crf --depend .\objects\mpu6050.d)
+I (..\..\..\software\Module\MPU6050.h)(0x5A1B839C)
+I (..\..\..\software\Module\mpuiic.h)(0x5AE199B3)
+I (..\..\..\software\Libraries\drives\inc\common.h)(0x5AD70A3D)
+I (..\..\..\software\Libraries\drives\inc\KEA128_port_cfg.h)(0x5ACBCCD2)
+I (d:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (d:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (..\..\..\software\Libraries\drives\inc\KEA128_pit.h)(0x5ACBCCD2)
+I (..\..\..\software\Libraries\drives\inc\misc.h)(0x5ACBCCD2)
+I (..\..\..\software\Libraries\startup\DeviceSupport\SKEAZ1284.h)(0x5ACBCCD2)
+I (..\..\..\software\Libraries\startup\CoreSupport\core_cm0plus.h)(0x5ACBCCD2)
+I (..\..\..\software\Libraries\startup\CoreSupport\core_cmInstr.h)(0x5ACBCCD2)
+I (..\..\..\software\Libraries\startup\CoreSupport\core_cmFunc.h)(0x5ACBCCD2)
+I (..\..\..\software\Libraries\startup\DeviceSupport\system_SKEAZ1284.h)(0x5ACBCCD2)
+F (..\..\..\software\Car\motor.c)(0x5ADED6BA)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\motor.o --omf_browse .\objects\motor.crf --depend .\objects\motor.d)
 I (..\..\..\software\Libraries\drives\inc\KEA128_gpio.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\misc.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\common.h)(0x5AD70A3D)
@@ -253,9 +284,9 @@ I (..\..\..\software\Libraries\startup\CoreSupport\core_cmFunc.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\startup\DeviceSupport\system_SKEAZ1284.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\KEA128_ftm.h)(0x5AD6E3AA)
 I (..\..\..\software\Car\motor.h)(0x5ADC8E8E)
-I (..\..\..\software\Car\struct.h)(0x5ADC9586)
-I (..\..\..\software\Car\control.h)(0x5AD72E7F)
-F (..\..\..\software\Car\sensor.c)(0x5AD7273C)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\sensor.o --omf_browse .\objects\sensor.crf --depend .\objects\sensor.d)
+I (..\..\..\software\Car\struct.h)(0x5AE08619)
+I (..\..\..\software\Car\control.h)(0x5ADF3A3F)
+F (..\..\..\software\Car\sensor.c)(0x5AE08E32)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\sensor.o --omf_browse .\objects\sensor.crf --depend .\objects\sensor.d)
 I (..\..\..\software\Libraries\drives\inc\KEA128_adc.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\misc.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\common.h)(0x5AD70A3D)
@@ -283,10 +314,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_systick.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5ACBCCD2)
 I (..\..\..\software\Module\OLED.h)(0x5AD5FB6F)
-I (..\..\..\software\Car\struct.h)(0x5ADC9586)
+I (..\..\..\software\Car\struct.h)(0x5AE08619)
 I (..\..\..\software\Car\sensor.h)(0x5AD5F986)
 I (..\..\..\software\Debug\ANO_DT.h)(0x5ACBCCD2)
-I (..\..\..\software\Car\control.h)(0x5AD72E7F)
+I (..\..\..\software\Car\control.h)(0x5ADF3A3F)
 I (..\..\..\software\Car\motor.h)(0x5ADC8E8E)
 I (..\..\..\software\Car\Car_Key.h)(0x5AD6E40C)
 I (..\..\..\software\Module\Myflash.h)(0x5AD5FC08)
@@ -305,9 +336,9 @@ I (..\..\..\software\Libraries\startup\CoreSupport\core_cm0plus.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\startup\CoreSupport\core_cmInstr.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\startup\CoreSupport\core_cmFunc.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\startup\DeviceSupport\system_SKEAZ1284.h)(0x5ACBCCD2)
-F (..\..\..\software\Car\control.c)(0x5ADC9E2B)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\control.o --omf_browse .\objects\control.crf --depend .\objects\control.d)
+F (..\..\..\software\Car\control.c)(0x5AE08619)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\control.o --omf_browse .\objects\control.crf --depend .\objects\control.d)
 I (..\..\..\software\Car\sensor.h)(0x5AD5F986)
-I (..\..\..\software\Car\struct.h)(0x5ADC9586)
+I (..\..\..\software\Car\struct.h)(0x5AE08619)
 I (..\..\..\software\Libraries\drives\inc\common.h)(0x5AD70A3D)
 I (..\..\..\software\Libraries\drives\inc\KEA128_port_cfg.h)(0x5ACBCCD2)
 I (d:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
@@ -339,11 +370,12 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5ACBCCD2)
 I (..\..\..\software\Module\OLED.h)(0x5AD5FB6F)
 I (..\..\..\software\Debug\ANO_DT.h)(0x5ACBCCD2)
-I (..\..\..\software\Car\control.h)(0x5AD72E7F)
+I (..\..\..\software\Car\control.h)(0x5ADF3A3F)
 I (..\..\..\software\Car\Car_Key.h)(0x5AD6E40C)
 I (..\..\..\software\Module\Myflash.h)(0x5AD5FC08)
 I (..\..\..\software\Car\Debug.h)(0x5ACBCCD2)
-F (..\..\..\software\Car\encode.c)(0x5AD5FAA6)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\encode.o --omf_browse .\objects\encode.crf --depend .\objects\encode.d)
+I (..\..\..\software\Car\Me_Math.h)(0x5ADF29BB)
+F (..\..\..\software\Car\encode.c)(0x5ADECD0A)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\encode.o --omf_browse .\objects\encode.crf --depend .\objects\encode.d)
 I (..\..\..\software\Libraries\drives\inc\KEA128_gpio.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\misc.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\common.h)(0x5AD70A3D)
@@ -359,7 +391,7 @@ I (..\..\..\software\Libraries\startup\CoreSupport\core_cmFunc.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\startup\DeviceSupport\system_SKEAZ1284.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\KEA128_ftm.h)(0x5AD6E3AA)
 I (..\..\..\software\Libraries\drives\inc\KEA128_port.h)(0x5ACBCCD2)
-I (..\..\..\software\Car\struct.h)(0x5ADC9586)
+I (..\..\..\software\Car\struct.h)(0x5AE08619)
 I (..\..\..\software\Car\encode.h)(0x5AD3378B)
 I (..\..\..\software\Libraries\drives\inc\headfile.h)(0x5AD6C837)
 I (..\..\..\software\Libraries\drives\inc\KEA128_pit.h)(0x5ACBCCD2)
@@ -374,7 +406,7 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5ACBCCD2)
 I (..\..\..\software\Module\OLED.h)(0x5AD5FB6F)
 I (..\..\..\software\Car\sensor.h)(0x5AD5F986)
 I (..\..\..\software\Debug\ANO_DT.h)(0x5ACBCCD2)
-I (..\..\..\software\Car\control.h)(0x5AD72E7F)
+I (..\..\..\software\Car\control.h)(0x5ADF3A3F)
 I (..\..\..\software\Car\motor.h)(0x5ADC8E8E)
 I (..\..\..\software\Car\Car_Key.h)(0x5AD6E40C)
 I (..\..\..\software\Module\Myflash.h)(0x5AD5FC08)
@@ -396,7 +428,7 @@ I (..\..\..\software\Libraries\startup\CoreSupport\core_cmFunc.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\startup\DeviceSupport\system_SKEAZ1284.h)(0x5ACBCCD2)
 I (..\..\..\software\Car\BB.h)(0x5AD5FAA6)
 F (..\..\..\software\Car\track.c)(0x5AD72685)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\track.o --omf_browse .\objects\track.crf --depend .\objects\track.d)
-I (..\..\..\software\Car\struct.h)(0x5ADC9586)
+I (..\..\..\software\Car\struct.h)(0x5AE08619)
 I (..\..\..\software\Libraries\drives\inc\common.h)(0x5AD70A3D)
 I (..\..\..\software\Libraries\drives\inc\KEA128_port_cfg.h)(0x5ACBCCD2)
 I (d:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
@@ -426,13 +458,21 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5ACBCCD2)
 I (..\..\..\software\Module\OLED.h)(0x5AD5FB6F)
 I (..\..\..\software\Car\sensor.h)(0x5AD5F986)
 I (..\..\..\software\Debug\ANO_DT.h)(0x5ACBCCD2)
-I (..\..\..\software\Car\control.h)(0x5AD72E7F)
+I (..\..\..\software\Car\control.h)(0x5ADF3A3F)
 I (..\..\..\software\Car\motor.h)(0x5ADC8E8E)
 I (..\..\..\software\Car\encode.h)(0x5AD3378B)
 I (..\..\..\software\Car\Car_Key.h)(0x5AD6E40C)
 I (..\..\..\software\Module\Myflash.h)(0x5AD5FC08)
 I (..\..\..\software\Car\BB.h)(0x5AD5FAA6)
 I (..\..\..\software\Car\Debug.h)(0x5ACBCCD2)
+F (..\..\..\software\Car\Me_Math.c)(0x5ADF2915)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\me_math.o --omf_browse .\objects\me_math.crf --depend .\objects\me_math.d)
+I (..\..\..\software\Car\Me_Math.h)(0x5ADF29BB)
+I (..\..\..\software\Libraries\drives\inc\common.h)(0x5AD70A3D)
+I (..\..\..\software\Libraries\drives\inc\KEA128_port_cfg.h)(0x5ACBCCD2)
+I (d:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (d:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
+I (d:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (d:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 F (..\..\..\software\Debug\ANO_DT.c)(0x5ACBCCD2)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\ano_dt.o --omf_browse .\objects\ano_dt.crf --depend .\objects\ano_dt.d)
 I (..\..\..\software\Libraries\drives\inc\headfile.h)(0x5AD6C837)
 I (..\..\..\software\Libraries\drives\inc\common.h)(0x5AD70A3D)
@@ -460,10 +500,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_systick.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5ACBCCD2)
 I (..\..\..\software\Module\OLED.h)(0x5AD5FB6F)
-I (..\..\..\software\Car\struct.h)(0x5ADC9586)
+I (..\..\..\software\Car\struct.h)(0x5AE08619)
 I (..\..\..\software\Car\sensor.h)(0x5AD5F986)
 I (..\..\..\software\Debug\ANO_DT.h)(0x5ACBCCD2)
-I (..\..\..\software\Car\control.h)(0x5AD72E7F)
+I (..\..\..\software\Car\control.h)(0x5ADF3A3F)
 I (..\..\..\software\Car\motor.h)(0x5ADC8E8E)
 I (..\..\..\software\Car\encode.h)(0x5AD3378B)
 I (..\..\..\software\Car\Car_Key.h)(0x5AD6E40C)
@@ -499,16 +539,16 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_systick.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5ACBCCD2)
 I (..\..\..\software\Module\OLED.h)(0x5AD5FB6F)
-I (..\..\..\software\Car\struct.h)(0x5ADC9586)
+I (..\..\..\software\Car\struct.h)(0x5AE08619)
 I (..\..\..\software\Car\sensor.h)(0x5AD5F986)
 I (..\..\..\software\Debug\ANO_DT.h)(0x5ACBCCD2)
-I (..\..\..\software\Car\control.h)(0x5AD72E7F)
+I (..\..\..\software\Car\control.h)(0x5ADF3A3F)
 I (..\..\..\software\Car\motor.h)(0x5ADC8E8E)
 I (..\..\..\software\Car\encode.h)(0x5AD3378B)
 I (..\..\..\software\Car\Car_Key.h)(0x5AD6E40C)
 I (..\..\..\software\Module\Myflash.h)(0x5AD5FC08)
 I (..\..\..\software\Car\BB.h)(0x5AD5FAA6)
-F (..\..\..\software\Debug\MYUI.c)(0x5ADC266A)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\myui.o --omf_browse .\objects\myui.crf --depend .\objects\myui.d)
+F (..\..\..\software\Debug\MYUI.c)(0x5AE06E42)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\myui.o --omf_browse .\objects\myui.crf --depend .\objects\myui.d)
 I (..\..\..\software\Module\OLED.h)(0x5AD5FB6F)
 I (..\..\..\software\Libraries\drives\inc\common.h)(0x5AD70A3D)
 I (..\..\..\software\Libraries\drives\inc\KEA128_port_cfg.h)(0x5ACBCCD2)
@@ -537,17 +577,17 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_flash.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\KEA128_systick.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5ACBCCD2)
-I (..\..\..\software\Car\struct.h)(0x5ADC9586)
+I (..\..\..\software\Car\struct.h)(0x5AE08619)
 I (..\..\..\software\Car\sensor.h)(0x5AD5F986)
 I (..\..\..\software\Debug\ANO_DT.h)(0x5ACBCCD2)
-I (..\..\..\software\Car\control.h)(0x5AD72E7F)
+I (..\..\..\software\Car\control.h)(0x5ADF3A3F)
 I (..\..\..\software\Car\motor.h)(0x5ADC8E8E)
 I (..\..\..\software\Car\encode.h)(0x5AD3378B)
 I (..\..\..\software\Car\Car_Key.h)(0x5AD6E40C)
 I (..\..\..\software\Module\Myflash.h)(0x5AD5FC08)
 I (..\..\..\software\Car\BB.h)(0x5AD5FAA6)
 I (..\..\..\software\Car\Debug.h)(0x5ACBCCD2)
-F (..\USER\src\isr.c)(0x5ADC261B)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\isr.o --omf_browse .\objects\isr.crf --depend .\objects\isr.d)
+F (..\USER\src\isr.c)(0x5ADECD0A)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\isr.o --omf_browse .\objects\isr.crf --depend .\objects\isr.d)
 I (..\USER\inc\isr.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\headfile.h)(0x5AD6C837)
 I (..\..\..\software\Libraries\drives\inc\common.h)(0x5AD70A3D)
@@ -575,17 +615,17 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_systick.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5ACBCCD2)
 I (..\..\..\software\Module\OLED.h)(0x5AD5FB6F)
-I (..\..\..\software\Car\struct.h)(0x5ADC9586)
+I (..\..\..\software\Car\struct.h)(0x5AE08619)
 I (..\..\..\software\Car\sensor.h)(0x5AD5F986)
 I (..\..\..\software\Debug\ANO_DT.h)(0x5ACBCCD2)
-I (..\..\..\software\Car\control.h)(0x5AD72E7F)
+I (..\..\..\software\Car\control.h)(0x5ADF3A3F)
 I (..\..\..\software\Car\motor.h)(0x5ADC8E8E)
 I (..\..\..\software\Car\encode.h)(0x5AD3378B)
 I (..\..\..\software\Car\Car_Key.h)(0x5AD6E40C)
 I (..\..\..\software\Module\Myflash.h)(0x5AD5FC08)
 I (..\..\..\software\Car\BB.h)(0x5AD5FAA6)
 I (..\..\..\software\Car\Debug.h)(0x5ACBCCD2)
-F (..\USER\src\main.c)(0x5ADC95A6)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (..\USER\src\main.c)(0x5AE2A533)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\USER\inc -I ..\..\..\software\Car -I ..\..\..\software\Debug -I ..\..\..\software\Libraries\startup\DeviceSupport -I ..\..\..\software\Libraries\startup\CoreSupport -I ..\..\..\software\Libraries\drives\inc -I ..\..\..\software\Module-I.\RTE\_FMC-Id:\Keil_v5\ARM\PACK\Keil\Kinetis_KEAxx_DFP\1.3.0\Device\Include-Id:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSKEAZ128xxx4-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (..\..\..\software\Libraries\drives\inc\headfile.h)(0x5AD6C837)
 I (..\..\..\software\Libraries\drives\inc\common.h)(0x5AD70A3D)
 I (..\..\..\software\Libraries\drives\inc\KEA128_port_cfg.h)(0x5ACBCCD2)
@@ -612,10 +652,10 @@ I (..\..\..\software\Libraries\drives\inc\KEA128_systick.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\KEA128_i2c.h)(0x5ACBCCD2)
 I (..\..\..\software\Libraries\drives\inc\KEA128_spi.h)(0x5ACBCCD2)
 I (..\..\..\software\Module\OLED.h)(0x5AD5FB6F)
-I (..\..\..\software\Car\struct.h)(0x5ADC9586)
+I (..\..\..\software\Car\struct.h)(0x5AE08619)
 I (..\..\..\software\Car\sensor.h)(0x5AD5F986)
 I (..\..\..\software\Debug\ANO_DT.h)(0x5ACBCCD2)
-I (..\..\..\software\Car\control.h)(0x5AD72E7F)
+I (..\..\..\software\Car\control.h)(0x5ADF3A3F)
 I (..\..\..\software\Car\motor.h)(0x5ADC8E8E)
 I (..\..\..\software\Car\encode.h)(0x5AD3378B)
 I (..\..\..\software\Car\Car_Key.h)(0x5AD6E40C)

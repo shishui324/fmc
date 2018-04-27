@@ -1,6 +1,6 @@
 #include "isr.h"
 
-extern uint32_t time_2ms;
+extern uint32_t time_ms;
 
 extern uint32_t time_10ms;
 extern uint32_t time_20ms;
@@ -24,11 +24,19 @@ extern void control(void);
 void PIT_CH0_IRQHandler(void)
 {
 	
+	static uint8_t part=0;
+		
 	
   PIT_FlAG_CLR(pit0);                     //清pit0标志位
 	
 		
 	Bell_Play();
+	part++;
+	switch(part)
+		
+	{
+			case 1 : 
+			{
 	pit_time_start(pit1);
 	get_num();	 //获取编码器值
 	encode_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
@@ -40,22 +48,33 @@ void PIT_CH0_IRQHandler(void)
 	deal_sensor(&Sensor);
 	sensor_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
 	pit_close(pit1);
+			
+			
+			}
+			break;
+			case 2:
+			{
+				pit_time_start(pit1);
+				control();
+				control_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
+				pit_close(pit1);
+				
+				part=0;
+				
+				
+			}break;
+	}
 	
-	pit_time_start(pit1);
-	control();
-	control_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
-	pit_close(pit1);
 	
 	
-	
-	time_2ms++;
-	if(!(time_2ms % 5))
+	time_ms++;
+	if(!(time_ms % 10))
 	{
 		time_10ms++;
-		if(!(time_2ms % 10))
+		if(!(time_ms % 20))
 		{
 			time_20ms++;
-			time_2ms = 0;
+			time_ms = 0;
 		}
 	
 

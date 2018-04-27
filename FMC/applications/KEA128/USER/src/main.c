@@ -3,11 +3,12 @@
 #include "stdbool.h"
 #include "math.h"
 #include "MYUI.h"
+//#include “”
 
 //n/6.16
 
 ////////////////////////服务函数标志位////////////////////
-uint32_t time_2ms = 0;
+uint32_t time_ms = 0;
 
 uint32_t time_10ms = 0;
 uint32_t time_20ms = 0;
@@ -88,7 +89,7 @@ int main(void)
 		set_irq_priority(PIT_CH1_IRQn,2);				//设置优先级,根据自己的需求设置 可设置范围为 0 - 3  越小优先级越高
 		enable_irq(PIT_CH1_IRQn);							//打开pit0的中断开关
 
-		pit_init_ms(pit0,2);                            //初始化pit0 周期设置为1ms
+		pit_init_ms(pit0,1);                            //初始化pit0 周期设置为1ms
     set_irq_priority(PIT_CH0_IRQn,1);	            //设置pit0优先级
     enable_irq(PIT_CH0_IRQn);			            //开启pit0中断
     EnableInterrupts;
@@ -151,12 +152,16 @@ void time_20ms_serve(void)
 	send_buf[6]=(int16_t)(Servo.error[0]-Servo.error[1]);
 	send_buf[5]=(int16_t)Motor_control.Motor_Right_pid.delta_uk[0];
 	send_buf[4]=(int16_t)Motor_control.Motor_Left_pid.delta_uk[0];
-	send_buf[3]=Motor_control.Motor_Left_pid.set_value[0];
+	send_buf[3]=Motor_control.Motor_Left_pid.present_value[0];
 	send_buf[2]=L_out_value;
-	send_buf[1]=Motor_control.Motor_Right_pid.set_value[0];
+	send_buf[1]=Motor_control.Motor_Right_pid.present_value[0];
 	send_buf[0]=R_out_value;
 	
+//	send_buf[1]=(int16_t)100*(Servo.error[0]-Servo.error[1]);
+//	send_buf[0]=(int16_t)100*(error_d);
+//	
 	if(!STOP_CAR_FLAG)
+
 	{
 	vcan_sendware(send_buf,sizeof(send_buf));
 	}
