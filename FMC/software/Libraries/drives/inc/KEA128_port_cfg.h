@@ -50,7 +50,7 @@
 
 //      模块通道        端口      可选范围                建议
 #define FTM2_CH0_PIN    H0        //C0  H0 F0              
-#define FTM2_CH1_PIN    H1        //C1  H1 F1  
+#define FTM2_CH1_PIN    F1        //C1  H1 F1  
 #define FTM2_CH2_PIN    C2       //	C2  G4 D0  
 #define FTM2_CH3_PIN   	C3        //C3  G5 D1
 #define FTM2_CH4_PIN    G6        //B4  G6  
@@ -71,8 +71,8 @@
 #define I2C0_SCL_PIN    B7        //A3 B7
 #define I2C0_SDA_PIN    B6        //A2 B6
                                        
-#define I2C1_SCL_PIN    H4        //E1 H4
-#define I2C1_SDA_PIN    H3        //E0 H3
+#define I2C1_SCL_PIN    E1        //E1 H4
+#define I2C1_SDA_PIN    E0        //E0 H3
 
 
 //-----------------------------------  SPI  -----------------------------------

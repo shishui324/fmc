@@ -5,7 +5,7 @@
 #include "common.h"
 
 
-#define SERVO_LIMIT 100		//差速限副
+#define SERVO_LIMIT 50		//差速限副
 #define speed_duty  150			
 //#define DIR_CONTROL 1
 #define DEBUG_ON   0

@@ -48,3 +48,4 @@
 .\objects\control.o: ..\..\..\software\Module\Myflash.h
 .\objects\control.o: ..\..\..\software\Car\Debug.h
 .\objects\control.o: ..\..\..\software\Car\Me_Math.h
+.\objects\control.o: ..\..\..\software\Car\Fuzzy.h

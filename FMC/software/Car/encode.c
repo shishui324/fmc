@@ -37,26 +37,26 @@ int16_t getCountNum_R;  //获取编码器计数值
 void encode_init(void)
 {
     ftm_count_init(ftm0);   //左编码器
-    gpio_init(E5,GPI,0);    //DIR_L始化
-    port_pull(E5);
+    gpio_init(C5,GPI,0);    //DIR_L始化
+    port_pull(C5);
 
     ftm_count_init(ftm1);   //右编码器
-    gpio_init(D7,GPI,0);    //DIR_R初始化
-    port_pull(D7);
+    gpio_init(H5,GPI,0);    //DIR_R初始化
+    port_pull(H5);
 }
 
 
 
 void get_num(void)
 {  
-	if(gpio_get(D7))
+	if(gpio_get(C5))
         getCountNum_R=-ftm_count_get(ftm0);        //获取右编码器值
     else
        getCountNum_R=ftm_count_get(ftm0);        //获取编码器值
     ftm_count_clean(ftm0);
 
 		
-    if(gpio_get(E5))
+    if(gpio_get(H5))
         getCountNum_L=ftm_count_get(ftm1);        //获取左编码器值
     else
     {

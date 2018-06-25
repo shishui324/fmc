@@ -27,18 +27,27 @@ uint32 update_dis1cm_encoder;
 ********************************************************/
 void ad_init(void)
 {
-		adc_init(Induc_8);
-		adc_init(Induc_7);
-		adc_init(Induc_6);
-	
-		adc_init(Induc_5);
-		adc_init(Induc_4);
-	
-		adc_init(Induc_3);
-		adc_init(Induc_2);
-		adc_init(Induc_1);
-		
-		adc_init(BAT);
+//		adc_init(Induc_8);
+//		adc_init(Induc_7);
+//		adc_init(Induc_6);
+//	
+//		adc_init(Induc_5);
+//		adc_init(Induc_4);
+//	
+//		adc_init(Induc_3);
+//		adc_init(Induc_2);
+//		adc_init(Induc_1);
+//		
+//		adc_init(BAT);
+	  SIM->SCGC |= SIM_SCGC_ADC_MASK;         //开启ADC时钟
+    ADC->SC3 = (0
+                | ADC_SC3_ADIV(0)           //分频系数
+                | ADC_SC3_MODE(ADC_12bit)         //分辨率
+                | ADC_SC3_ADICLK(0)         //使用总线时钟最为ADC得时钟源
+                );
+        
+    
+    ADC->SC2 = ADC_SC2_REFSEL(0);           //基准电压选择	
 
 }
 /**************** FUCK_MY_CAR  *************************
@@ -49,10 +58,20 @@ void ad_init(void)
  *  * 作    者 ：Panda_Lei
  *  * 日    期 : 2017/03/18
 ********************************************************/
-static float voltageList[25] = { 0 };
+//static float voltageList[25] = { 0 };
 
 void get_adc_int_value(void)    //中值滤波  均值滤波   求取平均值
 {
+	
+				Adc.ad_avr_val[1] = adc_once(Induc_1,ADC_12bit);    
+				Adc.ad_avr_val[2] = adc_once(Induc_2,ADC_12bit);    
+				Adc.ad_avr_val[3] = adc_once(Induc_3,ADC_12bit);    
+				Adc.ad_avr_val[4] = adc_once(Induc_4,ADC_12bit);      
+				Adc.ad_avr_val[5] = adc_once(Induc_5,ADC_12bit);    
+				Adc.ad_avr_val[6] = adc_once(Induc_6,ADC_12bit);	
+				Adc.ad_avr_val[7] = adc_once(Induc_7,ADC_12bit);
+				Adc.ad_avr_val[8] = adc_once(Induc_8,ADC_12bit);
+	#if 0
 		uint8 i=0;
 		uint8 k=0;
 		uint16 temp = 0;
@@ -109,7 +128,9 @@ void get_adc_int_value(void)    //中值滤波  均值滤波   求取平均值
 				for(unsigned short n = 0; n < sizeof(voltageList) / sizeof(voltageList[0]); n++)
 					Power_V = Power_V + voltageList[n];
 				Power_V = Power_V / (float)(sizeof(voltageList) / sizeof(voltageList[0]));
-				
+	#endif
+
+
 }
 
 /**************** FUCK_MY_CAR  *************************

@@ -26,18 +26,18 @@
 ////快捷读Key
 
 //拨码开关
-#define Key_Flag1		!((GPIOA->PDIR>>C1)&0x01)
-#define Key_Flag2		!((GPIOC->PDIR>>(I5-64))&0x01)
-#define Key_Flag3		!((GPIOC->PDIR>>(I6-64))&0x01)
-#define Key_Flag4		!((GPIOA->PDIR>>D5)&0x01)
+#define Key_Flag1		!((GPIOC->PDIR>>(I6-64))&0x01)
+#define Key_Flag2		!((GPIOA->PDIR>>D5)&0x01)
+#define Key_Flag3		!((GPIOA->PDIR>>D6)&0x01)
+#define Key_Flag4		!((GPIOA->PDIR>>D7)&0x01)
 //独立按键
-#define Key_Flag5		((GPIOA->PDIR>>D6)&0x01)
+#define Key_Flag5		((GPIOB->PDIR>>(E1-32))&0x01)
 // 五向按键 
-#define Key_Front		((GPIOA->PDIR>>D4)&0x01)
-#define Key_Back		((GPIOA->PDIR>>D2)&0x01)
-#define Key_Left		((GPIOB->PDIR>>(G6-32))&0x01)
-#define Key_Right		((GPIOA->PDIR>>D3)&0x01)
-#define Key_Middle	((GPIOB->PDIR>>(G5-32))&0x01)
+#define Key_Front		((GPIOA->PDIR>>B5)&0x01)
+#define Key_Back		((GPIOA->PDIR>>C2)&0x01)
+#define Key_Left		((GPIOB->PDIR>>(E6-32))&0x01)
+#define Key_Right		((GPIOA->PDIR>>C3)&0x01)
+#define Key_Middle	((GPIOB->PDIR>>(E5-32))&0x01)
 
 
 

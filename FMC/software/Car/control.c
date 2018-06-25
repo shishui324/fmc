@@ -7,6 +7,7 @@
 #include "encode.h"
 
 #include "Me_Math.h"
+#include "Fuzzy.h"
 
 
 
@@ -59,14 +60,7 @@ void servo_pid_caculate(void)           //差速控制pid
 			
 		Servo.error[0] =(int16_t)(100*Sensor.sub_16/Sensor.sum_16); //求出电感差值
 				
-	if(Sensor.sum_16_34<100)
-	{
-	
-#if	Protect_ON
-		motor_protect_time++;								//保护计数累加
-#endif
-		
-	}
+
 #if 0
 	if(circle_in)
 	{
@@ -199,7 +193,7 @@ void servo_pid_caculate(void)           //差速控制pid
 //		}
 //		
 			Servo.output = (float)(Servo.kp *Servo.error[0] 
-											+Servo.kd*Servo.error[0]-Servo.error[5]);     //5   2
+											+Servo.kd*(Servo.error[0]-Servo.error[7]));     //5   2
 		
 	
 	//		/***********差方法************/
@@ -232,28 +226,6 @@ void servo_pid_caculate(void)           //差速控制pid
 			
 }
 
-//#define FILTER_NUM2 6
-///***********滑动滤波**********/
-//int16_t Prepare_Data2(int16_t speed_in)
-//{
-//	static uint8 	filter_cnt2 = 0;
-//	static int16	speed_BUF2[FILTER_NUM2];
-//	int32 temp2 = 0;
-//	uint8 i;
-
-//	speed_BUF2[filter_cnt2] = speed_in;
-
-//	for (i = 0; i<FILTER_NUM2; i++)
-//	{
-//		temp2 += speed_BUF2[i];
-//	}
-
-//	filter_cnt2++;
-
-//	if (filter_cnt2 == FILTER_NUM2)	filter_cnt2 = 0;
-
-//	return(temp2 / FILTER_NUM2);
-//}
 
 
 
@@ -277,7 +249,7 @@ void control(void)  //控制函数
     ****************************************/
 	Motor_control.Motor_Left_pid.present_value[0] = getCountNum_L;
 	Motor_control.Motor_Right_pid.present_value[0] = getCountNum_R;
-	Speed.present_speed_val=(Motor_control.Motor_Left_pid.present_value[0]+Motor_control.Motor_Right_pid.present_value[0])*0.5;
+	Speed.present_speed_val=(Motor_control.Motor_Left_pid.present_value[0]+Motor_control.Motor_Right_pid.present_value[0])*0.5f;
 #if !(DEBUG_ON)
 	
 #if Protect_ON
@@ -288,45 +260,50 @@ void control(void)  //控制函数
 	{
 		motor_protect_time++;
 	}
-	else if(Sensor.sum_16_34>100)
-		{
-				motor_protect_time = 0;
-		}
+		if(Sensor.sum_16_34<100)
+	{
+		motor_protect_time++;								//保护计数累加
+	}
+	else
+	{
+	motor_protect_time=0;
+	}
+	
 	}
 #endif 
   servo_pid_caculate();
 //	speed_control();
 	
-	uint8_t i;
-		out[4]=0;
-		for(i=3;i>0;i--)
-		{
-			
-			out[i]=out[i-1];
-//			out[4]+=out[i];
-		}
+//	uint8_t i;
+//		out[4]=0;
+//		for(i=3;i>0;    i--)
+//		{
+//			
+//			out[i]=out[i-1];
+////			out[4]+=out[i];
+//		}
 
-#if 0	
+
 	if(abs(Servo.output)>30)
 	{
+		if(abs(Servo.output)<47)
+//					Bell_Cry(100,100);
 		
-
+	if(Servo.output>0)
+	{		
+	out[0] = 0.01f*Speed.set_speed_val * Servo.output;  
+	Motor_control.Motor_Left_pid.set_value[0] 	= 0.7f*Speed.set_speed_val - (int16_t) out[0];
+	Motor_control.Motor_Right_pid.set_value[0] 	= Speed.set_speed_val + (int16_t) out[0];
+	}
+	else if(Servo.output<0){
+	out[0] = 0.01f*Speed.set_speed_val * Servo.output;  
+	Motor_control.Motor_Left_pid.set_value[0] 	= Speed.set_speed_val - (int16_t) out[0];
+	Motor_control.Motor_Right_pid.set_value[0] 	= 0.7f*Speed.set_speed_val+ (int16_t)1.4f* out[0];
+	
+	}
 		
-//	if(Servo.output>0)
-//	{		
-//	out = 0.01f*Speed.set_speed_val * Servo.output;  
-//	Motor_control.Motor_Left_pid.set_value[0] 	= Speed.set_speed_val*0.8f - (int16_t) out;
-//	Motor_control.Motor_Right_pid.set_value[0] 	= 1.2f*Speed.set_speed_val + (int16_t) out;
-//	}
-//	else if(Servo.output<0){
-//	out = 0.01f*Speed.set_speed_val * Servo.output;  
-//	Motor_control.Motor_Left_pid.set_value[0] 	= 1.2f*Speed.set_speed_val - (int16_t) out;
-//	Motor_control.Motor_Right_pid.set_value[0] 	= Speed.set_speed_val*0.8f + (int16_t) out;
-//	
-//	}
 		
-		Bell_Cry(100,100);
-		out[0] = 0.016f*Speed.set_speed_val * Servo.output;  
+////		out[0] = 0.016f*Speed.set_speed_val * Servo.output;  
 //	Motor_control.Motor_Left_pid.set_value[0] 	= Speed.set_speed_val* - (int16_t) out;
 //	Motor_control.Motor_Right_pid.set_value[0] 	= Speed.set_speed_val + (int16_t) out;
 		
@@ -334,18 +311,19 @@ void control(void)  //控制函数
 	
 else{
 		out[0] = 0.01f*Speed.set_speed_val * Servo.output;  
+	Motor_control.Motor_Left_pid.set_value[0] 	= Speed.set_speed_val - (int16_t) out[0];
+	Motor_control.Motor_Right_pid.set_value[0] 	= Speed.set_speed_val + (int16_t) out[0];
 	
 }
-	#endif
 
 
-	out[0] = 0.01f*Speed.set_speed_val * Servo.output;
+	//out[0] = 0.01f*Speed.set_speed_val * Servo.output;
 //	out[0]=0.25f*(out[4]+out[0]);
 //	out[0]=0.8f*out[0]+0.1f*out[1]+0.07f*out[2]+0.03f*out[3];
 	
 	
-	Motor_control.Motor_Left_pid.set_value[0] 	= Speed.set_speed_val - (int16_t) out[0];
-	Motor_control.Motor_Right_pid.set_value[0] 	= Speed.set_speed_val + (int16_t) out[0];
+//	Motor_control.Motor_Left_pid.set_value[0] 	= Speed.set_speed_val - (int16_t) out[0];
+//	Motor_control.Motor_Right_pid.set_value[0] 	= Speed.set_speed_val + (int16_t) out[0];
 #endif			
 
 	

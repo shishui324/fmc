@@ -35,6 +35,7 @@ void adc_init(ADCn_Ch adcn_ch)
     SIM->SCGC |= SIM_SCGC_ADC_MASK;         //开启ADC时钟
     
     ADC->APCTL1 |= 1<<adcn_ch;              //使能ADC引脚
+	
 }
 
 
@@ -49,14 +50,14 @@ void adc_init(ADCn_Ch adcn_ch)
 uint16 adc_once(ADCn_Ch adcn_ch, ADC_nbit bit)
 {
     uint16 result;
-    ADC->SC3 = (0
-                | ADC_SC3_ADIV(0)           //分频系数
-                | ADC_SC3_MODE(bit)         //分辨率
-                | ADC_SC3_ADICLK(0)         //使用总线时钟最为ADC得时钟源
-                );
-        
-    
-    ADC->SC2 = ADC_SC2_REFSEL(0);           //基准电压选择
+//    ADC->SC3 = (0
+//                | ADC_SC3_ADIV(0)           //分频系数
+//                | ADC_SC3_MODE(bit)         //分辨率
+//                | ADC_SC3_ADICLK(0)         //使用总线时钟最为ADC得时钟源
+//                );
+//        
+//    
+//    ADC->SC2 = ADC_SC2_REFSEL(0);           //基准电压选择
 
     ADC->SC1 = ADC_SC1_ADCH(adcn_ch);       //启动转换
     
@@ -70,7 +71,7 @@ uint16 adc_once(ADCn_Ch adcn_ch, ADC_nbit bit)
 //  @brief      ADC停止采集
 //  @param      adcn_ch         选择ADC通道
 //  @param      bit             选择精度ADC_8bit、ADC_10bit、ADC_12bit
-//  @return     void
+//  @return     void                                                                                                                               -
 //  @since      v2.0
 //  Sample usage:               adc_stop(adc0);
 //-------------------------------------------------------------------------------------------------------------------

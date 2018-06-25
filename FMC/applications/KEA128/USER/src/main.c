@@ -72,18 +72,18 @@ int main(void)
 
 		
     //ADC初始化
-		ad_init(); //ad初始化
-		motor_init();//电机初始化
+//		ad_init(); //ad初始化
+//		motor_init();//电机初始化
 		encode_init();// 编码器初始化
-		Key_Message_Init(); //按键初始化
+	Key_Message_Init(); //按键初始化
 	
-    gpio_init(H6,GPO,1);    //蜂鸣器
-	
-		gpio_init(H5,GPO,0);    //LED2	
-		gpio_init(H2,GPO,1);    //LED4
+//    gpio_init(c6,GPO,1);    //蜂鸣器
+//	
+		gpio_init(C7,GPO,0);    //LED2	
+//		gpio_init(H2,GPO,1);    //LED4
 //
-    uart_init(DEBUG_PORT,DEBUG_BAUD);
-		
+//    uart_init(DEBUG_PORT,DEBUG_BAUD);
+		Cache_OLED_printf(0,0,"asdasdsa");
 		
 		pit_init(pit1,1000);								//定时1000个bus时钟后中断
 		set_irq_priority(PIT_CH1_IRQn,2);				//设置优先级,根据自己的需求设置 可设置范围为 0 - 3  越小优先级越高
@@ -100,7 +100,7 @@ int main(void)
 	Speed.wandao_speed_val =8;						// 28;                //16  4
 	Speed.zhidao_speed_val =10;						// 25;                //25  8
 							
-	Servo.kp = 0.95f	;//1.220f;//1.620f;//7.20f;	//5.2 4.2
+	Servo.kp = 0.7f	;//1.220f;//1.620f;//7.20f;	//5.2 4.2
 	Servo.kd =2.10f;//2.5f;   // 1.0  0.2	2.0
 	Servo.max_dis_err = 0.0;
 	Servo.distance_err_max_val = 10;	//12.0;
@@ -141,33 +141,33 @@ int main(void)
 void time_20ms_serve(void)
 {
 
-	
-	int16_t send_buf[7];
-	pit_time_start(pit1);
-	
+	gpio_turn(C7);
+//	int16_t send_buf[7];
+//	pit_time_start(pit1);
+//	
+////	send_buf[6]=(int16_t)(Servo.error[0]-Servo.error[1]);
+////	send_buf[5]=(int16_t)Servo.error[0];
+////	send_buf[4]=(int16_t)Servo.output;
+//	
 //	send_buf[6]=(int16_t)(Servo.error[0]-Servo.error[1]);
-//	send_buf[5]=(int16_t)Servo.error[0];
-//	send_buf[4]=(int16_t)Servo.output;
-	
-	send_buf[6]=(int16_t)(Servo.error[0]-Servo.error[1]);
-	send_buf[5]=(int16_t)Motor_control.Motor_Right_pid.delta_uk[0];
-	send_buf[4]=(int16_t)Motor_control.Motor_Left_pid.delta_uk[0];
-	send_buf[3]=Motor_control.Motor_Left_pid.present_value[0];
-	send_buf[2]=L_out_value;
-	send_buf[1]=Motor_control.Motor_Right_pid.present_value[0];
-	send_buf[0]=R_out_value;
+//	send_buf[5]=(int16_t)Motor_control.Motor_Right_pid.delta_uk[0];
+//	send_buf[4]=(int16_t)Motor_control.Motor_Left_pid.delta_uk[0];
+//	send_buf[3]=Motor_control.Motor_Left_pid.present_value[0];
+//	send_buf[2]=L_out_value;
+//	send_buf[1]=Motor_control.Motor_Right_pid.present_value[0];
+//	send_buf[0]=R_out_value;
 	
 //	send_buf[1]=(int16_t)100*(Servo.error[0]-Servo.error[1]);
 //	send_buf[0]=(int16_t)100*(error_d);
 //	
-	if(!STOP_CAR_FLAG)
+//	if(!STOP_CAR_FLAG)
 
-	{
-	vcan_sendware(send_buf,sizeof(send_buf));
-	}
-	UI_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
-	pit_close(pit1);
-	
+//	{
+//	vcan_sendware(send_buf,sizeof(send_buf));
+//	}
+//	UI_time = (uint16_t)(pit_time_get(pit1)*1000/(bus_clk_khz));
+//	pit_close(pit1);
+//	
 	
 }
 
@@ -175,23 +175,31 @@ void time_10ms_serve(void)
 {
 
 	
-	Car_Gather_Data_Key((uint8_t)10);		//Key采集
-	if(!((Key_Flag3)||(Key_Flag4)))		//当拨码开关3,4全关上时才能发车，一可不关
+	//Car_Gather_Data_Key((uint8_t)10);		//Key采集
+//	if(!((Key_Flag3)||(Key_Flag4)))		//当拨码开关3,4全关上时才能发车，一可不关
+//	{
+//		if((Key_Inquire_data(Key_Flag5_Read) == Key_bit_Drop) || (Key_Inquire_data(Key_Flag5_Read) == Key_bit_Acc))
+//		{
+//			STOP_CAR_FLAG=false;
+//			motor_protect_time = 0;	
+//		}
+//		if(Key_Flag1)
+//		{	
+//		OLED_ConfigParameter();
+//		Cache_Update_OLED();	
+//		}			
+//	}
+//	else
 	{
-		if((Key_Inquire_data(Key_Flag5_Read) == Key_bit_Drop) || (Key_Inquire_data(Key_Flag5_Read) == Key_bit_Acc))
-		{
-			STOP_CAR_FLAG=false;
-			motor_protect_time = 0;	
-		}
-		if(Key_Flag1)
-		{	
-		OLED_ConfigParameter();
-		Cache_Update_OLED();	
-		}			
-	}
-	else
-	{
-		OLED_ConfigParameter();
+//		OLED_ConfigParameter();
+//		Cache_OLED_printf(0,0,"asdasdsa");
+		
+		 Cache_OLED_P6x8Num(0,3,getCountNum_L);
+//		Cache_OLED_P6x8Num(0,3,0);
+//    Cache_OLED_P6x8Num(0,1,Sensor.once_uni_ad[1]);
+    Cache_OLED_P6x8Num(90,3,getCountNum_R);
+//		Cache_OLED_P6x8Num(90,3,0);
+		
 		Cache_Update_OLED();	
 	}
 	

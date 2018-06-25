@@ -19,50 +19,50 @@ void Key_Message_Init(void)
 {
 	
 	///////拨码开关
-		GPIOA->PIDR &= ~((uint32)1<<D5);	//取消禁用输入
-    GPIOA->PDDR &= ~((uint32)1<<D5);	//将端口设置为输入					Key_Flag1
-    PORT_PUE0 |= (uint32)1<<D5;		//上拉使能
-
-    GPIOC->PIDR &= ~((uint32)1<<(I6-64));	//取消禁用输入
-    GPIOC->PDDR &= ~((uint32)1<<(I6-64));	//将端口设置为输入或输出 	Key_Flag2
+		GPIOC->PIDR &= ~((uint32)1<<(I6-64));	//取消禁用输入
+    GPIOC->PDDR &= ~((uint32)1<<(I6-64));	//将端口设置为输入					Key_Flag1
     PORT_PUE2 |= (uint32)1<<(I6-64);		//上拉使能
 
-    GPIOC->PIDR &= ~((uint32)1<<(I5-64));	//取消禁用输入
-    GPIOC->PDDR &= ~((uint32)1<<(I5-64));	//将端口设置为输入					Key_Flag3
-    PORT_PUE2 |= (uint32)1<<(I5-64);		//上拉使能
+    GPIOA->PIDR &= ~((uint32)1<<D5);	//取消禁用输入
+    GPIOA->PDDR &= ~((uint32)1<<D5);	//将端口设置为输入或输出 	Key_Flag2
+    PORT_PUE0 |= (uint32)1<<D5;		//上拉使能
 
-    GPIOA->PIDR &= ~((uint32)1<<C1);	//取消禁用输入
-    GPIOA->PDDR &= ~((uint32)1<<C1);	//将端口设置为输入或输出 	`Key_Flag4
-    PORT_PUE0 |= (uint32)1<<C1;		//上拉使能
+    GPIOA->PIDR &= ~((uint32)1<<D6);	//取消禁用输入
+    GPIOA->PDDR &= ~((uint32)1<<D6);	//将端口设置为输入					Key_Flag3
+    PORT_PUE0 |= (uint32)1<<D6;		//上拉使能
+
+    GPIOA->PIDR &= ~((uint32)1<<D7);	//取消禁用输入
+    GPIOA->PDDR &= ~((uint32)1<<D7);	//将端口设置为输入或输出 	`Key_Flag4
+    PORT_PUE0 |= (uint32)1<<D7;		//上拉使能
 	/////////独立按键
 	
-	  GPIOA->PIDR &= ~((uint32)1<<(D6));	//取消禁用输入
-    GPIOA->PDDR &= ~((uint32)1<<(D6));	//将端口设置为输入或输出 	`Key_Flag4
-    PORT_PUE0 |= (uint32)1<<(D6);		//上拉使能
+	  GPIOB->PIDR &= ~((uint32)1<<(E1-32));	//取消禁用输入
+    GPIOB->PDDR &= ~((uint32)1<<(E1-32));	//将端口设置为输入或输出 	`Key_Flag4
+    PORT_PUE1 |= (uint32)1<<(E1-32);		//上拉使能
 		
 	
 
 		//////五向开关
-    GPIOA->PIDR &= ~((uint32)1<<D4);	//取消禁用输入
-    GPIOA->PDDR &= ~((uint32)1<<D4);	//将端口设置为输入						Key_Front
-    PORT_PUE0 |= (uint32)1<<D4;		//上拉使能
+    GPIOA->PIDR &= ~((uint32)1<<B5);	//取消禁用输入
+    GPIOA->PDDR &= ~((uint32)1<<B5);	//将端口设置为输入						Key_Front
+    PORT_PUE0 |= (uint32)1<<B5;		//上拉使能
 			
 
-    GPIOA->PIDR &= ~((uint32)1<<D2);	//取消禁用输入
-    GPIOA->PDDR &= ~((uint32)1<<D2);	//将端口设置为输入或输出 		Key_Back
-    PORT_PUE0 |= (uint32)1<<D2;		//上拉使能
+    GPIOA->PIDR &= ~((uint32)1<<C2);	//取消禁用输入
+    GPIOA->PDDR &= ~((uint32)1<<C2);	//将端口设置为输入或输出 		Key_Back
+    PORT_PUE0 |= (uint32)1<<C2;		//上拉使能
 
-    GPIOB->PIDR &= ~((uint32)1<<(G6-32));	//取消禁用输入
-    GPIOB->PDDR &= ~((uint32)1<<(G6-32));	//将端口设置为输入						Key5_Left
-    PORT_PUE1 |= (uint32)1<<(G6-32);		//上拉使能
+    GPIOB->PIDR &= ~((uint32)1<<(E6-32));	//取消禁用输入
+    GPIOB->PDDR &= ~((uint32)1<<(E6-32));	//将端口设置为输入						Key5_Left
+    PORT_PUE1 |= (uint32)1<<(E6-32);		//上拉使能
 
-    GPIOA->PIDR &= ~((uint32)1<<D3);	//取消禁用输入
-    GPIOA->PDDR &= ~((uint32)1<<D3);	//将端口设置为输入或输出 		Key5_Right
-    PORT_PUE0 |= (uint32)1<<D3;		//上拉使能
+    GPIOA->PIDR &= ~((uint32)1<<C3);	//取消禁用输入
+    GPIOA->PDDR &= ~((uint32)1<<C3);	//将端口设置为输入或输出 		Key5_Right
+    PORT_PUE0 |= (uint32)1<<C3;		//上拉使能
 
-    GPIOB->PIDR &= ~((uint32)1<<(G5-32));	//取消禁用输入
-    GPIOB->PDDR &= ~((uint32)1<<(G5-32));	//将端口设置为输入						Key5_Middle
-    PORT_PUE1 |= (uint32)1<<(G5-32);		//上拉使能
+    GPIOB->PIDR &= ~((uint32)1<<(E5-32));	//取消禁用输入
+    GPIOB->PDDR &= ~((uint32)1<<(E5-32));	//将端口设置为输入						Key5_Middle
+    PORT_PUE1 |= (uint32)1<<(E5-32);		//上拉使能
 	
 
 	Car_Gather_Data_Key(1);

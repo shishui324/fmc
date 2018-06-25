@@ -17,11 +17,11 @@
 
 
 //----宏定义OLED引脚----	 
-#define  OLED_SCL_PIN	E6
-#define  OLED_SDA_PIN	H0
-#define  OLED_RST_PIN	H1
-#define  OLED_DC_PIN	I0
-#define  OLED_CS_PIN	I1
+#define  OLED_SCL_PIN	H3
+#define  OLED_SDA_PIN	H4
+#define  OLED_RST_PIN	C0
+#define  OLED_DC_PIN	C1
+#define  OLED_CS_PIN	I5
 
 //定义OLED使用的标准
 typedef unsigned          char O_byte;
